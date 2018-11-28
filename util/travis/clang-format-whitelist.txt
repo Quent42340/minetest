@@ -37,6 +37,7 @@ src/client/camera.h
 src/client/hud.cpp
 src/client/clientmap.cpp
 src/client/sound_openal.cpp
+src/client/CMakeLists.txt
 src/client/minimap.h
 src/client/content_cao.cpp
 src/client/localplayer.h
@@ -84,6 +85,9 @@ src/client/guiscalingfilter.h
 src/client/clientobject.cpp
 src/client/tile.cpp
 src/client/hud.h
+src/client/meshgen
+src/client/meshgen/collector.cpp
+src/client/meshgen/collector.h
 src/client/inputhandler.cpp
 src/client/clientevent.h
 src/client/gameui.h
@@ -99,6 +103,7 @@ src/client/imagefilters.h
 src/client/renderingengine.cpp
 src/client/tile.h
 src/client/clientmedia.cpp
+src/client/cmake_install.cmake
 src/client/event_manager.h
 src/client/joystick_controller.h
 src/client/clouds.h
@@ -299,8 +304,8 @@ src/pathfinder.cpp
 src/pathfinder.h
 src/player.cpp
 src/player.h
-src/porting_android.cpp
-src/porting_android.h
+src/android/porting_android.cpp
+src/android/porting_android.h
 src/porting.cpp
 src/porting.h
 src/profiler.h
