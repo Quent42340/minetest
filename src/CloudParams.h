@@ -16,15 +16,22 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
+#ifndef CLOUDPARAMS_H_
+#define CLOUDPARAMS_H_
 
-#pragma once
+#include <SMaterial.h>
+#include "irr_v2d.h"
 
-struct CloudParams
-{
+struct CloudParams {
 	float density;
+
 	video::SColor color_bright;
 	video::SColor color_ambient;
+
 	float thickness;
 	float height;
+
 	v2f speed;
 };
+
+#endif // CLOUDPARAMS_H_

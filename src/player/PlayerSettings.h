@@ -16,31 +16,31 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-#ifndef APPLICATION_H_
-#define APPLICATION_H_
+#ifndef PLAYERSETTINGS_H_
+#define PLAYERSETTINGS_H_
 
-#include "irrlichttypes.h"
 #include <string>
 
-class InputHandler;
-class ChatBackend;  /* to avoid having to include chat.h */
-struct SubgameSpec;
+struct PlayerSettings {
+	bool free_move = false;
+	bool fast_move = false;
+	bool continuous_forward = false;
+	bool always_fly_fast = false;
+	bool aux1_descends = false;
+	bool noclip = false;
+	bool autojump = false;
 
-class Application {
-	public:
-		void run_game(bool *kill,
-				bool random_input,
-				InputHandler *input,
-				const std::string &map_dir,
-				const std::string &playername,
-				const std::string &password,
-				const std::string &address, // If "", local server is used
-				u16 port,
-				std::string &error_message,
-				ChatBackend &chat_backend,
-				bool *reconnect_requested,
-				const SubgameSpec &gamespec, // Used for local game
-				bool simple_singleplayer_mode);
+	const std::string setting_names[7] = {
+		"free_move",
+		"fast_move",
+		"continuous_forward",
+		"always_fly_fast",
+		"aux1_descends",
+		"noclip",
+		"autojump"
+	};
+
+	void readGlobalSettings();
 };
 
-#endif // APPLICATION_H_
+#endif // PLAYERSETTINGS_H_

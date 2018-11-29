@@ -301,8 +301,11 @@ src/particles.cpp
 src/particles.h
 src/pathfinder.cpp
 src/pathfinder.h
-src/player.cpp
-src/player.h
+src/player/Player.h
+src/player/Player.cpp
+src/player/PlayerControl.h
+src/player/PlayerSettings.h
+src/player/PlayerSettings.cpp
 src/android/porting_android.cpp
 src/android/porting_android.h
 src/porting.cpp

@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server.h"
 #include "filesys.h"
 #include "version.h"
-#include "client/game.h"
+#include "client/game/Game.h"
 #include "defaultsettings.h"
 #include "gettext.h"
 #include "log.h"
@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "gameparams.h"
 #include "database/database.h"
 #include "config.h"
-#include "player.h"
+#include "player/Player.h"
 #include "porting.h"
 #include "network/socket.h"
 #if USE_CURSES

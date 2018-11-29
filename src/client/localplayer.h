@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "player.h"
+#include "player/Player.h"
 #include "environment.h"
 #include "constants.h"
 #include "settings.h"

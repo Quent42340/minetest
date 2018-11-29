@@ -54,7 +54,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "serialization.h"
 #include "guiscalingfilter.h"
 #include "script/scripting_client.h"
-#include "game.h"
+#include "client/game/Game.h"
 #include "chatmessage.h"
 #include "translation.h"
 

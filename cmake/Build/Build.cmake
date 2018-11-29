@@ -9,6 +9,7 @@ add_subdirectory(unittest)
 add_subdirectory(util)
 add_subdirectory(irrlicht_changes)
 add_subdirectory(server)
+add_subdirectory(player)
 
 file(GLOB core_SRCS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.cpp")
 list(REMOVE_ITEM core_SRCS "settings_translation_file.cpp")
@@ -19,6 +20,7 @@ set(common_SRCS
 	${server_SRCS}
 	${content_SRCS}
 	${core_SRCS}
+	${player_SRCS}
 	${common_network_SRCS}
 	${JTHREAD_SRCS}
 	${common_SCRIPT_SRCS}

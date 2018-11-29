@@ -17,21 +17,15 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "player.h"
-
+#include "player/Player.h"
 #include "threading/mutex_auto_lock.h"
 #include "util/numeric.h"
 #include "hud.h"
 #include "constants.h"
-#include "gamedef.h"
 #include "settings.h"
-#include "log.h"
 #include "porting.h"  // strlcpy
 
-
-Player::Player(const char *name, IItemDefManager *idef):
-	inventory(idef)
-{
+Player::Player(const char *name, IItemDefManager *idef) : inventory(idef) {
 	strlcpy(m_name, name, PLAYERNAME_SIZE);
 
 	inventory.clear();
@@ -90,6 +84,26 @@ Player::~Player()
 	clearHud();
 }
 
+u32 Player::getFreeHudID()
+{
+	size_t size = hud.size();
+	for (size_t i = 0; i != size; i++) {
+		if (!hud[i])
+			return i;
+	}
+	return size;
+}
+
+HudElement* Player::getHud(u32 id)
+{
+	MutexAutoLock lock(m_mutex);
+
+	if (id < hud.size())
+		return hud[id];
+
+	return nullptr;
+}
+
 u32 Player::addHud(HudElement *toadd)
 {
 	MutexAutoLock lock(m_mutex);
@@ -104,24 +118,14 @@ u32 Player::addHud(HudElement *toadd)
 	return id;
 }
 
-HudElement* Player::getHud(u32 id)
-{
-	MutexAutoLock lock(m_mutex);
-
-	if (id < hud.size())
-		return hud[id];
-
-	return NULL;
-}
-
 HudElement* Player::removeHud(u32 id)
 {
 	MutexAutoLock lock(m_mutex);
 
-	HudElement* retval = NULL;
+	HudElement* retval = nullptr;
 	if (id < hud.size()) {
 		retval = hud[id];
-		hud[id] = NULL;
+		hud[id] = nullptr;
 	}
 	return retval;
 }
@@ -136,18 +140,8 @@ void Player::clearHud()
 	}
 }
 
-void PlayerSettings::readGlobalSettings()
-{
-	free_move = g_settings->getBool("free_move");
-	fast_move = g_settings->getBool("fast_move");
-	continuous_forward = g_settings->getBool("continuous_forward");
-	always_fly_fast = g_settings->getBool("always_fly_fast");
-	aux1_descends = g_settings->getBool("aux1_descends");
-	noclip = g_settings->getBool("noclip");
-	autojump = g_settings->getBool("autojump");
-}
-
 void Player::settingsChangedCallback(const std::string &name, void *data)
 {
 	((PlayerSettings *)data)->readGlobalSettings();
 }
+

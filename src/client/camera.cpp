@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client.h"
 #include "map.h"
 #include "clientmap.h"     // MapDrawControl
-#include "player.h"
+#include "player/Player.h"
 #include <cmath>
 #include "client/renderingengine.h"
 #include "settings.h"
