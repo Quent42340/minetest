@@ -412,7 +412,7 @@ bool GUIChatConsole::OnEvent(const SEvent& event)
 		if (KeyPress(event.KeyInput) == getKeySetting("keymap_console")) {
 			closeConsole();
 
-			// inhibit open so the_game doesn't reopen immediately
+			// inhibit open so Application::run_game() doesn't reopen immediately
 			m_open_inhibited = 50;
 			m_close_on_enter = false;
 			return true;
@@ -421,7 +421,7 @@ bool GUIChatConsole::OnEvent(const SEvent& event)
 		if (event.KeyInput.Key == KEY_ESCAPE) {
 			closeConsoleAtOnce();
 			m_close_on_enter = false;
-			// inhibit open so the_game doesn't reopen immediately
+			// inhibit open so Application::run_game() doesn't reopen immediately
 			m_open_inhibited = 1; // so the ESCAPE button doesn't open the "pause menu"
 			return true;
 		}

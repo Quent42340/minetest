@@ -1,6 +1,6 @@
 /*
 Minetest
-Copyright (C) 2010-2013 celeron55, Perttu Ahola <celeron55@gmail.com>
+Copyright (C) 2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
@@ -17,17 +17,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
+#include "client/Application.h"
 #include "client/game/Game.h"
-#include "game.h"
 #include "gettext.h"
 
-/****************************************************************************/
-/****************************************************************************
- extern function for launching the game
- ****************************************************************************/
-/****************************************************************************/
-
-void the_game(bool *kill,
+void Application::run_game(bool *kill,
 		bool random_input,
 		InputHandler *input,
 		const std::string &map_dir,
@@ -73,3 +67,4 @@ void the_game(bool *kill,
 		errorstream << "ModError: " << error_message << std::endl;
 	}
 }
+

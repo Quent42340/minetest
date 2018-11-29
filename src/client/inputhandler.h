@@ -38,7 +38,7 @@ class InputHandler;
 /* This is faster than using getKeySetting with the tradeoff that functions
  * using it must make sure that it's initialised before using it and there is
  * no error handling (for example bounds checking). This is really intended for
- * use only in the main running loop of the client (the_game()) where the faster
+ * use only in the main running loop of the client (Application::run_game()) where the faster
  * (up to 10x faster) key lookup is an asset. Other parts of the codebase
  * (e.g. formspecs) should continue using getKeySetting().
  */

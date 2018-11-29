@@ -49,14 +49,14 @@ src/client/content_cso.cpp
 src/client/gameui.cpp
 src/client/wieldmesh.cpp
 src/client/clientmedia.h
-src/client/game.cpp
 src/client/keys.h
 src/client/client.h
 src/client/shader.cpp
 src/client/clientmap.h
 src/client/inputhandler.h
 src/client/content_mapblock.h
-src/client/game.h
+src/client/Application.h
+src/client/Application.cpp
 src/client/mesh.h
 src/client/camera.cpp
 src/client/game/GameGlobalShaderConstantSetter.h
@@ -168,9 +168,7 @@ src/filesys.cpp
 src/filesys.h
 src/fontengine.cpp
 src/fontengine.h
-src/game.cpp
 src/gamedef.h
-src/game.h
 src/genericobject.cpp
 src/genericobject.h
 src/gettext.cpp

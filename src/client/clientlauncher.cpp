@@ -17,12 +17,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
+#include "client/Application.h"
 #include "gui/mainmenumanager.h"
 #include "clouds.h"
 #include "server.h"
 #include "filesys.h"
 #include "gui/guiMainMenu.h"
-#include "game.h"
 #include "player.h"
 #include "chat.h"
 #include "gettext.h"
@@ -105,7 +105,7 @@ bool ClientLauncher::run(GameParams &game_params, const Settings &cmd_args)
 	}
 
 	RenderingEngine::get_instance()->setupTopLevelWindow(PROJECT_NAME_C);
-	
+
 	/*
 		This changes the minimum allowed number of vertices in a VBO.
 		Default is 500.
@@ -256,7 +256,8 @@ bool ClientLauncher::run(GameParams &game_params, const Settings &cmd_args)
 			g_touchscreengui = receiver->m_touchscreengui;
 #endif
 
-			the_game(
+			Application app;
+			app.run_game(
 				kill,
 				random_input,
 				input,

@@ -1,6 +1,6 @@
 /*
 Minetest
-Copyright (C) 2013 celeron55, Perttu Ahola <celeron55@gmail.com>
+Copyright (C) 2018 Unarelith, Quentin Bazin <quent42340@gmail.com>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
@@ -16,8 +16,8 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-#ifndef GAME_H__
-#define GAME_H__
+#ifndef APPLICATION_H_
+#define APPLICATION_H_
 
 #include "irrlichttypes.h"
 #include <string>
@@ -26,18 +26,21 @@ class InputHandler;
 class ChatBackend;  /* to avoid having to include chat.h */
 struct SubgameSpec;
 
-void the_game(bool *kill,
-		bool random_input,
-		InputHandler *input,
-		const std::string &map_dir,
-		const std::string &playername,
-		const std::string &password,
-		const std::string &address, // If "", local server is used
-		u16 port,
-		std::string &error_message,
-		ChatBackend &chat_backend,
-		bool *reconnect_requested,
-		const SubgameSpec &gamespec, // Used for local game
-		bool simple_singleplayer_mode);
+class Application {
+	public:
+		void run_game(bool *kill,
+				bool random_input,
+				InputHandler *input,
+				const std::string &map_dir,
+				const std::string &playername,
+				const std::string &password,
+				const std::string &address, // If "", local server is used
+				u16 port,
+				std::string &error_message,
+				ChatBackend &chat_backend,
+				bool *reconnect_requested,
+				const SubgameSpec &gamespec, // Used for local game
+				bool simple_singleplayer_mode);
+};
 
-#endif // GAME_H__
+#endif // APPLICATION_H_
