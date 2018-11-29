@@ -31,10 +31,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define PLAYERNAME_ALLOWED_CHARS "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_"
 #define PLAYERNAME_ALLOWED_CHARS_USER_EXPL "'a' to 'z', 'A' to 'Z', '0' to '9', '-', '_'"
 
+class Environment;
 class Map;
+
 struct CollisionInfo;
 struct HudElement;
-class Environment;
 
 class Player {
 	public:
@@ -44,8 +45,7 @@ class Player {
 		DISABLE_CLASS_COPY(Player);
 
 		virtual void move(f32 dtime, Environment *env, f32 pos_max_d) {}
-		virtual void move(f32 dtime, Environment *env, f32 pos_max_d,
-				std::vector<CollisionInfo> *collision_info) {}
+		virtual void move(f32 dtime, Environment *env, f32 pos_max_d, std::vector<CollisionInfo> *collision_info) {}
 
 		const v3f &getSpeed() const { return m_speed; }
 		void setSpeed(const v3f &speed) { m_speed = speed; }

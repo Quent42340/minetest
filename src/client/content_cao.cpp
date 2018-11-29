@@ -47,6 +47,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <algorithm>
 #include <cmath>
 #include "client/renderingengine.h"
+#include "nodeentity.h"
 
 class Settings;
 struct ToolCapabilities;
@@ -662,7 +663,7 @@ void GenericCAO::addToScene(ITextureSource *tsrc)
 		}
 		else
 			errorstream<<"GenericCAO::addToScene(): Could not load mesh "<<m_prop.mesh<<std::endl;
-	} else if (m_prop.visual == "wielditem") {
+	} else if (m_prop.visual == "wielditem" || m_prop.visual == "dynamicnode") {
 		ItemStack item;
 		infostream << "GenericCAO::addToScene(): wielditem" << std::endl;
 		if (m_prop.wield_item.empty()) {
@@ -678,8 +679,16 @@ void GenericCAO::addToScene(ITextureSource *tsrc)
 			infostream << "serialized form: " << m_prop.wield_item << std::endl;
 			item.deSerialize(m_prop.wield_item, m_client->idef());
 		}
-		m_wield_meshnode = new WieldMeshSceneNode(
-			RenderingEngine::get_scene_manager(), -1);
+
+		if (m_prop.visual == "wielditem") {
+			m_wield_meshnode = new WieldMeshSceneNode(
+				RenderingEngine::get_scene_manager(), -1);
+		}
+		else if (m_prop.visual == "dynamicnode") {
+			m_wield_meshnode = new NodeEntitySceneNode(
+				RenderingEngine::get_scene_manager(), -1);
+		}
+
 		m_wield_meshnode->setItem(item, m_client);
 
 		m_wield_meshnode->setScale(

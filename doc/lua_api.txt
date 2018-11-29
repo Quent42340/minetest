@@ -5468,12 +5468,13 @@ Used by `ObjectRef` methods. Part of an Entity definition.
         pointable = true,
         -- Overrides selection box when false
 
-        visual = "cube" / "sprite" / "upright_sprite" / "mesh" / "wielditem",
+        visual = "cube" / "sprite" / "upright_sprite" / "mesh" / "wielditem", "dynamic_node"
         -- "cube" is a node-sized cube.
         -- "sprite" is a flat texture always facing the player.
         -- "upright_sprite" is a vertical flat texture.
         -- "mesh" uses the defined mesh model.
         -- "wielditem" is used for dropped items.
+        -- "dynamicnode" is used for animated nodes.
         --   (see builtin/game/item_entity.lua).
         --   For this use 'textures = {itemname}'.
         --   If the item has a 'wield_image' the object will be an extrusion of

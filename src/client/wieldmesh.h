@@ -75,7 +75,7 @@ class WieldMeshSceneNode : public scene::ISceneNode
 {
 public:
 	WieldMeshSceneNode(scene::ISceneManager *mgr, s32 id = -1, bool lighting = false);
-	virtual ~WieldMeshSceneNode();
+	~WieldMeshSceneNode() override;
 
 	void setCube(const ContentFeatures &f, v3f wield_scale);
 	void setExtruded(const std::string &imagename, const std::string &overlay_image,
@@ -88,9 +88,9 @@ public:
 
 	scene::IMesh *getMesh() { return m_meshnode->getMesh(); }
 
-	virtual void render();
+	void render() override;
 
-	virtual const aabb3f &getBoundingBox() const { return m_bounding_box; }
+	const aabb3f &getBoundingBox() const override { return m_bounding_box; }
 
 private:
 	void changeToMesh(scene::IMesh *mesh);

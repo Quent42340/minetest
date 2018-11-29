@@ -297,11 +297,9 @@ struct MapNode
 	//   content_width = the number of bytes of content per node
 	//   params_width = the number of bytes of params per node
 	//   compressed = true to zlib-compress output
-	static void serializeBulk(std::ostream &os, int version,
-			const MapNode *nodes, u32 nodecount,
+	static void serializeBulk(std::ostream &os, int version, const MapNode *nodes, u32 nodecount,
 			u8 content_width, u8 params_width, bool compressed);
-	static void deSerializeBulk(std::istream &is, int version,
-			MapNode *nodes, u32 nodecount,
+	static void deSerializeBulk(std::istream &is, int version, MapNode *nodes, u32 nodecount,
 			u8 content_width, u8 params_width, bool compressed);
 
 private:

@@ -1896,3 +1896,32 @@ test_get_craft_result()
 
 -- END
 
+minetest.register_entity("default:test_entity", {
+	initial_properties = {
+		visual = "wielditem",
+		textures = {"default:dirt"},
+		-- collide_with_objects = false,
+		-- pointable = true,
+		visual_size = {
+			x = 0.666,
+			y = 0.666
+		}
+	},
+
+	node_spec = {
+	}
+})
+
+minetest.register_node("default:test_node", {
+	description = "Test node",
+	tiles ={"default_tree_top.png", "default_tree_top.png", "default_tree.png"},
+	is_ground_content = false,
+	groups = {snappy=2,choppy=2,oddly_breakable_by_hand=1},
+	sounds = default.node_sound_wood_defaults(),
+
+	on_construct = function(pos)
+		minetest.add_entity(pos, "default:test_entity")
+		minetest.remove_node(pos)
+	end,
+})
+
