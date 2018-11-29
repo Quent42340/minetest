@@ -16,8 +16,8 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-#ifndef GAME_HPP_
-#define GAME_HPP_
+#ifndef GAME_H_
+#define GAME_H_
 
 #include "client/clientevent.h"
 #include "client/gameui.h"
@@ -349,4 +349,4 @@ class Game {
 #endif
 };
 
-#endif // GAME_HPP_
+#endif // GAME_H_

@@ -60,9 +60,12 @@ src/client/game.h
 src/client/mesh.h
 src/client/camera.cpp
 src/client/game/GameGlobalShaderConstantSetter.h
+src/client/game/GameGlobalShaderConstantSetter.cpp
 src/client/game/TextDestPlayerInventory.h
 src/client/game/GameOnDemandSoundFetcher.h
+src/client/game/GameOnDemandSoundFetcher.cpp
 src/client/game/SoundMaker.h
+src/client/game/SoundMaker.cpp
 src/client/game/TextDestNodeMetadata.h
 src/client/game/Game.h
 src/client/game/Game.cpp
@@ -85,7 +88,6 @@ src/client/guiscalingfilter.h
 src/client/clientobject.cpp
 src/client/tile.cpp
 src/client/hud.h
-src/client/meshgen
 src/client/meshgen/collector.cpp
 src/client/meshgen/collector.h
 src/client/inputhandler.cpp
@@ -103,7 +105,6 @@ src/client/imagefilters.h
 src/client/renderingengine.cpp
 src/client/tile.h
 src/client/clientmedia.cpp
-src/client/cmake_install.cmake
 src/client/event_manager.h
 src/client/joystick_controller.h
 src/client/clouds.h

@@ -1,0 +1,91 @@
+# Installation
+
+if(WIN32)
+	if(USE_SOUND)
+		if(OPENAL_DLL)
+			install(FILES ${OPENAL_DLL} DESTINATION ${BINDIR})
+		endif()
+		if(OGG_DLL)
+			install(FILES ${OGG_DLL} DESTINATION ${BINDIR})
+		endif()
+		if(VORBIS_DLL)
+			install(FILES ${VORBIS_DLL} DESTINATION ${BINDIR})
+		endif()
+		if(VORBISFILE_DLL)
+			install(FILES ${VORBISFILE_DLL} DESTINATION ${BINDIR})
+		endif()
+	endif()
+	if(CURL_DLL)
+		install(FILES ${CURL_DLL} DESTINATION ${BINDIR})
+	endif()
+	if(ZLIB_DLL)
+		install(FILES ${ZLIB_DLL} DESTINATION ${BINDIR})
+	endif()
+	if(ZLIBWAPI_DLL)
+		install(FILES ${ZLIBWAPI_DLL} DESTINATION ${BINDIR})
+	endif()
+	if(FREETYPE_DLL)
+		install(FILES ${FREETYPE_DLL} DESTINATION ${BINDIR})
+	endif()
+	if(SQLITE3_DLL)
+		install(FILES ${SQLITE3_DLL} DESTINATION ${BINDIR})
+	endif()
+	if(LEVELDB_DLL)
+		install(FILES ${LEVELDB_DLL} DESTINATION ${BINDIR})
+	endif()
+	if(LUA_DLL)
+		install(FILES ${LUA_DLL} DESTINATION ${BINDIR})
+	endif()
+endif()
+
+if(BUILD_CLIENT)
+	install(TARGETS ${PROJECT_NAME}
+		RUNTIME DESTINATION ${BINDIR}
+		LIBRARY DESTINATION ${BINDIR}
+		ARCHIVE DESTINATION ${BINDIR}
+		BUNDLE DESTINATION .
+	)
+
+	if(APPLE)
+		install(CODE "
+			set(BU_CHMOD_BUNDLE_ITEMS ON)
+			include(BundleUtilities)
+			fixup_bundle(\"\${CMAKE_INSTALL_PREFIX}/${BUNDLE_PATH}\" \"\" \"\${CMAKE_INSTALL_PREFIX}/${BINDIR}\")
+		" COMPONENT Runtime)
+	endif()
+
+	if(USE_GETTEXT)
+		foreach(LOCALE ${GETTEXT_USED_LOCALES})
+			set_mo_paths(MO_BUILD_PATH MO_DEST_PATH ${LOCALE})
+			set(MO_BUILD_PATH "${MO_BUILD_PATH}/${PROJECT_NAME}.mo")
+			install(FILES ${MO_BUILD_PATH} DESTINATION ${MO_DEST_PATH})
+		endforeach()
+	endif()
+
+	if(USE_FREETYPE)
+		install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../fonts" DESTINATION "${SHAREDIR}"
+				FILES_MATCHING PATTERN "*.ttf" PATTERN "*.txt")
+	else()
+		install(DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/../fonts" DESTINATION "${SHAREDIR}"
+				FILES_MATCHING PATTERN "*.png" PATTERN "*.xml")
+	endif()
+
+	if(WIN32)
+		if(DEFINED IRRLICHT_DLL)
+			install(FILES ${IRRLICHT_DLL} DESTINATION ${BINDIR})
+		endif()
+		if(USE_GETTEXT)
+			if(DEFINED GETTEXT_DLL)
+				install(FILES ${GETTEXT_DLL} DESTINATION ${BINDIR})
+			endif()
+			if(DEFINED GETTEXT_ICONV_DLL)
+				install(FILES ${GETTEXT_ICONV_DLL} DESTINATION ${BINDIR})
+			endif()
+		endif()
+	endif()
+endif(BUILD_CLIENT)
+
+if(BUILD_SERVER)
+	install(TARGETS ${PROJECT_NAME}server DESTINATION ${BINDIR})
+endif()
+

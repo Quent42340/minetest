@@ -41,7 +41,7 @@ install_macosx_deps() {
 }
 
 # Relative to git-repository root:
-TRIGGER_COMPILE_PATHS="src/.*\.(c|cpp|h)|CMakeLists.txt|cmake/Modules/|util/circleci/|util/buildbot/"
+TRIGGER_COMPILE_PATHS="src/.*\.(c|cpp|h)|CMakeLists.txt|cmake/Modules/|cmake/Build/|util/travis/|util/circleci/|util/buildbot/"
 
 needs_compile() {
 	RANGE=${CIRCLE_SHA1}
