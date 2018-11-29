@@ -19,7 +19,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef SOUNDMAKER_H_
 #define SOUNDMAKER_H_
 
-#include "client/game/NodeDugEvent.h"
 #include "nodedef.h"
 
 #if USE_SOUND
@@ -28,99 +27,39 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 	#include "client/sound.h"
 #endif
 
-class SoundMaker
-{
-	ISoundManager *m_sound;
-	const NodeDefManager *m_ndef;
-public:
-	bool makes_footstep_sound;
-	float m_player_step_timer;
+class MtEvent;
+class MtEventManager;
 
-	SimpleSoundSpec m_player_step_sound;
-	SimpleSoundSpec m_player_leftpunch_sound;
-	SimpleSoundSpec m_player_rightpunch_sound;
+class SoundMaker {
+	public:
+		SoundMaker(ISoundManager *sound, const NodeDefManager *ndef)
+			: m_sound(sound), m_ndef(ndef) {}
 
-	SoundMaker(ISoundManager *sound, const NodeDefManager *ndef):
-		m_sound(sound),
-		m_ndef(ndef),
-		makes_footstep_sound(true),
-		m_player_step_timer(0)
-	{
-	}
+		void playPlayerStep();
 
-	void playPlayerStep()
-	{
-		if (m_player_step_timer <= 0 && m_player_step_sound.exists()) {
-			m_player_step_timer = 0.03;
-			if (makes_footstep_sound)
-				m_sound->playSound(m_player_step_sound, false);
-		}
-	}
+		void registerReceiver(MtEventManager *mgr);
 
-	static void viewBobbingStep(MtEvent *e, void *data)
-	{
-		SoundMaker *sm = (SoundMaker *)data;
-		sm->playPlayerStep();
-	}
+		void step(float dtime);
 
-	static void playerRegainGround(MtEvent *e, void *data)
-	{
-		SoundMaker *sm = (SoundMaker *)data;
-		sm->playPlayerStep();
-	}
+		static void viewBobbingStep(MtEvent *e, void *data);
+		static void playerRegainGround(MtEvent *e, void *data);
+		static void playerJump(MtEvent *e, void *data);
+		static void cameraPunchLeft(MtEvent *e, void *data);
+		static void cameraPunchRight(MtEvent *e, void *data);
+		static void nodeDug(MtEvent *e, void *data);
+		static void playerDamage(MtEvent *e, void *data);
+		static void playerFallingDamage(MtEvent *e, void *data);
 
-	static void playerJump(MtEvent *e, void *data)
-	{
-		//SoundMaker *sm = (SoundMaker*)data;
-	}
+		bool makes_footstep_sound = true;
+		float m_player_step_timer = 0;
 
-	static void cameraPunchLeft(MtEvent *e, void *data)
-	{
-		SoundMaker *sm = (SoundMaker *)data;
-		sm->m_sound->playSound(sm->m_player_leftpunch_sound, false);
-	}
+		SimpleSoundSpec m_player_step_sound;
+		SimpleSoundSpec m_player_leftpunch_sound;
+		SimpleSoundSpec m_player_rightpunch_sound;
 
-	static void cameraPunchRight(MtEvent *e, void *data)
-	{
-		SoundMaker *sm = (SoundMaker *)data;
-		sm->m_sound->playSound(sm->m_player_rightpunch_sound, false);
-	}
-
-	static void nodeDug(MtEvent *e, void *data)
-	{
-		SoundMaker *sm = (SoundMaker *)data;
-		NodeDugEvent *nde = (NodeDugEvent *)e;
-		sm->m_sound->playSound(sm->m_ndef->get(nde->n).sound_dug, false);
-	}
-
-	static void playerDamage(MtEvent *e, void *data)
-	{
-		SoundMaker *sm = (SoundMaker *)data;
-		sm->m_sound->playSound(SimpleSoundSpec("player_damage", 0.5), false);
-	}
-
-	static void playerFallingDamage(MtEvent *e, void *data)
-	{
-		SoundMaker *sm = (SoundMaker *)data;
-		sm->m_sound->playSound(SimpleSoundSpec("player_falling_damage", 0.5), false);
-	}
-
-	void registerReceiver(MtEventManager *mgr)
-	{
-		mgr->reg(MtEvent::VIEW_BOBBING_STEP, SoundMaker::viewBobbingStep, this);
-		mgr->reg(MtEvent::PLAYER_REGAIN_GROUND, SoundMaker::playerRegainGround, this);
-		mgr->reg(MtEvent::PLAYER_JUMP, SoundMaker::playerJump, this);
-		mgr->reg(MtEvent::CAMERA_PUNCH_LEFT, SoundMaker::cameraPunchLeft, this);
-		mgr->reg(MtEvent::CAMERA_PUNCH_RIGHT, SoundMaker::cameraPunchRight, this);
-		mgr->reg(MtEvent::NODE_DUG, SoundMaker::nodeDug, this);
-		mgr->reg(MtEvent::PLAYER_DAMAGE, SoundMaker::playerDamage, this);
-		mgr->reg(MtEvent::PLAYER_FALLING_DAMAGE, SoundMaker::playerFallingDamage, this);
-	}
-
-	void step(float dtime)
-	{
-		m_player_step_timer -= dtime;
-	}
+	private:
+		ISoundManager *m_sound;
+		const NodeDefManager *m_ndef;
 };
 
 #endif // SOUNDMAKER_H_

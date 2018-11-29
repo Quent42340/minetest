@@ -25,21 +25,18 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "gui/mainmenumanager.h"
 #include "script/scripting_client.h"
 
-struct LocalFormspecHandler : public TextDest
-{
-	LocalFormspecHandler(const std::string &formname)
-	{
+struct LocalFormspecHandler : public TextDest {
+	LocalFormspecHandler(const std::string &formname) {
 		m_formname = formname;
 	}
 
-	LocalFormspecHandler(const std::string &formname, Client *client):
-		m_client(client)
-	{
+	LocalFormspecHandler(const std::string &formname, Client *client) {
+		m_client = client;
 		m_formname = formname;
 	}
 
-	void gotText(const StringMap &fields)
-	{
+	// FIXME: DRY this stuff
+	void gotText(const StringMap &fields) override {
 		if (m_formname == "MT_PAUSE_MENU") {
 			if (fields.find("btn_sound") != fields.end()) {
 				g_gamecallback->changeVolume();

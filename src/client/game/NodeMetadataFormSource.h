@@ -23,38 +23,29 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "gui/guiFormSpecMenu.h"
 #include "nodemetadata.h"
 
-class NodeMetadataFormSource: public IFormSource
-{
-public:
-	NodeMetadataFormSource(ClientMap *map, v3s16 p):
-		m_map(map),
-		m_p(p)
-	{
-	}
+class NodeMetadataFormSource: public IFormSource {
+	public:
+		NodeMetadataFormSource(ClientMap *map, v3s16 p)
+			: m_map(map), m_p(p) {}
 
-	const std::string &getForm() const
-	{
-		static const std::string empty_string = "";
-		NodeMetadata *meta = m_map->getNodeMetadata(m_p);
+		const std::string &getForm() const override {
+			// FIXME: Remove this static
+			static const std::string empty_string = "";
+			NodeMetadata *meta = m_map->getNodeMetadata(m_p);
 
-		if (!meta)
-			return empty_string;
+			if (!meta)
+				return empty_string;
 
-		return meta->getString("formspec");
-	}
+			return meta->getString("formspec");
+		}
 
-	virtual std::string resolveText(const std::string &str)
-	{
-		NodeMetadata *meta = m_map->getNodeMetadata(m_p);
+		std::string resolveText(const std::string &str) override {
+			NodeMetadata *meta = m_map->getNodeMetadata(m_p);
+			return (!meta) ? str : meta->resolveString(str);
+		}
 
-		if (!meta)
-			return str;
-
-		return meta->resolveString(str);
-	}
-
-	ClientMap *m_map;
-	v3s16 m_p;
+		ClientMap *m_map;
+		v3s16 m_p;
 };
 
 #endif // NODEMETADATAFORMSOURCE_H_

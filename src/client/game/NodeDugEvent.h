@@ -22,21 +22,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "event.h"
 #include "mapnode.h"
 
-class NodeDugEvent: public MtEvent
-{
-public:
-	v3s16 p;
-	MapNode n;
+class NodeDugEvent: public MtEvent {
+	public:
+		NodeDugEvent(v3s16 p, MapNode n): p(p), n(n) {}
 
-	NodeDugEvent(v3s16 p, MapNode n):
-		p(p),
-		n(n)
-	{}
+		MtEvent::Type getType() const override { return MtEvent::NODE_DUG; }
 
-	MtEvent::Type getType() const
-	{
-		return MtEvent::NODE_DUG;
-	}
+		v3s16 p;
+		MapNode n;
 };
 
 #endif // NODEDUGEVENT_H_

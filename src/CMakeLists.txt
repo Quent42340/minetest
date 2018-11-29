@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.8)
 
 project(minetest)
 
@@ -377,7 +377,7 @@ add_subdirectory(irrlicht_changes)
 add_subdirectory(server)
 
 file(GLOB core_SRCS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.cpp")
-list(FILTER core_SRCS EXCLUDE REGEX "^settings_translation_file.cpp")
+list(REMOVE_ITEM core_SRCS "settings_translation_file.cpp")
 
 set(common_SRCS
 	${database_SRCS}

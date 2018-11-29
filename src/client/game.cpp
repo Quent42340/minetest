@@ -35,7 +35,6 @@ void the_game(bool *kill,
 		const std::string &password,
 		const std::string &address,         // If empty local server is created
 		u16 port,
-
 		std::string &error_message,
 		ChatBackend &chat_backend,
 		bool *reconnect_requested,
@@ -51,7 +50,6 @@ void the_game(bool *kill,
 	std::string server_address = address;
 
 	try {
-
 		if (game.startup(kill, random_input, input, map_dir,
 				playername, password, &server_address, port, error_message,
 				reconnect_requested, &chat_backend, gamespec,
@@ -59,16 +57,18 @@ void the_game(bool *kill,
 			game.run();
 			game.shutdown();
 		}
-
-	} catch (SerializationError &e) {
+	}
+	catch (SerializationError &e) {
 		error_message = std::string("A serialization error occurred:\n")
 				+ e.what() + "\n\nThe server is probably "
 				" running a different version of " PROJECT_NAME_C ".";
 		errorstream << error_message << std::endl;
-	} catch (ServerError &e) {
+	}
+	catch (ServerError &e) {
 		error_message = e.what();
 		errorstream << "ServerError: " << error_message << std::endl;
-	} catch (ModError &e) {
+	}
+	catch (ModError &e) {
 		error_message = e.what() + strgettext("\nCheck debug.txt for details.");
 		errorstream << "ModError: " << error_message << std::endl;
 	}

@@ -22,22 +22,18 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/client.h"
 #include "gui/guiFormSpecMenu.h"
 
-struct TextDestPlayerInventory : public TextDest
-{
-	TextDestPlayerInventory(Client *client)
-	{
+struct TextDestPlayerInventory : public TextDest {
+	TextDestPlayerInventory(Client *client) {
 		m_client = client;
 		m_formname = "";
 	}
 
-	TextDestPlayerInventory(Client *client, const std::string &formname)
-	{
+	TextDestPlayerInventory(Client *client, const std::string &formname) {
 		m_client = client;
 		m_formname = formname;
 	}
 
-	void gotText(const StringMap &fields)
-	{
+	void gotText(const StringMap &fields) override {
 		m_client->sendInventoryFields(m_formname, fields);
 	}
 

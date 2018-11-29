@@ -22,21 +22,16 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/client.h"
 #include "gui/guiFormSpecMenu.h"
 
-class PlayerInventoryFormSource: public IFormSource
-{
-public:
-	PlayerInventoryFormSource(Client *client):
-		m_client(client)
-	{
-	}
+class PlayerInventoryFormSource: public IFormSource {
+	public:
+		PlayerInventoryFormSource(Client *client) : m_client(client) {}
 
-	const std::string &getForm() const
-	{
-		LocalPlayer *player = m_client->getEnv().getLocalPlayer();
-		return player->inventory_formspec;
-	}
+		const std::string &getForm() const override {
+			LocalPlayer *player = m_client->getEnv().getLocalPlayer();
+			return player->inventory_formspec;
+		}
 
-	Client *m_client;
+		Client *m_client;
 };
 
 #endif // PLAYERINVENTORYFORMSOURCE_H_

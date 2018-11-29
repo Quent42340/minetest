@@ -14,49 +14,11 @@ if(USE_SOUND)
 		PARENT_SCOPE)
 endif()
 
+file(GLOB_RECURSE client_core_SRCS ABSOLUTE "${CMAKE_CURRENT_SOURCE_DIR}" "*.cpp")
+
 set(client_SRCS
 	${sound_SRCS}
-	${CMAKE_CURRENT_SOURCE_DIR}/meshgen/collector.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/render/anaglyph.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/render/core.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/render/factory.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/render/interlaced.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/render/pageflip.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/render/plain.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/render/sidebyside.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/render/stereo.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/camera.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/client.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/clientenvironment.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/clientlauncher.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/clientmap.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/clientmedia.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/clientobject.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/clouds.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/content_cao.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/content_cso.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/content_mapblock.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/filecache.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/fontengine.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/game.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/game/Game.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/gameui.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/guiscalingfilter.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/hud.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/imagefilters.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/inputhandler.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/joystick_controller.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/keycode.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/localplayer.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mapblock_mesh.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mesh.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/mesh_generator_thread.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/minimap.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/particles.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/renderingengine.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/shader.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/sky.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/tile.cpp
-	${CMAKE_CURRENT_SOURCE_DIR}/wieldmesh.cpp
+	${client_core_SRCS}
 	PARENT_SCOPE
 )
+

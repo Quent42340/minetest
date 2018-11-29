@@ -23,27 +23,24 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "gui/guiFormSpecMenu.h"
 #include "log.h"
 
-struct TextDestNodeMetadata : public TextDest
-{
-	TextDestNodeMetadata(v3s16 p, Client *client)
-	{
+struct TextDestNodeMetadata : public TextDest {
+	TextDestNodeMetadata(v3s16 p, Client *client) {
 		m_p = p;
 		m_client = client;
 	}
 
 	// This is deprecated I guess? -celeron55
-	void gotText(const std::wstring &text)
-	{
+	void gotText(const std::wstring &text) override {
 		std::string ntext = wide_to_utf8(text);
 		infostream << "Submitting 'text' field of node at (" << m_p.X << ","
-			   << m_p.Y << "," << m_p.Z << "): " << ntext << std::endl;
+		           << m_p.Y << "," << m_p.Z << "): " << ntext << std::endl;
+
 		StringMap fields;
 		fields["text"] = ntext;
-		m_client->sendNodemetaFields(m_p, "", fields);
+		gotText(fields);
 	}
 
-	void gotText(const StringMap &fields)
-	{
+	void gotText(const StringMap &fields) override {
 		m_client->sendNodemetaFields(m_p, "", fields);
 	}
 

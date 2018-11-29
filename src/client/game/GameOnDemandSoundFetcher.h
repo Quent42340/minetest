@@ -19,9 +19,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef GAMEONDEMANDSOUNDFETCHER_HPP_
 #define GAMEONDEMANDSOUNDFETCHER_HPP_
 
-#include "filesys.h"
-#include "porting.h"
-
 #if USE_SOUND
 	#include "client/sound_openal.h"
 #else
@@ -29,39 +26,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #endif
 
 // Locally stored sounds don't need to be preloaded because of this
-class GameOnDemandSoundFetcher: public OnDemandSoundFetcher
-{
-	std::set<std::string> m_fetched;
-private:
-	void paths_insert(std::set<std::string> &dst_paths,
-		const std::string &base,
-		const std::string &name)
-	{
-		dst_paths.insert(base + DIR_DELIM + "sounds" + DIR_DELIM + name + ".ogg");
-		dst_paths.insert(base + DIR_DELIM + "sounds" + DIR_DELIM + name + ".0.ogg");
-		dst_paths.insert(base + DIR_DELIM + "sounds" + DIR_DELIM + name + ".1.ogg");
-		dst_paths.insert(base + DIR_DELIM + "sounds" + DIR_DELIM + name + ".2.ogg");
-		dst_paths.insert(base + DIR_DELIM + "sounds" + DIR_DELIM + name + ".3.ogg");
-		dst_paths.insert(base + DIR_DELIM + "sounds" + DIR_DELIM + name + ".4.ogg");
-		dst_paths.insert(base + DIR_DELIM + "sounds" + DIR_DELIM + name + ".5.ogg");
-		dst_paths.insert(base + DIR_DELIM + "sounds" + DIR_DELIM + name + ".6.ogg");
-		dst_paths.insert(base + DIR_DELIM + "sounds" + DIR_DELIM + name + ".7.ogg");
-		dst_paths.insert(base + DIR_DELIM + "sounds" + DIR_DELIM + name + ".8.ogg");
-		dst_paths.insert(base + DIR_DELIM + "sounds" + DIR_DELIM + name + ".9.ogg");
-	}
-public:
-	void fetchSounds(const std::string &name,
-		std::set<std::string> &dst_paths,
-		std::set<std::string> &dst_datas)
-	{
-		if (m_fetched.count(name))
-			return;
+class GameOnDemandSoundFetcher: public OnDemandSoundFetcher {
+	public:
+		void fetchSounds(const std::string &name, std::set<std::string> &dst_paths, std::set<std::string> &dst_datas) override;
 
-		m_fetched.insert(name);
+	private:
+		void paths_insert(std::set<std::string> &dst_paths, const std::string &base, const std::string &name);
 
-		paths_insert(dst_paths, porting::path_share, name);
-		paths_insert(dst_paths, porting::path_user,  name);
-	}
+		std::set<std::string> m_fetched;
 };
 
 #endif // GAMEONDEMANDSOUNDFETCHER_HPP_
