@@ -100,7 +100,8 @@ src/client/content_mapblock.cpp
 src/client/clientobject.h
 src/client/filecache.cpp
 src/client/particles.h
-src/client/clientenvironment.h
+src/client/ClientEnvironment.h
+src/client/ClientEnvironment.cpp
 src/client/imagefilters.h
 src/client/renderingengine.cpp
 src/client/tile.h

@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/serialize.h"
 #include "util/pointedthing.h"
 #include "client.h"
-#include "clientenvironment.h"
+#include "client/ClientEnvironment.h"
 #include "clientsimpleobject.h"
 #include "clientmap.h"
 #include "scripting_client.h"
@@ -40,13 +40,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 	ClientEnvironment
 */
 
-ClientEnvironment::ClientEnvironment(ClientMap *map,
-	ITextureSource *texturesource, Client *client):
+ClientEnvironment::ClientEnvironment(ClientMap *map, ITextureSource *texturesource, Client *client) :
 	Environment(client),
 	m_map(map),
 	m_texturesource(texturesource),
 	m_client(client)
 {
+	// FIXME: Remove this variable
 	char zero = 0;
 	memset(attachement_parent_ids, zero, sizeof(attachement_parent_ids));
 }
@@ -66,16 +66,6 @@ ClientEnvironment::~ClientEnvironment()
 	m_map->drop();
 
 	delete m_local_player;
-}
-
-Map & ClientEnvironment::getMap()
-{
-	return *m_map;
-}
-
-ClientMap & ClientEnvironment::getClientMap()
-{
-	return *m_map;
 }
 
 void ClientEnvironment::setLocalPlayer(LocalPlayer *player)

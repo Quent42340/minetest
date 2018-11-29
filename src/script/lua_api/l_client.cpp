@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/client.h"
 #include "client/clientevent.h"
 #include "client/sound.h"
-#include "client/clientenvironment.h"
+#include "client/ClientEnvironment.h"
 #include "common/c_content.h"
 #include "common/c_converter.h"
 #include "cpp_api/s_base.h"

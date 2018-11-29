@@ -33,6 +33,7 @@ class Clouds;
 class GUIChatConsole;
 class GUIFormSpecMenu;
 class IWritableShaderSource;
+class IWritableTextureSource;
 class QuicktuneShortcutter;
 class SoundMaker;
 class Sky;

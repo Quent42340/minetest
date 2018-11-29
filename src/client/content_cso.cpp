@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "content_cso.h"
 #include <IBillboardSceneNode.h>
 #include "client/tile.h"
-#include "clientenvironment.h"
+#include "client/ClientEnvironment.h"
 #include "client.h"
 #include "map.h"
 

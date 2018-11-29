@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "clientenvironment.h"
+#include "client/ClientEnvironment.h"
 #include "irrlichttypes_extrabloated.h"
 #include <ostream>
 #include <map>
