@@ -308,6 +308,7 @@ src/player/PlayerSettings.h
 src/player/PlayerSettings.cpp
 src/android/porting_android.cpp
 src/android/porting_android.h
+src/CloudParams.h
 src/porting.cpp
 src/porting.h
 src/profiler.h

@@ -23,6 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "inventory.h"
 #include "player/PlayerControl.h"
 #include "player/PlayerSettings.h"
+#include "util/basic_macros.h" // for DISABLE_CLASS_COPY
 
 #define PLAYERNAME_SIZE 20
 

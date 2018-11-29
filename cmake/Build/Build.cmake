@@ -1,31 +1,34 @@
-add_subdirectory(threading)
-add_subdirectory(content)
-add_subdirectory(database)
-add_subdirectory(gui)
-add_subdirectory(mapgen)
 add_subdirectory(network)
 add_subdirectory(script)
 add_subdirectory(unittest)
-add_subdirectory(util)
 add_subdirectory(irrlicht_changes)
-add_subdirectory(server)
-add_subdirectory(player)
 
-file(GLOB core_SRCS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.cpp")
+file(GLOB         core_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.cpp")
+file(GLOB_RECURSE content_SRCS   RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "content/*.cpp")
+file(GLOB_RECURSE database_SRCS  RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "database/*.cpp")
+file(GLOB_RECURSE gui_SRCS       RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "gui/*.cpp")
+file(GLOB_RECURSE mapgen_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "mapgen/*.cpp")
+file(GLOB_RECURSE player_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "player/*.cpp")
+file(GLOB_RECURSE server_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "server/*.cpp")
+file(GLOB_RECURSE threading_SRCS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "threading/*.cpp")
+file(GLOB_RECURSE util_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "util/*.cpp")
+
 list(REMOVE_ITEM core_SRCS "settings_translation_file.cpp")
+list(REMOVE_ITEM gui_SRCS "gui/touchscreengui.h" "gui/touchscreengui.cpp")
+list(APPEND util_SRCS "util/sha256.c")
 
 set(common_SRCS
-	${database_SRCS}
-	${mapgen_SRCS}
-	${server_SRCS}
+	${common_SCRIPT_SRCS}
+	${common_network_SRCS}
 	${content_SRCS}
 	${core_SRCS}
+	${database_SRCS}
+	${mapgen_SRCS}
 	${player_SRCS}
-	${common_network_SRCS}
-	${JTHREAD_SRCS}
-	${common_SCRIPT_SRCS}
-	${UTIL_SRCS}
-	${UNITTEST_SRCS}
+	${server_SRCS}
+	${threading_SRCS}
+	${unittest_SRCS}
+	${util_SRCS}
 )
 
 # Client sources
@@ -40,7 +43,7 @@ set(client_SRCS
 	${client_network_SRCS}
 	${client_irrlicht_changes_SRCS}
 	${client_SCRIPT_SRCS}
-	${UNITTEST_CLIENT_SRCS}
+	${unittest_CLIENT_SRCS}
 )
 
 list(SORT client_SRCS)
