@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "cpp_api/s_entity.h"
 #include "cpp_api/s_internal.h"
 #include "core/log.h"
-#include "object_properties.h"
+#include "world/object_properties.h"
 #include "common/c_converter.h"
 #include "common/c_content.h"
 #include "server/server.h"

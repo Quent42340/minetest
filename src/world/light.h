@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 #include <cassert>
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 
 /*
 	Lower level lighting stuff

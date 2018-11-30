@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 /* Includes                                                                   */
 /******************************************************************************/
 #include <vector>
-#include "irr_v3d.h"
+#include "irrlicht/irr_v3d.h"
 
 /******************************************************************************/
 /* Forward declarations                                                       */

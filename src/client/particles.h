@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include <iostream>
-#include "irrlichttypes_extrabloated.h"
+#include "irrlicht/irrlichttypes_extrabloated.h"
 #include "client/tile.h"
 #include "localplayer.h"
 #include "common/tileanimation.h"

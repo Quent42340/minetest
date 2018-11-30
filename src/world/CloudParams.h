@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define CLOUDPARAMS_H_
 
 #include <SMaterial.h>
-#include "irr_v2d.h"
+#include "irrlicht/irr_v2d.h"
 
 struct CloudParams {
 	float density;

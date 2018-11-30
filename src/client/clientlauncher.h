@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "irrlichttypes_extrabloated.h"
+#include "irrlicht/irrlichttypes_extrabloated.h"
 #include "client/inputhandler.h"
 #include "server/game/gameparams.h"
 

@@ -17,8 +17,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "object_properties.h"
-#include "irrlichttypes_bloated.h"
+#include "world/object_properties.h"
+#include "irrlicht/irrlichttypes_bloated.h"
 #include "core/exceptions.h"
 #include "util/serialize.h"
 #include "util/basic_macros.h"

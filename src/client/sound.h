@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <set>
 #include <string>
-#include "irr_v3d.h"
+#include "irrlicht/irr_v3d.h"
 #include "common/sound.h"
 
 class OnDemandSoundFetcher

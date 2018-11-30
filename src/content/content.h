@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 #include "core/config.h"
 #include "util/convert_json.h"
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 
 struct ContentSpec
 {

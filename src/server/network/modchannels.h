@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <vector>
 #include <memory>
 #include "network/networkprotocol.h"
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 
 enum ModChannelState : u8
 {

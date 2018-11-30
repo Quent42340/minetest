@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "craft/CraftUtils.hpp"
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 #include "core/log.h"
 #include <sstream>
 #include <set>

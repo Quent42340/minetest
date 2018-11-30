@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/porting.h"
 #include "util/string.h"
 #include "core/exceptions.h"
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 
 #include <sstream>
 #include <iomanip>

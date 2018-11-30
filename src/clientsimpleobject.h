@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irrlicht/irrlichttypes_bloated.h"
 class ClientEnvironment;
 
 class ClientSimpleObject

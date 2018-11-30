@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "cpp_api/s_base.h"
-#include "irr_v3d.h"
+#include "irrlicht/irr_v3d.h"
 
 class ServerEnvironment;
 struct ScriptCallbackState;

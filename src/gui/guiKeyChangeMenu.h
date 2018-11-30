@@ -21,7 +21,7 @@
 
 #pragma once
 
-#include "irrlichttypes_extrabloated.h"
+#include "irrlicht/irrlichttypes_extrabloated.h"
 #include "modalMenu.h"
 #include "util/gettext.h"
 #include "client/keycode.h"

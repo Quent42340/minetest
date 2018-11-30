@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <map>
 #include <atomic>
 #include <mutex>
-#include "irr_v3d.h"
+#include "irrlicht/irr_v3d.h"
 #include "network/networkprotocol.h" // for AccessDeniedCode
 #include "util/basic_macros.h"
 

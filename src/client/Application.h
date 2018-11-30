@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define APPLICATION_H_
 
 #include <string>
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 
 class InputHandler;
 class ChatBackend;  /* to avoid having to include chat.h */

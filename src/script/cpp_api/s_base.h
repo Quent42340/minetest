@@ -32,7 +32,7 @@ extern "C" {
 #include <lualib.h>
 }
 
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 #include "common/c_types.h"
 #include "common/c_internal.h"
 #include "debug/Debug.hpp"

@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <set>
 #include <string>
-#include "irrlichttypes_bloated.h"
+#include "irrlicht/irrlichttypes_bloated.h"
 
 struct SimpleSoundSpec
 {

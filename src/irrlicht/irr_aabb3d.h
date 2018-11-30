@@ -19,10 +19,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 
-#include "irr_v2d.h"
-#include "irr_v3d.h"
-#include "irr_aabb3d.h"
+#include <aabbox3d.h>
 
-#include <SColor.h>
+typedef core::aabbox3d<f32> aabb3f;

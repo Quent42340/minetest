@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <map>
 #include <string>
 #include "database.h"
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 
 class Database_Dummy : public MapDatabase, public PlayerDatabase
 {

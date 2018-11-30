@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "irrlicht.h" // createDevice
-#include "irrlichttypes_extrabloated.h"
+#include "irrlicht/irrlichttypes_extrabloated.h"
 #include "server/network/chat_interface.h"
 #include "debug/Debug.hpp"
 #include "unittest/test.h"

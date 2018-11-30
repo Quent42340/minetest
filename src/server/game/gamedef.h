@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <string>
 #include <vector>
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 
 class IItemDefManager;
 class NodeDefManager;

@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 #include "threading/thread.h"
 #include "threading/mutex_auto_lock.h"
 #include "core/porting.h"

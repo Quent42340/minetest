@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 #include <string>
 #include <iostream>
 #include "itemgroup.h"

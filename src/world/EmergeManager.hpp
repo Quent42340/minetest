@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <map>
 #include <mutex>
 #include "network/networkprotocol.h"
-#include "irr_v3d.h"
+#include "irrlicht/irr_v3d.h"
 #include "util/container.h"
 #include "mapgen/mapgen.h" // for MapgenParams
 #include "map/Map.hpp"

@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 #include <array>
 #include <vector>
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 #include <S3DVertex.h>
 #include "client/tile.h"
 

@@ -19,17 +19,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "irrlichttypes_bloated.h"
+#include "irrlicht/irrlichttypes.h"
 
-#ifndef SERVER
-#include <IMesh.h>
-#include <IImage.h>
-#include <IrrlichtDevice.h>
-#include <IMeshSceneNode.h>
-#include <SMesh.h>
-#include <ISceneManager.h>
-#include <IMeshBuffer.h>
-#include <SMeshBuffer.h>
-#include <IGUIElement.h>
-#include <IGUIEnvironment.h>
-#endif
+#include <vector3d.h>
+
+typedef core::vector3df v3f;
+typedef core::vector3d<double> v3d;
+typedef core::vector3d<s16> v3s16;
+typedef core::vector3d<u16> v3u16;
+typedef core::vector3d<s32> v3s32;

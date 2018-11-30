@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "helper.h"
 #include <cmath>
 #include <sstream>
-#include <irr_v2d.h>
+#include "irrlicht/irr_v2d.h"
 #include "c_types.h"
 #include "c_internal.h"
 

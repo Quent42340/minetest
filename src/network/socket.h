@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <ostream>
 #include <cstring>
 #include "address.h"
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 #include "networkexceptions.h"
 
 extern bool socket_enable_debug_output;

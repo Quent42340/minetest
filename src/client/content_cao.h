@@ -20,9 +20,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include <map>
-#include "irrlichttypes_extrabloated.h"
+#include "irrlicht/irrlichttypes_extrabloated.h"
 #include "clientobject.h"
-#include "object_properties.h"
+#include "world/object_properties.h"
 #include "itemgroup.h"
 #include "core/constants.h"
 

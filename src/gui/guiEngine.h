@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 /******************************************************************************/
 /* Includes                                                                   */
 /******************************************************************************/
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 #include "modalMenu.h"
 #include "guiFormSpecMenu.h"
 #include "client/sound.h"

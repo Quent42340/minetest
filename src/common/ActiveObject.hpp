@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define ACTIVEOBJECT_HPP_
 
 #include <string>
-#include "irr_aabb3d.h"
+#include "irrlicht/irr_aabb3d.h"
 
 enum ActiveObjectType {
 	ACTIVEOBJECT_TYPE_INVALID = 0,

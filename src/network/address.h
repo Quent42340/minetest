@@ -33,7 +33,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <ostream>
 #include <cstring>
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 #include "networkexceptions.h"
 
 class IPv6AddressBytes

@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "irr_v3d.h"                   // for irrlicht datatypes
+#include "irrlicht/irr_v3d.h"                   // for irrlicht datatypes
 
 #include "core/constants.h"
 #include "server/network/serialization.h"             // for SER_FMT_VER_INVALID

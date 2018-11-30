@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include <unordered_set>
-#include "objdef.h"
+#include "world/objdef.h"
 #include "algorithm/noise.h"
 #include "world/nodedef.h"
 

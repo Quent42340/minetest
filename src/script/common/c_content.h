@@ -34,7 +34,7 @@ extern "C" {
 #include <iostream>
 #include <vector>
 
-#include "irrlichttypes_bloated.h"
+#include "irrlicht/irrlichttypes_bloated.h"
 #include "util/string.h"
 #include "itemgroup.h"
 #include "item/IItemDefManager.hpp"

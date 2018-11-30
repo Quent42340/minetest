@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "item/IItemDefManager.hpp"
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 #include "itemstackmetadata.h"
 #include <istream>
 #include <ostream>

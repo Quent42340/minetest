@@ -34,8 +34,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <string>
 #include <vector>
 #include "irrlicht.h"
-#include "irrlichttypes.h" // u32
-#include "irrlichttypes_extrabloated.h"
+#include "irrlicht/irrlichttypes.h" // u32
+#include "irrlicht/irrlichttypes_extrabloated.h"
 #include "debug/Debug.hpp"
 #include "core/constants.h"
 #include "util/gettime.h"

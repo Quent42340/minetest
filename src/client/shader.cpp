@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <fstream>
 #include <iterator>
 #include "shader.h"
-#include "irrlichttypes_extrabloated.h"
+#include "irrlicht/irrlichttypes_extrabloated.h"
 #include "debug/Debug.hpp"
 #include "util/filesys.h"
 #include "util/container.h"

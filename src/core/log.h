@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #if !defined(_WIN32)  // POSIX
 	#include <unistd.h>
 #endif
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 
 class ILogOutput;
 

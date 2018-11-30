@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef ITEMDEFINITION_HPP_
 #define ITEMDEFINITION_HPP_
 
-#include "irrlichttypes_extrabloated.h"
+#include "irrlicht/irrlichttypes_extrabloated.h"
 #include <string>
 #include <iostream>
 #include <set>

@@ -25,7 +25,7 @@
 
 #pragma once
 
-#include "irr_v3d.h"
+#include "irrlicht/irr_v3d.h"
 #include "core/exceptions.h"
 #include "util/string.h"
 

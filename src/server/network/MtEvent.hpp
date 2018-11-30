@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef MTEVENT_HPP_
 #define MTEVENT_HPP_
 
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 
 class MtEvent {
 	public:

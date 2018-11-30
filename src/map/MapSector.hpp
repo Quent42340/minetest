@@ -19,8 +19,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef MAPSECTOR_HPP_
 #define MAPSECTOR_HPP_
 
-#include "irrlichttypes.h"
-#include "irr_v2d.h"
+#include "irrlicht/irrlichttypes.h"
+#include "irrlicht/irr_v2d.h"
 #include "map/MapBlock.hpp"
 #include <ostream>
 #include <map>

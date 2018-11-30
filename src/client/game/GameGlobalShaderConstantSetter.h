@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define GAMEGLOBALSHADERCONSTANTSETTER_HPP_
 
 #include <vector>
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 #include "client/shader.h"
 
 class Client;

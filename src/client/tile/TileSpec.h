@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef TILESPEC_H_
 #define TILESPEC_H_
 
-#include "irrlichttypes.h"
+#include "irrlicht/irrlichttypes.h"
 #include "client/tile/TileLayer.h"
 
 #define MAX_TILE_LAYERS 2

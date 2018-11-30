@@ -18,8 +18,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "algorithm/raycast.h"
-#include "irr_v3d.h"
-#include "irr_aabb3d.h"
+#include "irrlicht/irr_v3d.h"
+#include "irrlicht/irr_aabb3d.h"
 #include "core/constants.h"
 
 bool RaycastSort::operator() (const PointedThing &pt1,

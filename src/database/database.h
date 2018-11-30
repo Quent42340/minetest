@@ -22,8 +22,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <set>
 #include <string>
 #include <vector>
-#include "irr_v3d.h"
-#include "irrlichttypes.h"
+#include "irrlicht/irr_v3d.h"
+#include "irrlicht/irrlichttypes.h"
 #include "util/basic_macros.h"
 
 class Database

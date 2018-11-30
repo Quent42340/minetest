@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef HUD_HEADER
 #define HUD_HEADER
 
-#include "irrlichttypes_extrabloated.h"
+#include "irrlicht/irrlichttypes_extrabloated.h"
 #include <string>
 #include "common/c_types.h"
 

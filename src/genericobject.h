@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include <string>
-#include "irrlichttypes_bloated.h"
+#include "irrlicht/irrlichttypes_bloated.h"
 #include <iostream>
 #include "itemgroup.h"
 
@@ -40,7 +40,7 @@ enum GenericCMD {
 	GENERIC_CMD_SET_ANIMATION_SPEED
 };
 
-#include "object_properties.h"
+#include "world/object_properties.h"
 std::string gob_cmd_set_properties(const ObjectProperties &prop);
 ObjectProperties gob_read_set_properties(std::istream &is);
 

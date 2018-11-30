@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <vector>
 #include <unordered_map>
 
-#include "irrlichttypes_bloated.h"
+#include "irrlicht/irrlichttypes_bloated.h"
 #include "common/c_types.h"
 
 extern "C" {
