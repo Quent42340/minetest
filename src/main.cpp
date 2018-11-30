@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/httpfetch.h"
 #include "server/game/gameparams.h"
 #include "database/database.h"
-#include "core/config.h"
+#include "core/Config.hpp"
 #include "player/Player.h"
 #include "core/porting.h"
 #include "network/socket.h"

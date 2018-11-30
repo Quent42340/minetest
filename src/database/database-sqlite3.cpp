@@ -29,7 +29,7 @@ SQLite format specification:
 
 #include "core/log.h"
 #include "util/filesys.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "core/settings.h"
 #include "core/porting.h"
 #include "util/string.h"

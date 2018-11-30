@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cstring>
 #include <string>
 #include "database.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 
 extern "C" {
 #include "sqlite3.h"

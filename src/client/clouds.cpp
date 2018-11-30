@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "algorithm/noise.h"
 #include "core/constants.h"
 #include "debug/Debug.hpp"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 #include "core/settings.h"
 #include <cmath>
 

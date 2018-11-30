@@ -17,7 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "core/config.h"
+#include "core/Config.hpp"
 
 #if USE_REDIS
 
@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "core/settings.h"
 #include "core/log.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "util/string.h"
 
 #include <hiredis.h>

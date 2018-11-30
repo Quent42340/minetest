@@ -17,13 +17,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
+#include "item/CItemDefManager.hpp"
+#include "tool.h"
+#include "util/serialize.h"
 
 #ifndef SERVER
 #include "client/client.h"
 #endif
-
-#include "item/CItemDefManager.hpp"
-#include "util/serialize.h"
 
 CItemDefManager::CItemDefManager()
 {
@@ -354,7 +354,7 @@ void CItemDefManager::processQueue(IGameDef *gamedef)
 #endif
 }
 
-// FIXME: Use static or virtual function for this
+// FIXME: Use static or virtual function instead of this
 IWritableItemDefManager* createItemDefManager()
 {
 	return new CItemDefManager();

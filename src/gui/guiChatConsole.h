@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlicht/irrlichttypes_extrabloated.h"
 #include "modalMenu.h"
 #include "server/network/chat.h"
-#include "core/config.h"
+#include "core/Config.hpp"
 
 class Client;
 

@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "test.h"
 
 #include "util/numeric.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "server/game/gamedef.h"
 #include "world/nodedef.h"
 

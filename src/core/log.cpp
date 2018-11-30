@@ -23,8 +23,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "debug/Debug.hpp"
 #include "util/gettime.h"
 #include "core/porting.h"
-#include "core/config.h"
-#include "core/exceptions.h"
+#include "core/Config.hpp"
+#include "core/Exception.hpp"
 #include "util/numeric.h"
 #include "core/log.h"
 

@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <set>
 #include <string>
 #include "irrlicht/irr_v3d.h"
-#include "common/sound.h"
+#include "common/SimpleSoundSpec.hpp"
 
 class OnDemandSoundFetcher
 {

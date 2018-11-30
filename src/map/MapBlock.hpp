@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <set>
 #include "irrlicht/irr_v3d.h"
 #include "map/MapNode.hpp"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "core/constants.h"
 #include "staticobject.h"
 #include "world/nodemetadata.h"

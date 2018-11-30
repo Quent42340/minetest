@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/ServerMap.hpp"
 #include "map/MapSector.hpp"
 #include "core/porting.h"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 #include "world/reflowscan.h"
 #include "server/network/serialization.h"
 #include "core/settings.h"

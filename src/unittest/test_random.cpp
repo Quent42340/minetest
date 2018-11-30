@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <cmath>
 #include "util/numeric.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "algorithm/noise.h"
 
 class TestRandom : public TestBase {

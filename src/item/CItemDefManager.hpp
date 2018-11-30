@@ -22,30 +22,19 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <map>
 #include <thread>
 
-#include "item/IWritableItemDefManager.hpp"
 #include "client/wieldmesh.h"
+#include "item/IWritableItemDefManager.hpp"
 #include "util/string.h"
 #include "util/thread.h"
 
-/*
-	CItemDefManager
-*/
-
 // SUGG: Support chains of aliases?
-
-class CItemDefManager: public IWritableItemDefManager
-{
+class CItemDefManager: public IWritableItemDefManager {
 #ifndef SERVER
 	struct ClientCached
 	{
-		video::ITexture *inventory_texture;
+		video::ITexture *inventory_texture = nullptr;
 		ItemMesh wield_mesh;
-		Palette *palette;
-
-		ClientCached():
-			inventory_texture(NULL),
-			palette(NULL)
-		{}
+		Palette *palette = nullptr;
 	};
 #endif
 
@@ -56,6 +45,7 @@ class CItemDefManager: public IWritableItemDefManager
 		const ItemDefinition& get(const std::string &name_) const override;
 		const std::string &getAlias(const std::string &name) const override;
 		void getAll(std::set<std::string> &result) const override;
+
 		bool isKnown(const std::string &name_) const override;
 
 #ifndef SERVER
@@ -74,26 +64,36 @@ class CItemDefManager: public IWritableItemDefManager
 
 		video::SColor getItemstackColor(const ItemStack &stack, Client *client) const override;
 #endif
+
 		void clear() override;
+
 		void registerItem(const ItemDefinition &def) override;
 		void unregisterItem(const std::string &name) override;
+
 		void registerAlias(const std::string &name, const std::string &convert_to) override;
+
 		void serialize(std::ostream &os, u16 protocol_version) override;
 		void deSerialize(std::istream &is) override;
+
 		void processQueue(IGameDef *gamedef) override;
 
 	private:
 		// Key is name
 		std::map<std::string, ItemDefinition*> m_item_definitions;
+
 		// Aliases
 		StringMap m_aliases;
+
 #ifndef SERVER
 		// The id of the thread that is allowed to use irrlicht directly
 		std::thread::id m_main_thread;
+
 		// A reference to this can be returned when nothing is found, to avoid NULLs
 		mutable ClientCached m_dummy_clientcached;
+
 		// Cached textures and meshes
 		mutable MutexedMap<std::string, ClientCached*> m_clientcached;
+
 		// Queued clientcached fetches (to be processed by the main thread)
 		mutable RequestQueue<std::string, ClientCached*, u8, u8> m_get_clientcached_queue;
 #endif

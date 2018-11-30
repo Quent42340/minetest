@@ -32,7 +32,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/numeric.h"
 #include "util/string.h"
 #include "core/settings.h"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 
 namespace con
 {

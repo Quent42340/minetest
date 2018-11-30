@@ -44,7 +44,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "minimap.h"
 #include "server/network/modchannels.h"
 #include "content/mods.h"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 #include "shader.h"
 #include "util/gettext.h"
 #include "clientmap.h"

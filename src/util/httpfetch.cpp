@@ -27,8 +27,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <mutex>
 #include "network/socket.h" // for select()
 #include "threading/event.h"
-#include "core/config.h"
-#include "core/exceptions.h"
+#include "core/Config.hpp"
+#include "core/Exception.hpp"
 #include "debug/Debug.hpp"
 #include "core/log.h"
 #include "util/container.h"

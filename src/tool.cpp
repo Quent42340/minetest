@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "itemgroup.h"
 #include "core/log.h"
 #include "inventory.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "util/serialize.h"
 #include "util/numeric.h"
 

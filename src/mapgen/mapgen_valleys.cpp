@@ -32,7 +32,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/Map.hpp"
 #include "world/nodedef.h"
 #include "algorithm/voxelalgorithms.h"
-//#include "core/profiler.h" // For TimeTaker
+//#include "core/Profiler.hpp" // For TimeTaker
 #include "core/settings.h" // For g_settings
 #include "world/EmergeManager.hpp"
 #include "dungeongen.h"

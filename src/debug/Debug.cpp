@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "core/porting.h"
 #include "debug/Debug.hpp"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <sstream>
 #include <thread>
 #include "threading/mutex_auto_lock.h"
-#include "core/config.h"
+#include "core/Config.hpp"
 
 #ifdef _MSC_VER
 	#include <dbghelp.h>

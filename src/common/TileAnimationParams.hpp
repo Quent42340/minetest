@@ -16,8 +16,8 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-
-#pragma once
+#ifndef TILEANIMATIONPARAMS_HPP_
+#define TILEANIMATIONPARAMS_HPP_
 
 #include <iostream>
 #include "irrlicht/irrlichttypes_bloated.h"
@@ -29,21 +29,20 @@ enum TileAnimationType
 	TAT_SHEET_2D = 2,
 };
 
-struct TileAnimationParams
-{
-	enum TileAnimationType type;
-	union
-	{
+struct TileAnimationParams {
+	TileAnimationType type;
+
+	union {
 		// struct {
 		// } none;
-		struct
-		{
+
+		struct {
 			int aspect_w; // width for aspect ratio
 			int aspect_h; // height for aspect ratio
 			float length; // seconds
 		} vertical_frames;
-		struct
-		{
+
+		struct {
 			int frames_w;       // number of frames left-to-right
 			int frames_h;       // number of frames top-to-bottom
 			float frame_length; // seconds
@@ -52,8 +51,12 @@ struct TileAnimationParams
 
 	void serialize(std::ostream &os, u8 tiledef_version) const;
 	void deSerialize(std::istream &is, u8 tiledef_version);
+
 	void determineParams(v2u32 texture_size, int *frame_count, int *frame_length_ms,
 			v2u32 *frame_size) const;
+
 	void getTextureModifer(std::ostream &os, v2u32 texture_size, int frame) const;
 	v2f getTextureCoords(v2u32 texture_size, int frame) const;
 };
+
+#endif // TILEANIMATIONPARAMS_HPP_

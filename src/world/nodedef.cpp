@@ -19,7 +19,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "world/nodedef.h"
 
-#include "item/ItemDefinition.hpp"
+#include "item/IItemDefManager.hpp"
+
 #ifndef SERVER
 #include "client/mesh.h"
 #include "client/shader.h"
@@ -28,12 +29,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/tile.h"
 #include <IMeshManipulator.h>
 #endif
+
 #include "core/log.h"
 #include "core/settings.h"
 #include "world/nameidmapping.h"
 #include "util/numeric.h"
 #include "util/serialize.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "debug/Debug.hpp"
 #include "server/game/gamedef.h"
 #include "map/MapNode.hpp"

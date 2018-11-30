@@ -35,7 +35,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/settings.h"
 #include "util/auth.h"
 #include "util/base64.h"
-#include "core/config.h"
+#include "core/Config.hpp"
 #include "core/version.h"
 #include "util/hex.h"
 #include "util/sha1.h"

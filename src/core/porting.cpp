@@ -43,7 +43,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 	#include <sys/pstat.h>
 #endif
 
-#include "core/config.h"
+#include "core/Config.hpp"
 #include "debug/Debug.hpp"
 #include "util/filesys.h"
 #include "core/log.h"

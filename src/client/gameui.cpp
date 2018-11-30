@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "clientmap.h"
 #include "fontengine.h"
 #include "world/nodedef.h"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 #include "renderingengine.h"
 #include "core/version.h"
 

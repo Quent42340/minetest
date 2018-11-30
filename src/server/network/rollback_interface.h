@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <string>
 #include <iostream>
 #include <list>
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "inventory.h"
 
 class Map;

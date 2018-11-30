@@ -38,7 +38,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "script/scripting_client.h"
 #include "util/serialize.h"
 #include "util/srp.h"
-#include "common/tileanimation.h"
+#include "common/TileAnimationParams.hpp"
 #include "util/gettext.h"
 
 void Client::handleCommand_Deprecated(NetworkPacket* pkt)

@@ -37,7 +37,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "item/ItemDefinition.hpp"
 #include "tool.h"
 #include "content_cso.h"
-#include "common/sound.h"
+#include "common/SimpleSoundSpec.hpp"
 #include "world/nodedef.h"
 #include "localplayer.h"
 #include "map/Map.hpp"

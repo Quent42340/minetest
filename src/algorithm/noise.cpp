@@ -30,7 +30,7 @@
 #include "debug/Debug.hpp"
 #include "util/numeric.h"
 #include "util/string.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 
 #define NOISE_MAGIC_X    1619
 #define NOISE_MAGIC_Y    31337

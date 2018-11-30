@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/EmergeManager.hpp"
 #include "algorithm/voxelalgorithms.h"
 #include "core/porting.h"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 #include "core/settings.h"
 #include "treegen.h"
 #include "server/network/serialization.h"

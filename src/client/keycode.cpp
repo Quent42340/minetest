@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "keycode.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "core/settings.h"
 #include "core/log.h"
 #include "debug/Debug.hpp"

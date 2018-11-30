@@ -4,7 +4,7 @@
 #ifndef USE_CMAKE_CONFIG_H
 #define USE_CMAKE_CONFIG_H
 #endif
-#include "config.h"
+#include "core/Config.hpp"
 #undef USE_CMAKE_CONFIG_H
 
 #if RUN_IN_PLACE

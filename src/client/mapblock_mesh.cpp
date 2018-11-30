@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client.h"
 #include "map/MapBlock.hpp"
 #include "map/Map.hpp"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 #include "shader.h"
 #include "mesh.h"
 #include "minimap.h"

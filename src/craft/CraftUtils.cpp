@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/string.h"
 #include "util/numeric.h"
 #include "util/strfnd.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 
 /*
 	CraftInput

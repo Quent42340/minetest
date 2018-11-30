@@ -25,7 +25,7 @@ extern "C" {
 
 #include <iostream>
 
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 
 struct EnumString
 {

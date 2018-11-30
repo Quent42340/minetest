@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "mesh_generator_thread.h"
 #include "core/settings.h"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 #include "client.h"
 #include "map/MapBlock.hpp"
 #include "map/Map.hpp"

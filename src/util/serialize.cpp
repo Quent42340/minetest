@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "pointer.h"
 #include "core/porting.h"
 #include "util/string.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "irrlicht/irrlichttypes.h"
 
 #include <sstream>

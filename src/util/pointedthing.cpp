@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "pointedthing.h"
 
 #include "serialize.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include <sstream>
 
 PointedThing::PointedThing(const v3s16 &under, const v3s16 &above,

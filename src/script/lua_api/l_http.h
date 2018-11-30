@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "lua_api/l_base.h"
-#include "core/config.h"
+#include "core/Config.hpp"
 
 struct HTTPFetchRequest;
 struct HTTPFetchResult;

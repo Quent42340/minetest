@@ -16,7 +16,7 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-#include "common/tileanimation.h"
+#include "common/TileAnimationParams.hpp"
 #include "util/serialize.h"
 
 void TileAnimationParams::serialize(std::ostream &os, u8 tiledef_version) const

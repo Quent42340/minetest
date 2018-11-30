@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "world/object_properties.h"
 #include "irrlicht/irrlichttypes_bloated.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "util/serialize.h"
 #include "util/basic_macros.h"
 #include <sstream>

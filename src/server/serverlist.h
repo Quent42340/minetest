@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include <iostream>
-#include "core/config.h"
+#include "core/Config.hpp"
 #include "content/mods.h"
 #include <json/json.h>
 

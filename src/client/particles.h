@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlicht/irrlichttypes_extrabloated.h"
 #include "client/tile.h"
 #include "localplayer.h"
-#include "common/tileanimation.h"
+#include "common/TileAnimationParams.hpp"
 
 struct ClientEvent;
 class ParticleManager;

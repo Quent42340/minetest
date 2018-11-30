@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "util/convert_json.h"
 #include "content/mods.h"
-#include "core/config.h"
+#include "core/Config.hpp"
 #include "core/log.h"
 #include "core/settings.h"
 #include "util/httpfetch.h"

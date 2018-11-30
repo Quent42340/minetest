@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "player/Player.h"
 #include "server/network/chat.h"
 #include "util/gettext.h"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 #include "server/serverlist.h"
 #include "gui/guiEngine.h"
 #include "fontengine.h"

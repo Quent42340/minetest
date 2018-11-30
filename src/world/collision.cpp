@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/serverenvironment.h"
 #include "server/serverobject.h"
 #include "util/timetaker.h"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 
 // float error is 10 - 9.96875 = 0.03125
 //#define COLL_ZERO 0.032 // broken unit tests

@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cerrno>
 #include <fstream>
 #include "core/log.h"
-#include "core/config.h"
+#include "core/Config.hpp"
 #include "core/porting.h"
 #ifdef __ANDROID__
 #include "core/settings.h" // For g_settings

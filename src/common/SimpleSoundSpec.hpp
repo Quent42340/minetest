@@ -16,26 +16,26 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-
-#pragma once
+#ifndef SIMPLESOUNDSPEC_HPP_
+#define SIMPLESOUNDSPEC_HPP_
 
 #include <set>
 #include <string>
 #include "irrlicht/irrlichttypes_bloated.h"
 
-struct SimpleSoundSpec
-{
-	SimpleSoundSpec(const std::string &name = "", float gain = 1.0f,
-			float fade = 0.0f, float pitch = 1.0f) :
-			name(name),
-			gain(gain), fade(fade), pitch(pitch)
+struct SimpleSoundSpec {
+	SimpleSoundSpec(const std::string &name = "", float gain = 1.0f, float fade = 0.0f, float pitch = 1.0f)
+		: name(name), gain(gain), fade(fade), pitch(pitch)
 	{
 	}
 
 	bool exists() const { return !name.empty(); }
 
 	std::string name;
+
 	float gain = 1.0f;
 	float fade = 0.0f;
 	float pitch = 1.0f;
 };
+
+#endif // SIMPLESOUNDSPEC_HPP_

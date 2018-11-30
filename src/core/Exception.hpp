@@ -16,12 +16,11 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-
-#pragma once
+#ifndef EXCEPTION_HPP_
+#define EXCEPTION_HPP_
 
 #include <exception>
 #include <string>
-
 
 class BaseException : public std::exception
 {
@@ -102,7 +101,6 @@ public:
 	ModError(const std::string &s): BaseException(s) {}
 };
 
-
 /*
 	Some "old-style" interrupts:
 */
@@ -129,3 +127,5 @@ public:
 		BaseException(s)
 	{}
 };
+
+#endif // EXCEPTION_HPP_

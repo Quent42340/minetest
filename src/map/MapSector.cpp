@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "map/MapSector.hpp"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "map/MapBlock.hpp"
 #include "server/network/serialization.h"
 

@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "core/settings.h"
 #include "irrlicht/irrlichttypes_bloated.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "threading/mutex_auto_lock.h"
 #include "util/strfnd.h"
 #include <iostream>

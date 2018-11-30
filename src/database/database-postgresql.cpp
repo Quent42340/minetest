@@ -16,7 +16,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "core/config.h"
+#include "core/Config.hpp"
 
 #if USE_POSTGRESQL
 
@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #endif
 
 #include "debug/Debug.hpp"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "core/settings.h"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"

@@ -21,6 +21,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <string>
 #include <vector>
+
+// FIXME: Why wieldmesh is compiled by the server?
+#include <IMesh.h>
+#include <ISceneNode.h>
+#include <IMeshSceneNode.h>
+#include <SMesh.h>
+
 #include "irrlicht/irrlichttypes_extrabloated.h"
 
 struct ItemStack;

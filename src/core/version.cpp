@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "core/version.h"
-#include "core/config.h"
+#include "core/Config.hpp"
 
 #if defined(__ANDROID__)
 	#include "android_version.h"

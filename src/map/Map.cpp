@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/nodemetadata.h"
 #include "core/settings.h"
 #include "core/log.h"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 #include "world/nodedef.h"
 #include "server/game/gamedef.h"
 #include "util/directiontables.h"
@@ -38,7 +38,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/EmergeManager.hpp"
 #include "mapgen/mapgen_v6.h"
 #include "mapgen/mg_biome.h"
-#include "core/config.h"
+#include "core/Config.hpp"
 #include "server/server.h"
 #include "script/scripting_server.h"
 #include <deque>

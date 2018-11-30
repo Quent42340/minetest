@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "irrlicht/irrlichttypes.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include <iostream>
 #include "util/pointer.h"
 

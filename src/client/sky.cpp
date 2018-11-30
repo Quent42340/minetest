@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "S3DVertex.h"
 #include "client/tile.h"
 #include "algorithm/noise.h"  // easeCurve
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 #include "util/numeric.h"
 #include <cmath>
 #include "client/renderingengine.h"

@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "util/string.h"
 #include "threading/thread.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include <map>
 #include <string>
 #include <mutex>

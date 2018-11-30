@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/thread.h"
 #include "threading/event.h"
 
-#include "core/config.h"
+#include "core/Config.hpp"
 #include "core/constants.h"
 #include "world/environment.h"
 #include "world/EmergeThread.hpp"
@@ -35,7 +35,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapgen/mg_decoration.h"
 #include "mapgen/mg_schematic.h"
 #include "world/nodedef.h"
-#include "core/profiler.h"
+#include "core/Profiler.hpp"
 #include "scripting_server.h"
 #include "server/server.h"
 #include "server/serverobject.h"

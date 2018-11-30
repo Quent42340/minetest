@@ -17,7 +17,7 @@
 #include <vector>
 
 #include "util/enriched_string.h"
-#include "core/config.h"
+#include "core/Config.hpp"
 #include <IGUIEnvironment.h>
 
 #if USE_FREETYPE

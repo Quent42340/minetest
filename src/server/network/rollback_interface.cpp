@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/game/gamedef.h"
 #include "world/nodedef.h"
 #include "world/nodemetadata.h"
-#include "core/exceptions.h"
+#include "core/Exception.hpp"
 #include "core/log.h"
 #include "inventorymanager.h"
 #include "inventory.h"
