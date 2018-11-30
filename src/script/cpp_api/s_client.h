@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/pointedthing.h"
 #include "cpp_api/s_base.h"
 #include "mapnode.h"
-#include "itemdef.h"
+#include "item/IWritableItemDefManager.hpp"
 #include "util/string.h"
 #include "util/pointedthing.h"
 #include "lua_api/l_item.h"

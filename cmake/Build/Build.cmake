@@ -7,6 +7,7 @@ file(GLOB         core_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.cpp")
 file(GLOB_RECURSE content_SRCS   RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "content/*.cpp")
 file(GLOB_RECURSE database_SRCS  RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "database/*.cpp")
 file(GLOB_RECURSE gui_SRCS       RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "gui/*.cpp")
+file(GLOB_RECURSE item_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "item/*.cpp")
 file(GLOB_RECURSE mapgen_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "mapgen/*.cpp")
 file(GLOB_RECURSE player_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "player/*.cpp")
 file(GLOB_RECURSE server_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "server/*.cpp")
@@ -23,6 +24,7 @@ set(common_SRCS
 	${content_SRCS}
 	${core_SRCS}
 	${database_SRCS}
+	${item_SRCS}
 	${mapgen_SRCS}
 	${player_SRCS}
 	${server_SRCS}

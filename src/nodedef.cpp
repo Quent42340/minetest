@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "nodedef.h"
 
-#include "itemdef.h"
+#include "item/ItemDefinition.hpp"
 #ifndef SERVER
 #include "client/mesh.h"
 #include "client/shader.h"

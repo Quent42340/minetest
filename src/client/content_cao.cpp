@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "serialization.h" // For decompressZlib
 #include "clientobject.h"
 #include "mesh.h"
-#include "itemdef.h"
+#include "item/ItemDefinition.hpp"
 #include "tool.h"
 #include "content_cso.h"
 #include "sound.h"

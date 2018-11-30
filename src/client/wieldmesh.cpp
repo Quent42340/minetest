@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "shader.h"
 #include "inventory.h"
 #include "client.h"
-#include "itemdef.h"
+#include "item/ItemDefinition.hpp"
 #include "nodedef.h"
 #include "mesh.h"
 #include "content_mapblock.h"

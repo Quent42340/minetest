@@ -41,7 +41,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "log.h"
 #include "scripting_server.h"
 #include "nodedef.h"
-#include "itemdef.h"
+#include "item/CItemDefManager.hpp"
 #include "craftdef.h"
 #include "EmergeManager.hpp"
 #include "mapgen/mapgen.h"

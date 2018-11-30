@@ -25,6 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/PlayerSAO.h"
 #include "server/object/PlayerHPChangeReason.h"
 #include "EmergeManager.hpp"
+#include "item/IWritableItemDefManager.hpp"
 #include "mapblock.h"
 #include "modchannels.h"
 #include "nodedef.h"

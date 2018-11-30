@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_internal.h"
 #include "common/c_converter.h"
 #include "common/c_content.h"
-#include "itemdef.h"
+#include "item/IWritableItemDefManager.hpp"
 #include "nodedef.h"
 #include "server.h"
 #include "server/object/LuaEntitySAO.h"
