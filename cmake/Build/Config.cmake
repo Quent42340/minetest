@@ -47,16 +47,6 @@ if(HAIKU)
 	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D_BSD_SOURCE")
 endif()
 
-# Use cmake_config.h
-add_definitions(-DUSE_CMAKE_CONFIG_H)
-
-check_include_files(endian.h HAVE_ENDIAN_H)
-
-configure_file(
-	"${PROJECT_SOURCE_DIR}/cmake_config.h.in"
-	"${PROJECT_BINARY_DIR}/cmake_config.h"
-)
-
 # Blacklisted locales that don't work.
 # see issue #4638
 set(GETTEXT_BLACKLISTED_LOCALES

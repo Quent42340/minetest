@@ -295,3 +295,13 @@ if(USE_CURL)
 	include_directories(${CURL_INCLUDE_DIR})
 endif()
 
+# Use cmake_config.h
+add_definitions(-DUSE_CMAKE_CONFIG_H)
+
+check_include_files(endian.h HAVE_ENDIAN_H)
+
+configure_file(
+	"${PROJECT_SOURCE_DIR}/cmake_config.h.in"
+	"${PROJECT_BINARY_DIR}/cmake_config.h"
+)
+
