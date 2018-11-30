@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "irrlichttypes_extrabloated.h"
-#include "activeobject.h"
+#include "common/ActiveObject.hpp"
 #include <unordered_map>
 
 class ClientEnvironment;

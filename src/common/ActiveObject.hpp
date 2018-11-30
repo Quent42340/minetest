@@ -16,28 +16,33 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
+#ifndef ACTIVEOBJECT_HPP_
+#define ACTIVEOBJECT_HPP_
 
-#pragma once
-
-#include "irr_aabb3d.h"
 #include <string>
+#include "irr_aabb3d.h"
 
 enum ActiveObjectType {
 	ACTIVEOBJECT_TYPE_INVALID = 0,
 	ACTIVEOBJECT_TYPE_TEST = 1,
-// Deprecated stuff
+
+	// Deprecated stuff
 	ACTIVEOBJECT_TYPE_ITEM = 2,
 //	ACTIVEOBJECT_TYPE_RAT = 3,
 //	ACTIVEOBJECT_TYPE_OERKKI1 = 4,
 //	ACTIVEOBJECT_TYPE_FIREFLY = 5,
 	ACTIVEOBJECT_TYPE_MOBV2 = 6,
-// End deprecated stuff
+	// End deprecated stuff
+
 	ACTIVEOBJECT_TYPE_LUAENTITY = 7,
-// Special type, not stored as a static object
+
+	// Special type, not stored as a static object
 	ACTIVEOBJECT_TYPE_PLAYER = 100,
-// Special type, only exists as CAO
+
+	// Special type, only exists as CAO
 	ACTIVEOBJECT_TYPE_GENERIC = 101,
 };
+
 // Other types are defined in content_object.h
 
 struct ActiveObjectMessage
@@ -56,48 +61,40 @@ struct ActiveObjectMessage
 /*
 	Parent class for ServerActiveObject and ClientActiveObject
 */
-class ActiveObject
-{
-public:
-	ActiveObject(u16 id):
-		m_id(id)
-	{
-	}
+class ActiveObject {
+	public:
+		ActiveObject(u16 id): m_id(id) {}
 
-	u16 getId() const
-	{
-		return m_id;
-	}
+		u16 getId() const { return m_id; }
+		void setId(u16 id) { m_id = id; }
 
-	void setId(u16 id)
-	{
-		m_id = id;
-	}
-
-	virtual ActiveObjectType getType() const = 0;
+		virtual ActiveObjectType getType() const = 0;
 
 
-	/*!
-	 * Returns the collision box of the object.
-	 * This box is translated by the object's
-	 * location.
-	 * The box's coordinates are world coordinates.
-	 * @returns true if the object has a collision box.
-	 */
-	virtual bool getCollisionBox(aabb3f *toset) const = 0;
+		/*!
+		 * Returns the collision box of the object.
+		 * This box is translated by the object's
+		 * location.
+		 * The box's coordinates are world coordinates.
+		 * @returns true if the object has a collision box.
+		 */
+		virtual bool getCollisionBox(aabb3f *toset) const = 0;
 
 
-	/*!
-	 * Returns the selection box of the object.
-	 * This box is not translated when the
-	 * object moves.
-	 * The box's coordinates are world coordinates.
-	 * @returns true if the object has a selection box.
-	 */
-	virtual bool getSelectionBox(aabb3f *toset) const = 0;
+		/*!
+		 * Returns the selection box of the object.
+		 * This box is not translated when the
+		 * object moves.
+		 * The box's coordinates are world coordinates.
+		 * @returns true if the object has a selection box.
+		 */
+		virtual bool getSelectionBox(aabb3f *toset) const = 0;
 
 
-	virtual bool collideWithObjects() const = 0;
-protected:
-	u16 m_id; // 0 is invalid, "no id"
+		virtual bool collideWithObjects() const = 0;
+
+	protected:
+		u16 m_id; // 0 is invalid, "no id"
 };
+
+#endif // ACTIVEOBJECT_HPP_

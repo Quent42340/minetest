@@ -9,10 +9,9 @@ Notes
 • TODO: `raycast`
 • TODO: `voxelalgorithms`
 
-## Content
+## Common
 
-• TODO: `content_mapnode`
-• TODO: `content_nodemeta`
+• TODO: `activeobject`
 
 # Debug
 
@@ -38,8 +37,19 @@ Notes
 
 • TODO: `gamedef`
 • TODO: `gameparams`
-• TODO: `face_position_cache`
-• TODO: `httpfetch`
+
+### Network
+
+• TODO: `ban`
+• TODO: `chat`
+• TODO: `chat_interface`
+• TODO: `chatmessage`
+• TODO: `HudElement`
+• TODO: `modchannels`
+• TODO: `rollback`
+• TODO: `rollback_interface`
+• TODO: `serialization`
+• TODO: `terminal_chat_console`
 
 ## Irrlicht
 
@@ -58,18 +68,10 @@ Notes
 • TODO: `itemstackmetadata`
 • TODO: `tool`
 
-## Network
+## Legacy
 
-• TODO: `ban`
-• TODO: `chat`
-• TODO: `chat_interface`
-• TODO: `chatmessage`
-• TODO: `HudElement`
-• TODO: `modchannels`
-• TODO: `rollback`
-• TODO: `rollback_interface`
-• TODO: `serialization`
-• TODO: `terminal_chat_console`
+• TODO: `content_mapnode`
+• TODO: `content_nodemeta`
 
 ## Server
 
@@ -84,7 +86,6 @@ Notes
 
 ### Object
 
-• TODO: `activeobject`
 • TODO: `genericobject`
 • TODO: `objdef`
 • TODO: `object_properties`
@@ -95,9 +96,11 @@ Notes
 ## Utils
 
 • TODO: `convert_json`
+• TODO: `face_position_cache`
 • TODO: `filesys`
 • TODO: `gettext`
 • TODO: `gettime`
+• TODO: `httpfetch`
 
 ## World
 

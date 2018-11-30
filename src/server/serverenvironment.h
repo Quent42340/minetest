@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "activeobject.h"
+#include "common/ActiveObject.hpp"
 #include "world/environment.h"
 #include "map/MapNode.hpp"
 #include "core/settings.h"

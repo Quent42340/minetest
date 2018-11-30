@@ -17,7 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "content_nodemeta.h"
+#include "legacy/content_nodemeta.h"
 #include "world/nodemetadata.h"
 #include "world/nodetimer.h"
 #include "inventory.h"

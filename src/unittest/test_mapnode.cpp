@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "gamedef.h"
 #include "world/nodedef.h"
-#include "content_mapnode.h"
+#include "legacy/content_mapnode.h"
 
 class TestMapNode : public TestBase
 {

@@ -27,8 +27,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "gamedef.h"
 #include "core/log.h"
 #include "world/nameidmapping.h"
-#include "content_mapnode.h" // For legacy name-id mapping
-#include "content_nodemeta.h" // For legacy deserialization
+#include "legacy/content_mapnode.h" // For legacy name-id mapping
+#include "legacy/content_nodemeta.h" // For legacy deserialization
 #include "serialization.h"
 #ifndef SERVER
 #include "client/mapblock_mesh.h"
