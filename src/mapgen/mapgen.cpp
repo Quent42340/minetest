@@ -31,7 +31,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
 #include "nodedef.h"
-#include "emerge.h"
+#include "EmergeManager.hpp"
 #include "voxelalgorithms.h"
 #include "porting.h"
 #include "profiler.h"

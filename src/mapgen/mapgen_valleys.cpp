@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "voxelalgorithms.h"
 //#include "profiler.h" // For TimeTaker
 #include "settings.h" // For g_settings
-#include "emerge.h"
+#include "EmergeManager.hpp"
 #include "dungeongen.h"
 #include "mg_biome.h"
 #include "mg_ore.h"
@@ -430,7 +430,7 @@ int MapgenValleys::getSpawnLevelAtPoint(v2s16 p)
 		return MAX_MAP_GENERATION_LIMIT;  // Unsuitable spawn point
 
 	// +1 to account for biome dust that can be 1 node deep
-	return level_at_point + 1; 
+	return level_at_point + 1;
 }
 
 

@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_internal.h"
 #include "common/c_content.h"
 #include "common/c_converter.h"
-#include "emerge.h"
+#include "EmergeManager.hpp"
 #include "environment.h"
 #include "map.h"
 #include "mapblock.h"

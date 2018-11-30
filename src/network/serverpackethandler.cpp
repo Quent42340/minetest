@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
 #include "server/object/PlayerHPChangeReason.h"
-#include "emerge.h"
+#include "EmergeManager.hpp"
 #include "mapblock.h"
 #include "modchannels.h"
 #include "nodedef.h"

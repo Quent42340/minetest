@@ -43,7 +43,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "nodedef.h"
 #include "itemdef.h"
 #include "craftdef.h"
-#include "emerge.h"
+#include "EmergeManager.hpp"
 #include "mapgen/mapgen.h"
 #include "mapgen/mg_biome.h"
 #include "content_mapnode.h"

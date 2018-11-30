@@ -32,7 +32,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "voxelalgorithms.h"
 //#include "profiler.h" // For TimeTaker
 #include "settings.h" // For g_settings
-#include "emerge.h"
+#include "EmergeManager.hpp"
 #include "dungeongen.h"
 #include "cavegen.h"
 #include "mg_biome.h"
