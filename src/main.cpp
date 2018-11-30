@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlicht.h" // createDevice
 #include "irrlichttypes_extrabloated.h"
 #include "chat_interface.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "unittest/test.h"
 #include "server/server.h"
 #include "filesys.h"
@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/defaultsettings.h"
 #include "gettext.h"
 #include "core/log.h"
-#include "quicktune.h"
+#include "debug/quicktune.h"
 #include "httpfetch.h"
 #include "gameparams.h"
 #include "database/database.h"

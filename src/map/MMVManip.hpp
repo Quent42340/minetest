@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <map>
 
-#include "voxel.h"
+#include "world/voxel.h"
 
 #define VMANIP_BLOCK_DATA_INEXIST     1
 #define VMANIP_BLOCK_CONTAINS_CIGNORE 2

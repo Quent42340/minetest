@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/exceptions.h"
 #include "core/settings.h"
 #include "core/log.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "util/hex.h"
 #include "util/string.h"
 #include "util/basic_macros.h"

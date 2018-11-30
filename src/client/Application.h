@@ -19,8 +19,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef APPLICATION_H_
 #define APPLICATION_H_
 
-#include "irrlichttypes.h"
 #include <string>
+#include "irrlichttypes.h"
 
 class InputHandler;
 class ChatBackend;  /* to avoid having to include chat.h */

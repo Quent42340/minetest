@@ -36,7 +36,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "gui/guiPasswordChange.h"
 #include "gui/guiVolumeChange.h"
 #include "item/CItemDefManager.hpp"
-#include "quicktune_shortcutter.h"
+#include "debug/quicktune_shortcutter.h"
 #include "algorithm/raycast.h"
 #include "core/translation.h"
 #include "util/directiontables.h"

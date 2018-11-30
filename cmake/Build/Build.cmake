@@ -9,6 +9,7 @@ file(GLOB_RECURSE content_SRCS   RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "content
 file(GLOB_RECURSE core_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "core/*.cpp")
 file(GLOB_RECURSE craft_SRCS     RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "craft/*.cpp")
 file(GLOB_RECURSE database_SRCS  RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "database/*.cpp")
+file(GLOB_RECURSE debug_SRCS     RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "debug/*.cpp")
 file(GLOB_RECURSE gui_SRCS       RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "gui/*.cpp")
 file(GLOB_RECURSE item_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "item/*.cpp")
 file(GLOB_RECURSE map_SRCS       RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "map/*.cpp")
@@ -32,6 +33,7 @@ set(common_SRCS
 	${core_SRCS}
 	${craft_SRCS}
 	${database_SRCS}
+	${debug_SRCS}
 	${item_SRCS}
 	${map_SRCS}
 	${mapgen_SRCS}

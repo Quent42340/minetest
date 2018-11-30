@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "clouds.h"
 #include "algorithm/noise.h"
 #include "core/constants.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "core/profiler.h"
 #include "core/settings.h"
 #include <cmath>

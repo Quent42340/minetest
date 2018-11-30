@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlichttypes_extrabloated.h"
 #include "util/thread.h"
-#include "voxel.h"
+#include "world/voxel.h"
 #include <map>
 #include <string>
 #include <vector>

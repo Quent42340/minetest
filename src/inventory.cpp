@@ -19,13 +19,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "inventory.h"
 #include "serialization.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include <sstream>
 #include "core/log.h"
 #include "item/IWritableItemDefManager.hpp"
 #include "util/strfnd.h"
 #include "content_mapnode.h" // For loading legacy MaterialItems
-#include "nameidmapping.h" // For loading legacy MaterialItems
+#include "world/nameidmapping.h" // For loading legacy MaterialItems
 #include "util/serialize.h"
 #include "util/string.h"
 

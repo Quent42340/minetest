@@ -18,7 +18,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 */
 
 #include "guiVolumeChange.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "serialization.h"
 #include <string>
 #include <IGUICheckBox.h>

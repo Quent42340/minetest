@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "core/constants.h"
 #include "map/MapNode.hpp"
-#include "voxel.h"
+#include "world/voxel.h"
 
 #define MAPTYPE_BASE 0
 #define MAPTYPE_SERVER 1

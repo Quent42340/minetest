@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "cpp_api/s_internal.h"
 #include "common/c_converter.h"
 #include "common/c_content.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "inventorymanager.h"
 #include "lua_api/l_inventory.h"
 #include "lua_api/l_item.h"

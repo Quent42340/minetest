@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <iostream>
 #include <map>
 #include "map/MapNode.hpp"
-#include "nameidmapping.h"
+#include "world/nameidmapping.h"
 #ifndef SERVER
 #include "client/tile.h"
 #include <IMeshManipulator.h>

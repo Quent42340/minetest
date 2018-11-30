@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <sstream>
 
 #include "core/config.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "util/strfnd.h"
 #include "util/string.h"
 #include "util/numeric.h"

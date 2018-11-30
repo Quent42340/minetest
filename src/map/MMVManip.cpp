@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/ServerMap.hpp"
 #include "map/MapBlock.hpp"
 #include "util/timetaker.h"
-#include "voxel.h"
+#include "world/voxel.h"
 
 MMVManip::MMVManip(Map *map):
 		VoxelManipulator(),

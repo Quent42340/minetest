@@ -28,12 +28,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlichttypes_bloated.h"
 #include "map/MapNode.hpp"
 #include "core/constants.h"
-#include "voxel.h"
+#include "world/voxel.h"
 #include "modifiedstate.h"
 #include "util/container.h"
 #include "world/nodetimer.h"
 #include "map/MapSettingsManager.hpp"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "map/MapEditEvent.hpp"
 
 class Settings;

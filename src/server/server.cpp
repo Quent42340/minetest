@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/ServerMap.hpp"
 #include "threading/mutex_auto_lock.h"
 #include "core/constants.h"
-#include "voxel.h"
+#include "world/voxel.h"
 #include "core/config.h"
 #include "core/version.h"
 #include "filesys.h"

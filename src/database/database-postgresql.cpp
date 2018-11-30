@@ -33,7 +33,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <netinet/in.h>
 #endif
 
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "core/exceptions.h"
 #include "core/settings.h"
 #include "server/object/LuaEntitySAO.h"

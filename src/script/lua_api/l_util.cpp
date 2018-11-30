@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "cpp_api/s_security.h"
 #include "core/porting.h"
 #include "convert_json.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "core/log.h"
 #include "tool.h"
 #include "filesys.h"

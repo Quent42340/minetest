@@ -16,8 +16,8 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-
-#pragma once
+#ifndef DEBUG_HPP_
+#define DEBUG_HPP_
 
 #include <iostream>
 #include <exception>
@@ -100,3 +100,5 @@ void debug_set_exception_handler();
 	#define BEGIN_DEBUG_EXCEPTION_HANDLER
 	#define END_DEBUG_EXCEPTION_HANDLER
 #endif
+
+#endif // DEBUG_HPP_

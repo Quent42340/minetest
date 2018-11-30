@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 
 #include "core/porting.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "core/exceptions.h"
 #include <cstdio>
 #include <cstdlib>

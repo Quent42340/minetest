@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/log.h"
 
 #include "threading/mutex_auto_lock.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "gettime.h"
 #include "core/porting.h"
 #include "core/config.h"

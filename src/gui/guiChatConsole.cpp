@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "guiChatConsole.h"
 #include "chat.h"
 #include "client/client.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "gettime.h"
 #include "client/keycode.h"
 #include "core/settings.h"

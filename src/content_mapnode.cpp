@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlichttypes_bloated.h"
 #include "map/MapNode.hpp"
 #include "world/nodedef.h"
-#include "nameidmapping.h"
+#include "world/nameidmapping.h"
 #include "util/string.h"
 
 /*

@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlichttypes_bloated.h"
 #include "core/exceptions.h" // for SerializationError
-#include "core/debug.h" // for assert
+#include "debug/Debug.hpp" // for assert
 
 #include "core/config.h"
 #if HAVE_ENDIAN_H

@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapSector.hpp"
 #include "core/porting.h"
 #include "core/profiler.h"
-#include "reflowscan.h"
+#include "world/reflowscan.h"
 #include "serialization.h"
 #include "core/settings.h"
 #include "algorithm/voxelalgorithms.h"

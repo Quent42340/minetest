@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/string.h"
 #include "util/numeric.h"
 #include "core/constants.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "core/settings.h"
 #include "core/log.h"
 

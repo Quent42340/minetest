@@ -40,7 +40,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/server.h"
 #include "server/serverobject.h"
 #include "core/settings.h"
-#include "voxel.h"
+#include "world/voxel.h"
 
 
 ////

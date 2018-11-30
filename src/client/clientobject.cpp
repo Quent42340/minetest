@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "clientobject.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "core/porting.h"
 
 /*

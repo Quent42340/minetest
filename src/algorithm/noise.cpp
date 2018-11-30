@@ -27,7 +27,7 @@
 #include "algorithm/noise.h"
 #include <iostream>
 #include <cstring> // memset
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "util/numeric.h"
 #include "util/string.h"
 #include "core/exceptions.h"

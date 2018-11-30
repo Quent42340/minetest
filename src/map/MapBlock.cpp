@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/nodemetadata.h"
 #include "gamedef.h"
 #include "core/log.h"
-#include "nameidmapping.h"
+#include "world/nameidmapping.h"
 #include "content_mapnode.h" // For legacy name-id mapping
 #include "content_nodemeta.h" // For legacy deserialization
 #include "serialization.h"

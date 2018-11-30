@@ -30,11 +30,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #endif
 #include "core/log.h"
 #include "core/settings.h"
-#include "nameidmapping.h"
+#include "world/nameidmapping.h"
 #include "util/numeric.h"
 #include "util/serialize.h"
 #include "core/exceptions.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "gamedef.h"
 #include "map/MapNode.hpp"
 #include <fstream> // Used in applyTextureOverrides()

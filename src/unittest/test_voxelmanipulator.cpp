@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "gamedef.h"
 #include "core/log.h"
-#include "voxel.h"
+#include "world/voxel.h"
 
 class TestVoxelManipulator : public TestBase {
 public:

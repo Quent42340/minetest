@@ -44,7 +44,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #endif
 
 #include "core/config.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "filesys.h"
 #include "core/log.h"
 #include "util/string.h"

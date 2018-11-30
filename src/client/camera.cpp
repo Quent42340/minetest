@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "camera.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "client.h"
 #include "map/Map.hpp"
 #include "clientmap.h"     // MapDrawControl

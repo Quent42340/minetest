@@ -20,7 +20,7 @@
  */
 
 #include "guiKeyChangeMenu.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "serialization.h"
 #include <string>
 #include <IGUICheckBox.h>

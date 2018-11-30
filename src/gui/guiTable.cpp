@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <IGUIFont.h>
 #include <IGUIScrollBar.h>
 #include "client/renderingengine.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "core/log.h"
 #include "client/tile.h"
 #include "gettime.h"

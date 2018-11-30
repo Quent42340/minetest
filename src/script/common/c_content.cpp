@@ -33,7 +33,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapgen/mg_schematic.h"
 #include "algorithm/noise.h"
 #include "util/pointedthing.h"
-#include "core/debug.h" // For FATAL_ERROR
+#include "debug/Debug.hpp" // For FATAL_ERROR
 #include <json/json.h>
 
 struct EnumString es_TileAnimationType[] =

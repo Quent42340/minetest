@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "mesh.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "core/log.h"
 #include "irrMap.h"
 #include <iostream>

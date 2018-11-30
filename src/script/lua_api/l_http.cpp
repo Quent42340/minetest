@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_http.h"
 #include "httpfetch.h"
 #include "core/settings.h"
-#include "core/debug.h"
+#include "debug/Debug.hpp"
 #include "core/log.h"
 
 #include <algorithm>

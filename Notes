@@ -14,11 +14,16 @@ Notes
 • TODO: `content_mapnode`
 • TODO: `content_nodemeta`
 
+# Debug
+
+• TODO: `debug`
+• TODO: `quicktune`
+• TODO: `quicktune_shortcutter`
+
 ## Core
 
 • TODO: `config`
 • TODO: `constants`
-• TODO: `debug`
 • TODO: `defaultsettings`
 • TODO: `exceptions`
 • TODO: `log`
@@ -51,6 +56,7 @@ Notes
 • TODO: `inventorymanager`
 • TODO: `itemgroup`
 • TODO: `itemstackmetadata`
+• TODO: `tool`
 
 ## Network
 
@@ -58,9 +64,12 @@ Notes
 • TODO: `chat`
 • TODO: `chat_interface`
 • TODO: `chatmessage`
+• TODO: `HudElement`
+• TODO: `modchannels`
 • TODO: `rollback`
 • TODO: `rollback_interface`
 • TODO: `serialization`
+• TODO: `terminal_chat_console`
 
 ## Server
 
@@ -95,28 +104,22 @@ Notes
 • TODO: `CloudParams`
 • TODO: `collision`
 • TODO: `daynightratio`
+• TODO: `EmergeManager`
+• TODO: `EmergeThread`
 • TODO: `environment`
 • TODO: `light`
 • TODO: `metadata`
+• TODO: `nameidmapping`
 • TODO: `nodedef`
 • TODO: `nodemetadata`
 • TODO: `nodetimer`
+• TODO: `reflowscan`
+• TODO: `voxel`
 
 ## Misc
 
-• TODO: `EmergeManager`
-• TODO: `EmergeThread`
-• TODO: `HudElement`
-• TODO: `modchannels`
 • TODO: `modifiedstate`
 • TODO: `MtEvent`
-• TODO: `nameidmapping`
-• TODO: `quicktune`
-• TODO: `quicktune_shortcutter`
-• TODO: `reflowscan`
 • TODO: `sound`
-• TODO: `terminal_chat_console`
 • TODO: `tileanimation`
-• TODO: `tool`
-• TODO: `voxel`
 
