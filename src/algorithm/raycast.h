@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "voxelalgorithms.h"
+#include "algorithm/voxelalgorithms.h"
 #include "util/pointedthing.h"
 
 //! Sorts PointedThings based on their distance.

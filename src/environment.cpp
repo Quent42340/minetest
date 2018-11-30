@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <fstream>
 #include "environment.h"
 #include "collision.h"
-#include "raycast.h"
+#include "algorithm/raycast.h"
 #include "server/serverobject.h"
 #include "scripting_server.h"
 #include "server/server.h"

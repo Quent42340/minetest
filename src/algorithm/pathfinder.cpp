@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 /* Includes                                                                   */
 /******************************************************************************/
 
-#include "pathfinder.h"
+#include "algorithm/pathfinder.h"
 #include "server/serverenvironment.h"
 #include "server/server.h"
 #include "nodedef.h"

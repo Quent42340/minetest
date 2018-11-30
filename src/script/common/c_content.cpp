@@ -31,7 +31,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/serverobject.h"
 #include "core/porting.h"
 #include "mapgen/mg_schematic.h"
-#include "noise.h"
+#include "algorithm/noise.h"
 #include "util/pointedthing.h"
 #include "core/debug.h" // For FATAL_ERROR
 #include <json/json.h>

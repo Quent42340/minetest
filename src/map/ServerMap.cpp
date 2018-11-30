@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "reflowscan.h"
 #include "serialization.h"
 #include "core/settings.h"
-#include "voxelalgorithms.h"
+#include "algorithm/voxelalgorithms.h"
 #include "database/database.h"
 #include "database/database-dummy.h"
 #include "database/database-sqlite3.h"

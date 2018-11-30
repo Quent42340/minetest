@@ -17,7 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "voxelalgorithms.h"
+#include "algorithm/voxelalgorithms.h"
 #include "nodedef.h"
 #include "map/MapBlock.hpp"
 #include "map/MMVManip.hpp"

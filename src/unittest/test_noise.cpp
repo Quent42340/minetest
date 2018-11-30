@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <cmath>
 #include "core/exceptions.h"
-#include "noise.h"
+#include "algorithm/noise.h"
 
 class TestNoise : public TestBase {
 public:

@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "lua_api/l_base.h"
 #include "server/serverenvironment.h"
-#include "raycast.h"
+#include "algorithm/raycast.h"
 
 class ModApiEnvMod : public ModApiBase {
 private:

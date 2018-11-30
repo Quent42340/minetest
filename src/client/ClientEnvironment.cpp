@@ -29,8 +29,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "collision.h"
 #include "nodedef.h"
 #include "core/profiler.h"
-#include "raycast.h"
-#include "voxelalgorithms.h"
+#include "algorithm/raycast.h"
+#include "algorithm/voxelalgorithms.h"
 #include "core/settings.h"
 #include "content_cao.h"
 #include <algorithm>

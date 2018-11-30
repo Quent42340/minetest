@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "voxel.h"
-#include "noise.h"
+#include "algorithm/noise.h"
 #include "mapgen.h"
 
 #define VMANIP_FLAG_DUNGEON_INSIDE VOXELFLAG_CHECKED1

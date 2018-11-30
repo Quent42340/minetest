@@ -24,7 +24,7 @@
  */
 
 #include <cmath>
-#include "noise.h"
+#include "algorithm/noise.h"
 #include <iostream>
 #include <cstring> // memset
 #include "core/debug.h"

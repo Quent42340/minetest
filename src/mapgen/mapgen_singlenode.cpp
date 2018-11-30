@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapNode.hpp"
 #include "map/Map.hpp"
 #include "nodedef.h"
-#include "voxelalgorithms.h"
+#include "algorithm/voxelalgorithms.h"
 #include "EmergeManager.hpp"
 
 

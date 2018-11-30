@@ -39,7 +39,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapgen/treegen.h"
 #include "map/ServerMap.hpp"
 #include "EmergeManager.hpp"
-#include "pathfinder.h"
+#include "algorithm/pathfinder.h"
 #include "face_position_cache.h"
 #include "remoteplayer.h"
 #ifndef SERVER

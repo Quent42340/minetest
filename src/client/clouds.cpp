@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "client/renderingengine.h"
 #include "clouds.h"
-#include "noise.h"
+#include "algorithm/noise.h"
 #include "core/constants.h"
 #include "core/debug.h"
 #include "core/profiler.h"

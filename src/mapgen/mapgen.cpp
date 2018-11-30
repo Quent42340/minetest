@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "mapgen.h"
 #include "voxel.h"
-#include "noise.h"
+#include "algorithm/noise.h"
 #include "gamedef.h"
 #include "mg_biome.h"
 #include "map/MapBlock.hpp"
@@ -32,7 +32,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/PlayerSAO.h"
 #include "nodedef.h"
 #include "EmergeManager.hpp"
-#include "voxelalgorithms.h"
+#include "algorithm/voxelalgorithms.h"
 #include "core/porting.h"
 #include "core/profiler.h"
 #include "core/settings.h"

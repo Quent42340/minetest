@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/renderingengine.h"
 #include "core/settings.h"
 #include "wieldmesh.h"
-#include "noise.h"         // easeCurve
+#include "algorithm/noise.h"         // easeCurve
 #include "sound.h"
 #include "MtEvent.hpp"
 #include "nodedef.h"

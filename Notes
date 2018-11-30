@@ -2,6 +2,18 @@ Notes
 
 # Refactoring
 
+## Algorithm
+
+• TODO: `noise`
+• TODO: `pathfinder`
+• TODO: `raycast`
+• TODO: `voxelalgorithms`
+
+## Content
+
+• TODO: `content_mapnode`
+• TODO: `content_nodemeta`
+
 ## Core
 
 • TODO: `config`
@@ -16,68 +28,6 @@ Notes
 • TODO: `settings`
 • TODO: `translation`
 • TODO: `version`
-
-## Server
-
-• TODO: `server`
-• TODO: `serverenvironment`
-• TODO: `serverlist`
-
-### Object
-
-• TODO: `activeobject`
-• TODO: `genericobject`
-• TODO: `objdef`
-• TODO: `object_properties`
-• TODO: `remoteplayer`
-• TODO: `serverobject`
-• TODO: `staticobject`
-
-## Network
-
-• TODO: `ban`
-• TODO: `chat`
-• TODO: `chat_interface`
-• TODO: `chatmessage`
-• TODO: `rollback`
-• TODO: `rollback_interface`
-• TODO: `serialization`
-
-### Client
-
-• TODO: `clientiface`
-• TODO: `clientsimpleobject`
-
-## World
-
-• TODO: `CloudParams`
-• TODO: `collision`
-• TODO: `daynightratio`
-• TODO: `light`
-• TODO: `metadata`
-• TODO: `nodedef`
-• TODO: `nodemetadata`
-• TODO: `nodetimer`
-
-## Content
-
-• TODO: `content_mapnode`
-• TODO: `content_nodemeta`
-• TODO: `content_sao`
-
-## Utils
-
-• TODO: `convert_json`
-• TODO: `filesys`
-• TODO: `gettext`
-• TODO: `gettime`
-
-## Algorithm
-
-• TODO: `noise`
-• TODO: `pathfinder`
-• TODO: `raycast`
-• TODO: `voxelalgorithms`
 
 ## Game
 
@@ -102,11 +52,60 @@ Notes
 • TODO: `itemgroup`
 • TODO: `itemstackmetadata`
 
+## Network
+
+• TODO: `ban`
+• TODO: `chat`
+• TODO: `chat_interface`
+• TODO: `chatmessage`
+• TODO: `rollback`
+• TODO: `rollback_interface`
+• TODO: `serialization`
+
+## Server
+
+• TODO: `server`
+• TODO: `serverenvironment`
+• TODO: `serverlist`
+
+### Client
+
+• TODO: `clientiface`
+• TODO: `clientsimpleobject`
+
+### Object
+
+• TODO: `activeobject`
+• TODO: `genericobject`
+• TODO: `objdef`
+• TODO: `object_properties`
+• TODO: `remoteplayer`
+• TODO: `serverobject`
+• TODO: `staticobject`
+
+## Utils
+
+• TODO: `convert_json`
+• TODO: `filesys`
+• TODO: `gettext`
+• TODO: `gettime`
+
+## World
+
+• TODO: `CloudParams`
+• TODO: `collision`
+• TODO: `daynightratio`
+• TODO: `environment`
+• TODO: `light`
+• TODO: `metadata`
+• TODO: `nodedef`
+• TODO: `nodemetadata`
+• TODO: `nodetimer`
+
 ## Misc
 
 • TODO: `EmergeManager`
 • TODO: `EmergeThread`
-• TODO: `environment`
 • TODO: `HudElement`
 • TODO: `modchannels`
 • TODO: `modifiedstate`

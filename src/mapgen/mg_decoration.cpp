@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mg_decoration.h"
 #include "mg_schematic.h"
 #include "mapgen.h"
-#include "noise.h"
+#include "algorithm/noise.h"
 #include "map/Map.hpp"
 #include "map/MMVManip.hpp"
 #include "core/log.h"

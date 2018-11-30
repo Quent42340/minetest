@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/ServerMap.hpp"
 #include "core/porting.h"
 #include "core/profiler.h"
-#include "raycast.h"
+#include "algorithm/raycast.h"
 #include "remoteplayer.h"
 #include "scripting_server.h"
 #include "server/server.h"

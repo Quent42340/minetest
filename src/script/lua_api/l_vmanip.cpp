@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapBlock.hpp"
 #include "server/server.h"
 #include "mapgen/mapgen.h"
-#include "voxelalgorithms.h"
+#include "algorithm/voxelalgorithms.h"
 
 // garbage collector
 int LuaVoxelManip::gc_object(lua_State *L)

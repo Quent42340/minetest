@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/serverenvironment.h"
 #include "nodedef.h"
 #include "treegen.h"
-#include "voxelalgorithms.h"
+#include "algorithm/voxelalgorithms.h"
 
 namespace treegen
 {

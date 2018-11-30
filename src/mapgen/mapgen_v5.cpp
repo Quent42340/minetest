@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "mapgen.h"
 #include "voxel.h"
-#include "noise.h"
+#include "algorithm/noise.h"
 #include "map/MapBlock.hpp"
 #include "map/MapNode.hpp"
 #include "map/Map.hpp"
@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
 #include "nodedef.h"
-#include "voxelalgorithms.h"
+#include "algorithm/voxelalgorithms.h"
 //#include "core/profiler.h" // For TimeTaker
 #include "core/settings.h" // For g_settings
 #include "EmergeManager.hpp"

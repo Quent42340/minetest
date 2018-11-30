@@ -4,6 +4,7 @@ add_subdirectory(unittest)
 add_subdirectory(irrlicht_changes)
 
 file(GLOB         legacy_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.cpp")
+file(GLOB_RECURSE algorithm_SRCS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "algorithm/*.cpp")
 file(GLOB_RECURSE content_SRCS   RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "content/*.cpp")
 file(GLOB_RECURSE core_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "core/*.cpp")
 file(GLOB_RECURSE craft_SRCS     RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "craft/*.cpp")
@@ -25,6 +26,7 @@ set(common_SRCS
 	${common_SCRIPT_SRCS}
 	${common_network_SRCS}
 	${legacy_SRCS}
+	${algorithm_SRCS}
 	${content_SRCS}
 	${core_SRCS}
 	${craft_SRCS}

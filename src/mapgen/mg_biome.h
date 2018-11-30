@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "objdef.h"
 #include "nodedef.h"
-#include "noise.h"
+#include "algorithm/noise.h"
 
 class Server;
 class Settings;

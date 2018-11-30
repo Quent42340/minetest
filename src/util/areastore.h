@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "irr_v3d.h"
-#include "noise.h" // for PcgRandom
+#include "algorithm/noise.h" // for PcgRandom
 #include <map>
 #include <list>
 #include <vector>

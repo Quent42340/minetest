@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapBlock.hpp"
 #include "filesys.h"
 #include "voxel.h"
-#include "voxelalgorithms.h"
+#include "algorithm/voxelalgorithms.h"
 #include "core/porting.h"
 #include "serialization.h"
 #include "nodemetadata.h"

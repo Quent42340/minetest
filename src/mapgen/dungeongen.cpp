@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cmath>
 #include "mapgen.h"
 #include "voxel.h"
-#include "noise.h"
+#include "algorithm/noise.h"
 #include "map/MapBlock.hpp"
 #include "map/MapNode.hpp"
 #include "map/Map.hpp"
