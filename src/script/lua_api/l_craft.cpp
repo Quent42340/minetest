@@ -24,7 +24,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_converter.h"
 #include "common/c_content.h"
 #include "server.h"
-#include "craftdef.h"
+#include "craft/ICraftDefManager.hpp"
+#include "craft/CraftDefinitionShaped.hpp"
+#include "craft/CraftDefinitionShapeless.hpp"
+#include "craft/CraftDefinitionToolRepair.hpp"
+#include "craft/CraftDefinitionCooking.hpp"
+#include "craft/CraftDefinitionFuel.hpp"
 
 struct EnumString ModApiCraft::es_CraftMethod[] =
 {
@@ -169,7 +174,7 @@ int ModApiCraft::l_register_craft(lua_State *L)
 						" (output=\"" + output + "\")");
 		}
 
-		CraftDefinition *def = new CraftDefinitionShaped(
+		ICraftDefinition *def = new CraftDefinitionShaped(
 				output, width, recipe, replacements);
 		craftdef->registerCraft(def, getServer(L));
 	}
@@ -201,7 +206,7 @@ int ModApiCraft::l_register_craft(lua_State *L)
 						" (output=\"" + output + "\")");
 		}
 
-		CraftDefinition *def = new CraftDefinitionShapeless(
+		ICraftDefinition *def = new CraftDefinitionShapeless(
 				output, recipe, replacements);
 		craftdef->registerCraft(def, getServer(L));
 	}
@@ -212,7 +217,7 @@ int ModApiCraft::l_register_craft(lua_State *L)
 		float additional_wear = getfloatfield_default(L, table,
 				"additional_wear", 0.0);
 
-		CraftDefinition *def = new CraftDefinitionToolRepair(
+		ICraftDefinition *def = new CraftDefinitionToolRepair(
 				additional_wear);
 		craftdef->registerCraft(def, getServer(L));
 	}
@@ -242,7 +247,7 @@ int ModApiCraft::l_register_craft(lua_State *L)
 						" (cooking output=\"" + output + "\")");
 		}
 
-		CraftDefinition *def = new CraftDefinitionCooking(
+		ICraftDefinition *def = new CraftDefinitionCooking(
 				output, recipe, cooktime, replacements);
 		craftdef->registerCraft(def, getServer(L));
 	}
@@ -266,7 +271,7 @@ int ModApiCraft::l_register_craft(lua_State *L)
 						" (fuel recipe=\"" + recipe + "\")");
 		}
 
-		CraftDefinition *def = new CraftDefinitionFuel(
+		ICraftDefinition *def = new CraftDefinitionFuel(
 				recipe, burntime, replacements);
 		craftdef->registerCraft(def, getServer(L));
 	}
@@ -413,7 +418,7 @@ int ModApiCraft::l_get_craft_result(lua_State *L)
 
 
 static void push_craft_recipe(lua_State *L, IGameDef *gdef,
-		const CraftDefinition *recipe,
+		const ICraftDefinition *recipe,
 		const CraftOutput &tmpout)
 {
 	CraftInput input = recipe->getInput(tmpout, gdef);
@@ -456,7 +461,7 @@ static void push_craft_recipe(lua_State *L, IGameDef *gdef,
 }
 
 static void push_craft_recipes(lua_State *L, IGameDef *gdef,
-		const std::vector<CraftDefinition*> &recipes,
+		const std::vector<ICraftDefinition*> &recipes,
 		const CraftOutput &output)
 {
 	lua_createtable(L, recipes.size(), 0);
@@ -466,7 +471,7 @@ static void push_craft_recipes(lua_State *L, IGameDef *gdef,
 		return;
 	}
 
-	std::vector<CraftDefinition*>::const_iterator it = recipes.begin();
+	std::vector<ICraftDefinition*>::const_iterator it = recipes.begin();
 	for (unsigned i = 0; it != recipes.end(); ++it) {
 		lua_newtable(L);
 		push_craft_recipe(L, gdef, *it, output);
@@ -483,7 +488,7 @@ int ModApiCraft::l_get_craft_recipe(lua_State *L)
 	std::string item = luaL_checkstring(L, 1);
 	Server *server = getServer(L);
 	CraftOutput output(item, 0);
-	std::vector<CraftDefinition*> recipes = server->cdef()
+	std::vector<ICraftDefinition*> recipes = server->cdef()
 			->getCraftRecipes(output, server, 1);
 
 	lua_createtable(L, 1, 0);
@@ -506,7 +511,7 @@ int ModApiCraft::l_get_all_craft_recipes(lua_State *L)
 	std::string item = luaL_checkstring(L, 1);
 	Server *server = getServer(L);
 	CraftOutput output(item, 0);
-	std::vector<CraftDefinition*> recipes = server->cdef()
+	std::vector<ICraftDefinition*> recipes = server->cdef()
 			->getCraftRecipes(output, server);
 
 	push_craft_recipes(L, server, recipes, output);

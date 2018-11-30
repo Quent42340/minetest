@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "localplayer.h"
 #include <cmath>
-#include "event.h"
+#include "MtEvent.hpp"
 #include "collision.h"
 #include "nodedef.h"
 #include "settings.h"

@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "wieldmesh.h"
 #include "noise.h"         // easeCurve
 #include "sound.h"
-#include "event.h"
+#include "MtEvent.hpp"
 #include "nodedef.h"
 #include "util/numeric.h"
 #include "constants.h"

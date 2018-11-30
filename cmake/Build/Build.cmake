@@ -5,6 +5,7 @@ add_subdirectory(irrlicht_changes)
 
 file(GLOB         core_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.cpp")
 file(GLOB_RECURSE content_SRCS   RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "content/*.cpp")
+file(GLOB_RECURSE craft_SRCS     RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "craft/*.cpp")
 file(GLOB_RECURSE database_SRCS  RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "database/*.cpp")
 file(GLOB_RECURSE gui_SRCS       RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "gui/*.cpp")
 file(GLOB_RECURSE item_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "item/*.cpp")
@@ -24,6 +25,7 @@ set(common_SRCS
 	${common_network_SRCS}
 	${content_SRCS}
 	${core_SRCS}
+	${craft_SRCS}
 	${database_SRCS}
 	${item_SRCS}
 	${map_SRCS}

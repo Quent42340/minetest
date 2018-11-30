@@ -42,7 +42,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "scripting_server.h"
 #include "nodedef.h"
 #include "item/CItemDefManager.hpp"
-#include "craftdef.h"
+#include "craft/CCraftDefManager.hpp"
 #include "EmergeManager.hpp"
 #include "mapgen/mapgen.h"
 #include "mapgen/mg_biome.h"
