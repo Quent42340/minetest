@@ -24,7 +24,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <IGUIStaticText.h>
 #include <IGUIFont.h>
 
-#include "porting.h"
+#include "core/porting.h"
 #include "gettext.h"
 
 const int ID_oldPassword = 256;

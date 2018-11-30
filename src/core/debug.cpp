@@ -18,9 +18,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 
-#include "porting.h"
-#include "debug.h"
-#include "exceptions.h"
+#include "core/porting.h"
+#include "core/debug.h"
+#include "core/exceptions.h"
 #include <cstdio>
 #include <cstdlib>
 #include <cstring>
@@ -28,11 +28,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <sstream>
 #include <thread>
 #include "threading/mutex_auto_lock.h"
-#include "config.h"
+#include "core/config.h"
 
 #ifdef _MSC_VER
 	#include <dbghelp.h>
-	#include "version.h"
+	#include "core/version.h"
 	#include "filesys.h"
 #endif
 

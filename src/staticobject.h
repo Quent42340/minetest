@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <sstream>
 #include <vector>
 #include <map>
-#include "debug.h"
+#include "core/debug.h"
 
 class ServerActiveObject;
 

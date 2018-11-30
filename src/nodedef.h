@@ -32,7 +32,7 @@ class Client;
 #endif
 #include "itemgroup.h"
 #include "sound.h" // SimpleSoundSpec
-#include "constants.h" // BS
+#include "core/constants.h" // BS
 #include "tileanimation.h"
 
 class IItemDefManager;

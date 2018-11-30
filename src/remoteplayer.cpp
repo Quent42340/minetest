@@ -25,9 +25,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/PlayerSAO.h"
 #include "filesys.h"
 #include "gamedef.h"
-#include "porting.h"  // strlcpy
+#include "core/porting.h"  // strlcpy
 #include "server.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "convert_json.h"
 
 /*

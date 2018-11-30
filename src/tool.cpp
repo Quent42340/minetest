@@ -19,9 +19,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "tool.h"
 #include "itemgroup.h"
-#include "log.h"
+#include "core/log.h"
 #include "inventory.h"
-#include "exceptions.h"
+#include "core/exceptions.h"
 #include "util/serialize.h"
 #include "util/numeric.h"
 

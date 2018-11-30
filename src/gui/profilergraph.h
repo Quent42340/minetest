@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <utility>
 #include <IGUIFont.h>
 #include <IVideoDriver.h>
-#include "profiler.h"
+#include "core/profiler.h"
 
 /* Profiler display */
 class ProfilerGraph

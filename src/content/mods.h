@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <json/json.h>
 #include <unordered_set>
 #include "util/basic_macros.h"
-#include "config.h"
+#include "core/config.h"
 #include "metadata.h"
 
 #define MODNAME_ALLOWED_CHARS "abcdefghijklmnopqrstuvwxyz0123456789_"

@@ -39,9 +39,9 @@ with this program; ifnot, write to the Free Software Foundation, Inc.,
 #include <cmath>
 #include <vorbis/vorbisfile.h>
 #include <cassert>
-#include "log.h"
+#include "core/log.h"
 #include "util/numeric.h" // myrand()
-#include "porting.h"
+#include "core/porting.h"
 #include <vector>
 #include <fstream>
 #include <unordered_map>

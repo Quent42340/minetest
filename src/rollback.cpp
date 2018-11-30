@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <fstream>
 #include <list>
 #include <sstream>
-#include "log.h"
+#include "core/log.h"
 #include "map/MapNode.hpp"
 #include "gamedef.h"
 #include "nodedef.h"

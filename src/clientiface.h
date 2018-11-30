@@ -21,11 +21,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irr_v3d.h"                   // for irrlicht datatypes
 
-#include "constants.h"
+#include "core/constants.h"
 #include "serialization.h"             // for SER_FMT_VER_INVALID
 #include "network/networkpacket.h"
 #include "network/networkprotocol.h"
-#include "porting.h"
+#include "core/porting.h"
 
 #include <list>
 #include <vector>

@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "filesys.h"
-#include "porting.h"
+#include "core/porting.h"
 
 #include "client/game/GameOnDemandSoundFetcher.h"
 

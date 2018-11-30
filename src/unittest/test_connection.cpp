@@ -19,9 +19,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "test.h"
 
-#include "log.h"
-#include "porting.h"
-#include "settings.h"
+#include "core/log.h"
+#include "core/porting.h"
+#include "core/settings.h"
 #include "util/serialize.h"
 #include "network/connection.h"
 #include "network/networkpacket.h"

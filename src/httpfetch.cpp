@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "httpfetch.h"
-#include "porting.h" // for sleep_ms(), get_sysinfo(), secure_rand_fill_buf()
+#include "core/porting.h" // for sleep_ms(), get_sysinfo(), secure_rand_fill_buf()
 #include <iostream>
 #include <sstream>
 #include <list>
@@ -27,14 +27,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <mutex>
 #include "network/socket.h" // for select()
 #include "threading/event.h"
-#include "config.h"
-#include "exceptions.h"
-#include "debug.h"
-#include "log.h"
+#include "core/config.h"
+#include "core/exceptions.h"
+#include "core/debug.h"
+#include "core/log.h"
 #include "util/container.h"
 #include "util/thread.h"
-#include "version.h"
-#include "settings.h"
+#include "core/version.h"
+#include "core/settings.h"
 #include "noise.h"
 
 std::mutex g_httpfetch_mutex;

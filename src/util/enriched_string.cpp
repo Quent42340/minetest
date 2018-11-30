@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "enriched_string.h"
 #include "util/string.h"
-#include "log.h"
+#include "core/log.h"
 using namespace irr::video;
 
 EnrichedString::EnrichedString()

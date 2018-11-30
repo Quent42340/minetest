@@ -44,19 +44,19 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "minimap.h"
 #include "modchannels.h"
 #include "content/mods.h"
-#include "profiler.h"
+#include "core/profiler.h"
 #include "shader.h"
 #include "gettext.h"
 #include "clientmap.h"
 #include "clientmedia.h"
-#include "version.h"
+#include "core/version.h"
 #include "database/database-sqlite3.h"
 #include "serialization.h"
 #include "guiscalingfilter.h"
 #include "script/scripting_client.h"
 #include "client/game/Game.h"
 #include "chatmessage.h"
-#include "translation.h"
+#include "core/translation.h"
 
 extern gui::IGUIEnvironment* guienv;
 

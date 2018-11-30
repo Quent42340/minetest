@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "test.h"
 
-#include "exceptions.h"
+#include "core/exceptions.h"
 #include "remoteplayer.h"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"

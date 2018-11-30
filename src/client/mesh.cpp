@@ -18,8 +18,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "mesh.h"
-#include "debug.h"
-#include "log.h"
+#include "core/debug.h"
+#include "core/log.h"
 #include "irrMap.h"
 #include <iostream>
 #include <IAnimatedMesh.h>

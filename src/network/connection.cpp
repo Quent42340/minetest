@@ -23,16 +23,16 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cmath>
 #include "connection.h"
 #include "serialization.h"
-#include "log.h"
-#include "porting.h"
+#include "core/log.h"
+#include "core/porting.h"
 #include "network/connectionthreads.h"
 #include "network/networkpacket.h"
 #include "network/peerhandler.h"
 #include "util/serialize.h"
 #include "util/numeric.h"
 #include "util/string.h"
-#include "settings.h"
-#include "profiler.h"
+#include "core/settings.h"
+#include "core/profiler.h"
 
 namespace con
 {

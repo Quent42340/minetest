@@ -20,9 +20,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_settings.h"
 #include "lua_api/l_internal.h"
 #include "cpp_api/s_security.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "noise.h"
-#include "log.h"
+#include "core/log.h"
 
 
 #define SET_SECURITY_CHECK(L, name) \

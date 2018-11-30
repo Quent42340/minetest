@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "objdef.h"
 #include "util/numeric.h"
-#include "log.h"
+#include "core/log.h"
 #include "gamedef.h"
 
 ObjDefManager::ObjDefManager(IGameDef *gamedef, ObjDefType type)

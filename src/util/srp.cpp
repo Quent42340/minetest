@@ -44,7 +44,7 @@
 #include <cstdio>
 #include <cstdint>
 
-#include <config.h>
+#include "core/config.h"
 
 #if USE_SYSTEM_GMP || defined (__ANDROID__) || defined (ANDROID)
 	#include <gmp.h>

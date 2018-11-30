@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <IGUIStaticText.h>
 #include <IGUIFont.h>
 #include "intlGUIEditBox.h"
-#include "porting.h"
+#include "core/porting.h"
 
 #include "gettext.h"
 

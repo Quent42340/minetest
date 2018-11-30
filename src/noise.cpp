@@ -27,10 +27,10 @@
 #include "noise.h"
 #include <iostream>
 #include <cstring> // memset
-#include "debug.h"
+#include "core/debug.h"
 #include "util/numeric.h"
 #include "util/string.h"
-#include "exceptions.h"
+#include "core/exceptions.h"
 
 #define NOISE_MAGIC_X    1619
 #define NOISE_MAGIC_Y    31337

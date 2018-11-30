@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "test.h"
 
 #include <string>
-#include "exceptions.h"
+#include "core/exceptions.h"
 #include "client/keycode.h"
 
 class TestKeycode : public TestBase {

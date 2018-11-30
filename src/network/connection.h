@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlichttypes_bloated.h"
 #include "peerhandler.h"
 #include "socket.h"
-#include "constants.h"
+#include "core/constants.h"
 #include "util/pointer.h"
 #include "util/container.h"
 #include "util/thread.h"

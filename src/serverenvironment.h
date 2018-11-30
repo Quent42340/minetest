@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "activeobject.h"
 #include "environment.h"
 #include "map/MapNode.hpp"
-#include "settings.h"
+#include "core/settings.h"
 #include "util/numeric.h"
 #include <set>
 

@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "player/PlayerSettings.h"
-#include "settings.h"
+#include "core/settings.h"
 
 void PlayerSettings::readGlobalSettings() {
 	free_move = g_settings->getBool("free_move");

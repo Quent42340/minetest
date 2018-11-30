@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <memory>
 #include <string>
 #include "irrlichttypes_extrabloated.h"
-#include "debug.h"
+#include "core/debug.h"
 
 class ITextureSource;
 class Camera;

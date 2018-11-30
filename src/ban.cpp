@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <set>
 #include "util/strfnd.h"
 #include "util/string.h"
-#include "log.h"
+#include "core/log.h"
 #include "filesys.h"
 
 BanManager::BanManager(const std::string &banfilepath):

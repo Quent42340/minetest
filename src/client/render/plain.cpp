@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "plain.h"
-#include "settings.h"
+#include "core/settings.h"
 
 inline u32 scaledown(u32 coef, u32 size)
 {

@@ -25,8 +25,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "nodedef.h"
 #include "map/Map.hpp" //for MMVManip
 #include "util/numeric.h"
-#include "porting.h"
-#include "settings.h"
+#include "core/porting.h"
+#include "core/settings.h"
 
 
 ///////////////////////////////////////////////////////////////////////////////

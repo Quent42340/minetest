@@ -21,8 +21,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cstdlib>
 #include "modalMenu.h"
 #include "gettext.h"
-#include "porting.h"
-#include "settings.h"
+#include "core/porting.h"
+#include "core/settings.h"
 
 #ifdef HAVE_TOUCHSCREENGUI
 #include "touchscreengui.h"

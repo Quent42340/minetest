@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 	See comments in porting.h
 */
 
-#include "porting.h"
+#include "core/porting.h"
 
 #if defined(__FreeBSD__)  || defined(__NetBSD__) || defined(__DragonFly__)
 	#include <sys/types.h>
@@ -43,12 +43,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 	#include <sys/pstat.h>
 #endif
 
-#include "config.h"
-#include "debug.h"
+#include "core/config.h"
+#include "core/debug.h"
 #include "filesys.h"
-#include "log.h"
+#include "core/log.h"
 #include "util/string.h"
-#include "settings.h"
+#include "core/settings.h"
 #include <list>
 #include <cstdarg>
 #include <cstdio>

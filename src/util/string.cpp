@@ -20,11 +20,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "string.h"
 #include "pointer.h"
 #include "numeric.h"
-#include "log.h"
+#include "core/log.h"
 
 #include "hex.h"
-#include "porting.h"
-#include "translation.h"
+#include "core/porting.h"
+#include "core/translation.h"
 
 #include <algorithm>
 #include <sstream>

@@ -19,9 +19,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "serialize.h"
 #include "pointer.h"
-#include "porting.h"
+#include "core/porting.h"
 #include "util/string.h"
-#include "exceptions.h"
+#include "core/exceptions.h"
 #include "irrlichttypes.h"
 
 #include <sstream>

@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapBlock.hpp"
 #include "server.h"
 #include "scripting_server.h"
-#include "profiler.h"
+#include "core/profiler.h"
 
 EmergeThread::EmergeThread(Server *server, int ethreadid) :
 	enable_mapgen_debug_info(false),

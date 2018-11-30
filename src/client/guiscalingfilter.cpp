@@ -18,8 +18,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "guiscalingfilter.h"
 #include "imagefilters.h"
-#include "porting.h"
-#include "settings.h"
+#include "core/porting.h"
+#include "core/settings.h"
 #include "util/numeric.h"
 #include <cstdio>
 #include "client/renderingengine.h"

@@ -38,9 +38,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "item/CItemDefManager.hpp"
 #include "quicktune_shortcutter.h"
 #include "raycast.h"
-#include "translation.h"
+#include "core/translation.h"
 #include "util/directiontables.h"
-#include "version.h"
+#include "core/version.h"
 
 /* Text input system */
 

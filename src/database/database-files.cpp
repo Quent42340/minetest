@@ -24,8 +24,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
 #include "remoteplayer.h"
-#include "settings.h"
-#include "porting.h"
+#include "core/settings.h"
+#include "core/porting.h"
 #include "filesys.h"
 #include "util/string.h"
 

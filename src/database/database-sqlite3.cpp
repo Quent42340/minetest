@@ -27,11 +27,11 @@ SQLite format specification:
 
 #include "database-sqlite3.h"
 
-#include "log.h"
+#include "core/log.h"
 #include "filesys.h"
-#include "exceptions.h"
-#include "settings.h"
-#include "porting.h"
+#include "core/exceptions.h"
+#include "core/settings.h"
+#include "core/porting.h"
 #include "util/string.h"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"

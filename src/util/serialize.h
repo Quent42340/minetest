@@ -20,10 +20,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "irrlichttypes_bloated.h"
-#include "exceptions.h" // for SerializationError
-#include "debug.h" // for assert
+#include "core/exceptions.h" // for SerializationError
+#include "core/debug.h" // for assert
 
-#include "config.h"
+#include "core/config.h"
 #if HAVE_ENDIAN_H
 	#ifdef _WIN32
 		#define __BYTE_ORDER 0

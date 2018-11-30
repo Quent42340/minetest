@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "test.h"
 
 #include <cmath>
-#include "settings.h"
+#include "core/settings.h"
 #include "noise.h"
 
 class TestSettings : public TestBase {

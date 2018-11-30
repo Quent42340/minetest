@@ -17,12 +17,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "config.h"
+#include "core/config.h"
 #if USE_CURSES
-#include "version.h"
+#include "core/version.h"
 #include "terminal_chat_console.h"
-#include "porting.h"
-#include "settings.h"
+#include "core/porting.h"
+#include "core/settings.h"
 #include "util/numeric.h"
 #include "util/string.h"
 #include "chat_interface.h"

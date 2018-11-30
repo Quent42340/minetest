@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "inventorymanager.h"
 #include "lua_api/l_inventory.h"
 #include "lua_api/l_item.h"
-#include "log.h"
+#include "core/log.h"
 
 // Return number of accepted items to be moved
 int ScriptApiDetached::detached_inventory_AllowMove(

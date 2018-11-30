@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "sha1.h"
 #include "srp.h"
 #include "util/string.h"
-#include "debug.h"
+#include "core/debug.h"
 
 // Get an sha-1 hash of the player's name combined with
 // the password entered. That's what the server uses as

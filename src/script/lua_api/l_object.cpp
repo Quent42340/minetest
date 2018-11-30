@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_playermeta.h"
 #include "common/c_converter.h"
 #include "common/c_content.h"
-#include "log.h"
+#include "core/log.h"
 #include "tool.h"
 #include "serverobject.h"
 #include "server/object/LuaEntitySAO.h"

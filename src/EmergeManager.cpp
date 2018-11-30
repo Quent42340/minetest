@@ -23,11 +23,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/thread.h"
 #include "threading/event.h"
 
-#include "config.h"
-#include "constants.h"
+#include "core/config.h"
+#include "core/constants.h"
 #include "environment.h"
 #include "EmergeThread.hpp"
-#include "log.h"
+#include "core/log.h"
 #include "map/Map.hpp"
 #include "map/MapBlock.hpp"
 #include "mapgen/mg_biome.h"
@@ -35,11 +35,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapgen/mg_decoration.h"
 #include "mapgen/mg_schematic.h"
 #include "nodedef.h"
-#include "profiler.h"
+#include "core/profiler.h"
 #include "scripting_server.h"
 #include "server.h"
 #include "serverobject.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "voxel.h"
 
 

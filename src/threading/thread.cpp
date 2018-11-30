@@ -25,8 +25,8 @@ DEALINGS IN THE SOFTWARE.
 
 #include "threading/thread.h"
 #include "threading/mutex_auto_lock.h"
-#include "log.h"
-#include "porting.h"
+#include "core/log.h"
+#include "core/porting.h"
 
 // for setName
 #if defined(__linux__)

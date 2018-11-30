@@ -28,10 +28,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "MtEvent.hpp"
 #include "collision.h"
 #include "nodedef.h"
-#include "profiler.h"
+#include "core/profiler.h"
 #include "raycast.h"
 #include "voxelalgorithms.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "content_cao.h"
 #include <algorithm>
 #include "client/renderingengine.h"

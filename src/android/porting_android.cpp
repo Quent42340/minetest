@@ -22,12 +22,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #endif
 
 #include "util/numeric.h"
-#include "porting.h"
+#include "core/porting.h"
 #include "porting_android.h"
 #include "threading/thread.h"
-#include "config.h"
+#include "core/config.h"
 #include "filesys.h"
-#include "log.h"
+#include "core/log.h"
 
 #include <sstream>
 #include <exception>

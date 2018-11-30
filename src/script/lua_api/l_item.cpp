@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
 #include "inventory.h"
-#include "log.h"
+#include "core/log.h"
 
 
 // garbage collector

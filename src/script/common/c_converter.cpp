@@ -27,7 +27,7 @@ extern "C" {
 #include "util/string.h"
 #include "common/c_converter.h"
 #include "common/c_internal.h"
-#include "constants.h"
+#include "core/constants.h"
 
 
 #define CHECK_TYPE(index, name, type) { \

@@ -28,10 +28,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <iomanip>
 #include "util/string.h"
 #include "util/numeric.h"
-#include "constants.h"
-#include "debug.h"
-#include "settings.h"
-#include "log.h"
+#include "core/constants.h"
+#include "core/debug.h"
+#include "core/settings.h"
+#include "core/log.h"
 
 #ifdef _WIN32
 // Without this some of the network functions are not found on mingw

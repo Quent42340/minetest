@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlichttypes.h"
 #include "util/enriched_string.h"
-#include "settings.h"
+#include "core/settings.h"
 
 // Chat console related classes
 

@@ -259,7 +259,7 @@ license you like.
 
 #if !defined(JSON_IS_AMALGAMATION)
 
-# include "version.h"
+# include "core/version.h"
 
 # if JSONCPP_USING_SECURE_MEMORY
 #  include "allocator.h" //typedef Allocator
@@ -326,7 +326,7 @@ typedef UInt64 LargestUInt;
 #define JSON_FORWARDS_H_INCLUDED
 
 #if !defined(JSON_IS_AMALGAMATION)
-#include "config.h"
+#include "core/config.h"
 #endif // if !defined(JSON_IS_AMALGAMATION)
 
 namespace Json {
@@ -2153,7 +2153,7 @@ JSON_API JSONCPP_OSTREAM& operator<<(JSONCPP_OSTREAM&, const Value& root);
 #include <sstream>
 
 #if !defined(JSON_IS_AMALGAMATION)
-#include "config.h"
+#include "core/config.h"
 #endif // if !defined(JSON_IS_AMALGAMATION)
 
 /** It should not be possible for a maliciously designed file to

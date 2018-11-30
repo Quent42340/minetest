@@ -19,9 +19,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "inventory.h"
 #include "serialization.h"
-#include "debug.h"
+#include "core/debug.h"
 #include <sstream>
-#include "log.h"
+#include "core/log.h"
 #include "item/IWritableItemDefManager.hpp"
 #include "util/strfnd.h"
 #include "content_mapnode.h" // For loading legacy MaterialItems

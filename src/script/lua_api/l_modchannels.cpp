@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include <cassert>
-#include <log.h>
+#include "core/log.h"
 #include "lua_api/l_modchannels.h"
 #include "l_internal.h"
 #include "modchannels.h"

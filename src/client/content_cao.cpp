@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/tile.h"
 #include "environment.h"
 #include "collision.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "serialization.h" // For decompressZlib
 #include "clientobject.h"
 #include "mesh.h"

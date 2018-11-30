@@ -20,8 +20,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "stereo.h"
 #include "client/camera.h"
-#include "constants.h"
-#include "settings.h"
+#include "core/constants.h"
+#include "core/settings.h"
 
 RenderingCoreStereo::RenderingCoreStereo(
 	IrrlichtDevice *_device, Client *_client, Hud *_hud)

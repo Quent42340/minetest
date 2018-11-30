@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/ServerMap.hpp"
 #include "map/MMVManip.hpp"
 #include "map/MapBlock.hpp"
-#include "log.h"
+#include "core/log.h"
 #include "util/numeric.h"
 #include "util/serialize.h"
 #include "serialization.h"

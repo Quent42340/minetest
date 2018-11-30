@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "metadata.h"
-#include "log.h"
+#include "core/log.h"
 
 /*
 	Metadata

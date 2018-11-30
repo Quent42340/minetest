@@ -27,15 +27,15 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <IGUIFont.h>
 #include <IGUIScrollBar.h>
 #include "client/renderingengine.h"
-#include "debug.h"
-#include "log.h"
+#include "core/debug.h"
+#include "core/log.h"
 #include "client/tile.h"
 #include "gettime.h"
 #include "util/string.h"
 #include "util/numeric.h"
 #include "util/string.h" // for parseColorString()
-#include "settings.h" // for settings
-#include "porting.h" // for dpi
+#include "core/settings.h" // for settings
+#include "core/porting.h" // for dpi
 #include "client/guiscalingfilter.h"
 
 /*

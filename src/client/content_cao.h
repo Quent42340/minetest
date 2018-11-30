@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "clientobject.h"
 #include "object_properties.h"
 #include "itemgroup.h"
-#include "constants.h"
+#include "core/constants.h"
 
 class Camera;
 class Client;

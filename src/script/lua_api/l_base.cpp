@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_internal.h"
 #include "cpp_api/s_base.h"
 #include "content/mods.h"
-#include "profiler.h"
+#include "core/profiler.h"
 #include "server.h"
 #include <algorithm>
 #include <cmath>

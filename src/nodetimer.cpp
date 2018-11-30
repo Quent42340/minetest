@@ -18,10 +18,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "nodetimer.h"
-#include "log.h"
+#include "core/log.h"
 #include "serialization.h"
 #include "util/serialize.h"
-#include "constants.h" // MAP_BLOCKSIZE
+#include "core/constants.h" // MAP_BLOCKSIZE
 
 /*
 	NodeTimer

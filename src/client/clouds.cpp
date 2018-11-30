@@ -20,10 +20,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/renderingengine.h"
 #include "clouds.h"
 #include "noise.h"
-#include "constants.h"
-#include "debug.h"
-#include "profiler.h"
-#include "settings.h"
+#include "core/constants.h"
+#include "core/debug.h"
+#include "core/profiler.h"
+#include "core/settings.h"
 #include <cmath>
 
 

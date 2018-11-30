@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/numeric.h"
 #include "util/directiontables.h"
 #include "mapblock_mesh.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "nodedef.h"
 #include "client/tile.h"
 #include "mesh.h"

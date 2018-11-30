@@ -22,14 +22,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <set>
 #include "irr_v3d.h"
 #include "map/MapNode.hpp"
-#include "exceptions.h"
-#include "constants.h"
+#include "core/exceptions.h"
+#include "core/constants.h"
 #include "staticobject.h"
 #include "nodemetadata.h"
 #include "nodetimer.h"
 #include "modifiedstate.h"
 #include "util/numeric.h" // getContainerPos
-#include "settings.h"
+#include "core/settings.h"
 #include "mapgen/mapgen.h"
 
 class Map;

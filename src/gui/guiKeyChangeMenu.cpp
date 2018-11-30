@@ -20,7 +20,7 @@
  */
 
 #include "guiKeyChangeMenu.h"
-#include "debug.h"
+#include "core/debug.h"
 #include "serialization.h"
 #include <string>
 #include <IGUICheckBox.h>
@@ -28,7 +28,7 @@
 #include <IGUIButton.h>
 #include <IGUIStaticText.h>
 #include <IGUIFont.h>
-#include "settings.h"
+#include "core/settings.h"
 #include <algorithm>
 
 #include "mainmenumanager.h"  // for g_gamecallback

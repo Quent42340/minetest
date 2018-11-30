@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cmath>
 #include "client.h"
 #include "clientmap.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "shader.h"
 #include "map/MapBlock.hpp"
 #include "client/renderingengine.h"

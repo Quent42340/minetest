@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "util/basic_macros.h"
-#include "porting.h"
+#include "core/porting.h"
 
 class IGameDef;
 class NodeDefManager;

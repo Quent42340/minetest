@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irr_v3d.h"
 #include <iostream>
 #include <cassert>
-#include "exceptions.h"
+#include "core/exceptions.h"
 #include "map/MapNode.hpp"
 #include <set>
 #include <list>

@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/base64.h"
 #include "chatmessage.h"
 #include "client/clientmedia.h"
-#include "log.h"
+#include "core/log.h"
 #include "map/ServerMap.hpp"
 #include "map/MapSector.hpp"
 #include "client/minimap.h"

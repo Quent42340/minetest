@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "config.h" // for USE_GETTEXT
+#include "core/config.h" // for USE_GETTEXT
 #include <string>
 
 #if USE_GETTEXT

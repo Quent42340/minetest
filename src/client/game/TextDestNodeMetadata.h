@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "client/client.h"
 #include "gui/guiFormSpecMenu.h"
-#include "log.h"
+#include "core/log.h"
 
 struct TextDestNodeMetadata : public TextDest {
 	TextDestNodeMetadata(v3s16 p, Client *client) {

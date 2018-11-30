@@ -1,0 +1,123 @@
+Notes
+
+# Refactoring
+
+## Core
+
+• TODO: `config`
+• TODO: `constants`
+• TODO: `debug`
+• TODO: `defaultsettings`
+• TODO: `exceptions`
+• TODO: `log`
+• TODO: `main`
+• TODO: `porting`
+• TODO: `profiler`
+• TODO: `settings`
+• TODO: `translation`
+• TODO: `version`
+
+## Server
+
+• TODO: `server`
+• TODO: `serverenvironment`
+• TODO: `serverlist`
+
+### Object
+
+• TODO: `activeobject`
+• TODO: `genericobject`
+• TODO: `objdef`
+• TODO: `object_properties`
+• TODO: `remoteplayer`
+• TODO: `serverobject`
+• TODO: `staticobject`
+
+## Network
+
+• TODO: `ban`
+• TODO: `chat`
+• TODO: `chat_interface`
+• TODO: `chatmessage`
+• TODO: `rollback`
+• TODO: `rollback_interface`
+• TODO: `serialization`
+
+### Client
+
+• TODO: `clientiface`
+• TODO: `clientsimpleobject`
+
+## World
+
+• TODO: `CloudParams`
+• TODO: `collision`
+• TODO: `daynightratio`
+• TODO: `light`
+• TODO: `metadata`
+• TODO: `nodedef`
+• TODO: `nodemetadata`
+• TODO: `nodetimer`
+
+## Content
+
+• TODO: `content_mapnode`
+• TODO: `content_nodemeta`
+• TODO: `content_sao`
+
+## Utils
+
+• TODO: `convert_json`
+• TODO: `filesys`
+• TODO: `gettext`
+• TODO: `gettime`
+
+## Algorithm
+
+• TODO: `noise`
+• TODO: `pathfinder`
+• TODO: `raycast`
+• TODO: `voxelalgorithms`
+
+## Game
+
+• TODO: `gamedef`
+• TODO: `gameparams`
+• TODO: `face_position_cache`
+• TODO: `httpfetch`
+
+## Irrlicht
+
+• TODO: `irr_aabb3d`
+• TODO: `irrlichttypes_bloated`
+• TODO: `irrlichttypes_extrabloated`
+• TODO: `irrlichttypes`
+• TODO: `irr_v2d`
+• TODO: `irr_v3d`
+
+## Inventory
+
+• TODO: `inventory`
+• TODO: `inventorymanager`
+• TODO: `itemgroup`
+• TODO: `itemstackmetadata`
+
+## Misc
+
+• TODO: `EmergeManager`
+• TODO: `EmergeThread`
+• TODO: `environment`
+• TODO: `HudElement`
+• TODO: `modchannels`
+• TODO: `modifiedstate`
+• TODO: `MtEvent`
+• TODO: `nameidmapping`
+• TODO: `quicktune`
+• TODO: `quicktune_shortcutter`
+• TODO: `reflowscan`
+• TODO: `sound`
+• TODO: `terminal_chat_console`
+• TODO: `tileanimation`
+• TODO: `tool`
+• TODO: `voxel`
+

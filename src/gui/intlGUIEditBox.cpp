@@ -37,9 +37,9 @@
 #include "IGUIFont.h"
 #include "IVideoDriver.h"
 //#include "irrlicht/os.cpp"
-#include "porting.h"
+#include "core/porting.h"
 //#include "Keycodes.h"
-#include "log.h"
+#include "core/log.h"
 
 /*
 	todo:

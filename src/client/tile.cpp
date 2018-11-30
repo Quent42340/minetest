@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/container.h"
 #include "util/thread.h"
 #include "filesys.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "mesh.h"
 #include "gamedef.h"
 #include "util/strfnd.h"

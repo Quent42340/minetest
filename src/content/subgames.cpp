@@ -18,12 +18,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "content/subgames.h"
-#include "porting.h"
+#include "core/porting.h"
 #include "filesys.h"
-#include "settings.h"
-#include "log.h"
+#include "core/settings.h"
+#include "core/log.h"
 #include "util/strfnd.h"
-#include "defaultsettings.h" // for override_default_settings
+#include "core/defaultsettings.h" // for override_default_settings
 #include "mapgen/mapgen.h"   // for MapgenParams
 #include "util/string.h"
 

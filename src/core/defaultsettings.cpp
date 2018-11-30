@@ -17,12 +17,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "settings.h"
-#include "porting.h"
+#include "core/settings.h"
+#include "core/porting.h"
 #include "filesys.h"
-#include "config.h"
-#include "constants.h"
-#include "porting.h"
+#include "core/config.h"
+#include "core/constants.h"
+#include "core/porting.h"
 #include "util/string.h"
 
 void set_default_settings(Settings *settings)

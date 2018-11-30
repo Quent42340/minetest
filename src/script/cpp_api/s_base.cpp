@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "serverobject.h"
 #include "filesys.h"
 #include "content/mods.h"
-#include "porting.h"
+#include "core/porting.h"
 #include "util/string.h"
 #include "server.h"
 #ifndef SERVER

@@ -28,13 +28,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/tile.h"
 #include <IMeshManipulator.h>
 #endif
-#include "log.h"
-#include "settings.h"
+#include "core/log.h"
+#include "core/settings.h"
 #include "nameidmapping.h"
 #include "util/numeric.h"
 #include "util/serialize.h"
-#include "exceptions.h"
-#include "debug.h"
+#include "core/exceptions.h"
+#include "core/debug.h"
 #include "gamedef.h"
 #include "map/MapNode.hpp"
 #include <fstream> // Used in applyTextureOverrides()

@@ -20,10 +20,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "cpp_api/s_security.h"
 
 #include "filesys.h"
-#include "porting.h"
+#include "core/porting.h"
 #include "server.h"
 #include "client/client.h"
-#include "settings.h"
+#include "core/settings.h"
 
 #include <cerrno>
 #include <string>

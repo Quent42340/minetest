@@ -24,5 +24,5 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "serverobject.h"
 #include "itemgroup.h"
 #include "object_properties.h"
-#include "constants.h"
+#include "core/constants.h"
 

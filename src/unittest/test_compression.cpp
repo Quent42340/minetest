@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <sstream>
 
 #include "irrlichttypes_extrabloated.h"
-#include "log.h"
+#include "core/log.h"
 #include "serialization.h"
 #include "nodedef.h"
 #include "noise.h"

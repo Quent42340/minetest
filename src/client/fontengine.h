@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <IGUIFont.h>
 #include <IGUISkin.h>
 #include <IGUIEnvironment.h>
-#include "settings.h"
+#include "core/settings.h"
 
 #define FONT_SIZE_UNSPECIFIED 0xFFFFFFFF
 

@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "craft/CraftUtils.hpp"
 #include "irrlichttypes.h"
-#include "log.h"
+#include "core/log.h"
 #include <sstream>
 #include <set>
 #include <algorithm>
@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/string.h"
 #include "util/numeric.h"
 #include "util/strfnd.h"
-#include "exceptions.h"
+#include "core/exceptions.h"
 
 /*
 	CraftInput

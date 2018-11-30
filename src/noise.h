@@ -26,7 +26,7 @@
 #pragma once
 
 #include "irr_v3d.h"
-#include "exceptions.h"
+#include "core/exceptions.h"
 #include "util/string.h"
 
 extern FlagDesc flagdesc_noiseparams[];

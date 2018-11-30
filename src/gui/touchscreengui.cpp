@@ -21,12 +21,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "touchscreengui.h"
 #include "irrlichttypes.h"
 #include "irr_v2d.h"
-#include "log.h"
+#include "core/log.h"
 #include "client/keycode.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "gettime.h"
 #include "util/numeric.h"
-#include "porting.h"
+#include "core/porting.h"
 #include "client/guiscalingfilter.h"
 
 #include <iostream>

@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "wieldmesh.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "shader.h"
 #include "inventory.h"
 #include "client.h"
@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/extrusionmesh.h"
 #include "client/meshgen/collector.h"
 #include "client/tile.h"
-#include "log.h"
+#include "core/log.h"
 #include "util/numeric.h"
 #include <map>
 #include <IMeshManipulator.h>

@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "nodedef.h"
 #include "nodemetadata.h"
 #include "gamedef.h"
-#include "log.h"
+#include "core/log.h"
 #include "nameidmapping.h"
 #include "content_mapnode.h" // For legacy name-id mapping
 #include "content_nodemeta.h" // For legacy deserialization
@@ -33,7 +33,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef SERVER
 #include "client/mapblock_mesh.h"
 #endif
-#include "porting.h"
+#include "core/porting.h"
 #include "util/string.h"
 #include "util/serialize.h"
 #include "util/basic_macros.h"

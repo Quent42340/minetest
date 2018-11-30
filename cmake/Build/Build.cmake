@@ -3,8 +3,9 @@ add_subdirectory(script)
 add_subdirectory(unittest)
 add_subdirectory(irrlicht_changes)
 
-file(GLOB         core_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.cpp")
+file(GLOB         legacy_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.cpp")
 file(GLOB_RECURSE content_SRCS   RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "content/*.cpp")
+file(GLOB_RECURSE core_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "core/*.cpp")
 file(GLOB_RECURSE craft_SRCS     RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "craft/*.cpp")
 file(GLOB_RECURSE database_SRCS  RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "database/*.cpp")
 file(GLOB_RECURSE gui_SRCS       RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "gui/*.cpp")
@@ -16,13 +17,14 @@ file(GLOB_RECURSE server_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "server/
 file(GLOB_RECURSE threading_SRCS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "threading/*.cpp")
 file(GLOB_RECURSE util_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "util/*.cpp")
 
-list(REMOVE_ITEM core_SRCS "settings_translation_file.cpp")
+list(REMOVE_ITEM legacy_SRCS "settings_translation_file.cpp")
 list(REMOVE_ITEM gui_SRCS "gui/touchscreengui.h" "gui/touchscreengui.cpp")
 list(APPEND util_SRCS "util/sha256.c")
 
 set(common_SRCS
 	${common_SCRIPT_SRCS}
 	${common_network_SRCS}
+	${legacy_SRCS}
 	${content_SRCS}
 	${core_SRCS}
 	${craft_SRCS}

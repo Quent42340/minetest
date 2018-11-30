@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "modchannels.h"
 #include "content/mods.h"
 #include "util/numeric.h"
-#include "porting.h"
+#include "core/porting.h"
 
 content_t t_CONTENT_STONE;
 content_t t_CONTENT_GRASS;

@@ -18,7 +18,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 */
 
 #include "guiVolumeChange.h"
-#include "debug.h"
+#include "core/debug.h"
 #include "serialization.h"
 #include <string>
 #include <IGUICheckBox.h>
@@ -26,7 +26,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <IGUIScrollBar.h>
 #include <IGUIStaticText.h>
 #include <IGUIFont.h>
-#include "settings.h"
+#include "core/settings.h"
 
 #include "gettext.h"
 

@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "serverobject.h"
-#include "constants.h"
+#include "core/constants.h"
 
 class TestSAO : public ServerActiveObject
 {

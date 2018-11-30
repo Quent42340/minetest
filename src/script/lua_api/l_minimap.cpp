@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_converter.h"
 #include "client/client.h"
 #include "client/minimap.h"
-#include "settings.h"
+#include "core/settings.h"
 
 LuaMinimap::LuaMinimap(Minimap *m) : m_minimap(m)
 {

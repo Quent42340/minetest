@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <vector>
 #include "util/string.h"
-#include "config.h"
+#include "core/config.h"
 
 // Can be used in place of "caller" in asynchronous transfers to discard result
 // (used as default value of "caller")

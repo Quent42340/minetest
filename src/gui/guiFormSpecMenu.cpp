@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <limits>
 #include "guiFormSpecMenu.h"
 #include "guiTable.h"
-#include "constants.h"
+#include "core/constants.h"
 #include "gamedef.h"
 #include "client/keycode.h"
 #include "util/strfnd.h"
@@ -37,7 +37,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <IGUITabControl.h>
 #include <IGUIComboBox.h>
 #include "client/renderingengine.h"
-#include "log.h"
+#include "core/log.h"
 #include "client/tile.h" // ITextureSource
 #include "client/Hud.hpp" // drawItemStack
 #include "filesys.h"
@@ -45,8 +45,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "gettext.h"
 #include "scripting_server.h"
 #include "mainmenumanager.h"
-#include "porting.h"
-#include "settings.h"
+#include "core/porting.h"
+#include "core/settings.h"
 #include "client/client.h"
 #include "client/fontengine.h"
 #include "util/hex.h"

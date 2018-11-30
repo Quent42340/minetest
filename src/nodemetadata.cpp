@@ -18,13 +18,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "nodemetadata.h"
-#include "exceptions.h"
+#include "core/exceptions.h"
 #include "gamedef.h"
 #include "inventory.h"
-#include "log.h"
+#include "core/log.h"
 #include "util/serialize.h"
 #include "util/basic_macros.h"
-#include "constants.h" // MAP_BLOCKSIZE
+#include "core/constants.h" // MAP_BLOCKSIZE
 #include <sstream>
 
 /*

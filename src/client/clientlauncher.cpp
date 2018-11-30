@@ -26,12 +26,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "player/Player.h"
 #include "chat.h"
 #include "gettext.h"
-#include "profiler.h"
+#include "core/profiler.h"
 #include "serverlist.h"
 #include "gui/guiEngine.h"
 #include "fontengine.h"
 #include "clientlauncher.h"
-#include "version.h"
+#include "core/version.h"
 #include "renderingengine.h"
 #include "network/networkexceptions.h"
 
@@ -39,7 +39,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 	#include "sound_openal.h"
 #endif
 #ifdef __ANDROID__
-	#include "porting.h"
+	#include "core/porting.h"
 #endif
 
 /* mainmenumanager.h

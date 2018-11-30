@@ -20,9 +20,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "joystick_controller.h"
 #include "irrlichttypes_extrabloated.h"
 #include "keys.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "gettime.h"
-#include "porting.h"
+#include "core/porting.h"
 #include "util/string.h"
 
 bool JoystickButtonCmb::isTriggered(const irr::SEvent::SJoystickEvent &ev) const

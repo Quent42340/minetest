@@ -17,15 +17,15 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "config.h"
+#include "core/config.h"
 
 #if USE_LEVELDB
 
 #include "database-leveldb.h"
 
-#include "log.h"
+#include "core/log.h"
 #include "filesys.h"
-#include "exceptions.h"
+#include "core/exceptions.h"
 #include "util/string.h"
 
 #include "leveldb/db.h"

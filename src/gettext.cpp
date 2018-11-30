@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cstdlib>
 #include "gettext.h"
 #include "util/string.h"
-#include "log.h"
+#include "core/log.h"
 
 #if USE_GETTEXT && defined(_MSC_VER)
 #include <windows.h>

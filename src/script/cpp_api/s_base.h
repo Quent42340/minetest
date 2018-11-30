@@ -35,8 +35,8 @@ extern "C" {
 #include "irrlichttypes.h"
 #include "common/c_types.h"
 #include "common/c_internal.h"
-#include "debug.h"
-#include "config.h"
+#include "core/debug.h"
+#include "core/config.h"
 
 #define SCRIPTAPI_LOCK_DEBUG
 #define SCRIPTAPI_DEBUG

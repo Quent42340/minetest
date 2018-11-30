@@ -22,9 +22,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_content.h"
 #include "lua_api/l_http.h"
 #include "httpfetch.h"
-#include "settings.h"
-#include "debug.h"
-#include "log.h"
+#include "core/settings.h"
+#include "core/debug.h"
+#include "core/log.h"
 
 #include <algorithm>
 #include <iomanip>

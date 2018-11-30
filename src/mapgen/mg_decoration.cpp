@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "noise.h"
 #include "map/Map.hpp"
 #include "map/MMVManip.hpp"
-#include "log.h"
+#include "core/log.h"
 #include "util/numeric.h"
 #include <algorithm>
 #include <vector>

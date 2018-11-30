@@ -32,8 +32,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/Map.hpp"
 #include "nodedef.h"
 #include "voxelalgorithms.h"
-//#include "profiler.h" // For TimeTaker
-#include "settings.h" // For g_settings
+//#include "core/profiler.h" // For TimeTaker
+#include "core/settings.h" // For g_settings
 #include "EmergeManager.hpp"
 #include "dungeongen.h"
 #include "mg_biome.h"

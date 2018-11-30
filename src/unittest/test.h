@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <vector>
 
 #include "irrlichttypes_extrabloated.h"
-#include "porting.h"
+#include "core/porting.h"
 #include "filesys.h"
 #include "map/MapNode.hpp"
 

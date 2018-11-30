@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <set>
 #include <string>
 #include <vector>
-#include "exceptions.h"
+#include "core/exceptions.h"
 
 #ifdef _WIN32 // WINDOWS
 #define DIR_DELIM "\\"

@@ -18,21 +18,21 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "camera.h"
-#include "debug.h"
+#include "core/debug.h"
 #include "client.h"
 #include "map/Map.hpp"
 #include "clientmap.h"     // MapDrawControl
 #include "player/Player.h"
 #include <cmath>
 #include "client/renderingengine.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "wieldmesh.h"
 #include "noise.h"         // easeCurve
 #include "sound.h"
 #include "MtEvent.hpp"
 #include "nodedef.h"
 #include "util/numeric.h"
-#include "constants.h"
+#include "core/constants.h"
 #include "fontengine.h"
 #include "script/scripting_client.h"
 

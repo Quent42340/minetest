@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapNode.hpp"
 #include "nodedef.h"
 #include "client.h"
-#include "settings.h"
+#include "core/settings.h"
 
 /*
 	Utility

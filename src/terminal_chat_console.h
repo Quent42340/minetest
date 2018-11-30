@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "chat.h"
 #include "threading/thread.h"
 #include "util/container.h"
-#include "log.h"
+#include "core/log.h"
 #include <sstream>
 
 

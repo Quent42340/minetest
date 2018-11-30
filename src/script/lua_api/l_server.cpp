@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server.h"
 #include "environment.h"
 #include "remoteplayer.h"
-#include "log.h"
+#include "core/log.h"
 #include <algorithm>
 
 // request_shutdown()

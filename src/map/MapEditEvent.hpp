@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <set>
 
-#include "constants.h"
+#include "core/constants.h"
 #include "map/MapNode.hpp"
 #include "voxel.h"
 

@@ -21,8 +21,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "player/Player.h"
 #include "environment.h"
-#include "constants.h"
-#include "settings.h"
+#include "core/constants.h"
+#include "core/settings.h"
 #include <list>
 
 class Client;

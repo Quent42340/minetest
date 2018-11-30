@@ -19,13 +19,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlichttypes_extrabloated.h"
 #include "map/MapNode.hpp"
-#include "porting.h"
+#include "core/porting.h"
 #include "nodedef.h"
 #include "map/Map.hpp"
 #include "content_mapnode.h" // For mapnode_translate_*_internal
 #include "serialization.h" // For ser_ver_supported
 #include "util/serialize.h"
-#include "log.h"
+#include "core/log.h"
 #include "util/directiontables.h"
 #include "util/numeric.h"
 #include <string>

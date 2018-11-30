@@ -22,12 +22,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <sstream>
 #include <algorithm>
 
-#include "version.h"
-#include "settings.h"
+#include "core/version.h"
+#include "core/settings.h"
 #include "serverlist.h"
 #include "filesys.h"
-#include "porting.h"
-#include "log.h"
+#include "core/porting.h"
+#include "core/log.h"
 #include "network/networkprotocol.h"
 #include <json/json.h>
 #include "convert_json.h"

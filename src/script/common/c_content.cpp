@@ -26,14 +26,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_item.h"
 #include "common/c_internal.h"
 #include "server.h"
-#include "log.h"
+#include "core/log.h"
 #include "tool.h"
 #include "serverobject.h"
-#include "porting.h"
+#include "core/porting.h"
 #include "mapgen/mg_schematic.h"
 #include "noise.h"
 #include "util/pointedthing.h"
-#include "debug.h" // For FATAL_ERROR
+#include "core/debug.h" // For FATAL_ERROR
 #include <json/json.h>
 
 struct EnumString es_TileAnimationType[] =

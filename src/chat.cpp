@@ -23,8 +23,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cctype>
 #include <sstream>
 
-#include "config.h"
-#include "debug.h"
+#include "core/config.h"
+#include "core/debug.h"
 #include "util/strfnd.h"
 #include "util/string.h"
 #include "util/numeric.h"

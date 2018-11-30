@@ -19,8 +19,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "scripting_server.h"
 #include "server.h"
-#include "log.h"
-#include "settings.h"
+#include "core/log.h"
+#include "core/settings.h"
 #include "cpp_api/s_internal.h"
 #include "lua_api/l_areastore.h"
 #include "lua_api/l_auth.h"

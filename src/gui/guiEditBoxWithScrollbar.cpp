@@ -10,7 +10,7 @@
 #include "IGUIFont.h"
 #include "IVideoDriver.h"
 #include "rect.h"
-#include "porting.h"
+#include "core/porting.h"
 #include "Keycodes.h"
 
 

@@ -22,11 +22,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <iterator>
 #include "shader.h"
 #include "irrlichttypes_extrabloated.h"
-#include "debug.h"
+#include "core/debug.h"
 #include "filesys.h"
 #include "util/container.h"
 #include "util/thread.h"
-#include "settings.h"
+#include "core/settings.h"
 #include <ICameraSceneNode.h>
 #include <IGPUProgrammingServices.h>
 #include <IMaterialRenderer.h>
@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <IShaderConstantSetCallBack.h>
 #include "client/renderingengine.h"
 #include "EShaderTypes.h"
-#include "log.h"
+#include "core/log.h"
 #include "gamedef.h"
 #include "client/tile.h"
 

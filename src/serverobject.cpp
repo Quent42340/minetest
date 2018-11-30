@@ -20,8 +20,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "serverobject.h"
 #include <fstream>
 #include "inventory.h"
-#include "constants.h" // BS
-#include "log.h"
+#include "core/constants.h" // BS
+#include "core/log.h"
 
 std::map<u16, ServerActiveObject::Factory> ServerActiveObject::m_types;
 

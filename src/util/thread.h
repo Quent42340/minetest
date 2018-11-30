@@ -22,8 +22,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlichttypes.h"
 #include "threading/thread.h"
 #include "threading/mutex_auto_lock.h"
-#include "porting.h"
-#include "log.h"
+#include "core/porting.h"
+#include "core/log.h"
 #include "container.h"
 
 template<typename T>

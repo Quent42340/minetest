@@ -12,12 +12,12 @@
 #include "IGUIStaticText.h"
 #include "irrArray.h"
 
-#include "log.h"
+#include "core/log.h"
 
 #include <vector>
 
 #include "util/enriched_string.h"
-#include "config.h"
+#include "core/config.h"
 #include <IGUIEnvironment.h>
 
 #if USE_FREETYPE

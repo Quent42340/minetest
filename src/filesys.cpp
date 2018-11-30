@@ -24,11 +24,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cstring>
 #include <cerrno>
 #include <fstream>
-#include "log.h"
-#include "config.h"
-#include "porting.h"
+#include "core/log.h"
+#include "core/config.h"
+#include "core/porting.h"
 #ifdef __ANDROID__
-#include "settings.h" // For g_settings
+#include "core/settings.h" // For g_settings
 #endif
 
 namespace fs

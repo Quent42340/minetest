@@ -17,16 +17,16 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "settings.h"
+#include "core/settings.h"
 #include "irrlichttypes_bloated.h"
-#include "exceptions.h"
+#include "core/exceptions.h"
 #include "threading/mutex_auto_lock.h"
 #include "util/strfnd.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>
-#include "debug.h"
-#include "log.h"
+#include "core/debug.h"
+#include "core/log.h"
 #include "util/serialize.h"
 #include "filesys.h"
 #include "noise.h"

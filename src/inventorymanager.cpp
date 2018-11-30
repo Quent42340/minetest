@@ -18,12 +18,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "inventorymanager.h"
-#include "debug.h"
-#include "log.h"
+#include "core/debug.h"
+#include "core/log.h"
 #include "serverenvironment.h"
 #include "scripting_server.h"
 #include "serverobject.h"
-#include "settings.h"
+#include "core/settings.h"
 #include "gamedef.h"
 #include "craft/ICraftDefManager.hpp"
 #include "rollback_interface.h"

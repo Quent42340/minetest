@@ -17,16 +17,16 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "log.h"
+#include "core/log.h"
 
 #include "threading/mutex_auto_lock.h"
-#include "debug.h"
+#include "core/debug.h"
 #include "gettime.h"
-#include "porting.h"
-#include "config.h"
-#include "exceptions.h"
+#include "core/porting.h"
+#include "core/config.h"
+#include "core/exceptions.h"
 #include "util/numeric.h"
-#include "log.h"
+#include "core/log.h"
 
 #include <sstream>
 #include <iostream>

@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <exception>
 #include <cassert>
 #include "gettime.h"
-#include "log.h"
+#include "core/log.h"
 
 #ifdef _WIN32
 	#ifndef _WIN32_WINNT

@@ -25,8 +25,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "gui/guiMainMenu.h"
 #include "gui/guiKeyChangeMenu.h"
 #include "gui/guiPathSelectMenu.h"
-#include "version.h"
-#include "porting.h"
+#include "core/version.h"
+#include "core/porting.h"
 #include "filesys.h"
 #include "convert_json.h"
 #include "content/packages.h"
@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "content/subgames.h"
 #include "serverlist.h"
 #include "mapgen/mapgen.h"
-#include "settings.h"
+#include "core/settings.h"
 
 #include <IFileArchive.h>
 #include <IFileSystem.h>
