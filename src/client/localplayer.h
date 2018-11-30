@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "player/Player.h"
-#include "environment.h"
+#include "world/environment.h"
 #include "core/constants.h"
 #include "core/settings.h"
 #include <list>

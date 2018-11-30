@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "test.h"
 
 #include "client/sound.h"
-#include "nodedef.h"
+#include "world/nodedef.h"
 #include "item/CItemDefManager.hpp"
 #include "gamedef.h"
 #include "modchannels.h"

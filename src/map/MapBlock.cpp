@@ -21,9 +21,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <sstream>
 #include "map/Map.hpp"
-#include "light.h"
-#include "nodedef.h"
-#include "nodemetadata.h"
+#include "world/light.h"
+#include "world/nodedef.h"
+#include "world/nodemetadata.h"
 #include "gamedef.h"
 #include "core/log.h"
 #include "nameidmapping.h"

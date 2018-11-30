@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define MAPNODE_HPP_
 
 #include "irrlichttypes_bloated.h"
-#include "light.h"
+#include "world/light.h"
 #include <string>
 #include <vector>
 

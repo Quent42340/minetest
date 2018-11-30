@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <sstream>
 
 #include "gamedef.h"
-#include "nodedef.h"
+#include "world/nodedef.h"
 #include "network/networkprotocol.h"
 
 class TestNodeDef : public TestBase

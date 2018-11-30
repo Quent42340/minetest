@@ -17,6 +17,7 @@ file(GLOB_RECURSE player_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "player/
 file(GLOB_RECURSE server_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "server/*.cpp")
 file(GLOB_RECURSE threading_SRCS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "threading/*.cpp")
 file(GLOB_RECURSE util_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "util/*.cpp")
+file(GLOB_RECURSE world_SRCS     RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "world/*.cpp")
 
 list(REMOVE_ITEM legacy_SRCS "settings_translation_file.cpp")
 list(REMOVE_ITEM gui_SRCS "gui/touchscreengui.h" "gui/touchscreengui.cpp")
@@ -39,6 +40,7 @@ set(common_SRCS
 	${threading_SRCS}
 	${unittest_SRCS}
 	${util_SRCS}
+	${world_SRCS}
 )
 
 # Client sources

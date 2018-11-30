@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapBlock.hpp"
 #include "server/serverenvironment.h"
 #include "map/Map.hpp"
-#include "EmergeManager.hpp"
+#include "world/EmergeManager.hpp"
 #include "core/log.h"
 #include "util/srp.h"
 #include "face_position_cache.h"

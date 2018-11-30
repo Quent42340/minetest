@@ -30,11 +30,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
-#include "nodedef.h"
+#include "world/nodedef.h"
 #include "algorithm/voxelalgorithms.h"
 //#include "core/profiler.h" // For TimeTaker
 #include "core/settings.h" // For g_settings
-#include "EmergeManager.hpp"
+#include "world/EmergeManager.hpp"
 #include "dungeongen.h"
 #include "cavegen.h"
 #include "treegen.h"

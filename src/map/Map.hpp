@@ -31,7 +31,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "voxel.h"
 #include "modifiedstate.h"
 #include "util/container.h"
-#include "nodetimer.h"
+#include "world/nodetimer.h"
 #include "map/MapSettingsManager.hpp"
 #include "core/debug.h"
 #include "map/MapEditEvent.hpp"

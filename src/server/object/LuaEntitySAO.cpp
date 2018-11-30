@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <cmath>
 #include "util/serialize.h"
-#include "collision.h"
+#include "world/collision.h"
 #include "server/server.h"
 #include "scripting_server.h"
 #include "genericobject.h"

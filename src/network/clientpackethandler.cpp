@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapSector.hpp"
 #include "client/minimap.h"
 #include "modchannels.h"
-#include "nodedef.h"
+#include "world/nodedef.h"
 #include "serialization.h"
 #include "server/server.h"
 #include "util/strfnd.h"

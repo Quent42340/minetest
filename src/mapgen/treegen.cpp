@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MMVManip.hpp"
 #include "map/MapBlock.hpp"
 #include "server/serverenvironment.h"
-#include "nodedef.h"
+#include "world/nodedef.h"
 #include "treegen.h"
 #include "algorithm/voxelalgorithms.h"
 

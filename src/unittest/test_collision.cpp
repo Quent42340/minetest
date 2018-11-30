@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "test.h"
 
-#include "collision.h"
+#include "world/collision.h"
 
 class TestCollision : public TestBase {
 public:

@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "CloudParams.h"
+#include "world/CloudParams.h"
 #include "core/constants.h"
 #include "network/networkprotocol.h" // for session_t
 #include "player/Player.h"

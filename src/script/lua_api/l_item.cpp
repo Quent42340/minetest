@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_converter.h"
 #include "common/c_content.h"
 #include "item/IWritableItemDefManager.hpp"
-#include "nodedef.h"
+#include "world/nodedef.h"
 #include "server/server.h"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"

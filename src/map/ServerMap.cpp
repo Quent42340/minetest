@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "filesys.h"
-#include "EmergeManager.hpp"
+#include "world/EmergeManager.hpp"
 #include "map/ServerMap.hpp"
 #include "map/MapSector.hpp"
 #include "core/porting.h"

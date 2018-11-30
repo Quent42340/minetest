@@ -20,10 +20,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "localplayer.h"
 #include <cmath>
 #include "MtEvent.hpp"
-#include "collision.h"
-#include "nodedef.h"
+#include "world/collision.h"
+#include "world/nodedef.h"
 #include "core/settings.h"
-#include "environment.h"
+#include "world/environment.h"
 #include "map/Map.hpp"
 #include "client.h"
 #include "content_cao.h"

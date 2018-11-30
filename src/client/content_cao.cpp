@@ -28,8 +28,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/basic_macros.h"
 #include "client/sound.h"
 #include "client/tile.h"
-#include "environment.h"
-#include "collision.h"
+#include "world/environment.h"
+#include "world/collision.h"
 #include "core/settings.h"
 #include "serialization.h" // For decompressZlib
 #include "clientobject.h"
@@ -38,7 +38,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "tool.h"
 #include "content_cso.h"
 #include "sound.h"
-#include "nodedef.h"
+#include "world/nodedef.h"
 #include "localplayer.h"
 #include "map/Map.hpp"
 #include "camera.h" // CameraModes

@@ -18,8 +18,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "content_nodemeta.h"
-#include "nodemetadata.h"
-#include "nodetimer.h"
+#include "world/nodemetadata.h"
+#include "world/nodetimer.h"
 #include "inventory.h"
 #include "core/log.h"
 #include "serialization.h"

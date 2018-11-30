@@ -25,8 +25,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/exceptions.h"
 #include "core/constants.h"
 #include "staticobject.h"
-#include "nodemetadata.h"
-#include "nodetimer.h"
+#include "world/nodemetadata.h"
+#include "world/nodetimer.h"
 #include "modifiedstate.h"
 #include "util/numeric.h" // getContainerPos
 #include "core/settings.h"

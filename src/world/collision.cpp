@@ -17,11 +17,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "collision.h"
+#include "world/collision.h"
 #include <cmath>
 #include "map/MapBlock.hpp"
 #include "map/Map.hpp"
-#include "nodedef.h"
+#include "world/nodedef.h"
 #include "gamedef.h"
 #ifndef SERVER
 #include "client/ClientEnvironment.h"

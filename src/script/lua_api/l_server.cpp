@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_content.h"
 #include "cpp_api/s_base.h"
 #include "server/server.h"
-#include "environment.h"
+#include "world/environment.h"
 #include "remoteplayer.h"
 #include "core/log.h"
 #include <algorithm>

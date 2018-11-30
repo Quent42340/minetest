@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "inventory.h"
 #include "client.h"
 #include "item/ItemDefinition.hpp"
-#include "nodedef.h"
+#include "world/nodedef.h"
 #include "mesh.h"
 #include "content_mapblock.h"
 #include "mapblock_mesh.h"

@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mg_schematic.h"
 #include "server/server.h"
 #include "mapgen.h"
-#include "EmergeManager.hpp"
+#include "world/EmergeManager.hpp"
 #include "map/ServerMap.hpp"
 #include "map/MMVManip.hpp"
 #include "map/MapBlock.hpp"

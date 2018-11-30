@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "core/log.h"
 #include "serialization.h"
-#include "nodedef.h"
+#include "world/nodedef.h"
 #include "algorithm/noise.h"
 
 class TestFilePath : public TestBase {

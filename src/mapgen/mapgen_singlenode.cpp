@@ -24,9 +24,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapBlock.hpp"
 #include "map/MapNode.hpp"
 #include "map/Map.hpp"
-#include "nodedef.h"
+#include "world/nodedef.h"
 #include "algorithm/voxelalgorithms.h"
-#include "EmergeManager.hpp"
+#include "world/EmergeManager.hpp"
 
 
 MapgenSinglenode::MapgenSinglenode(int mapgenid,
