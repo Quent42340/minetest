@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlicht.h" // createDevice
 #include "irrlichttypes_extrabloated.h"
-#include "chat_interface.h"
+#include "server/network/chat_interface.h"
 #include "debug/Debug.hpp"
 #include "unittest/test.h"
 #include "server/server.h"
@@ -39,7 +39,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/porting.h"
 #include "network/socket.h"
 #if USE_CURSES
-	#include "terminal_chat_console.h"
+	#include "server/network/terminal_chat_console.h"
 #endif
 #ifndef SERVER
 #include "gui/guiMainMenu.h"

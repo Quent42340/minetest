@@ -17,7 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "chatmessage.h"
+#include "server/network/chatmessage.h"
 #include "server/server.h"
 #include "core/log.h"
 #include "server/object/LuaEntitySAO.h"
@@ -27,10 +27,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/EmergeManager.hpp"
 #include "item/IWritableItemDefManager.hpp"
 #include "map/MapBlock.hpp"
-#include "modchannels.h"
+#include "server/network/modchannels.h"
 #include "world/nodedef.h"
 #include "remoteplayer.h"
-#include "rollback_interface.h"
+#include "server/network/rollback_interface.h"
 #include "scripting_server.h"
 #include "core/settings.h"
 #include "tool.h"

@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/porting.h"
 #include "core/profiler.h"
 #include "world/reflowscan.h"
-#include "serialization.h"
+#include "server/network/serialization.h"
 #include "core/settings.h"
 #include "algorithm/voxelalgorithms.h"
 #include "database/database.h"

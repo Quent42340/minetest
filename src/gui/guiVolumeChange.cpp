@@ -19,7 +19,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 #include "guiVolumeChange.h"
 #include "debug/Debug.hpp"
-#include "serialization.h"
+#include "server/network/serialization.h"
 #include <string>
 #include <IGUICheckBox.h>
 #include <IGUIButton.h>

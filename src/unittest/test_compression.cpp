@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlichttypes_extrabloated.h"
 #include "core/log.h"
-#include "serialization.h"
+#include "server/network/serialization.h"
 #include "world/nodedef.h"
 #include "algorithm/noise.h"
 

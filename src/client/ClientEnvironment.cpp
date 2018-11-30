@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "clientmap.h"
 #include "scripting_client.h"
 #include "mapblock_mesh.h"
-#include "MtEvent.hpp"
+#include "server/network/MtEvent.hpp"
 #include "world/collision.h"
 #include "world/nodedef.h"
 #include "core/profiler.h"

@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include <sstream>
-#include "clientiface.h"
+#include "server/network/clientiface.h"
 #include "network/connection.h"
 #include "network/serveropcodes.h"
 #include "remoteplayer.h"

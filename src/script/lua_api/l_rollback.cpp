@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_internal.h"
 #include "common/c_converter.h"
 #include "server/server.h"
-#include "rollback_interface.h"
+#include "server/network/rollback_interface.h"
 
 
 void push_RollbackNode(lua_State *L, RollbackNode &node)

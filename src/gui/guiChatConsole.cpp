@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "guiChatConsole.h"
-#include "chat.h"
+#include "server/network/chat.h"
 #include "client/client.h"
 #include "debug/Debug.hpp"
 #include "gettime.h"

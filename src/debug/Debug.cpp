@@ -37,7 +37,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #endif
 
 #if USE_CURSES
-	#include "terminal_chat_console.h"
+	#include "server/network/terminal_chat_console.h"
 #endif
 
 /*

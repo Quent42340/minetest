@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "player/Player.h"
 #include "threading/mutex_auto_lock.h"
 #include "util/numeric.h"
-#include "HudElement.hpp"
+#include "server/network/HudElement.hpp"
 #include "core/constants.h"
 #include "core/settings.h"
 #include "core/porting.h"  // strlcpy

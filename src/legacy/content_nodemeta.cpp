@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/nodetimer.h"
 #include "inventory.h"
 #include "core/log.h"
-#include "serialization.h"
+#include "server/network/serialization.h"
 #include "util/serialize.h"
 #include "util/string.h"
 #include "core/constants.h" // MAP_BLOCKSIZE

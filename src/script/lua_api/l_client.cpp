@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "l_client.h"
-#include "chatmessage.h"
+#include "server/network/chatmessage.h"
 #include "client/client.h"
 #include "client/clientevent.h"
 #include "client/sound.h"

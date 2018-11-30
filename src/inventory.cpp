@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "inventory.h"
-#include "serialization.h"
+#include "server/network/serialization.h"
 #include "debug/Debug.hpp"
 #include <sstream>
 #include "core/log.h"

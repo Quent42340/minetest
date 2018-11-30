@@ -39,7 +39,7 @@ extern "C" {
 #include "itemgroup.h"
 #include "item/IItemDefManager.hpp"
 #include "c_types.h"
-#include "HudElement.hpp"
+#include "server/network/HudElement.hpp"
 
 namespace Json { class Value; }
 

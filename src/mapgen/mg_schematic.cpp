@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/log.h"
 #include "util/numeric.h"
 #include "util/serialize.h"
-#include "serialization.h"
+#include "server/network/serialization.h"
 #include "filesys.h"
 #include "algorithm/voxelalgorithms.h"
 

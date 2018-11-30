@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/nodedef.h"
 #include "item/CItemDefManager.hpp"
 #include "server/game/gamedef.h"
-#include "modchannels.h"
+#include "server/network/modchannels.h"
 #include "content/mods.h"
 #include "util/numeric.h"
 #include "core/porting.h"

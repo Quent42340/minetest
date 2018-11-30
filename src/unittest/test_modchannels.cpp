@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "test.h"
 
 #include "server/game/gamedef.h"
-#include "modchannels.h"
+#include "server/network/modchannels.h"
 
 class TestModChannels : public TestBase
 {

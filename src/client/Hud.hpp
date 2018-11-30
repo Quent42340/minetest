@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <vector>
 #include <IGUIFont.h>
 #include "irr_aabb3d.h"
-#include "HudElement.hpp"
+#include "server/network/HudElement.hpp"
 
 class Client;
 class ITextureSource;

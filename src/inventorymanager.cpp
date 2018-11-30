@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/settings.h"
 #include "server/game/gamedef.h"
 #include "craft/ICraftDefManager.hpp"
-#include "rollback_interface.h"
+#include "server/network/rollback_interface.h"
 #include "util/strfnd.h"
 #include "util/basic_macros.h"
 

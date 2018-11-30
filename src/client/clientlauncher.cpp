@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "filesys.h"
 #include "gui/guiMainMenu.h"
 #include "player/Player.h"
-#include "chat.h"
+#include "server/network/chat.h"
 #include "gettext.h"
 #include "core/profiler.h"
 #include "server/serverlist.h"

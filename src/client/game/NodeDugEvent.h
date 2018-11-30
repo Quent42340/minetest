@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef NODEDUGEVENT_H_
 #define NODEDUGEVENT_H_
 
-#include "MtEvent.hpp"
+#include "server/network/MtEvent.hpp"
 #include "map/MapNode.hpp"
 
 class NodeDugEvent: public MtEvent {

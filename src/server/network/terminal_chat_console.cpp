@@ -20,12 +20,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/config.h"
 #if USE_CURSES
 #include "core/version.h"
-#include "terminal_chat_console.h"
+#include "server/network/terminal_chat_console.h"
 #include "core/porting.h"
 #include "core/settings.h"
 #include "util/numeric.h"
 #include "util/string.h"
-#include "chat_interface.h"
+#include "server/network/chat_interface.h"
 
 TerminalChatConsole g_term_console;
 

@@ -42,7 +42,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapblock_mesh.h"
 #include "map/MapBlock.hpp"
 #include "minimap.h"
-#include "modchannels.h"
+#include "server/network/modchannels.h"
 #include "content/mods.h"
 #include "core/profiler.h"
 #include "shader.h"
@@ -51,11 +51,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "clientmedia.h"
 #include "core/version.h"
 #include "database/database-sqlite3.h"
-#include "serialization.h"
+#include "server/network/serialization.h"
 #include "guiscalingfilter.h"
 #include "script/scripting_client.h"
 #include "client/game/Game.h"
-#include "chatmessage.h"
+#include "server/network/chatmessage.h"
 #include "core/translation.h"
 
 extern gui::IGUIEnvironment* guienv;

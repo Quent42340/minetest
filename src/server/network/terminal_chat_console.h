@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "chat.h"
+#include "server/network/chat.h"
 #include "threading/thread.h"
 #include "util/container.h"
 #include "core/log.h"

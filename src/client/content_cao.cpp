@@ -31,7 +31,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/environment.h"
 #include "world/collision.h"
 #include "core/settings.h"
-#include "serialization.h" // For decompressZlib
+#include "server/network/serialization.h" // For decompressZlib
 #include "clientobject.h"
 #include "mesh.h"
 #include "item/ItemDefinition.hpp"

@@ -21,9 +21,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irr_v3d.h"
 #include "map/Map.hpp"
-#include "HudElement.hpp"
+#include "server/network/HudElement.hpp"
 #include "server/game/gamedef.h"
-#include "serialization.h" // For SER_FMT_VER_INVALID
+#include "server/network/serialization.h" // For SER_FMT_VER_INVALID
 #include "content/mods.h"
 #include "inventorymanager.h"
 #include "content/subgames.h"
@@ -34,8 +34,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/thread.h"
 #include "util/basic_macros.h"
 #include "server/serverenvironment.h"
-#include "clientiface.h"
-#include "chatmessage.h"
+#include "server/network/clientiface.h"
+#include "server/network/chatmessage.h"
 #include <string>
 #include <list>
 #include <map>

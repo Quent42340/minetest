@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/log.h"
 #include "lua_api/l_modchannels.h"
 #include "l_internal.h"
-#include "modchannels.h"
+#include "server/network/modchannels.h"
 
 int ModApiChannels::l_mod_channel_join(lua_State *L)
 {

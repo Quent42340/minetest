@@ -37,7 +37,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/profiler.h"
 #include "core/settings.h"
 #include "treegen.h"
-#include "serialization.h"
+#include "server/network/serialization.h"
 #include "util/serialize.h"
 #include "util/numeric.h"
 #include "filesys.h"

@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <string>
 #include "irr_v3d.h"
-#include "rollback_interface.h"
+#include "server/network/rollback_interface.h"
 #include <list>
 #include <vector>
 #include "sqlite3.h"

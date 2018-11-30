@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/nameidmapping.h"
 #include "legacy/content_mapnode.h" // For legacy name-id mapping
 #include "legacy/content_nodemeta.h" // For legacy deserialization
-#include "serialization.h"
+#include "server/network/serialization.h"
 #ifndef SERVER
 #include "client/mapblock_mesh.h"
 #endif

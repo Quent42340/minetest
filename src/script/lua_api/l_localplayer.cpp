@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "l_internal.h"
 #include "script/common/c_converter.h"
 #include "client/localplayer.h"
-#include "HudElement.hpp"
+#include "server/network/HudElement.hpp"
 #include "common/c_content.h"
 
 LuaLocalPlayer::LuaLocalPlayer(LocalPlayer *m) : m_localplayer(m)

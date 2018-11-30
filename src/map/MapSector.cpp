@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapSector.hpp"
 #include "core/exceptions.h"
 #include "map/MapBlock.hpp"
-#include "serialization.h"
+#include "server/network/serialization.h"
 
 MapSector::MapSector(Map *parent, v2s16 pos, IGameDef *gamedef):
 		m_parent(parent),

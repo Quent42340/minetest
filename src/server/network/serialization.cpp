@@ -17,7 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "serialization.h"
+#include "server/network/serialization.h"
 
 #include "util/serialize.h"
 #if defined(_WIN32) && !defined(WIN32_NO_ZLIB_WINAPI)

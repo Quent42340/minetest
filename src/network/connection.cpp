@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <algorithm>
 #include <cmath>
 #include "connection.h"
-#include "serialization.h"
+#include "server/network/serialization.h"
 #include "core/log.h"
 #include "core/porting.h"
 #include "network/connectionthreads.h"
