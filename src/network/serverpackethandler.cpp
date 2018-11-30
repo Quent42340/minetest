@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/PlayerHPChangeReason.h"
 #include "EmergeManager.hpp"
 #include "item/IWritableItemDefManager.hpp"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "modchannels.h"
 #include "nodedef.h"
 #include "remoteplayer.h"

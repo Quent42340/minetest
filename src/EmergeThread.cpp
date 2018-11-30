@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "EmergeThread.hpp"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "server.h"
 #include "scripting_server.h"
 #include "profiler.h"

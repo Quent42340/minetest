@@ -40,7 +40,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/srp.h"
 #include "filesys.h"
 #include "mapblock_mesh.h"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "minimap.h"
 #include "modchannels.h"
 #include "content/mods.h"

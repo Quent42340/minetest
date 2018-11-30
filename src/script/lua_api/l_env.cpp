@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <algorithm>
 #include "scripting_server.h"
 #include "environment.h"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "server.h"
 #include "nodedef.h"
 #include "daynightratio.h"

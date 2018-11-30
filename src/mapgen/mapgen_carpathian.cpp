@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapgen.h"
 #include "voxel.h"
 #include "noise.h"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "mapnode.h"
 #include "map/Map.hpp"
 #include "server/object/LuaEntitySAO.h"

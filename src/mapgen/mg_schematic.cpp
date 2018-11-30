@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "EmergeManager.hpp"
 #include "map/ServerMap.hpp"
 #include "map/MMVManip.hpp"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "log.h"
 #include "util/numeric.h"
 #include "util/serialize.h"

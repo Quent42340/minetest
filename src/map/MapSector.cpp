@@ -17,9 +17,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "mapsector.h"
+#include "map/MapSector.hpp"
 #include "exceptions.h"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "serialization.h"
 
 MapSector::MapSector(Map *parent, v2s16 pos, IGameDef *gamedef):
@@ -128,3 +128,4 @@ void MapSector::getBlocks(MapBlockVect &dest)
 		dest.push_back(block.second);
 	}
 }
+

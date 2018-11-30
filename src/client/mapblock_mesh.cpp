@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "mapblock_mesh.h"
 #include "client.h"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "map/Map.hpp"
 #include "profiler.h"
 #include "shader.h"

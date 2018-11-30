@@ -17,8 +17,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 #include "map/Map.hpp"
-#include "mapsector.h"
-#include "mapblock.h"
+#include "map/MapSector.hpp"
+#include "map/MapBlock.hpp"
 #include "filesys.h"
 #include "voxel.h"
 #include "voxelalgorithms.h"

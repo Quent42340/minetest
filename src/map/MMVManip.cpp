@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "log.h"
 #include "map/MMVManip.hpp"
 #include "map/ServerMap.hpp"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "util/timetaker.h"
 #include "voxel.h"
 

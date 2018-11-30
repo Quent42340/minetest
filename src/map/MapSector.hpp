@@ -16,12 +16,12 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-
-#pragma once
+#ifndef MAPSECTOR_HPP_
+#define MAPSECTOR_HPP_
 
 #include "irrlichttypes.h"
 #include "irr_v2d.h"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include <ostream>
 #include <map>
 #include <vector>
@@ -36,51 +36,46 @@ class IGameDef;
 #define MAPSECTOR_SERVER 0
 #define MAPSECTOR_CLIENT 1
 
-class MapSector
-{
-public:
+class MapSector {
+	public:
+		MapSector(Map *parent, v2s16 pos, IGameDef *gamedef);
+		virtual ~MapSector();
 
-	MapSector(Map *parent, v2s16 pos, IGameDef *gamedef);
-	virtual ~MapSector();
+		void deleteBlocks();
 
-	void deleteBlocks();
+		v2s16 getPos() { return m_pos; }
 
-	v2s16 getPos()
-	{
-		return m_pos;
-	}
+		MapBlock *getBlockNoCreateNoEx(s16 y);
+		MapBlock *createBlankBlockNoInsert(s16 y);
+		MapBlock *createBlankBlock(s16 y);
 
-	MapBlock * getBlockNoCreateNoEx(s16 y);
-	MapBlock * createBlankBlockNoInsert(s16 y);
-	MapBlock * createBlankBlock(s16 y);
+		void insertBlock(MapBlock *block);
 
-	void insertBlock(MapBlock *block);
+		void deleteBlock(MapBlock *block);
 
-	void deleteBlock(MapBlock *block);
+		void getBlocks(MapBlockVect &dest);
 
-	void getBlocks(MapBlockVect &dest);
+		bool empty() const { return m_blocks.empty(); }
 
-	bool empty() const { return m_blocks.empty(); }
+	protected:
+		// The pile of MapBlocks
+		std::unordered_map<s16, MapBlock*> m_blocks;
 
-protected:
+		Map *m_parent;
+		// Position on parent (in MapBlock widths)
+		v2s16 m_pos;
 
-	// The pile of MapBlocks
-	std::unordered_map<s16, MapBlock*> m_blocks;
+		IGameDef *m_gamedef;
 
-	Map *m_parent;
-	// Position on parent (in MapBlock widths)
-	v2s16 m_pos;
+		// Last-used block is cached here for quicker access.
+		// Be sure to set this to nullptr when the cached block is deleted
+		MapBlock *m_block_cache = nullptr;
+		s16 m_block_cache_y;
 
-	IGameDef *m_gamedef;
-
-	// Last-used block is cached here for quicker access.
-	// Be sure to set this to nullptr when the cached block is deleted
-	MapBlock *m_block_cache = nullptr;
-	s16 m_block_cache_y;
-
-	/*
-		Private methods
-	*/
-	MapBlock *getBlockBuffered(s16 y);
-
+		/*
+		   Private methods
+		*/
+		MapBlock *getBlockBuffered(s16 y);
 };
+
+#endif // MAPSECTOR_HPP_

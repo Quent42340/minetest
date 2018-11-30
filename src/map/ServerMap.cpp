@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "filesys.h"
 #include "EmergeManager.hpp"
 #include "map/ServerMap.hpp"
-#include "mapsector.h"
+#include "map/MapSector.hpp"
 #include "porting.h"
 #include "profiler.h"
 #include "reflowscan.h"

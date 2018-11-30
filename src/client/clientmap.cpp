@@ -22,8 +22,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapblock_mesh.h"
 #include <IMaterialRenderer.h>
 #include <matrix4.h>
-#include "mapsector.h"
-#include "mapblock.h"
+#include "map/MapSector.hpp"
+#include "map/MapBlock.hpp"
 #include "profiler.h"
 #include "settings.h"
 #include "camera.h"               // CameraModes

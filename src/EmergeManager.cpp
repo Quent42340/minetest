@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "EmergeThread.hpp"
 #include "log.h"
 #include "map/Map.hpp"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "mapgen/mg_biome.h"
 #include "mapgen/mg_ore.h"
 #include "mapgen/mg_decoration.h"

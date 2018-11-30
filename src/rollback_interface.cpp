@@ -31,7 +31,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "log.h"
 #include "inventorymanager.h"
 #include "inventory.h"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 
 
 RollbackNode::RollbackNode(Map *map, v3s16 p, IGameDef *gamedef)

@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "network/serveropcodes.h"
 #include "remoteplayer.h"
 #include "settings.h"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "serverenvironment.h"
 #include "map/Map.hpp"
 #include "EmergeManager.hpp"

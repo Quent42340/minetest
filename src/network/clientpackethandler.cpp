@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/clientmedia.h"
 #include "log.h"
 #include "map/ServerMap.hpp"
-#include "mapsector.h"
+#include "map/MapSector.hpp"
 #include "client/minimap.h"
 #include "modchannels.h"
 #include "nodedef.h"

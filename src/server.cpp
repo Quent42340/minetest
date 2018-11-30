@@ -33,7 +33,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "config.h"
 #include "version.h"
 #include "filesys.h"
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "serverobject.h"
 #include "genericobject.h"
 #include "settings.h"

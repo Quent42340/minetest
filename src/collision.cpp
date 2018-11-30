@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "collision.h"
 #include <cmath>
-#include "mapblock.h"
+#include "map/MapBlock.hpp"
 #include "map/Map.hpp"
 #include "nodedef.h"
 #include "gamedef.h"
