@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/sound.h"
 #include "world/nodedef.h"
 #include "item/CItemDefManager.hpp"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "modchannels.h"
 #include "content/mods.h"
 #include "util/numeric.h"

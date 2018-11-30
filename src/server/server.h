@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irr_v3d.h"
 #include "map/Map.hpp"
 #include "HudElement.hpp"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "serialization.h" // For SER_FMT_VER_INVALID
 #include "content/mods.h"
 #include "inventorymanager.h"

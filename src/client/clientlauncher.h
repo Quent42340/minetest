@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlichttypes_extrabloated.h"
 #include "client/inputhandler.h"
-#include "gameparams.h"
+#include "server/game/gameparams.h"
 
 class RenderingEngine;
 

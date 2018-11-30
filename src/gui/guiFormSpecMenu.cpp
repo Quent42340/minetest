@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "guiFormSpecMenu.h"
 #include "guiTable.h"
 #include "core/constants.h"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "client/keycode.h"
 #include "util/strfnd.h"
 #include <IGUICheckBox.h>

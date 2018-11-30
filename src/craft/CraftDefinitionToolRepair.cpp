@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "craft/CraftDefinitionToolRepair.hpp"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 
 static ItemStack craftToolRepair(
 		const ItemStack &item1,

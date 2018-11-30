@@ -32,7 +32,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/log.h"
 #include "debug/quicktune.h"
 #include "httpfetch.h"
-#include "gameparams.h"
+#include "server/game/gameparams.h"
 #include "database/database.h"
 #include "core/config.h"
 #include "player/Player.h"

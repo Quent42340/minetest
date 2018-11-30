@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/log.h"
 #include "core/profiler.h"
 #include "world/nodedef.h"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "util/directiontables.h"
 #include "util/basic_macros.h"
 #include "rollback_interface.h"

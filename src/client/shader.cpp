@@ -35,7 +35,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/renderingengine.h"
 #include "EShaderTypes.h"
 #include "core/log.h"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "client/tile.h"
 
 /*

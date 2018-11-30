@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "scripting_server.h"
 #include "server/serverobject.h"
 #include "core/settings.h"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "craft/ICraftDefManager.hpp"
 #include "rollback_interface.h"
 #include "util/strfnd.h"

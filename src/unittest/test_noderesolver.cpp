@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "util/numeric.h"
 #include "core/exceptions.h"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "world/nodedef.h"
 
 #include <algorithm>

@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <algorithm>
 
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "core/log.h"
 #include "world/voxel.h"
 

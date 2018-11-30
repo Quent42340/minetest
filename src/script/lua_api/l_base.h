@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_types.h"
 #include "common/c_internal.h"
 #include "common/helper.h"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include <unordered_map>
 
 extern "C" {

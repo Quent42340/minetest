@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "world/nodemetadata.h"
 #include "core/exceptions.h"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "inventory.h"
 #include "core/log.h"
 #include "util/serialize.h"

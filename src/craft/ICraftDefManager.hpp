@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef ICRAFTDEFMANAGER_HPP_
 #define ICRAFTDEFMANAGER_HPP_
 
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "ICraftDefinition.hpp"
 
 /*

@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <algorithm>
 #include "craft/CraftDefinitionShapeless.hpp"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 
 bool CraftDefinitionShapeless::check(const CraftInput &input, IGameDef *gamedef) const
 {

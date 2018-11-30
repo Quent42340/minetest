@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
 #include "filesys.h"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "core/porting.h"  // strlcpy
 #include "server/server.h"
 #include "core/settings.h"

@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "test.h"
 
 #include "mapgen/mg_schematic.h"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "world/nodedef.h"
 
 class TestSchematic : public TestBase {

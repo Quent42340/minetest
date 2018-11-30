@@ -75,9 +75,12 @@ Notes
 
 ## Server
 
+• TODO: `MtEvent`
 • TODO: `server`
 • TODO: `serverenvironment`
 • TODO: `serverlist`
+• TODO: `sound`
+• TODO: `tileanimation`
 
 ### Client
 
@@ -122,7 +125,4 @@ Notes
 ## Misc
 
 • TODO: `modifiedstate`
-• TODO: `MtEvent`
-• TODO: `sound`
-• TODO: `tileanimation`
 

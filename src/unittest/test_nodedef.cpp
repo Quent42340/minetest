@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <sstream>
 
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "world/nodedef.h"
 #include "network/networkprotocol.h"
 

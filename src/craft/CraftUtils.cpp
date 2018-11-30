@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <sstream>
 #include <set>
 #include <algorithm>
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "inventory.h"
 #include "util/serialize.h"
 #include "util/string.h"

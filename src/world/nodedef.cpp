@@ -35,7 +35,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/serialize.h"
 #include "core/exceptions.h"
 #include "debug/Debug.hpp"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 #include "map/MapNode.hpp"
 #include <fstream> // Used in applyTextureOverrides()
 #include <algorithm>

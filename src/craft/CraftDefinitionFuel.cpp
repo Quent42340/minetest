@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "craft/CraftDefinitionFuel.hpp"
-#include "gamedef.h"
+#include "server/game/gamedef.h"
 
 bool CraftDefinitionFuel::check(const CraftInput &input, IGameDef *gamedef) const
 {
