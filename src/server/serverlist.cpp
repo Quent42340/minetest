@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "core/version.h"
 #include "core/settings.h"
-#include "serverlist.h"
+#include "server/serverlist.h"
 #include "filesys.h"
 #include "core/porting.h"
 #include "core/log.h"

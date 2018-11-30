@@ -33,7 +33,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/numeric.h"
 #include "util/thread.h"
 #include "util/basic_macros.h"
-#include "serverenvironment.h"
+#include "server/serverenvironment.h"
 #include "clientiface.h"
 #include "chatmessage.h"
 #include <string>
@@ -75,8 +75,8 @@ struct MediaInfo
 	std::string path;
 	std::string sha1_digest;
 
-	MediaInfo(const std::string &path_="",
-	          const std::string &sha1_digest_=""):
+	MediaInfo(const std::string &path_ = "",
+	          const std::string &sha1_digest_ = ""):
 		path(path_),
 		sha1_digest(sha1_digest_)
 	{
@@ -90,6 +90,7 @@ struct ServerSoundParams
 		SSP_POSITIONAL,
 		SSP_OBJECT
 	} type = SSP_LOCAL;
+
 	float gain = 1.0f;
 	float fade = 0.0f;
 	float pitch = 1.0f;
@@ -143,6 +144,7 @@ public:
 	 * Command Handlers
 	 */
 
+	// FIXME: Add class ServerCommandHandler to split these
 	void handleCommand(NetworkPacket* pkt);
 
 	void handleCommand_Null(NetworkPacket* pkt) {};
@@ -226,6 +228,7 @@ public:
 
 	void notifyPlayer(const char *name, const std::wstring &msg);
 	void notifyPlayers(const std::wstring &msg);
+
 	void spawnParticle(const std::string &playername,
 		v3f pos, v3f velocity, v3f acceleration,
 		float expirationtime, float size,
@@ -385,7 +388,6 @@ private:
 
 	/* mark blocks not sent for all clients */
 	void SetBlocksNotSent(std::map<v3s16, MapBlock *>& block);
-
 
 	virtual void SendChatMessage(session_t peer_id, const ChatMessage &message);
 	void SendTimeOfDay(session_t peer_id, u16 time, f32 time_speed);

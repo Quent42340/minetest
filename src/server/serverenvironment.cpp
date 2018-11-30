@@ -17,7 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "serverenvironment.h"
+#include "server/serverenvironment.h"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
@@ -33,7 +33,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "raycast.h"
 #include "remoteplayer.h"
 #include "scripting_server.h"
-#include "server.h"
+#include "server/server.h"
 #include "util/serialize.h"
 #include "util/basic_macros.h"
 #include "util/pointedthing.h"

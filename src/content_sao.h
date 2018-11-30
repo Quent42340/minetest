@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "network/networkprotocol.h"
 #include "util/numeric.h"
-#include "serverobject.h"
+#include "server/serverobject.h"
 #include "itemgroup.h"
 #include "object_properties.h"
 #include "core/constants.h"

@@ -21,10 +21,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_internal.h"
 #include "lua_api/l_inventory.h"
 #include "common/c_content.h"
-#include "serverenvironment.h"
+#include "server/serverenvironment.h"
 #include "map/Map.hpp"
 #include "map/MapBlock.hpp"
-#include "server.h"
+#include "server/server.h"
 
 /*
 	NodeMetaRef

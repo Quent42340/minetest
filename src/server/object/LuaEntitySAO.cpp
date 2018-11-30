@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cmath>
 #include "util/serialize.h"
 #include "collision.h"
-#include "server.h"
+#include "server/server.h"
 #include "scripting_server.h"
 #include "genericobject.h"
 #include "server/object/LuaEntitySAO.h"

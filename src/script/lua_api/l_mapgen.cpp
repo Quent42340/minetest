@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_content.h"
 #include "cpp_api/s_security.h"
 #include "util/serialize.h"
-#include "server.h"
+#include "server/server.h"
 #include "environment.h"
 #include "EmergeManager.hpp"
 #include "map/MMVManip.hpp"

@@ -37,8 +37,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "nodedef.h"
 #include "core/profiler.h"
 #include "scripting_server.h"
-#include "server.h"
-#include "serverobject.h"
+#include "server/server.h"
+#include "server/serverobject.h"
 #include "core/settings.h"
 #include "voxel.h"
 

@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "object_properties.h"
 #include "common/c_converter.h"
 #include "common/c_content.h"
-#include "server.h"
+#include "server/server.h"
 
 bool ScriptApiEntity::luaentity_Add(u16 id, const char *name)
 {

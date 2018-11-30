@@ -21,9 +21,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "environment.h"
 #include "collision.h"
 #include "raycast.h"
-#include "serverobject.h"
+#include "server/serverobject.h"
 #include "scripting_server.h"
-#include "server.h"
+#include "server/server.h"
 #include "daynightratio.h"
 #include "EmergeManager.hpp"
 

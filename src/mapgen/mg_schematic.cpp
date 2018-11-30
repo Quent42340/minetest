@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <fstream>
 #include <typeinfo>
 #include "mg_schematic.h"
-#include "server.h"
+#include "server/server.h"
 #include "mapgen.h"
 #include "EmergeManager.hpp"
 #include "map/ServerMap.hpp"

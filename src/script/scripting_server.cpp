@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "scripting_server.h"
-#include "server.h"
+#include "server/server.h"
 #include "core/log.h"
 #include "core/settings.h"
 #include "cpp_api/s_internal.h"

@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/ServerMap.hpp"
 #include "map/MMVManip.hpp"
 #include "map/MapBlock.hpp"
-#include "server.h"
+#include "server/server.h"
 #include "mapgen/mapgen.h"
 #include "voxelalgorithms.h"
 

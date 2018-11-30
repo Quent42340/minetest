@@ -17,7 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "server.h"
+#include "server/server.h"
 #include <iostream>
 #include <queue>
 #include <algorithm>
@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/version.h"
 #include "filesys.h"
 #include "map/MapBlock.hpp"
-#include "serverobject.h"
+#include "server/serverobject.h"
 #include "genericobject.h"
 #include "core/settings.h"
 #include "core/profiler.h"
@@ -54,7 +54,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/PlayerHPChangeReason.h"
 #include "content/mods.h"
 #include "modchannels.h"
-#include "serverlist.h"
+#include "server/serverlist.h"
 #include "util/string.h"
 #include "rollback.h"
 #include "util/serialize.h"

@@ -32,7 +32,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "content/packages.h"
 #include "content/content.h"
 #include "content/subgames.h"
-#include "serverlist.h"
+#include "server/serverlist.h"
 #include "mapgen/mapgen.h"
 #include "core/settings.h"
 

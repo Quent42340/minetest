@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "lua_api/l_base.h"
-#include "serverenvironment.h"
+#include "server/serverenvironment.h"
 #include "raycast.h"
 
 class ModApiEnvMod : public ModApiBase {

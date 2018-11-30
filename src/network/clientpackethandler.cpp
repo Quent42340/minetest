@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "modchannels.h"
 #include "nodedef.h"
 #include "serialization.h"
-#include "server.h"
+#include "server/server.h"
 #include "util/strfnd.h"
 #include "client/clientevent.h"
 #include "client/sound.h"

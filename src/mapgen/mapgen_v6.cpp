@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapBlock.hpp"
 #include "map/MapNode.hpp"
 #include "map/Map.hpp"
-//#include "serverobject.h"
+//#include "server/serverobject.h"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"

@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "chatmessage.h"
-#include "server.h"
+#include "server/server.h"
 #include "core/log.h"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"

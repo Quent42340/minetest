@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/serialize.h"
 #include "nodedef.h"
 #include "remoteplayer.h"
-#include "server.h"
+#include "server/server.h"
 #include "scripting_server.h"
 #include "genericobject.h"
 #include "server/object/LagPool.h"

@@ -26,8 +26,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef SERVER
 #include "client/ClientEnvironment.h"
 #endif
-#include "serverenvironment.h"
-#include "serverobject.h"
+#include "server/serverenvironment.h"
+#include "server/serverobject.h"
 #include "util/timetaker.h"
 #include "core/profiler.h"
 

@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "EmergeThread.hpp"
 #include "map/MapBlock.hpp"
-#include "server.h"
+#include "server/server.h"
 #include "scripting_server.h"
 #include "core/profiler.h"
 

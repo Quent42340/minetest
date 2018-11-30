@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_item.h"
 #include "common/c_converter.h"
 #include "common/c_content.h"
-#include "server.h"
+#include "server/server.h"
 #include "craft/ICraftDefManager.hpp"
 #include "craft/CraftDefinitionShaped.hpp"
 #include "craft/CraftDefinitionShapeless.hpp"

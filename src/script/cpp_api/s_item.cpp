@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_content.h"
 #include "lua_api/l_item.h"
 #include "lua_api/l_inventory.h"
-#include "server.h"
+#include "server/server.h"
 #include "core/log.h"
 #include "util/pointedthing.h"
 #include "inventory.h"

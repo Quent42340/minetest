@@ -23,8 +23,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 /******************************************************************************/
 
 #include "pathfinder.h"
-#include "serverenvironment.h"
-#include "server.h"
+#include "server/serverenvironment.h"
+#include "server/server.h"
 #include "nodedef.h"
 
 //#define PATHFINDER_DEBUG

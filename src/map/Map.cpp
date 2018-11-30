@@ -39,7 +39,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapgen/mapgen_v6.h"
 #include "mapgen/mg_biome.h"
 #include "core/config.h"
-#include "server.h"
+#include "server/server.h"
 #include "script/scripting_server.h"
 #include <deque>
 #include <queue>

@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_converter.h"
 #include "common/c_content.h"
 #include "nodedef.h"
-#include "server.h"
+#include "server/server.h"
 #include "environment.h"
 #include "util/pointedthing.h"
 

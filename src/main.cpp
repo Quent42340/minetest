@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "chat_interface.h"
 #include "core/debug.h"
 #include "unittest/test.h"
-#include "server.h"
+#include "server/server.h"
 #include "filesys.h"
 #include "core/version.h"
 #include "client/game/Game.h"

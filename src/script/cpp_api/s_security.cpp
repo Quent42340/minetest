@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "filesys.h"
 #include "core/porting.h"
-#include "server.h"
+#include "server/server.h"
 #include "client/client.h"
 #include "core/settings.h"
 

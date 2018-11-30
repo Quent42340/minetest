@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_converter.h"
 #include "nodedef.h"
 #include "map/MapNode.hpp"
-#include "server.h"
+#include "server/server.h"
 #include "environment.h"
 #include "lua_api/l_item.h"
 

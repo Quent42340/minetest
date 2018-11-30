@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "remoteplayer.h"
 #include "core/settings.h"
 #include "map/MapBlock.hpp"
-#include "serverenvironment.h"
+#include "server/serverenvironment.h"
 #include "map/Map.hpp"
 #include "EmergeManager.hpp"
 #include "core/log.h"

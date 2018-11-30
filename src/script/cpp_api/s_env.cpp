@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "environment.h"
 #include "mapgen/mapgen.h"
 #include "lua_api/l_env.h"
-#include "server.h"
+#include "server/server.h"
 
 void ScriptApiEnv::environment_OnGenerated(v3s16 minp, v3s16 maxp,
 	u32 blockseed)

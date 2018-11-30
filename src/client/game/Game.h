@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/gameui.h"
 #include "client/inputhandler.h"
 #include "gui/profilergraph.h"
-#include "server.h"
+#include "server/server.h"
 
 #include "client/game/GameOnDemandSoundFetcher.h"
 

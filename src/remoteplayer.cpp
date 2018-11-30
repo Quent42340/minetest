@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "filesys.h"
 #include "gamedef.h"
 #include "core/porting.h"  // strlcpy
-#include "server.h"
+#include "server/server.h"
 #include "core/settings.h"
 #include "convert_json.h"
 

@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mg_biome.h"
 #include "mg_decoration.h"
 #include "EmergeManager.hpp"
-#include "server.h"
+#include "server/server.h"
 #include "nodedef.h"
 #include "map/Map.hpp" //for MMVManip
 #include "util/numeric.h"

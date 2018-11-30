@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "serverobject.h"
+#include "server/serverobject.h"
 #include "object_properties.h"
 
 class UnitSAO: public ServerActiveObject

@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_rollback.h"
 #include "lua_api/l_internal.h"
 #include "common/c_converter.h"
-#include "server.h"
+#include "server/server.h"
 #include "rollback_interface.h"
 
 

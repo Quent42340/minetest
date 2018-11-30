@@ -26,7 +26,7 @@ extern "C" {
 #include "lualib.h"
 }
 
-#include "server.h"
+#include "server/server.h"
 #include "s_async.h"
 #include "core/log.h"
 #include "filesys.h"
