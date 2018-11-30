@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_content.h"
 #include "common/c_converter.h"
 #include "cpp_api/s_base.h"
-#include "gettext.h"
+#include "util/gettext.h"
 #include "l_internal.h"
 #include "lua_api/l_item.h"
 #include "lua_api/l_nodemeta.h"

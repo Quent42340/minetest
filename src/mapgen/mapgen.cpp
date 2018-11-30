@@ -40,7 +40,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/network/serialization.h"
 #include "util/serialize.h"
 #include "util/numeric.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/log.h"
 #include "mapgen_carpathian.h"
 #include "mapgen_flat.h"

@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "mods.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/log.h"
 #include "scripting_server.h"
 #include "content/subgames.h"

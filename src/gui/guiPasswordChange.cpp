@@ -25,7 +25,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <IGUIFont.h>
 
 #include "core/porting.h"
-#include "gettext.h"
+#include "util/gettext.h"
 
 const int ID_oldPassword = 256;
 const int ID_newPassword1 = 257;

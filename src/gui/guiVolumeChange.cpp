@@ -28,7 +28,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <IGUIFont.h>
 #include "core/settings.h"
 
-#include "gettext.h"
+#include "util/gettext.h"
 
 const int ID_soundText = 263;
 const int ID_soundExitButton = 264;

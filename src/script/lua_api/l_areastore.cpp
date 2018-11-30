@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "cpp_api/s_security.h"
 #include "irr_v3d.h"
 #include "util/areastore.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include <fstream>
 
 static inline void get_data_and_border_flags(lua_State *L, u8 start_i,

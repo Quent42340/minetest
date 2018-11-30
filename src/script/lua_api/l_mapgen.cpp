@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapgen/mg_schematic.h"
 #include "mapgen/mapgen_v5.h"
 #include "mapgen/mapgen_v7.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/settings.h"
 #include "core/log.h"
 

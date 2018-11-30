@@ -32,7 +32,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/voxel.h"
 #include "core/config.h"
 #include "core/version.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "map/MapBlock.hpp"
 #include "server/serverobject.h"
 #include "genericobject.h"

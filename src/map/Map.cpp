@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/Map.hpp"
 #include "map/MapSector.hpp"
 #include "map/MapBlock.hpp"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "world/voxel.h"
 #include "algorithm/voxelalgorithms.h"
 #include "core/porting.h"

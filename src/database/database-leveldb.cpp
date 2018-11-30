@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "database-leveldb.h"
 
 #include "core/log.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/exceptions.h"
 #include "util/string.h"
 

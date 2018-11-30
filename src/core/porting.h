@@ -38,7 +38,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlichttypes_extrabloated.h"
 #include "debug/Debug.hpp"
 #include "core/constants.h"
-#include "gettime.h"
+#include "util/gettime.h"
 
 #ifdef _MSC_VER
 	#define SWPRINTF_CHARSTRING L"%S"

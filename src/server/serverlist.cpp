@@ -25,13 +25,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/version.h"
 #include "core/settings.h"
 #include "server/serverlist.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/porting.h"
 #include "core/log.h"
 #include "network/networkprotocol.h"
 #include <json/json.h>
-#include "convert_json.h"
-#include "httpfetch.h"
+#include "util/convert_json.h"
+#include "util/httpfetch.h"
 #include "util/string.h"
 
 namespace ServerList

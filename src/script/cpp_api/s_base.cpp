@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_object.h"
 #include "common/c_converter.h"
 #include "server/serverobject.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "content/mods.h"
 #include "core/porting.h"
 #include "util/string.h"

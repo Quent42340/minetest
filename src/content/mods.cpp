@@ -22,12 +22,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <json/json.h>
 #include <algorithm>
 #include "content/mods.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/log.h"
 #include "content/subgames.h"
 #include "core/settings.h"
 #include "core/porting.h"
-#include "convert_json.h"
+#include "util/convert_json.h"
 
 bool parseDependsString(std::string &dep, std::unordered_set<char> &symbols)
 {

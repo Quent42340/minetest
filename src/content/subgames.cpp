@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "content/subgames.h"
 #include "core/porting.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/settings.h"
 #include "core/log.h"
 #include "util/strfnd.h"

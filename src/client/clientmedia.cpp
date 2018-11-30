@@ -18,10 +18,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "clientmedia.h"
-#include "httpfetch.h"
+#include "util/httpfetch.h"
 #include "client.h"
 #include "filecache.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/log.h"
 #include "core/porting.h"
 #include "core/settings.h"

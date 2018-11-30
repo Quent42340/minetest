@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "cpp_api/s_security.h"
 
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/porting.h"
 #include "server/server.h"
 #include "client/client.h"

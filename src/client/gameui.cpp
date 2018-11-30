@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "gameui.h"
 #include <irrlicht_changes/static_text.h>
-#include <gettext.h>
+#include "util/gettext.h"
 #include "gui/mainmenumanager.h"
 #include "util/pointedthing.h"
 #include "client.h"

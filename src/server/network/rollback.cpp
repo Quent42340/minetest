@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/numeric.h"
 #include "inventorymanager.h" // deserializing InventoryLocations
 #include "sqlite3.h"
-#include "filesys.h"
+#include "util/filesys.h"
 
 #define POINTS_PER_NODE (16.0)
 

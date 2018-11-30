@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "client/Application.h"
 #include "client/game/Game.h"
-#include "gettext.h"
+#include "util/gettext.h"
 
 void Application::run_game(bool *kill,
 		bool random_input,

@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "content/content.h"
 #include "content/subgames.h"
 #include "content/mods.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/settings.h"
 
 enum ContentType

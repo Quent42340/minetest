@@ -40,9 +40,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/log.h"
 #include "client/tile.h" // ITextureSource
 #include "client/Hud.hpp" // drawItemStack
-#include "filesys.h"
-#include "gettime.h"
-#include "gettext.h"
+#include "util/filesys.h"
+#include "util/gettime.h"
+#include "util/gettext.h"
 #include "scripting_server.h"
 #include "mainmenumanager.h"
 #include "core/porting.h"

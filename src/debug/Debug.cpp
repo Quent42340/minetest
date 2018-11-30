@@ -33,7 +33,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifdef _MSC_VER
 	#include <dbghelp.h>
 	#include "core/version.h"
-	#include "filesys.h"
+	#include "util/filesys.h"
 #endif
 
 #if USE_CURSES

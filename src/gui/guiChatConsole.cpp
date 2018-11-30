@@ -21,14 +21,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/network/chat.h"
 #include "client/client.h"
 #include "debug/Debug.hpp"
-#include "gettime.h"
+#include "util/gettime.h"
 #include "client/keycode.h"
 #include "core/settings.h"
 #include "core/porting.h"
 #include "client/tile.h"
 #include "client/fontengine.h"
 #include "core/log.h"
-#include "gettext.h"
+#include "util/gettext.h"
 #include <string>
 
 #if USE_FREETYPE

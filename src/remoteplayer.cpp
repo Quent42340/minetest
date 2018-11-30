@@ -23,12 +23,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "server/game/gamedef.h"
 #include "core/porting.h"  // strlcpy
 #include "server/server.h"
 #include "core/settings.h"
-#include "convert_json.h"
+#include "util/convert_json.h"
 
 /*
 	RemotePlayer

@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "remoteplayer.h"
 #include "core/settings.h"
 #include "core/porting.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "util/string.h"
 
 // !!! WARNING !!!

@@ -28,7 +28,7 @@ SQLite format specification:
 #include "database-sqlite3.h"
 
 #include "core/log.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/exceptions.h"
 #include "core/settings.h"
 #include "core/porting.h"

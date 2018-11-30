@@ -31,7 +31,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/numeric.h"
 #include "util/serialize.h"
 #include "server/network/serialization.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "algorithm/voxelalgorithms.h"
 
 ///////////////////////////////////////////////////////////////////////////////

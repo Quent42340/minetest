@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/log.h"
 #include "client/keycode.h"
 #include "core/settings.h"
-#include "gettime.h"
+#include "util/gettime.h"
 #include "util/numeric.h"
 #include "core/porting.h"
 #include "client/guiscalingfilter.h"

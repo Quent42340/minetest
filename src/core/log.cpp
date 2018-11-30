@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "threading/mutex_auto_lock.h"
 #include "debug/Debug.hpp"
-#include "gettime.h"
+#include "util/gettime.h"
 #include "core/porting.h"
 #include "core/config.h"
 #include "core/exceptions.h"

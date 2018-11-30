@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cstring>
 #include <iostream>
 #include <cstdlib>
-#include "gettext.h"
+#include "util/gettext.h"
 #include "util/string.h"
 #include "core/log.h"
 
@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <windows.h>
 #include <map>
 #include <direct.h>
-#include "filesys.h"
+#include "util/filesys.h"
 
 #define setlocale(category, localename) \
 	setlocale(category, MSVC_LocaleLookup(localename))

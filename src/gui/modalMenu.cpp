@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <cstdlib>
 #include "modalMenu.h"
-#include "gettext.h"
+#include "util/gettext.h"
 #include "core/porting.h"
 #include "core/settings.h"
 

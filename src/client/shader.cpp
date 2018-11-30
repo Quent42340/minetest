@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "shader.h"
 #include "irrlichttypes_extrabloated.h"
 #include "debug/Debug.hpp"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "util/container.h"
 #include "util/thread.h"
 #include "core/settings.h"

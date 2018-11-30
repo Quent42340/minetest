@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "render/core.h"
 #include "render/factory.h"
 #include "inputhandler.h"
-#include "gettext.h"
+#include "util/gettext.h"
 
 #if !defined(_WIN32) && !defined(__APPLE__) && !defined(__ANDROID__) && \
 		!defined(SERVER) && !defined(__HAIKU__)
@@ -47,7 +47,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #endif
 
 #ifdef __ANDROID__
-#include "filesys.h"
+#include "util/filesys.h"
 #endif
 
 RenderingEngine *RenderingEngine::s_singleton = nullptr;

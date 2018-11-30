@@ -29,7 +29,7 @@ extern "C" {
 #include "server/server.h"
 #include "s_async.h"
 #include "core/log.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/porting.h"
 #include "common/c_internal.h"
 

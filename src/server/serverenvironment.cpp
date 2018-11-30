@@ -38,7 +38,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/basic_macros.h"
 #include "util/pointedthing.h"
 #include "threading/mutex_auto_lock.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "server/game/gameparams.h"
 #include "database/database-dummy.h"
 #include "database/database-files.h"

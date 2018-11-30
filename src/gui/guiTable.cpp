@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "debug/Debug.hpp"
 #include "core/log.h"
 #include "client/tile.h"
-#include "gettime.h"
+#include "util/gettime.h"
 #include "util/string.h"
 #include "util/numeric.h"
 #include "util/string.h" // for parseColorString()

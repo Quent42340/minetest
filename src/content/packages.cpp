@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "content/packages.h"
 #include "core/log.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/porting.h"
 #include "core/settings.h"
 #include "content/mods.h"

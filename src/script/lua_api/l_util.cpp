@@ -27,11 +27,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <json/json.h>
 #include "cpp_api/s_security.h"
 #include "core/porting.h"
-#include "convert_json.h"
+#include "util/convert_json.h"
 #include "debug/Debug.hpp"
 #include "core/log.h"
 #include "tool.h"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/settings.h"
 #include "util/auth.h"
 #include "util/base64.h"

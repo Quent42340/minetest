@@ -22,10 +22,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/renderingengine.h"
 #include "core/config.h"
 #include "core/porting.h"
-#include "filesys.h"
+#include "util/filesys.h"
 
 #if USE_FREETYPE
-#include "gettext.h"
+#include "util/gettext.h"
 #include "irrlicht_changes/CGUITTFont.h"
 #endif
 

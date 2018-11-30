@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "database/database-files.h"
 #include "database/database-sqlite3.h"
 #include "util/string.h"
-#include "filesys.h"
+#include "util/filesys.h"
 
 namespace
 {

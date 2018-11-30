@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "debug/Debug.hpp"
-#include "filesys.h"
+#include "util/filesys.h"
 #include "core/log.h"
 #include "mapgen/mapgen.h"
 #include "core/settings.h"

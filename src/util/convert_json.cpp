@@ -21,12 +21,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <iostream>
 #include <sstream>
 
-#include "convert_json.h"
+#include "util/convert_json.h"
 #include "content/mods.h"
 #include "core/config.h"
 #include "core/log.h"
 #include "core/settings.h"
-#include "httpfetch.h"
+#include "util/httpfetch.h"
 #include "core/porting.h"
 
 Json::Value fetchJsonValue(const std::string &url,
