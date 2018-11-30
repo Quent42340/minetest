@@ -36,7 +36,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "exceptions.h"
 #include "debug.h"
 #include "gamedef.h"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include <fstream> // Used in applyTextureOverrides()
 #include <algorithm>
 #include <cmath>

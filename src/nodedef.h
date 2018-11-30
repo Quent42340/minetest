@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <string>
 #include <iostream>
 #include <map>
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include "nameidmapping.h"
 #ifndef SERVER
 #include "client/tile.h"

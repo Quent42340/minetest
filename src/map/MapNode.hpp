@@ -16,8 +16,8 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-
-#pragma once
+#ifndef MAPNODE_HPP_
+#define MAPNODE_HPP_
 
 #include "irrlichttypes_bloated.h"
 #include "light.h"
@@ -158,30 +158,13 @@ struct MapNode
 	}
 
 	// To be used everywhere
-	content_t getContent() const
-	{
-		return param0;
-	}
-	void setContent(content_t c)
-	{
-		param0 = c;
-	}
-	u8 getParam1() const
-	{
-		return param1;
-	}
-	void setParam1(u8 p)
-	{
-		param1 = p;
-	}
-	u8 getParam2() const
-	{
-		return param2;
-	}
-	void setParam2(u8 p)
-	{
-		param2 = p;
-	}
+	content_t getContent() const { return param0; }
+	u8 getParam1() const { return param1; }
+	u8 getParam2() const { return param2; }
+
+	void setContent(content_t c) { param0 = c; }
+	void setParam1(u8 p) { param1 = p; }
+	void setParam2(u8 p) { param2 = p; }
 
 	/*!
 	 * Returns the color of the node.
@@ -306,3 +289,5 @@ private:
 	// Deprecated serialization methods
 	void deSerialize_pre22(const u8 *source, u8 version);
 };
+
+#endif // MAPNODE_HPP_

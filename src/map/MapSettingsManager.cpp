@@ -23,17 +23,15 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapgen/mapgen.h"
 #include "settings.h"
 
-#include "map_settings_manager.h"
+#include "map/MapSettingsManager.hpp"
 
-MapSettingsManager::MapSettingsManager(Settings *user_settings,
-		const std::string &map_meta_path):
+MapSettingsManager::MapSettingsManager(Settings *user_settings, const std::string &map_meta_path):
 	m_map_meta_path(map_meta_path),
-	m_map_settings(new Settings()),
+	m_map_settings(new Settings()), // FIXME
 	m_user_settings(user_settings)
 {
 	assert(m_user_settings != NULL);
 }
-
 
 MapSettingsManager::~MapSettingsManager()
 {
@@ -41,9 +39,7 @@ MapSettingsManager::~MapSettingsManager()
 	delete mapgen_params;
 }
 
-
-bool MapSettingsManager::getMapSetting(
-	const std::string &name, std::string *value_out)
+bool MapSettingsManager::getMapSetting(const std::string &name, std::string *value_out)
 {
 	if (m_map_settings->getNoEx(name, *value_out))
 		return true;
@@ -55,17 +51,13 @@ bool MapSettingsManager::getMapSetting(
 	return m_user_settings->getNoEx(name, *value_out);
 }
 
-
-bool MapSettingsManager::getMapSettingNoiseParams(
-	const std::string &name, NoiseParams *value_out)
+bool MapSettingsManager::getMapSettingNoiseParams(const std::string &name, NoiseParams *value_out)
 {
-	return m_map_settings->getNoiseParams(name, *value_out) ||
-		m_user_settings->getNoiseParams(name, *value_out);
+	return m_map_settings->getNoiseParams(name, *value_out)
+	    || m_user_settings->getNoiseParams(name, *value_out);
 }
 
-
-bool MapSettingsManager::setMapSetting(
-	const std::string &name, const std::string &value, bool override_meta)
+bool MapSettingsManager::setMapSetting(const std::string &name, const std::string &value, bool override_meta)
 {
 	if (mapgen_params)
 		return false;
@@ -78,9 +70,7 @@ bool MapSettingsManager::setMapSetting(
 	return true;
 }
 
-
-bool MapSettingsManager::setMapSettingNoiseParams(
-	const std::string &name, const NoiseParams *value, bool override_meta)
+bool MapSettingsManager::setMapSettingNoiseParams(const std::string &name, const NoiseParams *value, bool override_meta)
 {
 	if (mapgen_params)
 		return false;
@@ -88,7 +78,6 @@ bool MapSettingsManager::setMapSettingNoiseParams(
 	m_map_settings->setNoiseParams(name, *value, !override_meta);
 	return true;
 }
-
 
 bool MapSettingsManager::loadMapMeta()
 {
@@ -107,7 +96,6 @@ bool MapSettingsManager::loadMapMeta()
 
 	return true;
 }
-
 
 bool MapSettingsManager::saveMapMeta()
 {
@@ -141,7 +129,6 @@ bool MapSettingsManager::saveMapMeta()
 
 	return true;
 }
-
 
 MapgenParams *MapSettingsManager::makeMapgenParams()
 {
@@ -190,3 +177,4 @@ MapgenParams *MapSettingsManager::makeMapgenParams()
 
 	return params;
 }
+

@@ -16,8 +16,8 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-
-#pragma once
+#ifndef MAPSETTINGSMANAGER_HPP_
+#define MAPSETTINGSMANAGER_HPP_
 
 #include <string>
 
@@ -42,35 +42,34 @@ struct MapgenParams;
 	  to whichever Map-related objects that may require it.
 	- Save these active settings to the metadata file when requested
 */
+
 class MapSettingsManager {
-public:
-	MapSettingsManager(Settings *user_settings,
-		const std::string &map_meta_path);
-	~MapSettingsManager();
+	public:
+		MapSettingsManager(Settings *user_settings,
+				const std::string &map_meta_path);
+		~MapSettingsManager();
 
-	// Finalized map generation parameters
-	MapgenParams *mapgen_params = nullptr;
+		bool getMapSetting(const std::string &name, std::string *value_out);
+		bool getMapSettingNoiseParams(const std::string &name, NoiseParams *value_out);
 
-	bool getMapSetting(const std::string &name, std::string *value_out);
+		// Note: Map config becomes read-only after makeMapgenParams() gets called
+		// (i.e. mapgen_params is non-NULL).  Attempts to set map config after
+		// params have been finalized will result in failure.
+		bool setMapSetting(const std::string &name, const std::string &value, bool override_meta = false);
+		bool setMapSettingNoiseParams(const std::string &name, const NoiseParams *value, bool override_meta = false);
 
-	bool getMapSettingNoiseParams(
-		const std::string &name, NoiseParams *value_out);
+		bool loadMapMeta();
+		bool saveMapMeta();
 
-	// Note: Map config becomes read-only after makeMapgenParams() gets called
-	// (i.e. mapgen_params is non-NULL).  Attempts to set map config after
-	// params have been finalized will result in failure.
-	bool setMapSetting(const std::string &name,
-		const std::string &value, bool override_meta = false);
+		MapgenParams *makeMapgenParams();
 
-	bool setMapSettingNoiseParams(const std::string &name,
-		const NoiseParams *value, bool override_meta = false);
+		// Finalized map generation parameters
+		MapgenParams *mapgen_params = nullptr;
 
-	bool loadMapMeta();
-	bool saveMapMeta();
-	MapgenParams *makeMapgenParams();
-
-private:
-	std::string m_map_meta_path;
-	Settings *m_map_settings;
-	Settings *m_user_settings;
+	private:
+		std::string m_map_meta_path;
+		Settings *m_map_settings;
+		Settings *m_user_settings;
 };
+
+#endif // MAPSETTINGSMANAGER_HPP_

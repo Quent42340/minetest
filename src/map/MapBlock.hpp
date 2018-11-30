@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <set>
 #include "irr_v3d.h"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include "exceptions.h"
 #include "constants.h"
 #include "staticobject.h"

@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "voxel.h"
 #include "noise.h"
 #include "map/MapBlock.hpp"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include "map/Map.hpp"
 #include "nodedef.h"
 #include "voxelalgorithms.h"

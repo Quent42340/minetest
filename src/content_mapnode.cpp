@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "content_mapnode.h"
 
 #include "irrlichttypes_bloated.h"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include "nodedef.h"
 #include "nameidmapping.h"
 #include "util/string.h"

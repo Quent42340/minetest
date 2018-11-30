@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "gamedef.h"
 #include "mg_biome.h"
 #include "map/MapBlock.hpp"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include "map/Map.hpp"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"

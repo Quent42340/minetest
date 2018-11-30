@@ -26,13 +26,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <list>
 
 #include "irrlichttypes_bloated.h"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include "constants.h"
 #include "voxel.h"
 #include "modifiedstate.h"
 #include "util/container.h"
 #include "nodetimer.h"
-#include "map_settings_manager.h"
+#include "map/MapSettingsManager.hpp"
 #include "debug.h"
 #include "map/MapEditEvent.hpp"
 

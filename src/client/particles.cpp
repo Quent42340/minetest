@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "light.h"
 #include "environment.h"
 #include "clientmap.h"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include "nodedef.h"
 #include "client.h"
 #include "settings.h"

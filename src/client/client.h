@@ -32,7 +32,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "localplayer.h"
 #include "client/Hud.hpp"
 #include "particles.h"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include "tileanimation.h"
 #include "mesh_generator_thread.h"
 #include "network/address.h"

@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <iostream>
 #include <cassert>
 #include "exceptions.h"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include <set>
 #include <list>
 #include "util/basic_macros.h"

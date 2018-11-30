@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "cpp_api/s_internal.h"
 #include "common/c_converter.h"
 #include "nodedef.h"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include "server.h"
 #include "environment.h"
 #include "lua_api/l_item.h"

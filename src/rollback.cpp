@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <list>
 #include <sstream>
 #include "log.h"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include "gamedef.h"
 #include "nodedef.h"
 #include "util/serialize.h"

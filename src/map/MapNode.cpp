@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "irrlichttypes_extrabloated.h"
-#include "mapnode.h"
+#include "map/MapNode.hpp"
 #include "porting.h"
 #include "nodedef.h"
 #include "map/Map.hpp"
@@ -39,18 +39,14 @@ static const u8 rot_to_wallmounted[] = {
 	2, 4, 3, 5
 };
 
-
-/*
-	MapNode
-*/
-
 // Create directly from a nodename
 // If name is unknown, sets CONTENT_IGNORE
-MapNode::MapNode(const NodeDefManager *ndef, const std::string &name,
-		u8 a_param1, u8 a_param2)
+MapNode::MapNode(const NodeDefManager *ndef, const std::string &name, u8 a_param1, u8 a_param2)
 {
 	content_t id = CONTENT_IGNORE;
+
 	ndef->getId(name, id);
+
 	param0 = id;
 	param1 = a_param1;
 	param2 = a_param2;
@@ -62,6 +58,7 @@ void MapNode::getColor(const ContentFeatures &f, video::SColor *color) const
 		*color = (*f.palette)[param2];
 		return;
 	}
+
 	*color = f.color;
 }
 
@@ -70,6 +67,7 @@ void MapNode::setLight(enum LightBank bank, u8 a_light, const ContentFeatures &f
 	// If node doesn't contain light data, ignore this
 	if(f.param_type != CPT_LIGHT)
 		return;
+
 	if(bank == LIGHTBANK_DAY)
 	{
 		param1 &= 0xf0;
@@ -84,8 +82,7 @@ void MapNode::setLight(enum LightBank bank, u8 a_light, const ContentFeatures &f
 		assert("Invalid light bank" == NULL);
 }
 
-void MapNode::setLight(enum LightBank bank, u8 a_light,
-	const NodeDefManager *nodemgr)
+void MapNode::setLight(enum LightBank bank, u8 a_light, const NodeDefManager *nodemgr)
 {
 	setLight(bank, a_light, nodemgr->get(*this));
 }
@@ -133,8 +130,7 @@ u8 MapNode::getLightNoChecks(enum LightBank bank, const ContentFeatures *f) cons
 	             bank == LIGHTBANK_DAY ? param1 & 0x0f : (param1 >> 4) & 0x0f);
 }
 
-bool MapNode::getLightBanks(u8 &lightday, u8 &lightnight,
-	const NodeDefManager *nodemgr) const
+bool MapNode::getLightBanks(u8 &lightday, u8 &lightnight, const NodeDefManager *nodemgr) const
 {
 	// Select the brightest of [light source, propagated light]
 	const ContentFeatures &f = nodemgr->get(*this);
@@ -155,8 +151,7 @@ bool MapNode::getLightBanks(u8 &lightday, u8 &lightnight,
 	return f.param_type == CPT_LIGHT || f.light_source != 0;
 }
 
-u8 MapNode::getFaceDir(const NodeDefManager *nodemgr,
-	bool allow_wallmounted) const
+u8 MapNode::getFaceDir(const NodeDefManager *nodemgr, bool allow_wallmounted) const
 {
 	const ContentFeatures &f = nodemgr->get(*this);
 	if (f.param_type_2 == CPT2_FACEDIR ||
@@ -566,15 +561,13 @@ u8 MapNode::getNeighbors(v3s16 p, Map *map)
 	return neighbors;
 }
 
-void MapNode::getNodeBoxes(const NodeDefManager *nodemgr,
-	std::vector<aabb3f> *boxes, u8 neighbors)
+void MapNode::getNodeBoxes(const NodeDefManager *nodemgr, std::vector<aabb3f> *boxes, u8 neighbors)
 {
 	const ContentFeatures &f = nodemgr->get(*this);
 	transformNodeBox(*this, f.node_box, nodemgr, boxes, neighbors);
 }
 
-void MapNode::getCollisionBoxes(const NodeDefManager *nodemgr,
-	std::vector<aabb3f> *boxes, u8 neighbors)
+void MapNode::getCollisionBoxes(const NodeDefManager *nodemgr, std::vector<aabb3f> *boxes, u8 neighbors)
 {
 	const ContentFeatures &f = nodemgr->get(*this);
 	if (f.collision_box.fixed.empty())
@@ -583,8 +576,7 @@ void MapNode::getCollisionBoxes(const NodeDefManager *nodemgr,
 		transformNodeBox(*this, f.collision_box, nodemgr, boxes, neighbors);
 }
 
-void MapNode::getSelectionBoxes(const NodeDefManager *nodemgr,
-	std::vector<aabb3f> *boxes, u8 neighbors)
+void MapNode::getSelectionBoxes(const NodeDefManager *nodemgr, std::vector<aabb3f> *boxes, u8 neighbors)
 {
 	const ContentFeatures &f = nodemgr->get(*this);
 	transformNodeBox(*this, f.selection_box, nodemgr, boxes, neighbors);
@@ -867,3 +859,4 @@ void MapNode::deSerialize_pre22(const u8 *source, u8 version)
 	// Translate to our known version
 	*this = mapnode_translate_to_internal(*this, version);
 }
+
