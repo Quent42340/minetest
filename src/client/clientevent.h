@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <string>
 #include "irrlichttypes_bloated.h"
-#include "hud.h"
+#include "HudElement.hpp"
 #include "nodedef.h"
 
 enum ClientEventType : u8

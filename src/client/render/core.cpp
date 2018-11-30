@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/camera.h"
 #include "client/client.h"
 #include "client/clientmap.h"
-#include "client/hud.h"
+#include "client/Hud.hpp"
 #include "client/minimap.h"
 
 RenderingCore::RenderingCore(IrrlichtDevice *_device, Client *_client, Hud *_hud)

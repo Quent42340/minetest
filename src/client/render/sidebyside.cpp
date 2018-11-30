@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "sidebyside.h"
 #include <ICameraSceneNode.h>
-#include "client/hud.h"
+#include "client/Hud.hpp"
 
 RenderingCoreSideBySide::RenderingCoreSideBySide(
 	IrrlichtDevice *_device, Client *_client, Hud *_hud, bool _horizontal, bool _flipped)

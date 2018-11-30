@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/numeric.h"
 #include "guiscalingfilter.h"
 #include "localplayer.h"
-#include "client/hud.h"
+#include "client/Hud.hpp"
 #include "camera.h"
 #include "minimap.h"
 #include "clientmap.h"

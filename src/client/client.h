@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "gamedef.h"
 #include "inventorymanager.h"
 #include "localplayer.h"
-#include "client/hud.h"
+#include "client/Hud.hpp"
 #include "particles.h"
 #include "mapnode.h"
 #include "tileanimation.h"
