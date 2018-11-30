@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "content/mods.h"
 #include "inventorymanager.h"
 #include "content/subgames.h"
-#include "tileanimation.h" // struct TileAnimationParams
+#include "common/tileanimation.h" // struct TileAnimationParams
 #include "network/peerhandler.h"
 #include "network/address.h"
 #include "util/numeric.h"

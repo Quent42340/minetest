@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "filesys.h"
 #include "core/settings.h"
 #include "guiMainMenu.h"
-#include "sound.h"
+#include "common/sound.h"
 #include "client/sound_openal.h"
 #include "client/clouds.h"
 #include "httpfetch.h"

@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/settings.h"
 #include "wieldmesh.h"
 #include "algorithm/noise.h"         // easeCurve
-#include "sound.h"
+#include "common/sound.h"
 #include "MtEvent.hpp"
 #include "world/nodedef.h"
 #include "util/numeric.h"

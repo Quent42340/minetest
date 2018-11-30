@@ -33,7 +33,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/Hud.hpp"
 #include "particles.h"
 #include "map/MapNode.hpp"
-#include "tileanimation.h"
+#include "common/tileanimation.h"
 #include "mesh_generator_thread.h"
 #include "network/address.h"
 #include "network/peerhandler.h"

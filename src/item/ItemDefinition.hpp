@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <iostream>
 #include <set>
 #include "itemgroup.h"
-#include "sound.h"
+#include "common/sound.h"
 class IGameDef;
 class Client;
 struct ToolCapabilities;

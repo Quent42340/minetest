@@ -21,6 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <vector>
 #include "inventory.h"
+#include "util/numeric.h"
 
 /*
 	Crafting methods.

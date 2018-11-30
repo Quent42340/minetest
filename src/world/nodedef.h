@@ -31,9 +31,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 class Client;
 #endif
 #include "itemgroup.h"
-#include "sound.h" // SimpleSoundSpec
+#include "common/sound.h" // SimpleSoundSpec
 #include "core/constants.h" // BS
-#include "tileanimation.h"
+#include "common/tileanimation.h"
 
 class IItemDefManager;
 class ITextureSource;

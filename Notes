@@ -12,6 +12,8 @@ Notes
 ## Common
 
 • TODO: `activeobject`
+• TODO: `sound`
+• TODO: `tileanimation`
 
 # Debug
 
@@ -79,8 +81,6 @@ Notes
 • TODO: `server`
 • TODO: `serverenvironment`
 • TODO: `serverlist`
-• TODO: `sound`
-• TODO: `tileanimation`
 
 ### Client
 
@@ -89,7 +89,6 @@ Notes
 
 ### Object
 
-• TODO: `genericobject`
 • TODO: `objdef`
 • TODO: `object_properties`
 • TODO: `remoteplayer`
@@ -124,5 +123,6 @@ Notes
 
 ## Misc
 
+• TODO: `genericobject`
 • TODO: `modifiedstate`
 
