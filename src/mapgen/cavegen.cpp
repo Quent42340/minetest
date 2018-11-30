@@ -21,7 +21,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "util/numeric.h"
 #include <cmath>
-#include "map.h"
+#include "map/Map.hpp"
+#include "map/MMVManip.hpp"
 #include "mapgen.h"
 #include "mapgen_v5.h"
 #include "mapgen_v6.h"

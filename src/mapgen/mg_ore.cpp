@@ -21,7 +21,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mg_ore.h"
 #include "mapgen.h"
 #include "noise.h"
-#include "map.h"
+#include "map/Map.hpp"
+#include "map/MMVManip.hpp"
 #include "log.h"
 #include "util/numeric.h"
 #include <cmath>

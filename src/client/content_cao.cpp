@@ -40,7 +40,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "sound.h"
 #include "nodedef.h"
 #include "localplayer.h"
-#include "map.h"
+#include "map/Map.hpp"
 #include "camera.h" // CameraModes
 #include "client.h"
 #include "wieldmesh.h"

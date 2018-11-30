@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "profiler.h"
 #include "client.h"
 #include "mapblock.h"
-#include "map.h"
+#include "map/Map.hpp"
 
 /*
 	CachedMapBlockData

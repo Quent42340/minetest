@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapblock.h"
 
 #include <sstream>
-#include "map.h"
+#include "map/Map.hpp"
 #include "light.h"
 #include "nodedef.h"
 #include "nodemetadata.h"

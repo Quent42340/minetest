@@ -20,6 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define EMERGETHREAD_HPP_
 
 #include "EmergeManager.hpp"
+#include "map/ServerMap.hpp"
 #include "threading/event.h"
 #include "util/thread.h"
 

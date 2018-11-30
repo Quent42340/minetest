@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "irrlichttypes_extrabloated.h"
-#include "map.h"
+#include "map/Map.hpp"
 #include "camera.h"
 #include <set>
 #include <map>

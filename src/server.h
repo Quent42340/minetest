@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "irr_v3d.h"
-#include "map.h"
+#include "map/Map.hpp"
 #include "hud.h"
 #include "gamedef.h"
 #include "serialization.h" // For SER_FMT_VER_INVALID

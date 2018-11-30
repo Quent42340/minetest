@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "camera.h"
 #include "debug.h"
 #include "client.h"
-#include "map.h"
+#include "map/Map.hpp"
 #include "clientmap.h"     // MapDrawControl
 #include "player/Player.h"
 #include <cmath>

@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_internal.h"
 #include "common/c_content.h"
 #include "serverenvironment.h"
-#include "map.h"
+#include "map/Map.hpp"
 #include "server.h"
 
 // LUALIB_API

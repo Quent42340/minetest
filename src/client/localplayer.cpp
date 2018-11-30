@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "nodedef.h"
 #include "settings.h"
 #include "environment.h"
-#include "map.h"
+#include "map/Map.hpp"
 #include "client.h"
 #include "content_cao.h"
 

@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "environment.h"
 #include "EmergeThread.hpp"
 #include "log.h"
-#include "map.h"
+#include "map/Map.hpp"
 #include "mapblock.h"
 #include "mapgen/mg_biome.h"
 #include "mapgen/mg_ore.h"

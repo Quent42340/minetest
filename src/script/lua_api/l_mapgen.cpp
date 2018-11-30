@@ -27,6 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server.h"
 #include "environment.h"
 #include "EmergeManager.hpp"
+#include "map/MMVManip.hpp"
 #include "mapgen/mg_biome.h"
 #include "mapgen/mg_ore.h"
 #include "mapgen/mg_decoration.h"

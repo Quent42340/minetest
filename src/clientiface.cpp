@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "settings.h"
 #include "mapblock.h"
 #include "serverenvironment.h"
-#include "map.h"
+#include "map/Map.hpp"
 #include "EmergeManager.hpp"
 #include "log.h"
 #include "util/srp.h"

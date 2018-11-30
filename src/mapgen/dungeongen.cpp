@@ -25,7 +25,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "noise.h"
 #include "mapblock.h"
 #include "mapnode.h"
-#include "map.h"
+#include "map/Map.hpp"
+#include "map/MMVManip.hpp"
 #include "nodedef.h"
 #include "settings.h"
 

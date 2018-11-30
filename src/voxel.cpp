@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "voxel.h"
-#include "map.h"
+#include "map/Map.hpp"
 #include "gettime.h"
 #include "nodedef.h"
 #include "util/directiontables.h"

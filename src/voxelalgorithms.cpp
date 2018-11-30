@@ -20,7 +20,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "voxelalgorithms.h"
 #include "nodedef.h"
 #include "mapblock.h"
-#include "map.h"
+#include "map/MMVManip.hpp"
+#include "map/ServerMap.hpp"
 
 namespace voxalgo
 {

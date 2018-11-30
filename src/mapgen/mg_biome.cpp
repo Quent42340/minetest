@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "EmergeManager.hpp"
 #include "server.h"
 #include "nodedef.h"
-#include "map.h" //for MMVManip
+#include "map/Map.hpp" //for MMVManip
 #include "util/numeric.h"
 #include "porting.h"
 #include "settings.h"

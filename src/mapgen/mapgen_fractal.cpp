@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "noise.h"
 #include "mapblock.h"
 #include "mapnode.h"
-#include "map.h"
+#include "map/Map.hpp"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
