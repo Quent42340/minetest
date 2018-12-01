@@ -346,6 +346,14 @@ src/client/object/GenericCAOAnimation.cpp
 src/client/object/IGenericCAOVisual.hpp
 src/client/object/SpriteVisual.hpp
 src/client/object/SpriteVisual.cpp
+src/client/object/UprightSpriteVisual.hpp
+src/client/object/UprightSpriteVisual.cpp
+src/client/object/CubeVisual.hpp
+src/client/object/CubeVisual.cpp
+src/client/object/MeshVisual.hpp
+src/client/object/MeshVisual.cpp
+src/client/object/WieldItemVisual.hpp
+src/client/object/WieldItemVisual.cpp
 src/client/object/SmoothTranslator.cpp
 src/client/localplayer.h
 src/client/mapblock_mesh.h

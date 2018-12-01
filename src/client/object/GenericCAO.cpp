@@ -39,14 +39,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/world/collision.h"
 #include "common/world/node/NodeDefManager.hpp"
 
-/*
-	Other stuff
-*/
-
-/*
-	GenericCAO
-*/
-
 // Prototype
 GenericCAO proto_GenericCAO(nullptr, nullptr);
 
@@ -345,8 +337,10 @@ void GenericCAO::updateLightNoCheck(u8 light_at_pos)
 		m_cubeVisual.setColor(color);
 		m_uprightSpriteVisual.setColor(color);
 		m_meshVisual.setColor(color);
-		m_wield_meshnode->setColor(color);
 		m_spriteVisual.setColor(color);
+
+		if (m_wield_meshnode)
+			m_wield_meshnode->setColor(color);
 	}
 }
 
@@ -548,6 +542,8 @@ void GenericCAO::updateTextures(std::string mod)
 		m_uprightSpriteVisual.updateTexture(tsrc, material_type, m_prop, mod);
 }
 
+// FIXME: Move to MeshVisual
+// But m_bone_position will be needed there
 void GenericCAO::updateBonePosition()
 {
 	if (m_bone_position.empty() || !m_meshVisual.node())
@@ -571,7 +567,6 @@ void GenericCAO::updateBonePosition()
 
 void GenericCAO::updateAttachments()
 {
-
 	if (!getParent()) { // Detach or don't attach
 		scene::ISceneNode *node = getSceneNode();
 		if (node) {
@@ -617,224 +612,46 @@ void GenericCAO::processMessage(const std::string &data)
 	std::istringstream is(data, std::ios::binary);
 	// command
 	u8 cmd = readU8(is);
-	if (cmd == GENERIC_CMD_SET_PROPERTIES) {
-		m_prop = gob_read_set_properties(is);
 
-		m_selection_box = m_prop.selectionbox;
-		m_selection_box.MinEdge *= BS;
-		m_selection_box.MaxEdge *= BS;
-
-		m_animation.initTiles(m_prop);
-
-		if (m_is_local_player) {
-			LocalPlayer *player = m_env->getLocalPlayer();
-			player->makes_footstep_sound = m_prop.makes_footstep_sound;
-			aabb3f collision_box = m_prop.collisionbox;
-			collision_box.MinEdge *= BS;
-			collision_box.MaxEdge *= BS;
-			player->setCollisionbox(collision_box);
-			player->setEyeHeight(m_prop.eye_height);
-			player->setZoomFOV(m_prop.zoom_fov);
-		}
-
-		if ((m_is_player && !m_is_local_player) && m_prop.nametag.empty())
-			m_prop.nametag = m_name;
-
-		expireVisuals();
-	} else if (cmd == GENERIC_CMD_UPDATE_POSITION) {
-		// Not sent by the server if this object is an attachment.
-		// We might however get here if the server notices the object being detached before the client.
-		m_position = readV3F1000(is);
-		m_velocity = readV3F1000(is);
-		m_acceleration = readV3F1000(is);
-
-		if (std::fabs(m_prop.automatic_rotate) < 0.001f)
-			m_rotation = readV3F1000(is);
-		else
-			readV3F1000(is);
-
-		m_rotation = wrapDegrees_0_360_v3f(m_rotation);
-		bool do_interpolate = readU8(is);
-		bool is_end_position = readU8(is);
-		float update_interval = readF1000(is);
-
-		// Place us a bit higher if we're physical, to not sink into
-		// the ground due to sucky collision detection...
-		if(m_prop.physical)
-			m_position += v3f(0,0.002,0);
-
-		if(getParent() != nullptr) // Just in case
-			return;
-
-		if(do_interpolate)
-		{
-			if(!m_prop.physical)
-				pos_translator.update(m_position, is_end_position, update_interval);
-		} else {
-			pos_translator.init(m_position);
-		}
-		rot_translator.update(m_rotation, false, update_interval);
-		updateNodePos();
-	} else if (cmd == GENERIC_CMD_SET_TEXTURE_MOD) {
-		std::string mod = deSerializeString(is);
-
-		// immediatly reset a engine issued texture modifier if a mod sends a different one
-		if (m_reset_textures_timer > 0) {
-			m_reset_textures_timer = -1;
-			updateTextures(m_previous_texture_modifier);
-		}
-		updateTextures(mod);
-	} else if (cmd == GENERIC_CMD_SET_SPRITE) {
-		v2s16 p = readV2S16(is);
-		int num_frames = readU16(is);
-		float framelength = readF1000(is);
-		bool select_horiz_by_yawpitch = readU8(is);
-
-		m_animation.updateTiles(p, num_frames, framelength, select_horiz_by_yawpitch);
-		m_animation.updateTexturePos(dynamic_cast<scene::IBillboardSceneNode *>(m_spriteVisual.node()), m_rotation);
-	}
-	else if (cmd == GENERIC_CMD_SET_PHYSICS_OVERRIDE) {
-		float override_speed = readF1000(is);
-		float override_jump = readF1000(is);
-		float override_gravity = readF1000(is);
-		// these are sent inverted so we get true when the server sends nothing
-		bool sneak = !readU8(is);
-		bool sneak_glitch = !readU8(is);
-		bool new_move = !readU8(is);
-
-
-		if(m_is_local_player)
-		{
-			LocalPlayer *player = m_env->getLocalPlayer();
-			player->physics_override_speed = override_speed;
-			player->physics_override_jump = override_jump;
-			player->physics_override_gravity = override_gravity;
-			player->physics_override_sneak = sneak;
-			player->physics_override_sneak_glitch = sneak_glitch;
-			player->physics_override_new_move = new_move;
-		}
-	} else if (cmd == GENERIC_CMD_SET_ANIMATION) {
-		m_animation.updateData(is, m_env, m_is_local_player, (scene::IAnimatedMeshSceneNode *)m_meshVisual.node());
-	} else if (cmd == GENERIC_CMD_SET_ANIMATION_SPEED) {
-		m_animation.updateSpeed(readF1000(is), (scene::IAnimatedMeshSceneNode *)m_meshVisual.node());
-	} else if (cmd == GENERIC_CMD_SET_BONE_POSITION) {
-		std::string bone = deSerializeString(is);
-		v3f position = readV3F1000(is);
-		v3f rotation = readV3F1000(is);
-		m_bone_position[bone] = core::vector2d<v3f>(position, rotation);
-
-		updateBonePosition();
-	} else if (cmd == GENERIC_CMD_ATTACH_TO) {
-		u16 parent_id = readS16(is);
-		u16 &old_parent_id = m_env->attachement_parent_ids[getId()];
-		if (parent_id != old_parent_id) {
-			if (GenericCAO *old_parent = m_env->getGenericCAO(old_parent_id)) {
-				old_parent->m_children.erase(std::remove(
-					m_children.begin(), m_children.end(),
-					getId()), m_children.end());
-			}
-			if (GenericCAO *new_parent = m_env->getGenericCAO(parent_id))
-				new_parent->m_children.push_back(getId());
-
-			old_parent_id = parent_id;
-		}
-
-		m_attachment_bone = deSerializeString(is);
-		m_attachment_position = readV3F1000(is);
-		m_attachment_rotation = readV3F1000(is);
-
-		// localplayer itself can't be attached to localplayer
-		if (!m_is_local_player) {
-			m_attached_to_local = getParent() != nullptr && getParent()->isLocalPlayer();
-			// Objects attached to the local player should be hidden by default
-			m_is_visible = !m_attached_to_local;
-		}
-
-		updateAttachments();
-	} else if (cmd == GENERIC_CMD_PUNCHED) {
-		/*s16 damage =*/ readS16(is);
-		s16 result_hp = readS16(is);
-
-		// Use this instead of the send damage to not interfere with prediction
-		s16 damage = m_hp - result_hp;
-
-		m_hp = result_hp;
-
-		if (damage > 0)
-		{
-			if (m_hp <= 0)
-			{
-				// TODO: Execute defined fast response
-				// As there is no definition, make a smoke puff
-				ClientSimpleObject *simple = createSmokePuff(
-						m_smgr, m_env, m_position,
-						m_prop.visual_size * BS);
-				m_env->addSimpleObject(simple);
-			} else if (m_reset_textures_timer < 0) {
-				// TODO: Execute defined fast response
-				// Flashing shall suffice as there is no definition
-				m_reset_textures_timer = 0.05;
-				if(damage >= 2)
-					m_reset_textures_timer += 0.05 * damage;
-				updateTextures(m_current_texture_modifier + "^[brighten");
-			}
-		}
-	} else if (cmd == GENERIC_CMD_UPDATE_ARMOR_GROUPS) {
-		m_armor_groups.clear();
-		int armor_groups_size = readU16(is);
-		for(int i=0; i<armor_groups_size; i++)
-		{
-			std::string name = deSerializeString(is);
-			int rating = readS16(is);
-			m_armor_groups[name] = rating;
-		}
-	} else if (cmd == GENERIC_CMD_UPDATE_NAMETAG_ATTRIBUTES) {
-		// Deprecated, for backwards compatibility only.
-		readU8(is); // version
-		m_prop.nametag_color = readARGB8(is);
-		if (m_nametag != nullptr) {
-			m_nametag->nametag_color = m_prop.nametag_color;
-			v3f pos;
-			pos.Y = m_prop.collisionbox.MaxEdge.Y + 0.3f;
-			m_nametag->nametag_pos = pos;
-		}
-	} else if (cmd == GENERIC_CMD_SPAWN_INFANT) {
-		u16 child_id = readU16(is);
-		u8 type = readU8(is);
-
-		if (GenericCAO *childobj = m_env->getGenericCAO(child_id)) {
-			childobj->processInitData(deSerializeLongString(is));
-		} else {
-			m_env->addActiveObject(child_id, type, deSerializeLongString(is));
-		}
-	} else {
-		warningstream << FUNCTION_NAME
-			<< ": unknown command or outdated client \""
-			<< +cmd << "\"" << std::endl;
+	switch (cmd) {
+		case GENERIC_CMD_SET_PROPERTIES:            commandSetProperties(is); break;
+		case GENERIC_CMD_UPDATE_POSITION:           commandUpdatePosition(is); break;
+		case GENERIC_CMD_SET_TEXTURE_MOD:           commandSetTextureMod(is); break;
+		case GENERIC_CMD_SET_SPRITE:                commandSetSprite(is); break;
+		case GENERIC_CMD_SET_PHYSICS_OVERRIDE:      commandSetPhysicsOverride(is); break;
+		case GENERIC_CMD_SET_ANIMATION:             commandSetAnimation(is); break;
+		case GENERIC_CMD_SET_ANIMATION_SPEED:       commandSetAnimationSpeed(is); break;
+		case GENERIC_CMD_SET_BONE_POSITION:         commandSetBonePosition(is); break;
+		case GENERIC_CMD_ATTACH_TO:                 commandAttachTo(is); break;
+		case GENERIC_CMD_PUNCHED:                   commandPunched(is); break;
+		case GENERIC_CMD_UPDATE_ARMOR_GROUPS:       commandUpdateArmorGroups(is); break;
+		case GENERIC_CMD_UPDATE_NAMETAG_ATTRIBUTES: commandUpdateNametagAttributes(is); break;
+		case GENERIC_CMD_SPAWN_INFANT:              commandSpawnInfant(is); break;
+		default:
+			warningstream << FUNCTION_NAME
+				<< ": unknown command or outdated client \""
+				<< +cmd << "\"" << std::endl;
 	}
 }
 
 /* \pre punchitem != nullptr
  */
-bool GenericCAO::directReportPunch(v3f dir, const ItemStack *punchitem,
-		float time_from_last_punch)
+bool GenericCAO::directReportPunch(v3f dir, const ItemStack *punchitem, float time_from_last_punch)
 {
-	assert(punchitem);	// pre-condition
-	const ToolCapabilities *toolcap =
-			&punchitem->getToolCapabilities(m_client->idef());
-	PunchDamageResult result = getPunchDamage(
-			m_armor_groups,
-			toolcap,
-			punchitem,
-			time_from_last_punch);
+	assert(punchitem); // Pre-condition
+	const ToolCapabilities *toolcap = &punchitem->getToolCapabilities(m_client->idef());
 
+	PunchDamageResult result = getPunchDamage(m_armor_groups, toolcap, punchitem, time_from_last_punch);
 	if(result.did_punch && result.damage != 0)
 	{
 		if(result.damage < m_hp)
 		{
 			m_hp -= result.damage;
-		} else {
+		}
+		else
+		{
 			m_hp = 0;
+
 			// TODO: Execute defined fast response
 			// As there is no definition, make a smoke puff
 			ClientSimpleObject *simple = createSmokePuff(
@@ -842,6 +659,7 @@ bool GenericCAO::directReportPunch(v3f dir, const ItemStack *punchitem,
 					m_prop.visual_size * BS);
 			m_env->addSimpleObject(simple);
 		}
+
 		// TODO: Execute defined fast response
 		// Flashing shall suffice as there is no definition
 		if (m_reset_textures_timer < 0) {
@@ -858,14 +676,13 @@ bool GenericCAO::directReportPunch(v3f dir, const ItemStack *punchitem,
 std::string GenericCAO::debugInfoText()
 {
 	std::ostringstream os(std::ios::binary);
-	os<<"GenericCAO hp="<<m_hp<<"\n";
-	os<<"armor={";
-	for(ItemGroupList::const_iterator i = m_armor_groups.begin();
-			i != m_armor_groups.end(); ++i)
+	os << "GenericCAO hp=" << m_hp << "\n";
+	os << "armor={";
+	for (ItemGroupList::const_iterator i = m_armor_groups.begin(); i != m_armor_groups.end(); ++i)
 	{
-		os<<i->first<<"="<<i->second<<", ";
+		os << i->first << "=" << i->second << ", ";
 	}
-	os<<"}";
+	os << "}";
 	return os.str();
 }
 
@@ -903,5 +720,220 @@ void GenericCAO::initWielditemVisual(ITextureSource *tsrc, video::E_MATERIAL_TYP
 				m_prop.visual_size.X / 2));
 	u8 li = m_last_light;
 	m_wield_meshnode->setColor(video::SColor(255, li, li, li));
+}
+
+void GenericCAO::commandSetProperties(std::istream &is) {
+	m_prop = gob_read_set_properties(is);
+
+	m_selection_box = m_prop.selectionbox;
+	m_selection_box.MinEdge *= BS;
+	m_selection_box.MaxEdge *= BS;
+
+	m_animation.initTiles(m_prop);
+
+	if (m_is_local_player) {
+		LocalPlayer *player = m_env->getLocalPlayer();
+		player->makes_footstep_sound = m_prop.makes_footstep_sound;
+		aabb3f collision_box = m_prop.collisionbox;
+		collision_box.MinEdge *= BS;
+		collision_box.MaxEdge *= BS;
+		player->setCollisionbox(collision_box);
+		player->setEyeHeight(m_prop.eye_height);
+		player->setZoomFOV(m_prop.zoom_fov);
+	}
+
+	if ((m_is_player && !m_is_local_player) && m_prop.nametag.empty())
+		m_prop.nametag = m_name;
+
+	expireVisuals();
+}
+
+void GenericCAO::commandUpdatePosition(std::istream &is) {
+	// Not sent by the server if this object is an attachment.
+	// We might however get here if the server notices the object being detached before the client.
+	m_position = readV3F1000(is);
+	m_velocity = readV3F1000(is);
+	m_acceleration = readV3F1000(is);
+
+	if (std::fabs(m_prop.automatic_rotate) < 0.001f)
+		m_rotation = readV3F1000(is);
+	else
+		readV3F1000(is);
+
+	m_rotation = wrapDegrees_0_360_v3f(m_rotation);
+	bool do_interpolate = readU8(is);
+	bool is_end_position = readU8(is);
+	float update_interval = readF1000(is);
+
+	// Place us a bit higher if we're physical, to not sink into
+	// the ground due to sucky collision detection...
+	if(m_prop.physical)
+		m_position += v3f(0,0.002,0);
+
+	if(getParent() != nullptr) // Just in case
+		return;
+
+	if(do_interpolate)
+	{
+		if(!m_prop.physical)
+			pos_translator.update(m_position, is_end_position, update_interval);
+	} else {
+		pos_translator.init(m_position);
+	}
+	rot_translator.update(m_rotation, false, update_interval);
+	updateNodePos();
+}
+
+void GenericCAO::commandSetTextureMod(std::istream &is) {
+	std::string mod = deSerializeString(is);
+
+	// immediatly reset a engine issued texture modifier if a mod sends a different one
+	if (m_reset_textures_timer > 0) {
+		m_reset_textures_timer = -1;
+		updateTextures(m_previous_texture_modifier);
+	}
+	updateTextures(mod);
+}
+
+void GenericCAO::commandSetSprite(std::istream &is) {
+	v2s16 p = readV2S16(is);
+	int num_frames = readU16(is);
+	float framelength = readF1000(is);
+	bool select_horiz_by_yawpitch = readU8(is);
+
+	m_animation.updateTiles(p, num_frames, framelength, select_horiz_by_yawpitch);
+	m_animation.updateTexturePos(dynamic_cast<scene::IBillboardSceneNode *>(m_spriteVisual.node()), m_rotation);
+}
+
+void GenericCAO::commandSetPhysicsOverride(std::istream &is) {
+	float override_speed = readF1000(is);
+	float override_jump = readF1000(is);
+	float override_gravity = readF1000(is);
+	// these are sent inverted so we get true when the server sends nothing
+	bool sneak = !readU8(is);
+	bool sneak_glitch = !readU8(is);
+	bool new_move = !readU8(is);
+
+
+	if(m_is_local_player)
+	{
+		LocalPlayer *player = m_env->getLocalPlayer();
+		player->physics_override_speed = override_speed;
+		player->physics_override_jump = override_jump;
+		player->physics_override_gravity = override_gravity;
+		player->physics_override_sneak = sneak;
+		player->physics_override_sneak_glitch = sneak_glitch;
+		player->physics_override_new_move = new_move;
+	}
+}
+
+void GenericCAO::commandSetBonePosition(std::istream &is) {
+	std::string bone = deSerializeString(is);
+	v3f position = readV3F1000(is);
+	v3f rotation = readV3F1000(is);
+	m_bone_position[bone] = core::vector2d<v3f>(position, rotation);
+
+	updateBonePosition();
+}
+
+void GenericCAO::commandSetAnimation(std::istream &is) {
+	m_animation.updateData(is, m_env, m_is_local_player, (scene::IAnimatedMeshSceneNode *)m_meshVisual.node());
+}
+
+void GenericCAO::commandSetAnimationSpeed(std::istream &is) {
+	m_animation.updateSpeed(readF1000(is), (scene::IAnimatedMeshSceneNode *)m_meshVisual.node());
+}
+
+void GenericCAO::commandAttachTo(std::istream &is) {
+	u16 parent_id = readS16(is);
+	u16 &old_parent_id = m_env->attachement_parent_ids[getId()];
+	if (parent_id != old_parent_id) {
+		if (GenericCAO *old_parent = m_env->getGenericCAO(old_parent_id)) {
+			old_parent->m_children.erase(std::remove(
+						m_children.begin(), m_children.end(),
+						getId()), m_children.end());
+		}
+		if (GenericCAO *new_parent = m_env->getGenericCAO(parent_id))
+			new_parent->m_children.push_back(getId());
+
+		old_parent_id = parent_id;
+	}
+
+	m_attachment_bone = deSerializeString(is);
+	m_attachment_position = readV3F1000(is);
+	m_attachment_rotation = readV3F1000(is);
+
+	// localplayer itself can't be attached to localplayer
+	if (!m_is_local_player) {
+		m_attached_to_local = getParent() != nullptr && getParent()->isLocalPlayer();
+		// Objects attached to the local player should be hidden by default
+		m_is_visible = !m_attached_to_local;
+	}
+
+	updateAttachments();
+}
+
+void GenericCAO::commandPunched(std::istream &is) {
+	/*s16 damage =*/ readS16(is);
+	s16 result_hp = readS16(is);
+
+	// Use this instead of the send damage to not interfere with prediction
+	s16 damage = m_hp - result_hp;
+
+	m_hp = result_hp;
+
+	if (damage > 0)
+	{
+		if (m_hp <= 0)
+		{
+			// TODO: Execute defined fast response
+			// As there is no definition, make a smoke puff
+			ClientSimpleObject *simple = createSmokePuff(
+					m_smgr, m_env, m_position,
+					m_prop.visual_size * BS);
+			m_env->addSimpleObject(simple);
+		} else if (m_reset_textures_timer < 0) {
+			// TODO: Execute defined fast response
+			// Flashing shall suffice as there is no definition
+			m_reset_textures_timer = 0.05;
+			if(damage >= 2)
+				m_reset_textures_timer += 0.05 * damage;
+			updateTextures(m_current_texture_modifier + "^[brighten");
+		}
+	}
+}
+
+void GenericCAO::commandUpdateArmorGroups(std::istream &is) {
+	m_armor_groups.clear();
+	int armor_groups_size = readU16(is);
+	for(int i=0; i<armor_groups_size; i++)
+	{
+		std::string name = deSerializeString(is);
+		int rating = readS16(is);
+		m_armor_groups[name] = rating;
+	}
+}
+
+void GenericCAO::commandUpdateNametagAttributes(std::istream &is) {
+	// Deprecated, for backwards compatibility only.
+	readU8(is); // version
+	m_prop.nametag_color = readARGB8(is);
+	if (m_nametag != nullptr) {
+		m_nametag->nametag_color = m_prop.nametag_color;
+		v3f pos;
+		pos.Y = m_prop.collisionbox.MaxEdge.Y + 0.3f;
+		m_nametag->nametag_pos = pos;
+	}
+}
+
+void GenericCAO::commandSpawnInfant(std::istream &is) {
+	u16 child_id = readU16(is);
+	u8 type = readU8(is);
+
+	if (GenericCAO *childobj = m_env->getGenericCAO(child_id)) {
+		childobj->processInitData(deSerializeLongString(is));
+	} else {
+		m_env->addActiveObject(child_id, type, deSerializeLongString(is));
+	}
 }
 

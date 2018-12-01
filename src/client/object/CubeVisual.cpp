@@ -64,8 +64,7 @@ void CubeVisual::updateTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE mate
 		material.MaterialType = material_type;
 		material.setFlag(video::EMF_LIGHTING, false);
 		material.setFlag(video::EMF_BILINEAR_FILTER, false);
-		material.setTexture(0,
-				tsrc->getTextureForMesh(texturestring));
+		material.setTexture(0, tsrc->getTextureForMesh(texturestring));
 		material.getTextureMatrix(0).makeIdentity();
 
 		// This allows setting per-material colors. However, until a real lighting

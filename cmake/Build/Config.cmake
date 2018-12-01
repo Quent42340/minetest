@@ -13,8 +13,8 @@ set(CMAKE_C_FLAGS_SEMIDEBUG "-O1 -g -Wall -pedantic" CACHE STRING
 # FIXME
 # set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall -Wextra -Wfatal-errors")
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wfatal-errors")
-set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wfatal-errors")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wfatal-errors")
+set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -g -Wfatal-errors")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wfatal-errors")
 
 mark_as_advanced(
 	CMAKE_CXX_FLAGS_SEMIDEBUG

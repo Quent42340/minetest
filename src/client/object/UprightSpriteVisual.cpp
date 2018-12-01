@@ -85,7 +85,7 @@ void UprightSpriteVisual::init(ITextureSource *tsrc, video::E_MATERIAL_TYPE mate
 		mesh->addMeshBuffer(buf);
 		buf->drop();
 	}
-	m_meshnode = RenderingEngine::get_scene_manager()->addMeshSceneNode(mesh, NULL);
+	m_meshnode = RenderingEngine::get_scene_manager()->addMeshSceneNode(mesh, nullptr);
 	m_meshnode->grab();
 	mesh->drop();
 	// Set it to use the materials of the meshbuffers directly.
@@ -108,6 +108,7 @@ void UprightSpriteVisual::updateTexture(ITextureSource *tsrc, video::E_MATERIAL_
 		if (!prop.textures.empty())
 			tname = prop.textures[0];
 		tname += mod;
+
 		scene::IMeshBuffer *buf = mesh->getMeshBuffer(0);
 		buf->getMaterial().setTexture(0, tsrc->getTextureForMesh(tname));
 
@@ -131,6 +132,7 @@ void UprightSpriteVisual::updateTexture(ITextureSource *tsrc, video::E_MATERIAL_
 		else if (!prop.textures.empty())
 			tname = prop.textures[0];
 		tname += mod;
+
 		scene::IMeshBuffer *buf = mesh->getMeshBuffer(1);
 		buf->getMaterial().setTexture(0,
 				tsrc->getTextureForMesh(tname));

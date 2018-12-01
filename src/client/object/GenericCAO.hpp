@@ -104,6 +104,20 @@ class GenericCAO : public ClientActiveObject {
 		}
 
 	private:
+		inline void commandSetProperties(std::istream &is);
+		inline void commandUpdatePosition(std::istream &is);
+		inline void commandSetTextureMod(std::istream &is);
+		inline void commandSetSprite(std::istream &is);
+		inline void commandSetPhysicsOverride(std::istream &is);
+		inline void commandSetBonePosition(std::istream &is);
+		inline void commandSetAnimation(std::istream &is);
+		inline void commandSetAnimationSpeed(std::istream &is);
+		inline void commandAttachTo(std::istream &is);
+		inline void commandPunched(std::istream &is);
+		inline void commandUpdateArmorGroups(std::istream &is);
+		inline void commandUpdateNametagAttributes(std::istream &is);
+		inline void commandSpawnInfant(std::istream &is);
+
 		// Only set at initialization
 		std::string m_name = "";
 		bool m_is_player = false;
