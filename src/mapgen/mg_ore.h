@@ -21,9 +21,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include <unordered_set>
-#include "world/objdef.h"
-#include "algorithm/noise.h"
-#include "world/node/NodeResolver.hpp"
+#include "common/world/objdef.h"
+#include "common/algorithm/noise.h"
+#include "common/world/node/NodeResolver.hpp"
 
 class Noise;
 class Mapgen;

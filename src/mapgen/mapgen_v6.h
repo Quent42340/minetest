@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "mapgen.h"
-#include "algorithm/noise.h"
+#include "common/algorithm/noise.h"
 
 #define MGV6_AVERAGE_MUD_AMOUNT 4
 #define MGV6_DESERT_STONE_BASE -32

@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef SOUNDMAKER_H_
 #define SOUNDMAKER_H_
 
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 
 #if USE_SOUND
 	#include "client/sound_openal.h"

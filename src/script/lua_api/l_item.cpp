@@ -22,13 +22,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_internal.h"
 #include "common/c_converter.h"
 #include "common/c_content.h"
-#include "item/IWritableItemDefManager.hpp"
-#include "world/node/NodeDefManager.hpp"
+#include "common/item/IWritableItemDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 #include "server/server.h"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
-#include "inventory/inventory.h"
+#include "common/inventory/inventory.h"
 #include "core/log.h"
 
 

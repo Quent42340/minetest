@@ -20,8 +20,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "common/ActiveObject.hpp"
-#include "world/environment.h"
-#include "map/MapNode.hpp"
+#include "common/world/environment.h"
+#include "common/map/MapNode.hpp"
 #include "core/settings.h"
 #include "util/numeric.h"
 #include <set>

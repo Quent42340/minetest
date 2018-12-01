@@ -19,8 +19,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "player/Player.h"
-#include "world/environment.h"
+#include "common/player/Player.h"
+#include "common/world/environment.h"
 #include "core/constants.h"
 #include "core/settings.h"
 #include <list>

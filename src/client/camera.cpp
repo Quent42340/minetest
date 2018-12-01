@@ -20,19 +20,19 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "camera.h"
 #include "debug/Debug.hpp"
 #include "client.h"
-#include "map/Map.hpp"
+#include "common/map/Map.hpp"
 #include "clientmap.h"     // MapDrawControl
-#include "player/Player.h"
+#include "common/player/Player.h"
 #include <cmath>
 #include "client/renderingengine.h"
 #include "core/settings.h"
 #include "wieldmesh.h"
-#include "algorithm/noise.h"         // easeCurve
+#include "common/algorithm/noise.h"         // easeCurve
 #include "common/SimpleSoundSpec.hpp"
 #include "server/network/MtEvent.hpp"
 #include "util/numeric.h"
-#include "world/node/ContentFeatures.hpp"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/ContentFeatures.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 #include "core/constants.h"
 #include "fontengine.h"
 #include "script/scripting_client.h"

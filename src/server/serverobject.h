@@ -22,8 +22,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <unordered_set>
 #include "irrlicht/irrlichttypes_bloated.h"
 #include "common/ActiveObject.hpp"
-#include "inventory/inventorymanager.h"
-#include "inventory/itemgroup.h"
+#include "common/inventory/inventorymanager.h"
+#include "common/inventory/itemgroup.h"
 #include "util/container.h"
 
 /*

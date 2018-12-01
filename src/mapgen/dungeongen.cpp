@@ -21,13 +21,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "dungeongen.h"
 #include <cmath>
 #include "mapgen.h"
-#include "world/voxel.h"
-#include "algorithm/noise.h"
-#include "map/MapBlock.hpp"
-#include "map/MapNode.hpp"
-#include "map/Map.hpp"
-#include "map/MMVManip.hpp"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/voxel.h"
+#include "common/algorithm/noise.h"
+#include "common/map/MapBlock.hpp"
+#include "common/map/MapNode.hpp"
+#include "common/map/Map.hpp"
+#include "common/map/MMVManip.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 #include "core/settings.h"
 
 //#define DGEN_USE_TORCHES

@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/convert_json.h"
 #include "debug/Debug.hpp"
 #include "core/log.h"
-#include "inventory/tool.h"
+#include "common/inventory/tool.h"
 #include "util/filesys.h"
 #include "core/settings.h"
 #include "util/auth.h"

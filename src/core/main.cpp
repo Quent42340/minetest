@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/filesys.h"
 #include "core/version.h"
 #include "client/game/Game.h"
-#include "map/ServerMap.hpp"
+#include "common/map/ServerMap.hpp"
 #include "core/defaultsettings.h"
 #include "util/gettext.h"
 #include "core/log.h"
@@ -35,7 +35,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/game/gameparams.h"
 #include "database/database.h"
 #include "core/Config.hpp"
-#include "player/Player.h"
+#include "common/player/Player.h"
 #include "core/porting.h"
 #include "network/socket.h"
 #if USE_CURSES

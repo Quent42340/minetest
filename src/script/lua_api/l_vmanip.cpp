@@ -22,14 +22,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_internal.h"
 #include "common/c_content.h"
 #include "common/c_converter.h"
-#include "world/EmergeManager.hpp"
-#include "world/environment.h"
-#include "map/ServerMap.hpp"
-#include "map/MMVManip.hpp"
-#include "map/MapBlock.hpp"
+#include "common/world/EmergeManager.hpp"
+#include "common/world/environment.h"
+#include "common/map/ServerMap.hpp"
+#include "common/map/MMVManip.hpp"
+#include "common/map/MapBlock.hpp"
 #include "server/server.h"
 #include "mapgen/mapgen.h"
-#include "algorithm/voxelalgorithms.h"
+#include "common/algorithm/voxelalgorithms.h"
 
 // garbage collector
 int LuaVoxelManip::gc_object(lua_State *L)

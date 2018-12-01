@@ -40,7 +40,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/srp.h"
 #include "util/filesys.h"
 #include "mapblock_mesh.h"
-#include "map/MapBlock.hpp"
+#include "common/map/MapBlock.hpp"
 #include "minimap.h"
 #include "server/network/modchannels.h"
 #include "content/mods.h"
@@ -57,7 +57,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/game/Game.h"
 #include "server/network/chatmessage.h"
 #include "core/translation.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 
 extern gui::IGUIEnvironment* guienv;
 

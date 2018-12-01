@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "test.h"
 
 #include "server/game/gamedef.h"
-#include "algorithm/voxelalgorithms.h"
+#include "common/algorithm/voxelalgorithms.h"
 #include "util/numeric.h"
 
 class TestVoxelAlgorithms : public TestBase {

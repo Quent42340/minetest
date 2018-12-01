@@ -20,8 +20,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "test.h"
 
 #include "client/sound.h"
-#include "world/node/NodeDefManager.hpp"
-#include "item/CItemDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
+#include "common/item/CItemDefManager.hpp"
 #include "server/game/gamedef.h"
 #include "server/network/modchannels.h"
 #include "content/mods.h"

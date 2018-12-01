@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/log.h"
 #include "util/serialize.h"
 #include "util/filesys.h"
-#include "algorithm/noise.h"
+#include "common/algorithm/noise.h"
 #include <cctype>
 #include <algorithm>
 

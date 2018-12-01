@@ -23,17 +23,17 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mg_schematic.h"
 #include "server/server.h"
 #include "mapgen.h"
-#include "world/EmergeManager.hpp"
-#include "map/ServerMap.hpp"
-#include "map/MMVManip.hpp"
-#include "map/MapBlock.hpp"
+#include "common/world/EmergeManager.hpp"
+#include "common/map/ServerMap.hpp"
+#include "common/map/MMVManip.hpp"
+#include "common/map/MapBlock.hpp"
 #include "core/log.h"
 #include "util/numeric.h"
 #include "util/serialize.h"
 #include "server/network/serialization.h"
 #include "util/filesys.h"
-#include "algorithm/voxelalgorithms.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/algorithm/voxelalgorithms.h"
+#include "common/world/node/NodeDefManager.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 

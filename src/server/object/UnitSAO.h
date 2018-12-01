@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "server/serverobject.h"
-#include "world/object_properties.h"
+#include "common/world/object_properties.h"
 
 class UnitSAO: public ServerActiveObject
 {

@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_nodetimer.h"
 #include "lua_api/l_internal.h"
 #include "server/serverenvironment.h"
-#include "map/Map.hpp"
+#include "common/map/Map.hpp"
 
 
 int NodeTimerRef::gc_object(lua_State *L) {

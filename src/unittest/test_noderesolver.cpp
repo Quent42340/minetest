@@ -23,8 +23,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/numeric.h"
 #include "core/Exception.hpp"
 #include "server/game/gamedef.h"
-#include "world/node/NodeDefManager.hpp"
-#include "world/node/NodeResolver.hpp"
+#include "common/world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeResolver.hpp"
 
 class TestNodeResolver : public TestBase {
 public:

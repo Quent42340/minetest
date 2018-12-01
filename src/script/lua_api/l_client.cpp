@@ -32,9 +32,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_item.h"
 #include "lua_api/l_nodemeta.h"
 #include "gui/mainmenumanager.h"
-#include "map/Map.hpp"
+#include "common/map/Map.hpp"
 #include "util/string.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 
 int ModApiClient::l_get_current_modname(lua_State *L)
 {

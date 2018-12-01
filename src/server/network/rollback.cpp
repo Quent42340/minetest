@@ -22,13 +22,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <list>
 #include <sstream>
 #include "core/log.h"
-#include "map/MapNode.hpp"
+#include "common/map/MapNode.hpp"
 #include "server/game/gamedef.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 #include "util/serialize.h"
 #include "util/string.h"
 #include "util/numeric.h"
-#include "inventory/inventorymanager.h" // deserializing InventoryLocations
+#include "common/inventory/inventorymanager.h" // deserializing InventoryLocations
 #include "sqlite3.h"
 #include "util/filesys.h"
 

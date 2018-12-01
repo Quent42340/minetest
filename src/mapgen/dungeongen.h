@@ -20,8 +20,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "world/voxel.h"
-#include "algorithm/noise.h"
+#include "common/world/voxel.h"
+#include "common/algorithm/noise.h"
 #include "mapgen.h"
 
 #define VMANIP_FLAG_DUNGEON_INSIDE VOXELFLAG_CHECKED1

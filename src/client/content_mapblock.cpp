@@ -22,14 +22,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/directiontables.h"
 #include "mapblock_mesh.h"
 #include "core/settings.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 #include "client/tile.h"
 #include "mesh.h"
 #include <IMeshManipulator.h>
 #include "client/meshgen/collector.h"
 #include "client/renderingengine.h"
 #include "client.h"
-#include "algorithm/noise.h"
+#include "common/algorithm/noise.h"
 
 // Distance of light extrapolation (for oversized nodes)
 // After this distance, it gives up and considers light level constant

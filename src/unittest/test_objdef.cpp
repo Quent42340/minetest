@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "test.h"
 
 #include "core/Exception.hpp"
-#include "world/objdef.h"
+#include "common/world/objdef.h"
 
 class TestObjDef : public TestBase
 {

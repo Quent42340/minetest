@@ -20,10 +20,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "mg_biome.h"
 #include "mg_decoration.h"
-#include "world/EmergeManager.hpp"
+#include "common/world/EmergeManager.hpp"
 #include "server/server.h"
-#include "world/node/NodeDefManager.hpp"
-#include "map/Map.hpp" //for MMVManip
+#include "common/world/node/NodeDefManager.hpp"
+#include "common/map/Map.hpp" //for MMVManip
 #include "util/numeric.h"
 #include "core/porting.h"
 #include "core/settings.h"

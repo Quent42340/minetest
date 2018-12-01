@@ -20,12 +20,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "irrlicht/irr_v3d.h"
-#include "map/Map.hpp"
+#include "common/map/Map.hpp"
 #include "server/network/HudElement.hpp"
 #include "server/game/gamedef.h"
 #include "server/network/serialization.h" // For SER_FMT_VER_INVALID
 #include "content/mods.h"
-#include "inventory/inventorymanager.h"
+#include "common/inventory/inventorymanager.h"
 #include "content/subgames.h"
 #include "common/TileAnimationParams.hpp" // struct TileAnimationParams
 #include "network/peerhandler.h"

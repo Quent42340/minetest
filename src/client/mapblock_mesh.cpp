@@ -19,8 +19,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "mapblock_mesh.h"
 #include "client.h"
-#include "map/MapBlock.hpp"
-#include "map/Map.hpp"
+#include "common/map/MapBlock.hpp"
+#include "common/map/Map.hpp"
 #include "core/Profiler.hpp"
 #include "shader.h"
 #include "mesh.h"

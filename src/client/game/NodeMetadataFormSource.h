@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "client/clientmap.h"
 #include "gui/guiFormSpecMenu.h"
-#include "world/nodemetadata.h"
+#include "common/world/nodemetadata.h"
 
 class NodeMetadataFormSource: public IFormSource {
 	public:

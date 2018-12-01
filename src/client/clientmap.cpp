@@ -22,15 +22,15 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapblock_mesh.h"
 #include <IMaterialRenderer.h>
 #include <matrix4.h>
-#include "map/MapSector.hpp"
-#include "map/MapBlock.hpp"
+#include "common/map/MapSector.hpp"
+#include "common/map/MapBlock.hpp"
 #include "core/Profiler.hpp"
 #include "core/settings.h"
 #include "camera.h"               // CameraModes
 #include "util/basic_macros.h"
 #include <algorithm>
 #include "client/renderingengine.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 
 ClientMap::ClientMap(
 		Client *client,

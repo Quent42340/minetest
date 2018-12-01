@@ -23,9 +23,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "clientmap.h"
 #include "core/settings.h"
 #include "shader.h"
-#include "map/MapBlock.hpp"
+#include "common/map/MapBlock.hpp"
 #include "client/renderingengine.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 
 ////
 //// MinimapUpdateThread

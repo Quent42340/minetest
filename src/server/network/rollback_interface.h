@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <iostream>
 #include <list>
 #include "core/Exception.hpp"
-#include "inventory/inventory.h"
+#include "common/inventory/inventory.h"
 
 class Map;
 class IGameDef;

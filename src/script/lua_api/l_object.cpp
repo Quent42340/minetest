@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_converter.h"
 #include "common/c_content.h"
 #include "core/log.h"
-#include "inventory/tool.h"
+#include "common/inventory/tool.h"
 #include "server/serverobject.h"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"

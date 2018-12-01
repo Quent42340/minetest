@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/camera.h"
 #include "client/clientobject.h"
 #include "client/object/SmoothTranslator.hpp"
-#include "world/object_properties.h"
+#include "common/world/object_properties.h"
 
 class GenericCAO : public ClientActiveObject {
 	public:

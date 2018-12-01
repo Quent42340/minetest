@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/numeric.h"
 #include "core/log.h"
 #include "client.h"
-#include "inventory/inventory.h"
+#include "common/inventory/inventory.h"
 #include "shader.h"
 #include "client/tile.h"
 #include "localplayer.h"

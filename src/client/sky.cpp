@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "ICameraSceneNode.h"
 #include "S3DVertex.h"
 #include "client/tile.h"
-#include "algorithm/noise.h"  // easeCurve
+#include "common/algorithm/noise.h"  // easeCurve
 #include "core/Profiler.hpp"
 #include "util/numeric.h"
 #include <cmath>

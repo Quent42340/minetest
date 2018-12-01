@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_base.h"
 #include "lua_api/l_metadata.h"
 #include "irrlicht/irrlichttypes_bloated.h"
-#include "world/nodemetadata.h"
+#include "common/world/nodemetadata.h"
 
 class ServerEnvironment;
 class NodeMetadata;

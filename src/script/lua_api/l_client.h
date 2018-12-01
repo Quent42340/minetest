@@ -21,8 +21,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "lua_api/l_base.h"
-#include "item/ItemDefinition.hpp"
-#include "inventory/tool.h"
+#include "common/item/ItemDefinition.hpp"
+#include "common/inventory/tool.h"
 
 class ModApiClient : public ModApiBase
 {

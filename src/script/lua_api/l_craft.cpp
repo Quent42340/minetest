@@ -24,12 +24,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_converter.h"
 #include "common/c_content.h"
 #include "server/server.h"
-#include "craft/ICraftDefManager.hpp"
-#include "craft/CraftDefinitionShaped.hpp"
-#include "craft/CraftDefinitionShapeless.hpp"
-#include "craft/CraftDefinitionToolRepair.hpp"
-#include "craft/CraftDefinitionCooking.hpp"
-#include "craft/CraftDefinitionFuel.hpp"
+#include "common/craft/ICraftDefManager.hpp"
+#include "common/craft/CraftDefinitionShaped.hpp"
+#include "common/craft/CraftDefinitionShapeless.hpp"
+#include "common/craft/CraftDefinitionToolRepair.hpp"
+#include "common/craft/CraftDefinitionCooking.hpp"
+#include "common/craft/CraftDefinitionFuel.hpp"
 
 struct EnumString ModApiCraft::es_CraftMethod[] =
 {

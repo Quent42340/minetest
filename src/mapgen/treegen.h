@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include <matrix4.h>
-#include "algorithm/noise.h"
+#include "common/algorithm/noise.h"
 
 class MMVManip;
 class NodeDefManager;

@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_converter.h"
 #include "common/c_content.h"
 #include "debug/Debug.hpp"
-#include "inventory/inventorymanager.h"
+#include "common/inventory/inventorymanager.h"
 #include "lua_api/l_inventory.h"
 #include "lua_api/l_item.h"
 #include "util/string.h"

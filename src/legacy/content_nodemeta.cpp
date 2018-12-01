@@ -18,9 +18,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "legacy/content_nodemeta.h"
-#include "world/nodemetadata.h"
-#include "world/nodetimer.h"
-#include "inventory/inventory.h"
+#include "common/world/nodemetadata.h"
+#include "common/world/nodetimer.h"
+#include "common/inventory/inventory.h"
 #include "core/log.h"
 #include "server/network/serialization.h"
 #include "util/serialize.h"

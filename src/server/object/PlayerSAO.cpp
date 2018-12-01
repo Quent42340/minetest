@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "util/serialize.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 #include "server/remoteplayer.h"
 #include "server/server.h"
 #include "scripting_server.h"

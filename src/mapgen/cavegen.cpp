@@ -21,15 +21,15 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "util/numeric.h"
 #include <cmath>
-#include "map/Map.hpp"
-#include "map/MMVManip.hpp"
+#include "common/map/Map.hpp"
+#include "common/map/MMVManip.hpp"
 #include "mapgen.h"
 #include "mapgen_v5.h"
 #include "mapgen_v6.h"
 #include "mapgen_v7.h"
 #include "mg_biome.h"
 #include "cavegen.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 
 static NoiseParams nparams_caveliquids(0, 1, v3f(150.0, 150.0, 150.0), 776, 3, 0.6, 2.0);
 

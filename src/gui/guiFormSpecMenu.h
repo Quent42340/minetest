@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <stack>
 
 #include "irrlicht/irrlichttypes_extrabloated.h"
-#include "inventory/inventorymanager.h"
+#include "common/inventory/inventorymanager.h"
 #include "modalMenu.h"
 #include "guiTable.h"
 #include "network/networkprotocol.h"

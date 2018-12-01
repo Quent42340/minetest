@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "common/c_types.h"
 #include "common/c_internal.h"
-#include "item/ItemDefinition.hpp"
+#include "common/item/ItemDefinition.hpp"
 
 
 struct EnumString es_ItemType[] =

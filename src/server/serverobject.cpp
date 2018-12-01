@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "server/serverobject.h"
 #include <fstream>
-#include "inventory/inventory.h"
+#include "common/inventory/inventory.h"
 #include "core/constants.h" // BS
 #include "core/log.h"
 

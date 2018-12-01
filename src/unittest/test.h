@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlicht/irrlichttypes_extrabloated.h"
 #include "core/porting.h"
 #include "util/filesys.h"
-#include "map/MapNode.hpp"
+#include "common/map/MapNode.hpp"
 
 class TestFailedException : public std::exception {
 };

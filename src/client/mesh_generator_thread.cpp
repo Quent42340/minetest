@@ -21,8 +21,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/settings.h"
 #include "core/Profiler.hpp"
 #include "client.h"
-#include "map/MapBlock.hpp"
-#include "map/Map.hpp"
+#include "common/map/MapBlock.hpp"
+#include "common/map/Map.hpp"
 
 /*
 	CachedMapBlockData

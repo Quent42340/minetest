@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #ifndef CLIENTENVIRONMENT_H_
 #define CLIENTENVIRONMENT_H_
 
-#include "world/environment.h"
+#include "common/world/environment.h"
 #include <ISceneManager.h>
 #include "clientobject.h"
 #include "util/numeric.h"

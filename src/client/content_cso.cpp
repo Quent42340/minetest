@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/tile.h"
 #include "client/ClientEnvironment.h"
 #include "client.h"
-#include "map/Map.hpp"
+#include "common/map/Map.hpp"
 
 class SmokePuffCSO: public ClientSimpleObject
 {

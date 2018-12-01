@@ -23,13 +23,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <stack>
 #include "util/pointer.h"
 #include "util/numeric.h"
-#include "map/ServerMap.hpp"
-#include "map/MMVManip.hpp"
-#include "map/MapBlock.hpp"
+#include "common/map/ServerMap.hpp"
+#include "common/map/MMVManip.hpp"
+#include "common/map/MapBlock.hpp"
 #include "server/serverenvironment.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 #include "treegen.h"
-#include "algorithm/voxelalgorithms.h"
+#include "common/algorithm/voxelalgorithms.h"
 
 namespace treegen
 {

@@ -20,9 +20,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "world/objdef.h"
-#include "world/node/NodeResolver.hpp"
-#include "algorithm/noise.h"
+#include "common/world/objdef.h"
+#include "common/world/node/NodeResolver.hpp"
+#include "common/algorithm/noise.h"
 
 class Server;
 class Settings;

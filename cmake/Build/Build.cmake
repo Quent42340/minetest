@@ -4,24 +4,18 @@ add_subdirectory(unittest)
 add_subdirectory(irrlicht_changes)
 
 file(GLOB         root_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "*.cpp")
-file(GLOB_RECURSE algorithm_SRCS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "algorithm/*.cpp")
 file(GLOB_RECURSE common_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "common/*.cpp")
 file(GLOB_RECURSE content_SRCS   RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "content/*.cpp")
 file(GLOB_RECURSE core_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "core/*.cpp")
-file(GLOB_RECURSE craft_SRCS     RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "craft/*.cpp")
 file(GLOB_RECURSE database_SRCS  RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "database/*.cpp")
 file(GLOB_RECURSE debug_SRCS     RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "debug/*.cpp")
 file(GLOB_RECURSE gui_SRCS       RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "gui/*.cpp")
-file(GLOB_RECURSE inventory_SRCS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "inventory/*.cpp")
-file(GLOB_RECURSE item_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "item/*.cpp")
 file(GLOB_RECURSE legacy_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "legacy/*.cpp")
 file(GLOB_RECURSE map_SRCS       RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "map/*.cpp")
 file(GLOB_RECURSE mapgen_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "mapgen/*.cpp")
-file(GLOB_RECURSE player_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "player/*.cpp")
 file(GLOB_RECURSE server_SRCS    RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "server/*.cpp")
 file(GLOB_RECURSE threading_SRCS RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "threading/*.cpp")
 file(GLOB_RECURSE util_SRCS      RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "util/*.cpp")
-file(GLOB_RECURSE world_SRCS     RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}" "world/*.cpp")
 
 list(REMOVE_ITEM root_SRCS "settings_translation_file.cpp")
 list(REMOVE_ITEM gui_SRCS "gui/touchscreengui.h" "gui/touchscreengui.cpp")
@@ -31,19 +25,14 @@ set(common_SRCS
 	${common_SCRIPT_SRCS}
 	${common_network_SRCS}
 	${root_SRCS}
-	${algorithm_SRCS}
 	${common_SRCS}
 	${content_SRCS}
 	${core_SRCS}
-	${craft_SRCS}
 	${database_SRCS}
 	${debug_SRCS}
-	${inventory_SRCS}
-	${item_SRCS}
 	${legacy_SRCS}
 	${map_SRCS}
 	${mapgen_SRCS}
-	${player_SRCS}
 	${server_SRCS}
 	${threading_SRCS}
 	${unittest_SRCS}

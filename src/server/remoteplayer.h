@@ -20,10 +20,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "world/CloudParams.h"
+#include "common/world/CloudParams.h"
 #include "core/constants.h"
 #include "network/networkprotocol.h" // for session_t
-#include "player/Player.h"
+#include "common/player/Player.h"
 
 class PlayerSAO;
 

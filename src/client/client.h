@@ -28,11 +28,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <unordered_set>
 #include "clientobject.h"
 #include "server/game/gamedef.h"
-#include "inventory/inventorymanager.h"
+#include "common/inventory/inventorymanager.h"
 #include "localplayer.h"
 #include "client/Hud.hpp"
 #include "particles.h"
-#include "map/MapNode.hpp"
+#include "common/map/MapNode.hpp"
 #include "common/TileAnimationParams.hpp"
 #include "mesh_generator_thread.h"
 #include "network/address.h"

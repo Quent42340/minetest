@@ -20,9 +20,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "legacy/content_mapnode.h"
 
 #include "irrlicht/irrlichttypes_bloated.h"
-#include "map/MapNode.hpp"
-#include "world/node/NodeDefManager.hpp"
-#include "world/nameidmapping.h"
+#include "common/map/MapNode.hpp"
+#include "common/world/node/NodeDefManager.hpp"
+#include "common/world/nameidmapping.h"
 #include "util/string.h"
 
 /*

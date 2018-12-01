@@ -20,13 +20,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "mapgen_singlenode.h"
-#include "world/voxel.h"
-#include "map/MapBlock.hpp"
-#include "map/MapNode.hpp"
-#include "map/Map.hpp"
-#include "world/node/NodeDefManager.hpp"
-#include "algorithm/voxelalgorithms.h"
-#include "world/EmergeManager.hpp"
+#include "common/world/voxel.h"
+#include "common/map/MapBlock.hpp"
+#include "common/map/MapNode.hpp"
+#include "common/map/Map.hpp"
+#include "common/world/node/NodeDefManager.hpp"
+#include "common/algorithm/voxelalgorithms.h"
+#include "common/world/EmergeManager.hpp"
 
 
 MapgenSinglenode::MapgenSinglenode(int mapgenid,

@@ -23,15 +23,15 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/string.h"
 #include "util/numeric.h"
 #include "util/basic_macros.h"
-#include "map/Map.hpp"
+#include "common/map/Map.hpp"
 #include "server/game/gamedef.h"
-#include "world/node/NodeDefManager.hpp"
-#include "world/nodemetadata.h"
+#include "common/world/node/NodeDefManager.hpp"
+#include "common/world/nodemetadata.h"
 #include "core/Exception.hpp"
 #include "core/log.h"
-#include "inventory/inventorymanager.h"
-#include "inventory/inventory.h"
-#include "map/MapBlock.hpp"
+#include "common/inventory/inventorymanager.h"
+#include "common/inventory/inventory.h"
+#include "common/map/MapBlock.hpp"
 
 
 RollbackNode::RollbackNode(Map *map, v3s16 p, IGameDef *gamedef)

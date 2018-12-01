@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/server.h"
 #include "util/filesys.h"
 #include "gui/guiMainMenu.h"
-#include "player/Player.h"
+#include "common/player/Player.h"
 #include "server/network/chat.h"
 #include "util/gettext.h"
 #include "core/Profiler.hpp"

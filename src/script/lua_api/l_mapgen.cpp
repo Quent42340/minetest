@@ -25,9 +25,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "cpp_api/s_security.h"
 #include "util/serialize.h"
 #include "server/server.h"
-#include "world/environment.h"
-#include "world/EmergeManager.hpp"
-#include "map/MMVManip.hpp"
+#include "common/world/environment.h"
+#include "common/world/EmergeManager.hpp"
+#include "common/map/MMVManip.hpp"
 #include "mapgen/mg_biome.h"
 #include "mapgen/mg_ore.h"
 #include "mapgen/mg_decoration.h"
@@ -37,7 +37,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/filesys.h"
 #include "core/settings.h"
 #include "core/log.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/node/NodeDefManager.hpp"
 
 struct EnumString ModApiMapgen::es_BiomeTerrainType[] =
 {

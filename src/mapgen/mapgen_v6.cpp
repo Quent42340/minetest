@@ -21,20 +21,20 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 
 #include "mapgen.h"
-#include "world/voxel.h"
-#include "algorithm/noise.h"
-#include "map/MapBlock.hpp"
-#include "map/MapNode.hpp"
-#include "map/Map.hpp"
+#include "common/world/voxel.h"
+#include "common/algorithm/noise.h"
+#include "common/map/MapBlock.hpp"
+#include "common/map/MapNode.hpp"
+#include "common/map/Map.hpp"
 //#include "server/serverobject.h"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
-#include "world/node/NodeDefManager.hpp"
-#include "algorithm/voxelalgorithms.h"
+#include "common/world/node/NodeDefManager.hpp"
+#include "common/algorithm/voxelalgorithms.h"
 //#include "core/Profiler.hpp" // For TimeTaker
 #include "core/settings.h" // For g_settings
-#include "world/EmergeManager.hpp"
+#include "common/world/EmergeManager.hpp"
 #include "dungeongen.h"
 #include "cavegen.h"
 #include "treegen.h"

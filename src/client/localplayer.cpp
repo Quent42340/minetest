@@ -22,11 +22,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/localplayer.h"
 #include "client/object/GenericCAO.hpp"
 #include "core/settings.h"
-#include "map/Map.hpp"
+#include "common/map/Map.hpp"
 #include "server/network/MtEvent.hpp"
-#include "world/collision.h"
-#include "world/environment.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/collision.h"
+#include "common/world/environment.h"
+#include "common/world/node/NodeDefManager.hpp"
 
 /*
 	LocalPlayer

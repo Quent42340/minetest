@@ -24,8 +24,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlicht/irrlichttypes_extrabloated.h"
 #include "core/log.h"
 #include "server/network/serialization.h"
-#include "world/node/NodeDefManager.hpp"
-#include "algorithm/noise.h"
+#include "common/world/node/NodeDefManager.hpp"
+#include "common/algorithm/noise.h"
 
 class TestCompression : public TestBase {
 public:

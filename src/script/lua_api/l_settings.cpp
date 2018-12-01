@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_internal.h"
 #include "cpp_api/s_security.h"
 #include "core/settings.h"
-#include "algorithm/noise.h"
+#include "common/algorithm/noise.h"
 #include "core/log.h"
 
 

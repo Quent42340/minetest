@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <unordered_set>
 #include "util/basic_macros.h"
 #include "core/Config.hpp"
-#include "world/metadata.h"
+#include "common/world/metadata.h"
 
 #define MODNAME_ALLOWED_CHARS "abcdefghijklmnopqrstuvwxyz0123456789_"
 

@@ -36,8 +36,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/log.h"
 #include "common/genericobject.h"
 #include "util/serialize.h"
-#include "world/collision.h"
-#include "world/node/NodeDefManager.hpp"
+#include "common/world/collision.h"
+#include "common/world/node/NodeDefManager.hpp"
 
 /*
 	Other stuff

@@ -22,8 +22,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "lua_api/l_inventory.h"
 #include "common/c_content.h"
 #include "server/serverenvironment.h"
-#include "map/Map.hpp"
-#include "map/MapBlock.hpp"
+#include "common/map/Map.hpp"
+#include "common/map/MapBlock.hpp"
 #include "server/server.h"
 
 /*

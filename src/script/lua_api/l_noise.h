@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlicht/irr_v3d.h"
 #include "lua_api/l_base.h"
-#include "algorithm/noise.h"
+#include "common/algorithm/noise.h"
 
 /*
 	LuaPerlinNoise
