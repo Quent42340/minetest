@@ -43,15 +43,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 	Other stuff
 */
 
-static void setBillboardTextureMatrix(scene::IBillboardSceneNode *bill,
-		float txs, float tys, int col, int row)
-{
-	video::SMaterial& material = bill->getMaterial(0);
-	core::matrix4& matrix = material.getTextureMatrix(0);
-	matrix.setTextureTranslate(txs*col, tys*row);
-	matrix.setTextureScale(txs, tys);
-}
-
 /*
 	GenericCAO
 */
@@ -165,7 +156,7 @@ v3f GenericCAO::getPosition()
 	return pos_translator.val_current;
 }
 
-const bool GenericCAO::isImmortal()
+bool GenericCAO::isImmortal()
 {
 	return itemgroup_get(getGroups(), "immortal");
 }
@@ -302,7 +293,7 @@ void GenericCAO::addToScene(ITextureSource *tsrc)
 		{
 			const float txs = 1.0 / 1;
 			const float tys = 1.0 / 1;
-			setBillboardTextureMatrix(m_spritenode,
+			GenericCAOAnimation::setBillboardTextureMatrix(m_spritenode,
 					txs, tys, 0, 0);
 		}
 	} else if (m_prop.visual == "upright_sprite") {
@@ -657,7 +648,7 @@ void GenericCAO::step(float dtime, ClientEnvironment *env)
 
 	m_animation.updateFrame(dtime);
 
-	updateTexturePos();
+	m_animation.updateTexturePos(m_spritenode, m_rotation);
 
 	if(m_reset_textures_timer >= 0)
 	{
@@ -685,53 +676,6 @@ void GenericCAO::step(float dtime, ClientEnvironment *env)
 		rot_translator.val_current = m_rotation;
 
 		updateNodePos();
-	}
-}
-
-void GenericCAO::updateTexturePos()
-{
-	if(m_spritenode)
-	{
-		scene::ICameraSceneNode* camera =
-				m_spritenode->getSceneManager()->getActiveCamera();
-		if(!camera)
-			return;
-		v3f cam_to_entity = m_spritenode->getAbsolutePosition()
-				- camera->getAbsolutePosition();
-		cam_to_entity.normalize();
-
-		int row = m_tx_basepos.Y;
-		int col = m_tx_basepos.X;
-
-		if (m_tx_select_horiz_by_yawpitch) {
-			if (cam_to_entity.Y > 0.75)
-				col += 5;
-			else if (cam_to_entity.Y < -0.75)
-				col += 4;
-			else {
-				float mob_dir =
-						atan2(cam_to_entity.Z, cam_to_entity.X) / M_PI * 180.;
-				float dir = mob_dir - m_rotation.Y;
-				dir = wrapDegrees_180(dir);
-				if (std::fabs(wrapDegrees_180(dir - 0)) <= 45.1f)
-					col += 2;
-				else if(std::fabs(wrapDegrees_180(dir - 90)) <= 45.1f)
-					col += 3;
-				else if(std::fabs(wrapDegrees_180(dir - 180)) <= 45.1f)
-					col += 0;
-				else if(std::fabs(wrapDegrees_180(dir + 90)) <= 45.1f)
-					col += 1;
-				else
-					col += 4;
-			}
-		}
-
-		// Animation goes downwards
-		row += m_animation.getFrame();
-
-		float txs = m_tx_size.X;
-		float tys = m_tx_size.Y;
-		setBillboardTextureMatrix(m_spritenode, txs, tys, col, row);
 	}
 }
 
@@ -991,13 +935,8 @@ void GenericCAO::processMessage(const std::string &data)
 		m_selection_box.MinEdge *= BS;
 		m_selection_box.MaxEdge *= BS;
 
-		m_tx_size.X = 1.0 / m_prop.spritediv.X;
-		m_tx_size.Y = 1.0 / m_prop.spritediv.Y;
+		m_animation.initTiles(m_prop);
 
-		if(!m_initial_tx_basepos_set){
-			m_initial_tx_basepos_set = true;
-			m_tx_basepos = m_prop.initial_sprite_basepos;
-		}
 		if (m_is_local_player) {
 			LocalPlayer *player = m_env->getLocalPlayer();
 			player->makes_footstep_sound = m_prop.makes_footstep_sound;
@@ -1062,13 +1001,10 @@ void GenericCAO::processMessage(const std::string &data)
 		float framelength = readF1000(is);
 		bool select_horiz_by_yawpitch = readU8(is);
 
-		m_tx_basepos = p;
-		m_animation.setFrameCount(num_frames);
-		m_animation.setFrameLength(framelength);
-		m_tx_select_horiz_by_yawpitch = select_horiz_by_yawpitch;
-
-		updateTexturePos();
-	} else if (cmd == GENERIC_CMD_SET_PHYSICS_OVERRIDE) {
+		m_animation.updateTiles(p, num_frames, framelength, select_horiz_by_yawpitch);
+		m_animation.updateTexturePos(m_spritenode, m_rotation);
+	}
+	else if (cmd == GENERIC_CMD_SET_PHYSICS_OVERRIDE) {
 		float override_speed = readF1000(is);
 		float override_jump = readF1000(is);
 		float override_gravity = readF1000(is);

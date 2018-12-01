@@ -20,6 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/client.h"
 #include "client/localplayer.h"
 #include "client/object/GenericCAOAnimation.hpp"
+#include "common/world/object_properties.h"
 #include "util/serialize.h"
 
 void GenericCAOAnimation::update(scene::IAnimatedMeshSceneNode *animated_meshnode)
@@ -160,4 +161,76 @@ void GenericCAOAnimation::animatePlayer(Client *client, LocalPlayer *player, sce
 			player->last_animation != NO_ANIM && allow_update)
 		update(animated_meshnode);
 }
+
+void GenericCAOAnimation::initTiles(const ObjectProperties &prop) {
+	m_tx_size.X = 1.0 / prop.spritediv.X;
+	m_tx_size.Y = 1.0 / prop.spritediv.Y;
+
+	if(!m_initial_tx_basepos_set){
+		m_initial_tx_basepos_set = true;
+		m_tx_basepos = prop.initial_sprite_basepos;
+	}
+}
+
+void GenericCAOAnimation::updateTiles(const v2s16 &pos, int frame_count, int frame_length, bool select_horiz_by_yawpitch) {
+	m_tx_basepos = pos;
+	m_anim_num_frames = frame_count;
+	m_anim_framelength = frame_length;
+	m_tx_select_horiz_by_yawpitch = select_horiz_by_yawpitch;
+}
+
+void GenericCAOAnimation::updateTexturePos(scene::IBillboardSceneNode *spritenode, const v3f &rotation)
+{
+	if (spritenode)
+	{
+		scene::ICameraSceneNode* camera = spritenode->getSceneManager()->getActiveCamera();
+		if(!camera)
+			return;
+
+		v3f cam_to_entity = spritenode->getAbsolutePosition() - camera->getAbsolutePosition();
+		cam_to_entity.normalize();
+
+		int row = m_tx_basepos.Y;
+		int col = m_tx_basepos.X;
+
+		if (m_tx_select_horiz_by_yawpitch) {
+			if (cam_to_entity.Y > 0.75)
+				col += 5;
+			else if (cam_to_entity.Y < -0.75)
+				col += 4;
+			else {
+				float mob_dir = atan2(cam_to_entity.Z, cam_to_entity.X) / M_PI * 180.;
+				float dir = mob_dir - rotation.Y;
+				dir = wrapDegrees_180(dir);
+				if (std::fabs(wrapDegrees_180(dir - 0)) <= 45.1f)
+					col += 2;
+				else if(std::fabs(wrapDegrees_180(dir - 90)) <= 45.1f)
+					col += 3;
+				else if(std::fabs(wrapDegrees_180(dir - 180)) <= 45.1f)
+					col += 0;
+				else if(std::fabs(wrapDegrees_180(dir + 90)) <= 45.1f)
+					col += 1;
+				else
+					col += 4;
+			}
+		}
+
+		// Animation goes downwards
+		row += m_anim_frame;
+
+		float txs = m_tx_size.X;
+		float tys = m_tx_size.Y;
+		setBillboardTextureMatrix(spritenode, txs, tys, col, row);
+	}
+}
+
+void GenericCAOAnimation::setBillboardTextureMatrix(scene::IBillboardSceneNode *bill,
+		float txs, float tys, int col, int row)
+{
+	video::SMaterial& material = bill->getMaterial(0);
+	core::matrix4& matrix = material.getTextureMatrix(0);
+	matrix.setTextureTranslate(txs*col, tys*row);
+	matrix.setTextureScale(txs, tys);
+}
+
 

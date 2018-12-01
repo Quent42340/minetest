@@ -25,6 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 class Client;
 class ClientEnvironment;
 class LocalPlayer;
+struct ObjectProperties;
 
 class GenericCAOAnimation {
 	public:
@@ -36,13 +37,20 @@ class GenericCAOAnimation {
 
 		void animatePlayer(Client *client, LocalPlayer *player, scene::IAnimatedMeshSceneNode *animated_meshnode);
 
-		int getFrame() const { return m_anim_frame; }
+		void initTiles(const ObjectProperties &prop);
+		void updateTiles(const v2s16 &pos, int frame_count, int frame_length, bool select_horiz_by_yawpitch);
 
-		void setFrameCount(int frame_count) { m_anim_num_frames = frame_count; }
-		void setFrameLength(float frame_length) { m_anim_framelength = frame_length; }
+		void updateTexturePos(scene::IBillboardSceneNode *spritenode, const v3f &rotation);
 
+		static void setBillboardTextureMatrix(scene::IBillboardSceneNode *bill,
+				float txs, float tys, int col, int row);
 	private:
+		v2f m_tx_size = v2f(1,1);
+		v2s16 m_tx_basepos;
+		bool m_initial_tx_basepos_set = false;
+		bool m_tx_select_horiz_by_yawpitch = false;
 		v2s32 m_animation_range;
+
 		float m_animation_speed = 15.0f;
 		float m_animation_blend = 0.0f;
 		bool m_animation_loop = true;

@@ -31,69 +31,65 @@ class GenericCAO : public ClientActiveObject {
 		GenericCAO(Client *client, ClientEnvironment *env);
 		~GenericCAO();
 
-		void initialize(const std::string &data);
+		void initialize(const std::string &data) override;
 
 		void processInitData(const std::string &data);
 
-		bool getCollisionBox(aabb3f *toset) const;
+		bool collideWithObjects() const override;
 
-		bool collideWithObjects() const;
+		bool getCollisionBox(aabb3f *toset) const override;
+		bool getSelectionBox(aabb3f *toset) const override;
 
-		virtual bool getSelectionBox(aabb3f *toset) const;
+		scene::ISceneNode *getSceneNode() override;
+		scene::IAnimatedMeshSceneNode *getAnimatedMeshSceneNode() override;
 
-		scene::ISceneNode *getSceneNode();
-		scene::IAnimatedMeshSceneNode *getAnimatedMeshSceneNode();
-
-		v3f getPosition();
+		v3f getPosition() override;
 		const v3f &getRotation() { return m_rotation; }
 
-		ActiveObjectType getType() const { return ACTIVEOBJECT_TYPE_GENERIC; }
+		ActiveObjectType getType() const override { return ACTIVEOBJECT_TYPE_GENERIC; }
 		const ItemGroupList &getGroups() const { return m_armor_groups; }
 
-		const bool isImmortal();
+		bool isImmortal();
 
 		f32 getStepHeight() const { return m_prop.stepheight; }
 
-		bool isLocalPlayer() const { return m_is_local_player; }
+		bool isLocalPlayer() const override { return m_is_local_player; }
+
+		ClientActiveObject *getParent() const override;
+
+		void removeFromScene(bool permanent) override;
+
+		void addToScene(ITextureSource *tsrc) override;
+
+		void updateLight(u8 light_at_pos) override;
+		void updateLightNoCheck(u8 light_at_pos) override;
+		v3s16 getLightPosition() override;
+
+		void step(float dtime, ClientEnvironment *env) override;
+
+		void processMessage(const std::string &data) override;
+
+		bool directReportPunch(v3f dir, const ItemStack *punchitem = nullptr,
+				float time_from_last_punch = 1000000) override;
+
+		std::string debugInfoText() override;
+		std::string infoText() override { return m_prop.infotext; }
+
+		void setAttachments() override;
 
 		bool isVisible() const { return m_is_visible; }
 		void setVisible(bool toset) { m_is_visible = toset; }
 
 		void setChildrenVisible(bool toset);
 
-		ClientActiveObject *getParent() const;
-
-		void setAttachments();
-
-		void removeFromScene(bool permanent);
-
-		void addToScene(ITextureSource *tsrc);
-
 		void expireVisuals() { m_visuals_expired = true; }
-
-		void updateLight(u8 light_at_pos);
-		void updateLightNoCheck(u8 light_at_pos);
-		v3s16 getLightPosition();
-
-		void step(float dtime, ClientEnvironment *env);
-
-		void updateNodePos();
-		void updateTexturePos();
 
 		// std::string copy is mandatory as mod can be a class member and there is a swap
 		// on those class members... do NOT pass by reference
 		void updateTextures(std::string mod);
-
+		void updateNodePos();
 		void updateBonePosition();
 		void updateAttachments();
-
-		void processMessage(const std::string &data);
-
-		bool directReportPunch(v3f dir, const ItemStack *punchitem = nullptr,
-				float time_from_last_punch = 1000000);
-
-		std::string debugInfoText();
-		std::string infoText() { return m_prop.infotext; }
 
 		static ClientActiveObject* create(Client *client, ClientEnvironment *env)
 		{
@@ -111,12 +107,14 @@ class GenericCAO : public ClientActiveObject {
 
 		// Irrlicht
 		scene::ISceneManager *m_smgr = nullptr;
-		Client *m_client = nullptr;
-		aabb3f m_selection_box = aabb3f(-BS/3.,-BS/3.,-BS/3., BS/3.,BS/3.,BS/3.);
 		scene::IMeshSceneNode *m_meshnode = nullptr;
 		scene::IAnimatedMeshSceneNode *m_animated_meshnode = nullptr;
-		WieldMeshSceneNode *m_wield_meshnode = nullptr;
 		scene::IBillboardSceneNode *m_spritenode = nullptr;
+		WieldMeshSceneNode *m_wield_meshnode = nullptr;
+
+		aabb3f m_selection_box = aabb3f(-BS/3.,-BS/3.,-BS/3., BS/3.,BS/3.,BS/3.);
+
+		Client *m_client = nullptr;
 		Nametag *m_nametag = nullptr;
 
 		v3f m_position = v3f(0.0f, 10.0f * BS, 0);
@@ -128,12 +126,6 @@ class GenericCAO : public ClientActiveObject {
 
 		SmoothTranslator<v3f> pos_translator;
 		SmoothTranslatorWrappedv3f rot_translator;
-
-		// Spritesheet/animation stuff
-		v2f m_tx_size = v2f(1,1);
-		v2s16 m_tx_basepos;
-		bool m_initial_tx_basepos_set = false;
-		bool m_tx_select_horiz_by_yawpitch = false;
 
 		GenericCAOAnimation m_animation;
 
