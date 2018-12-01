@@ -22,6 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/constants.h"
 #include "client/camera.h"
 #include "client/clientobject.h"
+#include "client/object/GenericCAOAnimation.hpp"
 #include "client/object/SmoothTranslator.hpp"
 #include "common/world/object_properties.h"
 
@@ -83,10 +84,7 @@ class GenericCAO : public ClientActiveObject {
 		// on those class members... do NOT pass by reference
 		void updateTextures(std::string mod);
 
-		void updateAnimation();
-		void updateAnimationSpeed();
 		void updateBonePosition();
-
 		void updateAttachments();
 
 		void processMessage(const std::string &data);
@@ -137,10 +135,7 @@ class GenericCAO : public ClientActiveObject {
 		bool m_initial_tx_basepos_set = false;
 		bool m_tx_select_horiz_by_yawpitch = false;
 
-		v2s32 m_animation_range;
-		float m_animation_speed = 15.0f;
-		float m_animation_blend = 0.0f;
-		bool m_animation_loop = true;
+		GenericCAOAnimation m_animation;
 
 		// stores position and rotation for each bone name
 		std::unordered_map<std::string, core::vector2d<v3f>> m_bone_position;
@@ -148,11 +143,6 @@ class GenericCAO : public ClientActiveObject {
 		v3f m_attachment_position;
 		v3f m_attachment_rotation;
 		bool m_attached_to_local = false;
-
-		int m_anim_frame = 0;
-		int m_anim_num_frames = 1;
-		float m_anim_framelength = 0.2f;
-		float m_anim_timer = 0.0f;
 
 		ItemGroupList m_armor_groups;
 

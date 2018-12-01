@@ -467,7 +467,7 @@ void GenericCAO::addToScene(ITextureSource *tsrc)
 	}
 
 	updateNodePos();
-	updateAnimation();
+	m_animation.update(m_animated_meshnode);
 	updateBonePosition();
 	updateAttachments();
 }
@@ -542,71 +542,14 @@ void GenericCAO::step(float dtime, ClientEnvironment *env)
 	if (m_is_local_player) {
 		LocalPlayer *player = m_env->getLocalPlayer();
 		if (m_is_visible) {
-			int old_anim = player->last_animation;
-			float old_anim_speed = player->last_animation_speed;
 			m_position = player->getPosition();
 			m_rotation.Y = wrapDegrees_0_360(player->getYaw());
 			m_velocity = v3f(0,0,0);
 			m_acceleration = v3f(0,0,0);
 			pos_translator.val_current = m_position;
 			rot_translator.val_current = m_rotation;
-			const PlayerControl &controls = player->getPlayerControl();
 
-			bool walking = false;
-			if (controls.up || controls.down || controls.left || controls.right ||
-					controls.forw_move_joystick_axis != 0.f ||
-					controls.sidew_move_joystick_axis != 0.f)
-				walking = true;
-
-			f32 new_speed = player->local_animation_speed;
-			v2s32 new_anim = v2s32(0,0);
-			bool allow_update = false;
-
-			// increase speed if using fast or flying fast
-			if((g_settings->getBool("fast_move") &&
-					m_client->checkLocalPrivilege("fast")) &&
-					(controls.aux1 ||
-					(!player->touching_ground &&
-					g_settings->getBool("free_move") &&
-					m_client->checkLocalPrivilege("fly"))))
-					new_speed *= 1.5;
-			// slowdown speed if sneeking
-			if (controls.sneak && walking)
-				new_speed /= 2;
-
-			if (walking && (controls.LMB || controls.RMB)) {
-				new_anim = player->local_animations[3];
-				player->last_animation = WD_ANIM;
-			} else if(walking) {
-				new_anim = player->local_animations[1];
-				player->last_animation = WALK_ANIM;
-			} else if(controls.LMB || controls.RMB) {
-				new_anim = player->local_animations[2];
-				player->last_animation = DIG_ANIM;
-			}
-
-			// Apply animations if input detected and not attached
-			// or set idle animation
-			if ((new_anim.X + new_anim.Y) > 0 && !player->isAttached) {
-				allow_update = true;
-				m_animation_range = new_anim;
-				m_animation_speed = new_speed;
-				player->last_animation_speed = m_animation_speed;
-			} else {
-				player->last_animation = NO_ANIM;
-
-				if (old_anim != NO_ANIM) {
-					m_animation_range = player->local_animations[0];
-					updateAnimation();
-				}
-			}
-
-			// Update local player animations
-			if ((player->last_animation != old_anim ||
-				m_animation_speed != old_anim_speed) &&
-				player->last_animation != NO_ANIM && allow_update)
-					updateAnimation();
-
+			m_animation.animatePlayer(m_client, player, m_animated_meshnode);
 		}
 	}
 
@@ -712,14 +655,7 @@ void GenericCAO::step(float dtime, ClientEnvironment *env)
 		}
 	}
 
-	m_anim_timer += dtime;
-	if(m_anim_timer >= m_anim_framelength)
-	{
-		m_anim_timer -= m_anim_framelength;
-		m_anim_frame++;
-		if(m_anim_frame >= m_anim_num_frames)
-			m_anim_frame = 0;
-	}
+	m_animation.updateFrame(dtime);
 
 	updateTexturePos();
 
@@ -791,7 +727,7 @@ void GenericCAO::updateTexturePos()
 		}
 
 		// Animation goes downwards
-		row += m_anim_frame;
+		row += m_animation.getFrame();
 
 		float txs = m_tx_size.X;
 		float tys = m_tx_size.Y;
@@ -980,32 +916,6 @@ void GenericCAO::updateTextures(std::string mod)
 	}
 }
 
-void GenericCAO::updateAnimation()
-{
-	if (!m_animated_meshnode)
-		return;
-
-	if (m_animated_meshnode->getStartFrame() != m_animation_range.X ||
-		m_animated_meshnode->getEndFrame() != m_animation_range.Y)
-			m_animated_meshnode->setFrameLoop(m_animation_range.X, m_animation_range.Y);
-	if (m_animated_meshnode->getAnimationSpeed() != m_animation_speed)
-		m_animated_meshnode->setAnimationSpeed(m_animation_speed);
-	m_animated_meshnode->setTransitionTime(m_animation_blend);
-// Requires Irrlicht 1.8 or greater
-#if (IRRLICHT_VERSION_MAJOR == 1 && IRRLICHT_VERSION_MINOR >= 8) || IRRLICHT_VERSION_MAJOR > 1
-	if (m_animated_meshnode->getLoopMode() != m_animation_loop)
-		m_animated_meshnode->setLoopMode(m_animation_loop);
-#endif
-}
-
-void GenericCAO::updateAnimationSpeed()
-{
-	if (!m_animated_meshnode)
-		return;
-
-	m_animated_meshnode->setAnimationSpeed(m_animation_speed);
-}
-
 void GenericCAO::updateBonePosition()
 {
 	if (m_bone_position.empty() || !m_animated_meshnode)
@@ -1153,8 +1063,8 @@ void GenericCAO::processMessage(const std::string &data)
 		bool select_horiz_by_yawpitch = readU8(is);
 
 		m_tx_basepos = p;
-		m_anim_num_frames = num_frames;
-		m_anim_framelength = framelength;
+		m_animation.setFrameCount(num_frames);
+		m_animation.setFrameLength(framelength);
 		m_tx_select_horiz_by_yawpitch = select_horiz_by_yawpitch;
 
 		updateTexturePos();
@@ -1179,42 +1089,9 @@ void GenericCAO::processMessage(const std::string &data)
 			player->physics_override_new_move = new_move;
 		}
 	} else if (cmd == GENERIC_CMD_SET_ANIMATION) {
-		// TODO: change frames send as v2s32 value
-		v2f range = readV2F1000(is);
-		if (!m_is_local_player) {
-			m_animation_range = v2s32((s32)range.X, (s32)range.Y);
-			m_animation_speed = readF1000(is);
-			m_animation_blend = readF1000(is);
-			// these are sent inverted so we get true when the server sends nothing
-			m_animation_loop = !readU8(is);
-			updateAnimation();
-		} else {
-			LocalPlayer *player = m_env->getLocalPlayer();
-			if(player->last_animation == NO_ANIM)
-			{
-				m_animation_range = v2s32((s32)range.X, (s32)range.Y);
-				m_animation_speed = readF1000(is);
-				m_animation_blend = readF1000(is);
-				// these are sent inverted so we get true when the server sends nothing
-				m_animation_loop = !readU8(is);
-			}
-			// update animation only if local animations present
-			// and received animation is unknown (except idle animation)
-			bool is_known = false;
-			for (int i = 1;i<4;i++)
-			{
-				if(m_animation_range.Y == player->local_animations[i].Y)
-					is_known = true;
-			}
-			if(!is_known ||
-					(player->local_animations[1].Y + player->local_animations[2].Y < 1))
-			{
-					updateAnimation();
-			}
-		}
+		m_animation.updateData(is, m_env, m_is_local_player, m_animated_meshnode);
 	} else if (cmd == GENERIC_CMD_SET_ANIMATION_SPEED) {
-		m_animation_speed = readF1000(is);
-		updateAnimationSpeed();
+		m_animation.updateSpeed(readF1000(is), m_animated_meshnode);
 	} else if (cmd == GENERIC_CMD_SET_BONE_POSITION) {
 		std::string bone = deSerializeString(is);
 		v3f position = readV3F1000(is);
