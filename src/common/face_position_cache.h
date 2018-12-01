@@ -31,11 +31,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
  * This reduces CPU usage and vector calls.
  */
 class FacePositionCache {
-public:
-	static const std::vector<v3s16> &getFacePositions(u16 d);
+	public:
+		static const std::vector<v3s16> &getFacePositions(u16 d);
 
-private:
-	static const std::vector<v3s16> &generateFacePosition(u16 d);
-	static std::unordered_map<u16, std::vector<v3s16>> cache;
-	static std::mutex cache_mutex;
+	private:
+		static const std::vector<v3s16> &generateFacePosition(u16 d);
+		static std::unordered_map<u16, std::vector<v3s16>> cache;
+		static std::mutex cache_mutex;
 };

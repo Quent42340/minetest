@@ -21,6 +21,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/object/SmoothTranslator.hpp"
 #include "util/numeric.h"
 
+template struct SmoothTranslator<v3f>;
+
 template<typename T>
 void SmoothTranslator<T>::init(T current)
 {

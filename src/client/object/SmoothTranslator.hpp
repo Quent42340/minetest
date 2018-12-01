@@ -52,6 +52,4 @@ struct SmoothTranslatorWrappedv3f : SmoothTranslator<v3f>
 	void translate(f32 dtime);
 };
 
-template struct SmoothTranslator<v3f>;
-
 #endif // SMOOTHTRANSLATOR_HPP_

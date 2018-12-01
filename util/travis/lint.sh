@@ -9,7 +9,7 @@ function perform_lint() {
 	echo "LINT: Using binary $CLANG_FORMAT"
 	CLANG_FORMAT_WHITELIST="util/travis/clang-format-whitelist.txt"
 
-	files_to_lint="$(find src/ -name '*.cpp' -or -name '*.h')"
+	files_to_lint="$(find src/ -name '*.cpp' -or -name '*.h' -or -name '*.hpp')"
 
 	local errorcount=0
 	local fail=0
