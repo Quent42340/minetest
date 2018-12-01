@@ -32,7 +32,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
 #include "server/object/PlayerHPChangeReason.h"
-#include "remoteplayer.h"
+#include "server/remoteplayer.h"
 #include "server/server.h"
 #include "server/network/HudElement.hpp"
 #include "scripting_server.h"

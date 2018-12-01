@@ -39,7 +39,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
-#include "remoteplayer.h"
+#include "server/remoteplayer.h"
 
 Database_PostgreSQL::Database_PostgreSQL(const std::string &connect_string) :
 	m_connect_string(connect_string)

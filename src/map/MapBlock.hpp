@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/StaticObjectList.hpp"
 #include "world/nodemetadata.h"
 #include "world/nodetimer.h"
-#include "modifiedstate.h"
+#include "common/modifiedstate.h"
 #include "util/numeric.h" // getContainerPos
 #include "core/settings.h"
 #include "mapgen/mapgen.h"

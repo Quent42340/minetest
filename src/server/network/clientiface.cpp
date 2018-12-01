@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/network/clientiface.h"
 #include "network/connection.h"
 #include "network/serveropcodes.h"
-#include "remoteplayer.h"
+#include "server/remoteplayer.h"
 #include "core/settings.h"
 #include "map/MapBlock.hpp"
 #include "server/serverenvironment.h"
@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/EmergeManager.hpp"
 #include "core/log.h"
 #include "util/srp.h"
-#include "face_position_cache.h"
+#include "common/face_position_cache.h"
 // TODO this is used for cleanup of only
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"

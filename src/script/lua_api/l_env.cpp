@@ -40,8 +40,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/ServerMap.hpp"
 #include "world/EmergeManager.hpp"
 #include "algorithm/pathfinder.h"
-#include "face_position_cache.h"
-#include "remoteplayer.h"
+#include "common/face_position_cache.h"
+#include "server/remoteplayer.h"
 #ifndef SERVER
 #include "client/client.h"
 #endif

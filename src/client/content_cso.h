@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "irrlicht/irrlichttypes_extrabloated.h"
-#include "clientsimpleobject.h"
+#include "common/clientsimpleobject.h"
 
 ClientSimpleObject* createSmokePuff(scene::ISceneManager *smgr,
 		ClientEnvironment *env, v3f pos, v2f size);

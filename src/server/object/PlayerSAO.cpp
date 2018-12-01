@@ -19,10 +19,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "util/serialize.h"
 #include "world/node/NodeDefManager.hpp"
-#include "remoteplayer.h"
+#include "server/remoteplayer.h"
 #include "server/server.h"
 #include "scripting_server.h"
-#include "genericobject.h"
+#include "common/genericobject.h"
 #include "server/object/LagPool.h"
 #include "server/object/PlayerHPChangeReason.h"
 #include "server/object/PlayerSAO.h"

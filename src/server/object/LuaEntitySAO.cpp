@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/collision.h"
 #include "server/server.h"
 #include "scripting_server.h"
-#include "genericobject.h"
+#include "common/genericobject.h"
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/PlayerHPChangeReason.h"
 

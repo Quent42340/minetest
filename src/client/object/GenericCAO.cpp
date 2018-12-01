@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/wieldmesh.h"
 #include "core/constants.h"
 #include "core/log.h"
-#include "genericobject.h"
+#include "common/genericobject.h"
 #include "util/serialize.h"
 #include "world/collision.h"
 #include "world/node/NodeDefManager.hpp"

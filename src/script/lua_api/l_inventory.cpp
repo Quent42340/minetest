@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_converter.h"
 #include "common/c_content.h"
 #include "server/server.h"
-#include "remoteplayer.h"
+#include "server/remoteplayer.h"
 
 /*
 	InvRef

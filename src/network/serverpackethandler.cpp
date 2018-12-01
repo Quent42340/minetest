@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapBlock.hpp"
 #include "server/network/modchannels.h"
 #include "world/node/NodeDefManager.hpp"
-#include "remoteplayer.h"
+#include "server/remoteplayer.h"
 #include "server/network/rollback_interface.h"
 #include "scripting_server.h"
 #include "core/settings.h"

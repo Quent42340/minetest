@@ -36,7 +36,7 @@ SQLite format specification:
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
-#include "remoteplayer.h"
+#include "server/remoteplayer.h"
 
 #include <cassert>
 

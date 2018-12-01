@@ -31,7 +31,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/porting.h"
 #include "core/Profiler.hpp"
 #include "algorithm/raycast.h"
-#include "remoteplayer.h"
+#include "server/remoteplayer.h"
 #include "scripting_server.h"
 #include "server/server.h"
 #include "util/serialize.h"

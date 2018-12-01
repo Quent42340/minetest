@@ -17,7 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "face_position_cache.h"
+#include "common/face_position_cache.h"
 #include "threading/mutex_auto_lock.h"
 
 

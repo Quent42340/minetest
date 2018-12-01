@@ -35,7 +35,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/filesys.h"
 #include "map/MapBlock.hpp"
 #include "server/serverobject.h"
-#include "genericobject.h"
+#include "common/genericobject.h"
 #include "core/settings.h"
 #include "core/Profiler.hpp"
 #include "core/log.h"
@@ -67,7 +67,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "database/database.h"
 #include "server/network/chatmessage.h"
 #include "server/network/chat_interface.h"
-#include "remoteplayer.h"
+#include "server/remoteplayer.h"
 
 class ClientNotFoundException : public BaseException
 {

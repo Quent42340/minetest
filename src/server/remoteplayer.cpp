@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "remoteplayer.h"
+#include "server/remoteplayer.h"
 #include <json/json.h>
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"

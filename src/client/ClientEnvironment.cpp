@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/pointedthing.h"
 #include "client.h"
 #include "client/ClientEnvironment.h"
-#include "clientsimpleobject.h"
+#include "common/clientsimpleobject.h"
 #include "clientmap.h"
 #include "scripting_client.h"
 #include "mapblock_mesh.h"
