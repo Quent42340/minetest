@@ -275,10 +275,10 @@ void GenericCAO::addToScene(ITextureSource *tsrc)
 		video::EMT_TRANSPARENT_ALPHA_CHANNEL : video::EMT_TRANSPARENT_ALPHA_CHANNEL_REF;
 
 	if (m_prop.visual == "sprite") {
-		m_spriteVisual.init(tsrc, material_type, m_prop, m_last_light);
+		m_spriteVisual.init(tsrc, material_type, m_prop, m_last_light, m_is_player);
 	}
 	else if (m_prop.visual == "upright_sprite") {
-		initUprightSpriteVisual(tsrc, material_type);
+		m_uprightSpriteVisual.init(tsrc, material_type, m_prop, m_last_light, m_is_player);
 	}
 	else if(m_prop.visual == "cube") {
 		initCubeVisual(tsrc, material_type);
@@ -343,7 +343,7 @@ void GenericCAO::updateLightNoCheck(u8 light_at_pos)
 		video::SColor color(255, li, li, li);
 
 		if (m_meshnode)
-			setMeshColor(m_meshnode->getMesh(), color);
+			m_uprightSpriteVisual.setColor(color);
 		else if (m_animated_meshnode)
 			setAnimatedMeshColor(m_animated_meshnode, color);
 		else if (m_wield_meshnode)
@@ -551,7 +551,7 @@ void GenericCAO::updateTextures(std::string mod)
 		if(m_prop.visual == "cube")
 			updateCubeTexture(tsrc, material_type, mod);
 		else if (m_prop.visual == "upright_sprite")
-			updateUprightSpriteTexture(tsrc, material_type, mod);
+			m_uprightSpriteVisual.updateTexture(tsrc, material_type, m_prop, mod);
 	}
 }
 
@@ -875,70 +875,6 @@ std::string GenericCAO::debugInfoText()
 	return os.str();
 }
 
-void GenericCAO::initUprightSpriteVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type)
-{
-	scene::SMesh *mesh = new scene::SMesh();
-	double dx = BS * m_prop.visual_size.X / 2;
-	double dy = BS * m_prop.visual_size.Y / 2;
-	u8 li = m_last_light;
-	video::SColor c(255, li, li, li);
-
-	{ // Front
-		scene::IMeshBuffer *buf = new scene::SMeshBuffer();
-		video::S3DVertex vertices[4] = {
-			video::S3DVertex(-dx, -dy, 0, 0,0,0, c, 1,1),
-			video::S3DVertex( dx, -dy, 0, 0,0,0, c, 0,1),
-			video::S3DVertex( dx,  dy, 0, 0,0,0, c, 0,0),
-			video::S3DVertex(-dx,  dy, 0, 0,0,0, c, 1,0),
-		};
-		if (m_is_player) {
-			// Move minimal Y position to 0 (feet position)
-			for (video::S3DVertex &vertex : vertices)
-				vertex.Pos.Y += dy;
-		}
-		u16 indices[] = {0,1,2,2,3,0};
-		buf->append(vertices, 4, indices, 6);
-		// Set material
-		buf->getMaterial().setFlag(video::EMF_LIGHTING, false);
-		buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, false);
-		buf->getMaterial().setFlag(video::EMF_FOG_ENABLE, true);
-		buf->getMaterial().MaterialType = video::EMT_TRANSPARENT_ALPHA_CHANNEL;
-		// Add to mesh
-		mesh->addMeshBuffer(buf);
-		buf->drop();
-	}
-	{ // Back
-		scene::IMeshBuffer *buf = new scene::SMeshBuffer();
-		video::S3DVertex vertices[4] = {
-			video::S3DVertex( dx,-dy, 0, 0,0,0, c, 1,1),
-			video::S3DVertex(-dx,-dy, 0, 0,0,0, c, 0,1),
-			video::S3DVertex(-dx, dy, 0, 0,0,0, c, 0,0),
-			video::S3DVertex( dx, dy, 0, 0,0,0, c, 1,0),
-		};
-		if (m_is_player) {
-			// Move minimal Y position to 0 (feet position)
-			for (video::S3DVertex &vertex : vertices)
-				vertex.Pos.Y += dy;
-		}
-		u16 indices[] = {0,1,2,2,3,0};
-		buf->append(vertices, 4, indices, 6);
-		// Set material
-		buf->getMaterial().setFlag(video::EMF_LIGHTING, false);
-		buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, false);
-		buf->getMaterial().setFlag(video::EMF_FOG_ENABLE, true);
-		buf->getMaterial().MaterialType = video::EMT_TRANSPARENT_ALPHA_CHANNEL_REF;
-		// Add to mesh
-		mesh->addMeshBuffer(buf);
-		buf->drop();
-	}
-	m_meshnode = RenderingEngine::get_scene_manager()->addMeshSceneNode(mesh, NULL);
-	m_meshnode->grab();
-	mesh->drop();
-	// Set it to use the materials of the meshbuffers directly.
-	// This is needed for changing the texture in the future
-	m_meshnode->setReadOnlyMaterials(true);
-}
-
 void GenericCAO::initCubeVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type)
 {
 	infostream<<"GenericCAO::addToScene(): cube"<<std::endl;
@@ -1025,67 +961,6 @@ void GenericCAO::initWielditemVisual(ITextureSource *tsrc, video::E_MATERIAL_TYP
 				m_prop.visual_size.X / 2));
 	u8 li = m_last_light;
 	m_wield_meshnode->setColor(video::SColor(255, li, li, li));
-}
-
-void GenericCAO::updateUprightSpriteTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod)
-{
-	bool use_trilinear_filter = g_settings->getBool("trilinear_filter");
-	bool use_bilinear_filter = g_settings->getBool("bilinear_filter");
-	bool use_anisotropic_filter = g_settings->getBool("anisotropic_filter");
-
-	scene::IMesh *mesh = m_meshnode->getMesh();
-	{
-		std::string tname = "unknown_object.png";
-		if (!m_prop.textures.empty())
-			tname = m_prop.textures[0];
-		tname += mod;
-		scene::IMeshBuffer *buf = mesh->getMeshBuffer(0);
-		buf->getMaterial().setTexture(0,
-				tsrc->getTextureForMesh(tname));
-
-		// This allows setting per-material colors. However, until a real lighting
-		// system is added, the code below will have no effect. Once MineTest
-		// has directional lighting, it should work automatically.
-		if(!m_prop.colors.empty()) {
-			buf->getMaterial().AmbientColor = m_prop.colors[0];
-			buf->getMaterial().DiffuseColor = m_prop.colors[0];
-			buf->getMaterial().SpecularColor = m_prop.colors[0];
-		}
-
-		buf->getMaterial().setFlag(video::EMF_TRILINEAR_FILTER, use_trilinear_filter);
-		buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, use_bilinear_filter);
-		buf->getMaterial().setFlag(video::EMF_ANISOTROPIC_FILTER, use_anisotropic_filter);
-	}
-	{
-		std::string tname = "unknown_object.png";
-		if (m_prop.textures.size() >= 2)
-			tname = m_prop.textures[1];
-		else if (!m_prop.textures.empty())
-			tname = m_prop.textures[0];
-		tname += mod;
-		scene::IMeshBuffer *buf = mesh->getMeshBuffer(1);
-		buf->getMaterial().setTexture(0,
-				tsrc->getTextureForMesh(tname));
-
-		// This allows setting per-material colors. However, until a real lighting
-		// system is added, the code below will have no effect. Once MineTest
-		// has directional lighting, it should work automatically.
-		if (m_prop.colors.size() >= 2) {
-			buf->getMaterial().AmbientColor = m_prop.colors[1];
-			buf->getMaterial().DiffuseColor = m_prop.colors[1];
-			buf->getMaterial().SpecularColor = m_prop.colors[1];
-			setMeshColor(mesh, m_prop.colors[1]);
-		} else if (!m_prop.colors.empty()) {
-			buf->getMaterial().AmbientColor = m_prop.colors[0];
-			buf->getMaterial().DiffuseColor = m_prop.colors[0];
-			buf->getMaterial().SpecularColor = m_prop.colors[0];
-			setMeshColor(mesh, m_prop.colors[0]);
-		}
-
-		buf->getMaterial().setFlag(video::EMF_TRILINEAR_FILTER, use_trilinear_filter);
-		buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, use_bilinear_filter);
-		buf->getMaterial().setFlag(video::EMF_ANISOTROPIC_FILTER, use_anisotropic_filter);
-	}
 }
 
 void GenericCAO::updateCubeTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod)

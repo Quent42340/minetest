@@ -30,13 +30,13 @@ class IGenericCAOVisual {
 	public:
 		virtual ~IGenericCAOVisual() = default;
 
-		virtual void init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, u8 last_light) = 0;
+		virtual void init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, u8 last_light, bool is_player) = 0;
 
 		virtual void updateTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, const std::string &mod) = 0;
 
-		virtual void removeSceneNode() = 0;
-
 		virtual void setColor(video::SColor color) = 0;
+
+		virtual void removeSceneNode() = 0;
 
 		virtual scene::ISceneNode *node() = 0;
 };

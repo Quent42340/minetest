@@ -27,6 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/world/object_properties.h"
 
 #include "client/object/SpriteVisual.hpp"
+#include "client/object/UprightSpriteVisual.hpp"
 
 class GenericCAO : public ClientActiveObject {
 	public:
@@ -93,12 +94,10 @@ class GenericCAO : public ClientActiveObject {
 		void updateBonePosition();
 		void updateAttachments();
 
-		void initUprightSpriteVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
 		void initCubeVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
 		void initMeshVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
 		void initWielditemVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
 
-		void updateUprightSpriteTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod);
 		void updateCubeTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod);
 		void updateMeshTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod);
 
@@ -163,6 +162,7 @@ class GenericCAO : public ClientActiveObject {
 		std::vector<u16> m_children;
 
 		SpriteVisual m_spriteVisual;
+		UprightSpriteVisual m_uprightSpriteVisual;
 };
 
 #endif // GENERICCAO_HPP_

@@ -26,9 +26,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "client/object/GenericCAOAnimation.hpp"
 
-void SpriteVisual::init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, u8 last_light)
+void SpriteVisual::init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, u8 last_light, bool)
 {
-	if (!m_spritenode) return;
+	if (m_spritenode) removeSceneNode();
 
 	infostream << "GenericCAO::addToScene(): single_sprite" << std::endl;
 
