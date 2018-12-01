@@ -23,6 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlicht/irrlichttypes_extrabloated.h"
 
+class Client;
 class ITextureSource;
 struct ObjectProperties;
 
@@ -30,9 +31,11 @@ class IGenericCAOVisual {
 	public:
 		virtual ~IGenericCAOVisual() = default;
 
-		virtual void init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, u8 last_light, bool is_player) = 0;
+		virtual void init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type,
+				const ObjectProperties &prop, Client *client, u8 last_light, bool is_player) = 0;
 
-		virtual void updateTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, const std::string &mod) = 0;
+		virtual void updateTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type,
+				const ObjectProperties &prop, const std::string &mod) = 0;
 
 		virtual void setColor(video::SColor color) = 0;
 

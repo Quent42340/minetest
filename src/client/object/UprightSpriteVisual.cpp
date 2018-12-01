@@ -25,7 +25,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/constants.h"
 #include "core/settings.h"
 
-void UprightSpriteVisual::init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, u8 last_light, bool is_player)
+void UprightSpriteVisual::init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type,
+		const ObjectProperties &prop, Client *client, u8 last_light, bool is_player)
 {
 	if (m_meshnode) removeSceneNode();
 
@@ -92,7 +93,8 @@ void UprightSpriteVisual::init(ITextureSource *tsrc, video::E_MATERIAL_TYPE mate
 	m_meshnode->setReadOnlyMaterials(true);
 }
 
-void UprightSpriteVisual::updateTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, const std::string &mod)
+void UprightSpriteVisual::updateTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type,
+		const ObjectProperties &prop, const std::string &mod)
 {
 	if (!m_meshnode) return;
 

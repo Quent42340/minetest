@@ -25,9 +25,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 class UprightSpriteVisual : public IGenericCAOVisual {
 	public:
-		void init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, u8 last_light, bool is_player) override;
+		void init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type,
+				const ObjectProperties &prop, Client *client, u8 last_light, bool is_player) override;
 
-		void updateTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, const std::string &mod) override;
+		void updateTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type,
+				const ObjectProperties &prop, const std::string &mod) override;
 
 		void setColor(video::SColor color) override;
 

@@ -26,6 +26,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/object/SmoothTranslator.hpp"
 #include "common/world/object_properties.h"
 
+#include "client/object/CubeVisual.hpp"
+#include "client/object/MeshVisual.hpp"
 #include "client/object/SpriteVisual.hpp"
 #include "client/object/UprightSpriteVisual.hpp"
 
@@ -94,12 +96,7 @@ class GenericCAO : public ClientActiveObject {
 		void updateBonePosition();
 		void updateAttachments();
 
-		void initCubeVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
-		void initMeshVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
 		void initWielditemVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
-
-		void updateCubeTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod);
-		void updateMeshTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod);
 
 		static ClientActiveObject* create(Client *client, ClientEnvironment *env)
 		{
@@ -115,10 +112,7 @@ class GenericCAO : public ClientActiveObject {
 		// Property-ish things
 		ObjectProperties m_prop;
 
-		// Irrlicht
 		scene::ISceneManager *m_smgr = nullptr;
-		scene::IMeshSceneNode *m_meshnode = nullptr;
-		scene::IAnimatedMeshSceneNode *m_animated_meshnode = nullptr;
 		WieldMeshSceneNode *m_wield_meshnode = nullptr;
 
 		aabb3f m_selection_box = aabb3f(-BS/3.,-BS/3.,-BS/3., BS/3.,BS/3.,BS/3.);
@@ -161,6 +155,8 @@ class GenericCAO : public ClientActiveObject {
 
 		std::vector<u16> m_children;
 
+		CubeVisual m_cubeVisual;
+		MeshVisual m_meshVisual;
 		SpriteVisual m_spriteVisual;
 		UprightSpriteVisual m_uprightSpriteVisual;
 };

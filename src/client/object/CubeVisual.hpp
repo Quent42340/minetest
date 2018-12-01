@@ -16,14 +16,14 @@ You should have received a copy of the GNU Lesser General Public License along
 with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
-#ifndef SPRITEVISUAL_HPP_
-#define SPRITEVISUAL_HPP_
+#ifndef CUBEVISUAL_HPP_
+#define CUBEVISUAL_HPP_
 
-#include <IBillboardSceneNode.h>
+#include <IMeshSceneNode.h>
 
 #include "client/object/IGenericCAOVisual.hpp"
 
-class SpriteVisual : public IGenericCAOVisual {
+class CubeVisual : public IGenericCAOVisual {
 	public:
 		void init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type,
 				const ObjectProperties &prop, Client *client, u8 last_light, bool is_player) override;
@@ -35,10 +35,10 @@ class SpriteVisual : public IGenericCAOVisual {
 
 		void removeSceneNode() override;
 
-		scene::ISceneNode *node() override { return m_spritenode; }
+		scene::ISceneNode *node() override { return m_meshnode; }
 
 	private:
-		scene::IBillboardSceneNode *m_spritenode = nullptr;
+		scene::IMeshSceneNode *m_meshnode = nullptr;
 };
 
-#endif // SPRITEVISUAL_HPP_
+#endif // CUBEVISUAL_HPP_

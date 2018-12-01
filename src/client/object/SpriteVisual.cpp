@@ -26,7 +26,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "client/object/GenericCAOAnimation.hpp"
 
-void SpriteVisual::init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, u8 last_light, bool)
+void SpriteVisual::init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type,
+		const ObjectProperties &prop, Client *client, u8 last_light, bool)
 {
 	if (m_spritenode) removeSceneNode();
 
@@ -51,7 +52,8 @@ void SpriteVisual::init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_ty
 	}
 }
 
-void SpriteVisual::updateTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const ObjectProperties &prop, const std::string &mod)
+void SpriteVisual::updateTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type,
+		const ObjectProperties &prop, const std::string &mod)
 {
 	if (!m_spritenode) return;
 
