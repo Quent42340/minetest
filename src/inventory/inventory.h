@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "item/IItemDefManager.hpp"
 #include "irrlicht/irrlichttypes.h"
-#include "itemstackmetadata.h"
+#include "inventory/itemstackmetadata.h"
 #include <istream>
 #include <ostream>
 #include <string>

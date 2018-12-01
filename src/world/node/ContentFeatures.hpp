@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "client/tile.h"
 #include "common/SimpleSoundSpec.hpp"
-#include "itemgroup.h"
+#include "inventory/itemgroup.h"
 #include "map/MapNode.hpp"
 #include "world/node/NodeBox.hpp"
 #include "world/node/NodeDrawType.hpp"

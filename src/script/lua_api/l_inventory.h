@@ -21,8 +21,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "lua_api/l_base.h"
 
-#include "inventory.h"
-#include "inventorymanager.h"
+#include "inventory/inventory.h"
+#include "inventory/inventorymanager.h"
 
 class RemotePlayer;
 

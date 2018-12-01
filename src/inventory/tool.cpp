@@ -17,10 +17,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "tool.h"
-#include "itemgroup.h"
+#include "inventory/tool.h"
+#include "inventory/itemgroup.h"
 #include "core/log.h"
-#include "inventory.h"
+#include "inventory/inventory.h"
 #include "core/Exception.hpp"
 #include "util/serialize.h"
 #include "util/numeric.h"

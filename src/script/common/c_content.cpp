@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/c_internal.h"
 #include "server/server.h"
 #include "core/log.h"
-#include "tool.h"
+#include "inventory/tool.h"
 #include "server/serverobject.h"
 #include "core/porting.h"
 #include "mapgen/mg_schematic.h"

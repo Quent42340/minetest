@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "lua_api/l_base.h"
 #include "item/ItemDefinition.hpp"
-#include "tool.h"
+#include "inventory/tool.h"
 
 class ModApiClient : public ModApiBase
 {

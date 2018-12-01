@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "wieldmesh.h"
 #include "core/settings.h"
 #include "shader.h"
-#include "inventory.h"
+#include "inventory/inventory.h"
 #include "client.h"
 #include "item/ItemDefinition.hpp"
 #include "world/node/NodeDefManager.hpp"

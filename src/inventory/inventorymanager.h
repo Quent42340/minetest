@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "inventory.h"
+#include "inventory/inventory.h"
 #include <iostream>
 #include <string>
 class ServerActiveObject;

@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <set>
 #include <algorithm>
 #include "server/game/gamedef.h"
-#include "inventory.h"
+#include "inventory/inventory.h"
 #include "util/serialize.h"
 #include "util/string.h"
 #include "util/numeric.h"

@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "item/CItemDefManager.hpp"
-#include "tool.h"
+#include "inventory/tool.h"
 #include "util/serialize.h"
 
 #ifndef SERVER

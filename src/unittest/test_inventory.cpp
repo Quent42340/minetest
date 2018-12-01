@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <sstream>
 
 #include "server/game/gamedef.h"
-#include "inventory.h"
+#include "inventory/inventory.h"
 
 class TestInventory : public TestBase {
 public:

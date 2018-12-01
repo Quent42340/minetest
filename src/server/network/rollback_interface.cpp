@@ -29,8 +29,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/nodemetadata.h"
 #include "core/Exception.hpp"
 #include "core/log.h"
-#include "inventorymanager.h"
-#include "inventory.h"
+#include "inventory/inventorymanager.h"
+#include "inventory/inventory.h"
 #include "map/MapBlock.hpp"
 
 

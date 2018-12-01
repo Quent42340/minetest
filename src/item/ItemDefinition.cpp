@@ -20,8 +20,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "item/ItemDefinition.hpp"
 
 #include "world/node/NodeDefManager.hpp"
-#include "tool.h"
-#include "inventory.h"
+#include "inventory/tool.h"
+#include "inventory/inventory.h"
 
 #ifndef SERVER
 #include "client/mapblock_mesh.h"

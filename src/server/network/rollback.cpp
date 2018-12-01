@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/serialize.h"
 #include "util/string.h"
 #include "util/numeric.h"
-#include "inventorymanager.h" // deserializing InventoryLocations
+#include "inventory/inventorymanager.h" // deserializing InventoryLocations
 #include "sqlite3.h"
 #include "util/filesys.h"
 

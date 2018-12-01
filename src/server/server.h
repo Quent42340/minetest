@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/game/gamedef.h"
 #include "server/network/serialization.h" // For SER_FMT_VER_INVALID
 #include "content/mods.h"
-#include "inventorymanager.h"
+#include "inventory/inventorymanager.h"
 #include "content/subgames.h"
 #include "common/TileAnimationParams.hpp" // struct TileAnimationParams
 #include "network/peerhandler.h"

@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <unordered_set>
 #include "clientobject.h"
 #include "server/game/gamedef.h"
-#include "inventorymanager.h"
+#include "inventory/inventorymanager.h"
 #include "localplayer.h"
 #include "client/Hud.hpp"
 #include "particles.h"

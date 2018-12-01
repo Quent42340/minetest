@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define PLAYER_H_
 
 #include <mutex>
-#include "inventory.h"
+#include "inventory/inventory.h"
 #include "player/PlayerControl.h"
 #include "player/PlayerSettings.h"
 #include "util/basic_macros.h" // for DISABLE_CLASS_COPY

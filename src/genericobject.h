@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <string>
 #include "irrlicht/irrlichttypes_bloated.h"
 #include <iostream>
-#include "itemgroup.h"
+#include "inventory/itemgroup.h"
 
 enum GenericCMD {
 	GENERIC_CMD_SET_PROPERTIES,

@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 
-#include "itemstackmetadata.h"
+#include "inventory/itemstackmetadata.h"
 #include "util/serialize.h"
 #include "util/strfnd.h"
 

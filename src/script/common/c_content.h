@@ -36,7 +36,7 @@ extern "C" {
 
 #include "irrlicht/irrlichttypes_bloated.h"
 #include "util/string.h"
-#include "itemgroup.h"
+#include "inventory/itemgroup.h"
 #include "item/IItemDefManager.hpp"
 #include "c_types.h"
 #include "server/network/HudElement.hpp"

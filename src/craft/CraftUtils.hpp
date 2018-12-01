@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define CRAFTUTILS_HPP_
 
 #include <vector>
-#include "inventory.h"
+#include "inventory/inventory.h"
 #include "util/numeric.h"
 
 /*
