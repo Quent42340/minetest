@@ -175,8 +175,8 @@ scene::ISceneNode* GenericCAO::getSceneNode()
 		return m_wield_meshnode;
 	}
 
-	if (m_spritenode) {
-		return m_spritenode;
+	if (m_spriteVisual.node()) {
+		return m_spriteVisual.node();
 	}
 	return NULL;
 }
@@ -247,10 +247,8 @@ void GenericCAO::removeFromScene(bool permanent)
 		m_wield_meshnode->remove();
 		m_wield_meshnode->drop();
 		m_wield_meshnode = NULL;
-	} else if (m_spritenode) {
-		m_spritenode->remove();
-		m_spritenode->drop();
-		m_spritenode = NULL;
+	} else if (m_spriteVisual.node()) {
+		m_spriteVisual.removeSceneNode();
 	}
 
 	if (m_nametag) {
@@ -277,168 +275,21 @@ void GenericCAO::addToScene(ITextureSource *tsrc)
 		video::EMT_TRANSPARENT_ALPHA_CHANNEL : video::EMT_TRANSPARENT_ALPHA_CHANNEL_REF;
 
 	if (m_prop.visual == "sprite") {
-		infostream<<"GenericCAO::addToScene(): single_sprite"<<std::endl;
-		m_spritenode = RenderingEngine::get_scene_manager()->addBillboardSceneNode(
-				NULL, v2f(1, 1), v3f(0,0,0), -1);
-		m_spritenode->grab();
-		m_spritenode->setMaterialTexture(0,
-				tsrc->getTextureForMesh("unknown_node.png"));
-		m_spritenode->setMaterialFlag(video::EMF_LIGHTING, false);
-		m_spritenode->setMaterialFlag(video::EMF_BILINEAR_FILTER, false);
-		m_spritenode->setMaterialType(material_type);
-		m_spritenode->setMaterialFlag(video::EMF_FOG_ENABLE, true);
-		u8 li = m_last_light;
-		m_spritenode->setColor(video::SColor(255,li,li,li));
-		m_spritenode->setSize(m_prop.visual_size*BS);
-		{
-			const float txs = 1.0 / 1;
-			const float tys = 1.0 / 1;
-			GenericCAOAnimation::setBillboardTextureMatrix(m_spritenode,
-					txs, tys, 0, 0);
-		}
-	} else if (m_prop.visual == "upright_sprite") {
-		scene::SMesh *mesh = new scene::SMesh();
-		double dx = BS * m_prop.visual_size.X / 2;
-		double dy = BS * m_prop.visual_size.Y / 2;
-		u8 li = m_last_light;
-		video::SColor c(255, li, li, li);
-
-		{ // Front
-			scene::IMeshBuffer *buf = new scene::SMeshBuffer();
-			video::S3DVertex vertices[4] = {
-				video::S3DVertex(-dx, -dy, 0, 0,0,0, c, 1,1),
-				video::S3DVertex( dx, -dy, 0, 0,0,0, c, 0,1),
-				video::S3DVertex( dx,  dy, 0, 0,0,0, c, 0,0),
-				video::S3DVertex(-dx,  dy, 0, 0,0,0, c, 1,0),
-			};
-			if (m_is_player) {
-				// Move minimal Y position to 0 (feet position)
-				for (video::S3DVertex &vertex : vertices)
-					vertex.Pos.Y += dy;
-			}
-			u16 indices[] = {0,1,2,2,3,0};
-			buf->append(vertices, 4, indices, 6);
-			// Set material
-			buf->getMaterial().setFlag(video::EMF_LIGHTING, false);
-			buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, false);
-			buf->getMaterial().setFlag(video::EMF_FOG_ENABLE, true);
-			buf->getMaterial().MaterialType = video::EMT_TRANSPARENT_ALPHA_CHANNEL;
-			// Add to mesh
-			mesh->addMeshBuffer(buf);
-			buf->drop();
-		}
-		{ // Back
-			scene::IMeshBuffer *buf = new scene::SMeshBuffer();
-			video::S3DVertex vertices[4] = {
-				video::S3DVertex( dx,-dy, 0, 0,0,0, c, 1,1),
-				video::S3DVertex(-dx,-dy, 0, 0,0,0, c, 0,1),
-				video::S3DVertex(-dx, dy, 0, 0,0,0, c, 0,0),
-				video::S3DVertex( dx, dy, 0, 0,0,0, c, 1,0),
-			};
-			if (m_is_player) {
-				// Move minimal Y position to 0 (feet position)
-				for (video::S3DVertex &vertex : vertices)
-					vertex.Pos.Y += dy;
-			}
-			u16 indices[] = {0,1,2,2,3,0};
-			buf->append(vertices, 4, indices, 6);
-			// Set material
-			buf->getMaterial().setFlag(video::EMF_LIGHTING, false);
-			buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, false);
-			buf->getMaterial().setFlag(video::EMF_FOG_ENABLE, true);
-			buf->getMaterial().MaterialType = video::EMT_TRANSPARENT_ALPHA_CHANNEL_REF;
-			// Add to mesh
-			mesh->addMeshBuffer(buf);
-			buf->drop();
-		}
-		m_meshnode = RenderingEngine::get_scene_manager()->addMeshSceneNode(mesh, NULL);
-		m_meshnode->grab();
-		mesh->drop();
-		// Set it to use the materials of the meshbuffers directly.
-		// This is needed for changing the texture in the future
-		m_meshnode->setReadOnlyMaterials(true);
+		m_spriteVisual.init(tsrc, material_type, m_prop, m_last_light);
+	}
+	else if (m_prop.visual == "upright_sprite") {
+		initUprightSpriteVisual(tsrc, material_type);
 	}
 	else if(m_prop.visual == "cube") {
-		infostream<<"GenericCAO::addToScene(): cube"<<std::endl;
-		scene::IMesh *mesh = createCubeMesh(v3f(BS,BS,BS));
-		m_meshnode = RenderingEngine::get_scene_manager()->addMeshSceneNode(mesh, NULL);
-		m_meshnode->grab();
-		mesh->drop();
-
-		m_meshnode->setScale(v3f(m_prop.visual_size.X,
-				m_prop.visual_size.Y,
-				m_prop.visual_size.X));
-		u8 li = m_last_light;
-		setMeshColor(m_meshnode->getMesh(), video::SColor(255,li,li,li));
-
-		m_meshnode->setMaterialFlag(video::EMF_LIGHTING, false);
-		m_meshnode->setMaterialFlag(video::EMF_BILINEAR_FILTER, false);
-		m_meshnode->setMaterialType(material_type);
-		m_meshnode->setMaterialFlag(video::EMF_FOG_ENABLE, true);
+		initCubeVisual(tsrc, material_type);
 	}
 	else if(m_prop.visual == "mesh") {
-		infostream<<"GenericCAO::addToScene(): mesh"<<std::endl;
-		scene::IAnimatedMesh *mesh = m_client->getMesh(m_prop.mesh, true);
-		if(mesh)
-		{
-			m_animated_meshnode = RenderingEngine::get_scene_manager()->
-				addAnimatedMeshSceneNode(mesh, NULL);
-			m_animated_meshnode->grab();
-			mesh->drop(); // The scene node took hold of it
-			m_animated_meshnode->animateJoints(); // Needed for some animations
-			m_animated_meshnode->setScale(v3f(m_prop.visual_size.X,
-					m_prop.visual_size.Y,
-					m_prop.visual_size.X));
-			u8 li = m_last_light;
-
-			// set vertex colors to ensure alpha is set
-			setMeshColor(m_animated_meshnode->getMesh(), video::SColor(255,li,li,li));
-
-			setAnimatedMeshColor(m_animated_meshnode, video::SColor(255,li,li,li));
-
-			m_animated_meshnode->setMaterialFlag(video::EMF_LIGHTING, true);
-			m_animated_meshnode->setMaterialFlag(video::EMF_BILINEAR_FILTER, false);
-			m_animated_meshnode->setMaterialType(material_type);
-			m_animated_meshnode->setMaterialFlag(video::EMF_FOG_ENABLE, true);
-			m_animated_meshnode->setMaterialFlag(video::EMF_BACK_FACE_CULLING,
-				m_prop.backface_culling);
-		}
-		else
-			errorstream<<"GenericCAO::addToScene(): Could not load mesh "<<m_prop.mesh<<std::endl;
-	} else if (m_prop.visual == "wielditem" || m_prop.visual == "dynamicnode") {
-		ItemStack item;
-		infostream << "GenericCAO::addToScene(): wielditem" << std::endl;
-		if (m_prop.wield_item.empty()) {
-			// Old format, only textures are specified.
-			infostream << "textures: " << m_prop.textures.size() << std::endl;
-			if (!m_prop.textures.empty()) {
-				infostream << "textures[0]: " << m_prop.textures[0]
-					<< std::endl;
-				IItemDefManager *idef = m_client->idef();
-				item = ItemStack(m_prop.textures[0], 1, 0, idef);
-			}
-		} else {
-			infostream << "serialized form: " << m_prop.wield_item << std::endl;
-			item.deSerialize(m_prop.wield_item, m_client->idef());
-		}
-
-		if (m_prop.visual == "wielditem") {
-			m_wield_meshnode = new WieldMeshSceneNode(
-				RenderingEngine::get_scene_manager(), -1);
-		}
-		else if (m_prop.visual == "dynamicnode") {
-			m_wield_meshnode = new NodeEntitySceneNode(
-				RenderingEngine::get_scene_manager(), -1);
-		}
-
-		m_wield_meshnode->setItem(item, m_client);
-
-		m_wield_meshnode->setScale(
-			v3f(m_prop.visual_size.X / 2, m_prop.visual_size.Y / 2,
-				m_prop.visual_size.X / 2));
-		u8 li = m_last_light;
-		m_wield_meshnode->setColor(video::SColor(255, li, li, li));
-	} else {
+		initMeshVisual(tsrc, material_type);
+	}
+	else if (m_prop.visual == "wielditem" || m_prop.visual == "dynamicnode") {
+		initWielditemVisual(tsrc, material_type);
+	}
+	else {
 		infostream<<"GenericCAO::addToScene(): \""<<m_prop.visual
 				<<"\" not supported"<<std::endl;
 	}
@@ -489,16 +340,16 @@ void GenericCAO::updateLightNoCheck(u8 light_at_pos)
 	u8 li = decode_light(light_at_pos + m_glow);
 	if (li != m_last_light)	{
 		m_last_light = li;
-		video::SColor color(255,li,li,li);
-		if (m_meshnode) {
+		video::SColor color(255, li, li, li);
+
+		if (m_meshnode)
 			setMeshColor(m_meshnode->getMesh(), color);
-		} else if (m_animated_meshnode) {
+		else if (m_animated_meshnode)
 			setAnimatedMeshColor(m_animated_meshnode, color);
-		} else if (m_wield_meshnode) {
+		else if (m_wield_meshnode)
 			m_wield_meshnode->setColor(color);
-		} else if (m_spritenode) {
-			m_spritenode->setColor(color);
-		}
+		else if (m_spriteVisual.node())
+			m_spriteVisual.setColor(color);
 	}
 }
 
@@ -512,7 +363,7 @@ v3s16 GenericCAO::getLightPosition()
 
 void GenericCAO::updateNodePos()
 {
-	if (getParent() != NULL)
+	if (getParent() != nullptr)
 		return;
 
 	scene::ISceneNode *node = getSceneNode();
@@ -520,7 +371,7 @@ void GenericCAO::updateNodePos()
 	if (node) {
 		v3s16 camera_offset = m_env->getCameraOffset();
 		node->setPosition(pos_translator.val_current - intToFloat(camera_offset, BS));
-		if (node != m_spritenode) { // rotate if not a sprite
+		if (node != m_spriteVisual.node()) { // rotate if not a sprite
 			v3f rot = m_is_local_player ? -m_rotation : -rot_translator.val_current;
 			node->setRotation(rot);
 		}
@@ -529,14 +380,14 @@ void GenericCAO::updateNodePos()
 
 void GenericCAO::step(float dtime, ClientEnvironment *env)
 {
-	// Handel model of local player instantly to prevent lags
+	// Handle model of local player instantly to prevent lags
 	if (m_is_local_player) {
 		LocalPlayer *player = m_env->getLocalPlayer();
 		if (m_is_visible) {
 			m_position = player->getPosition();
 			m_rotation.Y = wrapDegrees_0_360(player->getYaw());
-			m_velocity = v3f(0,0,0);
-			m_acceleration = v3f(0,0,0);
+			m_velocity = v3f(0, 0, 0);
+			m_acceleration = v3f(0, 0, 0);
 			pos_translator.val_current = m_position;
 			rot_translator.val_current = m_rotation;
 
@@ -580,7 +431,7 @@ void GenericCAO::step(float dtime, ClientEnvironment *env)
 	if (node)
 		node->setVisible(m_is_visible);
 
-	if(getParent() != NULL) // Attachments should be glued to their parent by Irrlicht
+	if (getParent() != nullptr) // Attachments should be glued to their parent by Irrlicht
 	{
 		// Set these for later
 		m_position = getPosition();
@@ -604,7 +455,7 @@ void GenericCAO::step(float dtime, ClientEnvironment *env)
 			box.MinEdge *= BS;
 			box.MaxEdge *= BS;
 			collisionMoveResult moveresult;
-			f32 pos_max_d = BS*0.125; // Distance per iteration
+			f32 pos_max_d = BS * 0.125; // Distance per iteration
 			v3f p_pos = m_position;
 			v3f p_velocity = m_velocity;
 			moveresult = collisionMoveSimple(env,env->getGameDef(),
@@ -648,7 +499,7 @@ void GenericCAO::step(float dtime, ClientEnvironment *env)
 
 	m_animation.updateFrame(dtime);
 
-	m_animation.updateTexturePos(m_spritenode, m_rotation);
+	m_animation.updateTexturePos(dynamic_cast<scene::IBillboardSceneNode *>(m_spriteVisual.node()), m_rotation);
 
 	if(m_reset_textures_timer >= 0)
 	{
@@ -683,10 +534,6 @@ void GenericCAO::updateTextures(std::string mod)
 {
 	ITextureSource *tsrc = m_client->tsrc();
 
-	bool use_trilinear_filter = g_settings->getBool("trilinear_filter");
-	bool use_bilinear_filter = g_settings->getBool("bilinear_filter");
-	bool use_anisotropic_filter = g_settings->getBool("anisotropic_filter");
-
 	m_previous_texture_modifier = m_current_texture_modifier;
 	m_current_texture_modifier = mod;
 	m_glow = m_prop.glow;
@@ -694,169 +541,17 @@ void GenericCAO::updateTextures(std::string mod)
 	video::E_MATERIAL_TYPE material_type = (m_prop.use_texture_alpha) ?
 		video::EMT_TRANSPARENT_ALPHA_CHANNEL : video::EMT_TRANSPARENT_ALPHA_CHANNEL_REF;
 
-	if (m_spritenode) {
-		if (m_prop.visual == "sprite") {
-			std::string texturestring = "unknown_node.png";
-			if (!m_prop.textures.empty())
-				texturestring = m_prop.textures[0];
-			texturestring += mod;
-			m_spritenode->getMaterial(0).MaterialType = material_type;
-			m_spritenode->setMaterialTexture(0,
-					tsrc->getTextureForMesh(texturestring));
+	if (m_spriteVisual.node() && m_prop.visual == "sprite")
+		m_spriteVisual.updateTexture(tsrc, material_type, m_prop, mod);
 
-			// This allows setting per-material colors. However, until a real lighting
-			// system is added, the code below will have no effect. Once MineTest
-			// has directional lighting, it should work automatically.
-			if (!m_prop.colors.empty()) {
-				m_spritenode->getMaterial(0).AmbientColor = m_prop.colors[0];
-				m_spritenode->getMaterial(0).DiffuseColor = m_prop.colors[0];
-				m_spritenode->getMaterial(0).SpecularColor = m_prop.colors[0];
-			}
+	if (m_animated_meshnode && m_prop.visual == "mesh")
+		updateMeshTexture(tsrc, material_type, mod);
 
-			m_spritenode->getMaterial(0).setFlag(video::EMF_TRILINEAR_FILTER, use_trilinear_filter);
-			m_spritenode->getMaterial(0).setFlag(video::EMF_BILINEAR_FILTER, use_bilinear_filter);
-			m_spritenode->getMaterial(0).setFlag(video::EMF_ANISOTROPIC_FILTER, use_anisotropic_filter);
-		}
-	}
-
-	if (m_animated_meshnode) {
-		if (m_prop.visual == "mesh") {
-			for (u32 i = 0; i < m_prop.textures.size() &&
-					i < m_animated_meshnode->getMaterialCount(); ++i) {
-				std::string texturestring = m_prop.textures[i];
-				if (texturestring.empty())
-					continue; // Empty texture string means don't modify that material
-				texturestring += mod;
-				video::ITexture* texture = tsrc->getTextureForMesh(texturestring);
-				if (!texture) {
-					errorstream<<"GenericCAO::updateTextures(): Could not load texture "<<texturestring<<std::endl;
-					continue;
-				}
-
-				// Set material flags and texture
-				video::SMaterial& material = m_animated_meshnode->getMaterial(i);
-				material.MaterialType = material_type;
-				material.TextureLayer[0].Texture = texture;
-				material.setFlag(video::EMF_LIGHTING, true);
-				material.setFlag(video::EMF_BILINEAR_FILTER, false);
-				material.setFlag(video::EMF_BACK_FACE_CULLING, m_prop.backface_culling);
-
-				// don't filter low-res textures, makes them look blurry
-				// player models have a res of 64
-				const core::dimension2d<u32> &size = texture->getOriginalSize();
-				const u32 res = std::min(size.Height, size.Width);
-				use_trilinear_filter &= res > 64;
-				use_bilinear_filter &= res > 64;
-
-				m_animated_meshnode->getMaterial(i)
-						.setFlag(video::EMF_TRILINEAR_FILTER, use_trilinear_filter);
-				m_animated_meshnode->getMaterial(i)
-						.setFlag(video::EMF_BILINEAR_FILTER, use_bilinear_filter);
-				m_animated_meshnode->getMaterial(i)
-						.setFlag(video::EMF_ANISOTROPIC_FILTER, use_anisotropic_filter);
-			}
-			for (u32 i = 0; i < m_prop.colors.size() &&
-			i < m_animated_meshnode->getMaterialCount(); ++i)
-			{
-				// This allows setting per-material colors. However, until a real lighting
-				// system is added, the code below will have no effect. Once MineTest
-				// has directional lighting, it should work automatically.
-				m_animated_meshnode->getMaterial(i).AmbientColor = m_prop.colors[i];
-				m_animated_meshnode->getMaterial(i).DiffuseColor = m_prop.colors[i];
-				m_animated_meshnode->getMaterial(i).SpecularColor = m_prop.colors[i];
-			}
-		}
-	}
-	if(m_meshnode)
-	{
+	if(m_meshnode) {
 		if(m_prop.visual == "cube")
-		{
-			for (u32 i = 0; i < 6; ++i)
-			{
-				std::string texturestring = "unknown_node.png";
-				if(m_prop.textures.size() > i)
-					texturestring = m_prop.textures[i];
-				texturestring += mod;
-
-
-				// Set material flags and texture
-				video::SMaterial& material = m_meshnode->getMaterial(i);
-				material.MaterialType = material_type;
-				material.setFlag(video::EMF_LIGHTING, false);
-				material.setFlag(video::EMF_BILINEAR_FILTER, false);
-				material.setTexture(0,
-						tsrc->getTextureForMesh(texturestring));
-				material.getTextureMatrix(0).makeIdentity();
-
-				// This allows setting per-material colors. However, until a real lighting
-				// system is added, the code below will have no effect. Once MineTest
-				// has directional lighting, it should work automatically.
-				if(m_prop.colors.size() > i)
-				{
-					m_meshnode->getMaterial(i).AmbientColor = m_prop.colors[i];
-					m_meshnode->getMaterial(i).DiffuseColor = m_prop.colors[i];
-					m_meshnode->getMaterial(i).SpecularColor = m_prop.colors[i];
-				}
-
-				m_meshnode->getMaterial(i).setFlag(video::EMF_TRILINEAR_FILTER, use_trilinear_filter);
-				m_meshnode->getMaterial(i).setFlag(video::EMF_BILINEAR_FILTER, use_bilinear_filter);
-				m_meshnode->getMaterial(i).setFlag(video::EMF_ANISOTROPIC_FILTER, use_anisotropic_filter);
-			}
-		} else if (m_prop.visual == "upright_sprite") {
-			scene::IMesh *mesh = m_meshnode->getMesh();
-			{
-				std::string tname = "unknown_object.png";
-				if (!m_prop.textures.empty())
-					tname = m_prop.textures[0];
-				tname += mod;
-				scene::IMeshBuffer *buf = mesh->getMeshBuffer(0);
-				buf->getMaterial().setTexture(0,
-						tsrc->getTextureForMesh(tname));
-
-				// This allows setting per-material colors. However, until a real lighting
-				// system is added, the code below will have no effect. Once MineTest
-				// has directional lighting, it should work automatically.
-				if(!m_prop.colors.empty()) {
-					buf->getMaterial().AmbientColor = m_prop.colors[0];
-					buf->getMaterial().DiffuseColor = m_prop.colors[0];
-					buf->getMaterial().SpecularColor = m_prop.colors[0];
-				}
-
-				buf->getMaterial().setFlag(video::EMF_TRILINEAR_FILTER, use_trilinear_filter);
-				buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, use_bilinear_filter);
-				buf->getMaterial().setFlag(video::EMF_ANISOTROPIC_FILTER, use_anisotropic_filter);
-			}
-			{
-				std::string tname = "unknown_object.png";
-				if (m_prop.textures.size() >= 2)
-					tname = m_prop.textures[1];
-				else if (!m_prop.textures.empty())
-					tname = m_prop.textures[0];
-				tname += mod;
-				scene::IMeshBuffer *buf = mesh->getMeshBuffer(1);
-				buf->getMaterial().setTexture(0,
-						tsrc->getTextureForMesh(tname));
-
-				// This allows setting per-material colors. However, until a real lighting
-				// system is added, the code below will have no effect. Once MineTest
-				// has directional lighting, it should work automatically.
-				if (m_prop.colors.size() >= 2) {
-					buf->getMaterial().AmbientColor = m_prop.colors[1];
-					buf->getMaterial().DiffuseColor = m_prop.colors[1];
-					buf->getMaterial().SpecularColor = m_prop.colors[1];
-					setMeshColor(mesh, m_prop.colors[1]);
-				} else if (!m_prop.colors.empty()) {
-					buf->getMaterial().AmbientColor = m_prop.colors[0];
-					buf->getMaterial().DiffuseColor = m_prop.colors[0];
-					buf->getMaterial().SpecularColor = m_prop.colors[0];
-					setMeshColor(mesh, m_prop.colors[0]);
-				}
-
-				buf->getMaterial().setFlag(video::EMF_TRILINEAR_FILTER, use_trilinear_filter);
-				buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, use_bilinear_filter);
-				buf->getMaterial().setFlag(video::EMF_ANISOTROPIC_FILTER, use_anisotropic_filter);
-			}
-		}
+			updateCubeTexture(tsrc, material_type, mod);
+		else if (m_prop.visual == "upright_sprite")
+			updateUprightSpriteTexture(tsrc, material_type, mod);
 	}
 }
 
@@ -1002,7 +697,7 @@ void GenericCAO::processMessage(const std::string &data)
 		bool select_horiz_by_yawpitch = readU8(is);
 
 		m_animation.updateTiles(p, num_frames, framelength, select_horiz_by_yawpitch);
-		m_animation.updateTexturePos(m_spritenode, m_rotation);
+		m_animation.updateTexturePos(dynamic_cast<scene::IBillboardSceneNode *>(m_spriteVisual.node()), m_rotation);
 	}
 	else if (cmd == GENERIC_CMD_SET_PHYSICS_OVERRIDE) {
 		float override_speed = readF1000(is);
@@ -1178,5 +873,307 @@ std::string GenericCAO::debugInfoText()
 	}
 	os<<"}";
 	return os.str();
+}
+
+void GenericCAO::initUprightSpriteVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type)
+{
+	scene::SMesh *mesh = new scene::SMesh();
+	double dx = BS * m_prop.visual_size.X / 2;
+	double dy = BS * m_prop.visual_size.Y / 2;
+	u8 li = m_last_light;
+	video::SColor c(255, li, li, li);
+
+	{ // Front
+		scene::IMeshBuffer *buf = new scene::SMeshBuffer();
+		video::S3DVertex vertices[4] = {
+			video::S3DVertex(-dx, -dy, 0, 0,0,0, c, 1,1),
+			video::S3DVertex( dx, -dy, 0, 0,0,0, c, 0,1),
+			video::S3DVertex( dx,  dy, 0, 0,0,0, c, 0,0),
+			video::S3DVertex(-dx,  dy, 0, 0,0,0, c, 1,0),
+		};
+		if (m_is_player) {
+			// Move minimal Y position to 0 (feet position)
+			for (video::S3DVertex &vertex : vertices)
+				vertex.Pos.Y += dy;
+		}
+		u16 indices[] = {0,1,2,2,3,0};
+		buf->append(vertices, 4, indices, 6);
+		// Set material
+		buf->getMaterial().setFlag(video::EMF_LIGHTING, false);
+		buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, false);
+		buf->getMaterial().setFlag(video::EMF_FOG_ENABLE, true);
+		buf->getMaterial().MaterialType = video::EMT_TRANSPARENT_ALPHA_CHANNEL;
+		// Add to mesh
+		mesh->addMeshBuffer(buf);
+		buf->drop();
+	}
+	{ // Back
+		scene::IMeshBuffer *buf = new scene::SMeshBuffer();
+		video::S3DVertex vertices[4] = {
+			video::S3DVertex( dx,-dy, 0, 0,0,0, c, 1,1),
+			video::S3DVertex(-dx,-dy, 0, 0,0,0, c, 0,1),
+			video::S3DVertex(-dx, dy, 0, 0,0,0, c, 0,0),
+			video::S3DVertex( dx, dy, 0, 0,0,0, c, 1,0),
+		};
+		if (m_is_player) {
+			// Move minimal Y position to 0 (feet position)
+			for (video::S3DVertex &vertex : vertices)
+				vertex.Pos.Y += dy;
+		}
+		u16 indices[] = {0,1,2,2,3,0};
+		buf->append(vertices, 4, indices, 6);
+		// Set material
+		buf->getMaterial().setFlag(video::EMF_LIGHTING, false);
+		buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, false);
+		buf->getMaterial().setFlag(video::EMF_FOG_ENABLE, true);
+		buf->getMaterial().MaterialType = video::EMT_TRANSPARENT_ALPHA_CHANNEL_REF;
+		// Add to mesh
+		mesh->addMeshBuffer(buf);
+		buf->drop();
+	}
+	m_meshnode = RenderingEngine::get_scene_manager()->addMeshSceneNode(mesh, NULL);
+	m_meshnode->grab();
+	mesh->drop();
+	// Set it to use the materials of the meshbuffers directly.
+	// This is needed for changing the texture in the future
+	m_meshnode->setReadOnlyMaterials(true);
+}
+
+void GenericCAO::initCubeVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type)
+{
+	infostream<<"GenericCAO::addToScene(): cube"<<std::endl;
+	scene::IMesh *mesh = createCubeMesh(v3f(BS,BS,BS));
+	m_meshnode = RenderingEngine::get_scene_manager()->addMeshSceneNode(mesh, NULL);
+	m_meshnode->grab();
+	mesh->drop();
+
+	m_meshnode->setScale(v3f(m_prop.visual_size.X,
+				m_prop.visual_size.Y,
+				m_prop.visual_size.X));
+	u8 li = m_last_light;
+	setMeshColor(m_meshnode->getMesh(), video::SColor(255,li,li,li));
+
+	m_meshnode->setMaterialFlag(video::EMF_LIGHTING, false);
+	m_meshnode->setMaterialFlag(video::EMF_BILINEAR_FILTER, false);
+	m_meshnode->setMaterialType(material_type);
+	m_meshnode->setMaterialFlag(video::EMF_FOG_ENABLE, true);
+}
+
+void GenericCAO::initMeshVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type)
+{
+	infostream<<"GenericCAO::addToScene(): mesh"<<std::endl;
+	scene::IAnimatedMesh *mesh = m_client->getMesh(m_prop.mesh, true);
+	if(mesh)
+	{
+		m_animated_meshnode = RenderingEngine::get_scene_manager()->
+			addAnimatedMeshSceneNode(mesh, NULL);
+		m_animated_meshnode->grab();
+		mesh->drop(); // The scene node took hold of it
+		m_animated_meshnode->animateJoints(); // Needed for some animations
+		m_animated_meshnode->setScale(v3f(m_prop.visual_size.X,
+					m_prop.visual_size.Y,
+					m_prop.visual_size.X));
+		u8 li = m_last_light;
+
+		// set vertex colors to ensure alpha is set
+		setMeshColor(m_animated_meshnode->getMesh(), video::SColor(255,li,li,li));
+
+		setAnimatedMeshColor(m_animated_meshnode, video::SColor(255,li,li,li));
+
+		m_animated_meshnode->setMaterialFlag(video::EMF_LIGHTING, true);
+		m_animated_meshnode->setMaterialFlag(video::EMF_BILINEAR_FILTER, false);
+		m_animated_meshnode->setMaterialType(material_type);
+		m_animated_meshnode->setMaterialFlag(video::EMF_FOG_ENABLE, true);
+		m_animated_meshnode->setMaterialFlag(video::EMF_BACK_FACE_CULLING,
+				m_prop.backface_culling);
+	}
+	else
+		errorstream<<"GenericCAO::addToScene(): Could not load mesh "<<m_prop.mesh<<std::endl;
+}
+
+void GenericCAO::initWielditemVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type)
+{
+	ItemStack item;
+	infostream << "GenericCAO::addToScene(): wielditem" << std::endl;
+	if (m_prop.wield_item.empty()) {
+		// Old format, only textures are specified.
+		infostream << "textures: " << m_prop.textures.size() << std::endl;
+		if (!m_prop.textures.empty()) {
+			infostream << "textures[0]: " << m_prop.textures[0]
+				<< std::endl;
+			IItemDefManager *idef = m_client->idef();
+			item = ItemStack(m_prop.textures[0], 1, 0, idef);
+		}
+	} else {
+		infostream << "serialized form: " << m_prop.wield_item << std::endl;
+		item.deSerialize(m_prop.wield_item, m_client->idef());
+	}
+
+	if (m_prop.visual == "wielditem") {
+		m_wield_meshnode = new WieldMeshSceneNode(
+				RenderingEngine::get_scene_manager(), -1);
+	}
+	else if (m_prop.visual == "dynamicnode") {
+		m_wield_meshnode = new NodeEntitySceneNode(
+				RenderingEngine::get_scene_manager(), -1);
+	}
+
+	m_wield_meshnode->setItem(item, m_client);
+
+	m_wield_meshnode->setScale(
+			v3f(m_prop.visual_size.X / 2, m_prop.visual_size.Y / 2,
+				m_prop.visual_size.X / 2));
+	u8 li = m_last_light;
+	m_wield_meshnode->setColor(video::SColor(255, li, li, li));
+}
+
+void GenericCAO::updateUprightSpriteTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod)
+{
+	bool use_trilinear_filter = g_settings->getBool("trilinear_filter");
+	bool use_bilinear_filter = g_settings->getBool("bilinear_filter");
+	bool use_anisotropic_filter = g_settings->getBool("anisotropic_filter");
+
+	scene::IMesh *mesh = m_meshnode->getMesh();
+	{
+		std::string tname = "unknown_object.png";
+		if (!m_prop.textures.empty())
+			tname = m_prop.textures[0];
+		tname += mod;
+		scene::IMeshBuffer *buf = mesh->getMeshBuffer(0);
+		buf->getMaterial().setTexture(0,
+				tsrc->getTextureForMesh(tname));
+
+		// This allows setting per-material colors. However, until a real lighting
+		// system is added, the code below will have no effect. Once MineTest
+		// has directional lighting, it should work automatically.
+		if(!m_prop.colors.empty()) {
+			buf->getMaterial().AmbientColor = m_prop.colors[0];
+			buf->getMaterial().DiffuseColor = m_prop.colors[0];
+			buf->getMaterial().SpecularColor = m_prop.colors[0];
+		}
+
+		buf->getMaterial().setFlag(video::EMF_TRILINEAR_FILTER, use_trilinear_filter);
+		buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, use_bilinear_filter);
+		buf->getMaterial().setFlag(video::EMF_ANISOTROPIC_FILTER, use_anisotropic_filter);
+	}
+	{
+		std::string tname = "unknown_object.png";
+		if (m_prop.textures.size() >= 2)
+			tname = m_prop.textures[1];
+		else if (!m_prop.textures.empty())
+			tname = m_prop.textures[0];
+		tname += mod;
+		scene::IMeshBuffer *buf = mesh->getMeshBuffer(1);
+		buf->getMaterial().setTexture(0,
+				tsrc->getTextureForMesh(tname));
+
+		// This allows setting per-material colors. However, until a real lighting
+		// system is added, the code below will have no effect. Once MineTest
+		// has directional lighting, it should work automatically.
+		if (m_prop.colors.size() >= 2) {
+			buf->getMaterial().AmbientColor = m_prop.colors[1];
+			buf->getMaterial().DiffuseColor = m_prop.colors[1];
+			buf->getMaterial().SpecularColor = m_prop.colors[1];
+			setMeshColor(mesh, m_prop.colors[1]);
+		} else if (!m_prop.colors.empty()) {
+			buf->getMaterial().AmbientColor = m_prop.colors[0];
+			buf->getMaterial().DiffuseColor = m_prop.colors[0];
+			buf->getMaterial().SpecularColor = m_prop.colors[0];
+			setMeshColor(mesh, m_prop.colors[0]);
+		}
+
+		buf->getMaterial().setFlag(video::EMF_TRILINEAR_FILTER, use_trilinear_filter);
+		buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, use_bilinear_filter);
+		buf->getMaterial().setFlag(video::EMF_ANISOTROPIC_FILTER, use_anisotropic_filter);
+	}
+}
+
+void GenericCAO::updateCubeTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod)
+{
+	for (u32 i = 0; i < 6; ++i)
+	{
+		std::string texturestring = "unknown_node.png";
+		if(m_prop.textures.size() > i)
+			texturestring = m_prop.textures[i];
+		texturestring += mod;
+
+
+		// Set material flags and texture
+		video::SMaterial& material = m_meshnode->getMaterial(i);
+		material.MaterialType = material_type;
+		material.setFlag(video::EMF_LIGHTING, false);
+		material.setFlag(video::EMF_BILINEAR_FILTER, false);
+		material.setTexture(0,
+				tsrc->getTextureForMesh(texturestring));
+		material.getTextureMatrix(0).makeIdentity();
+
+		// This allows setting per-material colors. However, until a real lighting
+		// system is added, the code below will have no effect. Once MineTest
+		// has directional lighting, it should work automatically.
+		if(m_prop.colors.size() > i)
+		{
+			m_meshnode->getMaterial(i).AmbientColor = m_prop.colors[i];
+			m_meshnode->getMaterial(i).DiffuseColor = m_prop.colors[i];
+			m_meshnode->getMaterial(i).SpecularColor = m_prop.colors[i];
+		}
+
+		bool use_trilinear_filter = g_settings->getBool("trilinear_filter");
+		bool use_bilinear_filter = g_settings->getBool("bilinear_filter");
+		bool use_anisotropic_filter = g_settings->getBool("anisotropic_filter");
+
+		m_meshnode->getMaterial(i).setFlag(video::EMF_TRILINEAR_FILTER, use_trilinear_filter);
+		m_meshnode->getMaterial(i).setFlag(video::EMF_BILINEAR_FILTER, use_bilinear_filter);
+		m_meshnode->getMaterial(i).setFlag(video::EMF_ANISOTROPIC_FILTER, use_anisotropic_filter);
+	}
+}
+
+void GenericCAO::updateMeshTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod)
+{
+	for (u32 i = 0; i < m_prop.textures.size() && i < m_animated_meshnode->getMaterialCount(); ++i)
+	{
+		std::string texturestring = m_prop.textures[i];
+		if (texturestring.empty())
+			continue; // Empty texture string means don't modify that material
+		texturestring += mod;
+
+		video::ITexture* texture = tsrc->getTextureForMesh(texturestring);
+		if (!texture) {
+			errorstream<<"GenericCAO::updateTextures(): Could not load texture "<<texturestring<<std::endl;
+			continue;
+		}
+
+		// Set material flags and texture
+		video::SMaterial& material = m_animated_meshnode->getMaterial(i);
+		material.MaterialType = material_type;
+		material.TextureLayer[0].Texture = texture;
+		material.setFlag(video::EMF_LIGHTING, true);
+		material.setFlag(video::EMF_BILINEAR_FILTER, false);
+		material.setFlag(video::EMF_BACK_FACE_CULLING, m_prop.backface_culling);
+
+		bool use_trilinear_filter = g_settings->getBool("trilinear_filter");
+		bool use_bilinear_filter = g_settings->getBool("bilinear_filter");
+		bool use_anisotropic_filter = g_settings->getBool("anisotropic_filter");
+
+		// don't filter low-res textures, makes them look blurry
+		// player models have a res of 64
+		const core::dimension2d<u32> &size = texture->getOriginalSize();
+		const u32 res = std::min(size.Height, size.Width);
+		use_trilinear_filter &= res > 64;
+		use_bilinear_filter &= res > 64;
+
+		m_animated_meshnode->getMaterial(i).setFlag(video::EMF_TRILINEAR_FILTER,   use_trilinear_filter);
+		m_animated_meshnode->getMaterial(i).setFlag(video::EMF_BILINEAR_FILTER,    use_bilinear_filter);
+		m_animated_meshnode->getMaterial(i).setFlag(video::EMF_ANISOTROPIC_FILTER, use_anisotropic_filter);
+	}
+
+	for (u32 i = 0; i < m_prop.colors.size() && i < m_animated_meshnode->getMaterialCount(); ++i)
+	{
+		// This allows setting per-material colors. However, until a real lighting
+		// system is added, the code below will have no effect. Once MineTest
+		// has directional lighting, it should work automatically.
+		m_animated_meshnode->getMaterial(i).AmbientColor = m_prop.colors[i];
+		m_animated_meshnode->getMaterial(i).DiffuseColor = m_prop.colors[i];
+		m_animated_meshnode->getMaterial(i).SpecularColor = m_prop.colors[i];
+	}
 }
 

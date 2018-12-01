@@ -343,6 +343,9 @@ src/client/object/TestCAO.hpp
 src/client/object/GenericCAO.hpp
 src/client/object/GenericCAOAnimation.hpp
 src/client/object/GenericCAOAnimation.cpp
+src/client/object/IGenericCAOVisual.hpp
+src/client/object/SpriteVisual.hpp
+src/client/object/SpriteVisual.cpp
 src/client/object/SmoothTranslator.cpp
 src/client/localplayer.h
 src/client/mapblock_mesh.h

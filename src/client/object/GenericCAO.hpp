@@ -26,6 +26,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/object/SmoothTranslator.hpp"
 #include "common/world/object_properties.h"
 
+#include "client/object/SpriteVisual.hpp"
+
 class GenericCAO : public ClientActiveObject {
 	public:
 		GenericCAO(Client *client, ClientEnvironment *env);
@@ -91,6 +93,15 @@ class GenericCAO : public ClientActiveObject {
 		void updateBonePosition();
 		void updateAttachments();
 
+		void initUprightSpriteVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
+		void initCubeVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
+		void initMeshVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
+		void initWielditemVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
+
+		void updateUprightSpriteTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod);
+		void updateCubeTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod);
+		void updateMeshTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type, const std::string &mod);
+
 		static ClientActiveObject* create(Client *client, ClientEnvironment *env)
 		{
 			return new GenericCAO(client, env);
@@ -109,7 +120,6 @@ class GenericCAO : public ClientActiveObject {
 		scene::ISceneManager *m_smgr = nullptr;
 		scene::IMeshSceneNode *m_meshnode = nullptr;
 		scene::IAnimatedMeshSceneNode *m_animated_meshnode = nullptr;
-		scene::IBillboardSceneNode *m_spritenode = nullptr;
 		WieldMeshSceneNode *m_wield_meshnode = nullptr;
 
 		aabb3f m_selection_box = aabb3f(-BS/3.,-BS/3.,-BS/3., BS/3.,BS/3.,BS/3.);
@@ -151,6 +161,8 @@ class GenericCAO : public ClientActiveObject {
 		s8 m_glow = 0;
 
 		std::vector<u16> m_children;
+
+		SpriteVisual m_spriteVisual;
 };
 
 #endif // GENERICCAO_HPP_
