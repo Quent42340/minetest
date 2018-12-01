@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapNode.hpp"
 #include "core/Exception.hpp"
 #include "core/constants.h"
-#include "staticobject.h"
+#include "server/object/StaticObjectList.hpp"
 #include "world/nodemetadata.h"
 #include "world/nodetimer.h"
 #include "modifiedstate.h"
