@@ -30,6 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/object/MeshVisual.hpp"
 #include "client/object/SpriteVisual.hpp"
 #include "client/object/UprightSpriteVisual.hpp"
+#include "client/object/WieldItemVisual.hpp"
 
 class GenericCAO : public ClientActiveObject {
 	public:
@@ -96,8 +97,6 @@ class GenericCAO : public ClientActiveObject {
 		void updateBonePosition();
 		void updateAttachments();
 
-		void initWielditemVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type);
-
 		static ClientActiveObject* create(Client *client, ClientEnvironment *env)
 		{
 			return new GenericCAO(client, env);
@@ -127,7 +126,6 @@ class GenericCAO : public ClientActiveObject {
 		ObjectProperties m_prop;
 
 		scene::ISceneManager *m_smgr = nullptr;
-		WieldMeshSceneNode *m_wield_meshnode = nullptr;
 
 		aabb3f m_selection_box = aabb3f(-BS/3.,-BS/3.,-BS/3., BS/3.,BS/3.,BS/3.);
 
@@ -173,6 +171,7 @@ class GenericCAO : public ClientActiveObject {
 		MeshVisual m_meshVisual;
 		SpriteVisual m_spriteVisual;
 		UprightSpriteVisual m_uprightSpriteVisual;
+		WieldItemVisual m_wieldItemVisual;
 };
 
 #endif // GENERICCAO_HPP_

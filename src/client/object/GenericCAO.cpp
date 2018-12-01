@@ -110,8 +110,8 @@ void GenericCAO::processInitData(const std::string &data)
 		m_hp = readS16(is);
 		num_messages = readU8(is);
 	} else {
-		errorstream<<"GenericCAO: Unsupported init data version"
-				<<std::endl;
+		errorstream << "GenericCAO: Unsupported init data version"
+				<< std::endl;
 		return;
 	}
 
@@ -128,8 +128,7 @@ void GenericCAO::processInitData(const std::string &data)
 
 bool GenericCAO::getSelectionBox(aabb3f *toset) const
 {
-	if (!m_prop.is_visible || !m_is_visible || m_is_local_player
-			|| !m_prop.pointable) {
+	if (!m_prop.is_visible || !m_is_visible || m_is_local_player || !m_prop.pointable) {
 		return false;
 	}
 	*toset = m_selection_box;
@@ -171,8 +170,8 @@ scene::ISceneNode* GenericCAO::getSceneNode()
 		return m_spriteVisual.node();
 	}
 
-	if (m_wield_meshnode) {
-		return m_wield_meshnode;
+	if (m_wieldItemVisual.node()) {
+		return m_wieldItemVisual.node();
 	}
 
 	return nullptr;
@@ -236,12 +235,7 @@ void GenericCAO::removeFromScene(bool permanent)
 	m_meshVisual.removeSceneNode();
 	m_spriteVisual.removeSceneNode();
 	m_uprightSpriteVisual.removeSceneNode();
-
-	if (m_wield_meshnode) {
-		m_wield_meshnode->remove();
-		m_wield_meshnode->drop();
-		m_wield_meshnode = nullptr;
-	}
+	m_wieldItemVisual.removeSceneNode();
 
 	if (m_nametag) {
 		m_client->getCamera()->removeNametag(m_nametag);
@@ -279,7 +273,7 @@ void GenericCAO::addToScene(ITextureSource *tsrc)
 		m_meshVisual.init(tsrc, material_type, m_prop, m_client, m_last_light, m_is_player);
 	}
 	else if (m_prop.visual == "wielditem" || m_prop.visual == "dynamicnode") {
-		initWielditemVisual(tsrc, material_type);
+		m_wieldItemVisual.init(tsrc, material_type, m_prop, m_client, m_last_light, m_is_player);
 	}
 	else {
 		infostream<<"GenericCAO::addToScene(): \""<<m_prop.visual
@@ -338,9 +332,7 @@ void GenericCAO::updateLightNoCheck(u8 light_at_pos)
 		m_uprightSpriteVisual.setColor(color);
 		m_meshVisual.setColor(color);
 		m_spriteVisual.setColor(color);
-
-		if (m_wield_meshnode)
-			m_wield_meshnode->setColor(color);
+		m_wieldItemVisual.setColor(color);
 	}
 }
 
@@ -684,42 +676,6 @@ std::string GenericCAO::debugInfoText()
 	}
 	os << "}";
 	return os.str();
-}
-
-void GenericCAO::initWielditemVisual(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type)
-{
-	ItemStack item;
-	infostream << "GenericCAO::addToScene(): wielditem" << std::endl;
-	if (m_prop.wield_item.empty()) {
-		// Old format, only textures are specified.
-		infostream << "textures: " << m_prop.textures.size() << std::endl;
-		if (!m_prop.textures.empty()) {
-			infostream << "textures[0]: " << m_prop.textures[0]
-				<< std::endl;
-			IItemDefManager *idef = m_client->idef();
-			item = ItemStack(m_prop.textures[0], 1, 0, idef);
-		}
-	} else {
-		infostream << "serialized form: " << m_prop.wield_item << std::endl;
-		item.deSerialize(m_prop.wield_item, m_client->idef());
-	}
-
-	if (m_prop.visual == "wielditem") {
-		m_wield_meshnode = new WieldMeshSceneNode(
-				RenderingEngine::get_scene_manager(), -1);
-	}
-	else if (m_prop.visual == "dynamicnode") {
-		m_wield_meshnode = new NodeEntitySceneNode(
-				RenderingEngine::get_scene_manager(), -1);
-	}
-
-	m_wield_meshnode->setItem(item, m_client);
-
-	m_wield_meshnode->setScale(
-			v3f(m_prop.visual_size.X / 2, m_prop.visual_size.Y / 2,
-				m_prop.visual_size.X / 2));
-	u8 li = m_last_light;
-	m_wield_meshnode->setColor(video::SColor(255, li, li, li));
 }
 
 void GenericCAO::commandSetProperties(std::istream &is) {
