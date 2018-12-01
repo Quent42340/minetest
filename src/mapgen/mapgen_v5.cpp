@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/object/LuaEntitySAO.h"
 #include "server/object/LagPool.h"
 #include "server/object/PlayerSAO.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "algorithm/voxelalgorithms.h"
 //#include "core/Profiler.hpp" // For TimeTaker
 #include "core/settings.h" // For g_settings

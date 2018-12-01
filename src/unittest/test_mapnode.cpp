@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "test.h"
 
 #include "server/game/gamedef.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "legacy/content_mapnode.h"
 
 class TestMapNode : public TestBase

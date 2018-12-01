@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlicht/irrlichttypes_extrabloated.h"
 #include "map/MapNode.hpp"
 #include "core/porting.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "map/Map.hpp"
 #include "legacy/content_mapnode.h" // For mapnode_translate_*_internal
 #include "server/network/serialization.h" // For ser_ver_supported

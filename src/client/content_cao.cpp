@@ -38,7 +38,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "tool.h"
 #include "content_cso.h"
 #include "common/SimpleSoundSpec.hpp"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "localplayer.h"
 #include "map/Map.hpp"
 #include "camera.h" // CameraModes

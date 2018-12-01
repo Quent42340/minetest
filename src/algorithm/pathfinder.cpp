@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "algorithm/pathfinder.h"
 #include "server/serverenvironment.h"
 #include "server/server.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 
 //#define PATHFINDER_DEBUG
 //#define PATHFINDER_CALC_TIME

@@ -19,13 +19,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "test.h"
 
+#include <algorithm>
 #include "util/numeric.h"
 #include "core/Exception.hpp"
 #include "server/game/gamedef.h"
-#include "world/nodedef.h"
-
-#include <algorithm>
-
+#include "world/node/NodeDefManager.hpp"
+#include "world/node/NodeResolver.hpp"
 
 class TestNodeResolver : public TestBase {
 public:

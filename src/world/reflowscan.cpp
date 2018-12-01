@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/reflowscan.h"
 #include "map/Map.hpp"
 #include "map/MapBlock.hpp"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "util/timetaker.h"
 
 

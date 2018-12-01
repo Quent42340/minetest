@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/server.h"
 #include "world/daynightratio.h"
 #include "world/EmergeManager.hpp"
-
+#include "world/node/NodeDefManager.hpp"
 
 Environment::Environment(IGameDef *gamedef):
 	m_time_of_day_speed(0.0f),

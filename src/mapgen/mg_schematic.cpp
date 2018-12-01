@@ -33,6 +33,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "server/network/serialization.h"
 #include "util/filesys.h"
 #include "algorithm/voxelalgorithms.h"
+#include "world/node/NodeDefManager.hpp"
 
 ///////////////////////////////////////////////////////////////////////////////
 

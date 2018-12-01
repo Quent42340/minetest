@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mg_decoration.h"
 #include "world/EmergeManager.hpp"
 #include "server/server.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "map/Map.hpp" //for MMVManip
 #include "util/numeric.h"
 #include "core/porting.h"

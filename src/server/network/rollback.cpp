@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/log.h"
 #include "map/MapNode.hpp"
 #include "server/game/gamedef.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "util/serialize.h"
 #include "util/string.h"
 #include "util/numeric.h"

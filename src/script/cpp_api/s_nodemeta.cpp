@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "cpp_api/s_nodemeta.h"
 #include "cpp_api/s_internal.h"
 #include "common/c_converter.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "map/MapNode.hpp"
 #include "server/server.h"
 #include "world/environment.h"

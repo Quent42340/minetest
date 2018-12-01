@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapBlock.hpp"
 #include "map/MapNode.hpp"
 #include "map/Map.hpp"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "algorithm/voxelalgorithms.h"
 //#include "core/Profiler.hpp" // For TimeTaker
 #include "core/settings.h" // For g_settings

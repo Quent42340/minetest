@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/directiontables.h"
 #include "mapblock_mesh.h"
 #include "core/settings.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "client/tile.h"
 #include "mesh.h"
 #include <IMeshManipulator.h>

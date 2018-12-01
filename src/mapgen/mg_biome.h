@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "world/objdef.h"
-#include "world/nodedef.h"
+#include "world/node/NodeResolver.hpp"
 #include "algorithm/noise.h"
 
 class Server;

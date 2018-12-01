@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "gui/mainmenumanager.h"
 #include "map/Map.hpp"
 #include "util/string.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 
 int ModApiClient::l_get_current_modname(lua_State *L)
 {

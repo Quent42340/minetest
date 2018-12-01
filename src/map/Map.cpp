@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/settings.h"
 #include "core/log.h"
 #include "core/Profiler.hpp"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "server/game/gamedef.h"
 #include "util/directiontables.h"
 #include "util/basic_macros.h"

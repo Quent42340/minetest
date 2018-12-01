@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapgen/mg_ore.h"
 #include "mapgen/mg_decoration.h"
 #include "mapgen/mg_schematic.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "core/Profiler.hpp"
 #include "scripting_server.h"
 #include "server/server.h"

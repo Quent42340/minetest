@@ -57,6 +57,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/game/Game.h"
 #include "server/network/chatmessage.h"
 #include "core/translation.h"
+#include "world/node/NodeDefManager.hpp"
 
 extern gui::IGUIEnvironment* guienv;
 

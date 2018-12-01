@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "map/MapNode.hpp"
 #include "map/Map.hpp"
 #include "map/MMVManip.hpp"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "core/settings.h"
 
 //#define DGEN_USE_TORCHES

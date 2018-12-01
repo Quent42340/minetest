@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/environment.h"
 #include "clientmap.h"
 #include "map/MapNode.hpp"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "client.h"
 #include "core/settings.h"
 

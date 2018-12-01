@@ -37,6 +37,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/filesys.h"
 #include "core/settings.h"
 #include "core/log.h"
+#include "world/node/NodeDefManager.hpp"
 
 struct EnumString ModApiMapgen::es_BiomeTerrainType[] =
 {

@@ -30,7 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/environment.h"
 #include "map/MapBlock.hpp"
 #include "server/server.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "world/daynightratio.h"
 #include "util/pointedthing.h"
 #include "server/object/LuaEntitySAO.h"

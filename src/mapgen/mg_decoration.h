@@ -23,7 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <unordered_set>
 #include "world/objdef.h"
 #include "algorithm/noise.h"
-#include "world/nodedef.h"
+#include "world/node/NodeResolver.hpp"
 
 class Mapgen;
 class MMVManip;

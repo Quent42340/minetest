@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cmath>
 #include "map/MapBlock.hpp"
 #include "map/Map.hpp"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "server/game/gamedef.h"
 #ifndef SERVER
 #include "client/ClientEnvironment.h"

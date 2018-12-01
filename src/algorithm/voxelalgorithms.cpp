@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "algorithm/voxelalgorithms.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "map/MapBlock.hpp"
 #include "map/MMVManip.hpp"
 #include "map/ServerMap.hpp"

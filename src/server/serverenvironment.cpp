@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/settings.h"
 #include "core/log.h"
 #include "map/MapBlock.hpp"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "world/nodemetadata.h"
 #include "server/game/gamedef.h"
 #include "map/ServerMap.hpp"

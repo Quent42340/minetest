@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cmath>
 #include "server/network/MtEvent.hpp"
 #include "world/collision.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "core/settings.h"
 #include "world/environment.h"
 #include "map/Map.hpp"

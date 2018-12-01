@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <sstream>
 #include "map/Map.hpp"
 #include "world/light.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "world/nodemetadata.h"
 #include "server/game/gamedef.h"
 #include "core/log.h"

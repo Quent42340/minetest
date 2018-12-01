@@ -25,7 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/basic_macros.h"
 #include "map/Map.hpp"
 #include "server/game/gamedef.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "world/nodemetadata.h"
 #include "core/Exception.hpp"
 #include "core/log.h"

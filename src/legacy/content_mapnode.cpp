@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlicht/irrlichttypes_bloated.h"
 #include "map/MapNode.hpp"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "world/nameidmapping.h"
 #include "util/string.h"
 

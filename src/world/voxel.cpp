@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "world/voxel.h"
 #include "map/Map.hpp"
 #include "util/gettime.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "util/directiontables.h"
 #include "util/timetaker.h"
 #include <cstring>  // memcpy, memset

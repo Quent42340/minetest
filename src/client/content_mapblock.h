@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #pragma once
 
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include <IMeshManipulator.h>
 
 struct MeshMakeData;

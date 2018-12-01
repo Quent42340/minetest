@@ -30,8 +30,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "algorithm/noise.h"         // easeCurve
 #include "common/SimpleSoundSpec.hpp"
 #include "server/network/MtEvent.hpp"
-#include "world/nodedef.h"
 #include "util/numeric.h"
+#include "world/node/ContentFeatures.hpp"
+#include "world/node/NodeDefManager.hpp"
 #include "core/constants.h"
 #include "fontengine.h"
 #include "script/scripting_client.h"

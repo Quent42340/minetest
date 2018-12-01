@@ -22,7 +22,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #pragma once
 
 #include "algorithm/noise.h"
-#include "world/nodedef.h"
+#include "core/constants.h"
+#include "map/MapNode.hpp"
 #include "util/string.h"
 #include "util/container.h"
 

@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "item/IWritableItemDefManager.hpp"
 #include "map/MapBlock.hpp"
 #include "server/network/modchannels.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "remoteplayer.h"
 #include "server/network/rollback_interface.h"
 #include "scripting_server.h"

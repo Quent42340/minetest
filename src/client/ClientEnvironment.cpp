@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "mapblock_mesh.h"
 #include "server/network/MtEvent.hpp"
 #include "world/collision.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 #include "core/Profiler.hpp"
 #include "algorithm/raycast.h"
 #include "algorithm/voxelalgorithms.h"

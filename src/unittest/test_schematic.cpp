@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "mapgen/mg_schematic.h"
 #include "server/game/gamedef.h"
-#include "world/nodedef.h"
+#include "world/node/NodeDefManager.hpp"
 
 class TestSchematic : public TestBase {
 public:

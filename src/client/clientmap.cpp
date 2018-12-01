@@ -30,6 +30,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/basic_macros.h"
 #include <algorithm>
 #include "client/renderingengine.h"
+#include "world/node/NodeDefManager.hpp"
 
 ClientMap::ClientMap(
 		Client *client,
