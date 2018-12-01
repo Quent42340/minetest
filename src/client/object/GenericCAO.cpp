@@ -59,14 +59,18 @@ static void setBillboardTextureMatrix(scene::IBillboardSceneNode *bill,
 // Prototype
 GenericCAO proto_GenericCAO(NULL, NULL);
 
-GenericCAO::GenericCAO(Client *client, ClientEnvironment *env):
-		ClientActiveObject(0, client, env)
+GenericCAO::GenericCAO(Client *client, ClientEnvironment *env) : ClientActiveObject(0, client, env)
 {
 	if (client == NULL) {
 		ClientActiveObject::registerType(getType(), create);
 	} else {
 		m_client = client;
 	}
+}
+
+GenericCAO::~GenericCAO()
+{
+	removeFromScene(true);
 }
 
 bool GenericCAO::getCollisionBox(aabb3f *toset) const
@@ -137,11 +141,6 @@ void GenericCAO::processInitData(const std::string &data)
 	pos_translator.init(m_position);
 	rot_translator.init(m_rotation);
 	updateNodePos();
-}
-
-GenericCAO::~GenericCAO()
-{
-	removeFromScene(true);
 }
 
 bool GenericCAO::getSelectionBox(aabb3f *toset) const
