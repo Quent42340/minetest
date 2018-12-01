@@ -167,11 +167,12 @@ class GenericCAO : public ClientActiveObject {
 
 		std::vector<u16> m_children;
 
-		CubeVisual m_cubeVisual;
-		MeshVisual m_meshVisual;
-		SpriteVisual m_spriteVisual;
-		UprightSpriteVisual m_uprightSpriteVisual;
-		WieldItemVisual m_wieldItemVisual;
+		std::unique_ptr<IGenericCAOVisual> m_visual;
+		// CubeVisual m_cubeVisual;
+		// MeshVisual m_meshVisual;
+		// SpriteVisual m_spriteVisual;
+		// UprightSpriteVisual m_uprightSpriteVisual;
+		// WieldItemVisual m_wieldItemVisual;
 };
 
 #endif // GENERICCAO_HPP_

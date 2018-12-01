@@ -154,32 +154,13 @@ bool GenericCAO::isImmortal()
 
 scene::ISceneNode* GenericCAO::getSceneNode()
 {
-	if (m_cubeVisual.node()) {
-		return m_cubeVisual.node();
-	}
-
-	if (m_meshVisual.node()) {
-		return m_meshVisual.node();
-	}
-
-	if (m_uprightSpriteVisual.node()) {
-		return m_uprightSpriteVisual.node();
-	}
-
-	if (m_spriteVisual.node()) {
-		return m_spriteVisual.node();
-	}
-
-	if (m_wieldItemVisual.node()) {
-		return m_wieldItemVisual.node();
-	}
-
-	return nullptr;
+	return (m_visual) ? m_visual->node() : nullptr;
 }
 
 scene::IAnimatedMeshSceneNode* GenericCAO::getAnimatedMeshSceneNode()
 {
-	return (scene::IAnimatedMeshSceneNode *)m_meshVisual.node();
+	return (m_prop.visual != "mesh" || !m_visual) ? nullptr
+		: (scene::IAnimatedMeshSceneNode *)m_visual->node();
 }
 
 void GenericCAO::setChildrenVisible(bool toset)
@@ -231,11 +212,8 @@ void GenericCAO::removeFromScene(bool permanent)
 		}
 	}
 
-	m_cubeVisual.removeSceneNode();
-	m_meshVisual.removeSceneNode();
-	m_spriteVisual.removeSceneNode();
-	m_uprightSpriteVisual.removeSceneNode();
-	m_wieldItemVisual.removeSceneNode();
+	if (m_visual)
+		m_visual->removeSceneNode();
 
 	if (m_nametag) {
 		m_client->getCamera()->removeNametag(m_nametag);
@@ -260,25 +238,22 @@ void GenericCAO::addToScene(ITextureSource *tsrc)
 	video::E_MATERIAL_TYPE material_type = (m_prop.use_texture_alpha) ?
 		video::EMT_TRANSPARENT_ALPHA_CHANNEL : video::EMT_TRANSPARENT_ALPHA_CHANNEL_REF;
 
-	if (m_prop.visual == "sprite") {
-		m_spriteVisual.init(tsrc, material_type, m_prop, m_client, m_last_light, m_is_player);
-	}
-	else if (m_prop.visual == "upright_sprite") {
-		m_uprightSpriteVisual.init(tsrc, material_type, m_prop, m_client, m_last_light, m_is_player);
-	}
-	else if(m_prop.visual == "cube") {
-		m_cubeVisual.init(tsrc, material_type, m_prop, m_client, m_last_light, m_is_player);
-	}
-	else if(m_prop.visual == "mesh") {
-		m_meshVisual.init(tsrc, material_type, m_prop, m_client, m_last_light, m_is_player);
-	}
-	else if (m_prop.visual == "wielditem" || m_prop.visual == "dynamicnode") {
-		m_wieldItemVisual.init(tsrc, material_type, m_prop, m_client, m_last_light, m_is_player);
-	}
-	else {
-		infostream<<"GenericCAO::addToScene(): \""<<m_prop.visual
-				<<"\" not supported"<<std::endl;
-	}
+	if (m_prop.visual == "sprite")
+		m_visual.reset(new SpriteVisual);
+	else if (m_prop.visual == "upright_sprite")
+		m_visual.reset(new UprightSpriteVisual);
+	else if (m_prop.visual == "cube")
+		m_visual.reset(new CubeVisual);
+	else if (m_prop.visual == "mesh")
+		m_visual.reset(new MeshVisual);
+	else if (m_prop.visual == "wielditem" || m_prop.visual == "dynamicnode")
+		m_visual.reset(new WieldItemVisual);
+	else
+		infostream << "GenericCAO::addToScene(): \"" << m_prop.visual
+				<< "\" not supported" << std::endl;
+
+	if (m_visual)
+		m_visual->init(tsrc, material_type, m_prop, m_client, m_last_light, m_is_player);
 
 	/* don't update while punch texture modifier is active */
 	if (m_reset_textures_timer < 0)
@@ -295,7 +270,10 @@ void GenericCAO::addToScene(ITextureSource *tsrc)
 	}
 
 	updateNodePos();
-	m_animation.update((scene::IAnimatedMeshSceneNode *)m_meshVisual.node());
+
+	if (m_prop.visual == "mesh" && m_visual)
+		m_animation.update((scene::IAnimatedMeshSceneNode *)m_visual->node());
+
 	updateBonePosition();
 	updateAttachments();
 }
@@ -328,11 +306,8 @@ void GenericCAO::updateLightNoCheck(u8 light_at_pos)
 		m_last_light = li;
 		video::SColor color(255, li, li, li);
 
-		m_cubeVisual.setColor(color);
-		m_uprightSpriteVisual.setColor(color);
-		m_meshVisual.setColor(color);
-		m_spriteVisual.setColor(color);
-		m_wieldItemVisual.setColor(color);
+		if (m_visual)
+			m_visual->setColor(color);
 	}
 }
 
@@ -354,7 +329,7 @@ void GenericCAO::updateNodePos()
 	if (node) {
 		v3s16 camera_offset = m_env->getCameraOffset();
 		node->setPosition(pos_translator.val_current - intToFloat(camera_offset, BS));
-		if (node != m_spriteVisual.node()) { // rotate if not a sprite
+		if (m_prop.visual != "sprite") { // rotate if not a sprite
 			v3f rot = m_is_local_player ? -m_rotation : -rot_translator.val_current;
 			node->setRotation(rot);
 		}
@@ -374,7 +349,8 @@ void GenericCAO::step(float dtime, ClientEnvironment *env)
 			pos_translator.val_current = m_position;
 			rot_translator.val_current = m_rotation;
 
-			m_animation.animatePlayer(m_client, player, (scene::IAnimatedMeshSceneNode *)m_meshVisual.node());
+			if (m_prop.visual == "mesh" && m_visual)
+				m_animation.animatePlayer(m_client, player, (scene::IAnimatedMeshSceneNode *)m_visual->node());
 		}
 	}
 
@@ -482,7 +458,8 @@ void GenericCAO::step(float dtime, ClientEnvironment *env)
 
 	m_animation.updateFrame(dtime);
 
-	m_animation.updateTexturePos(dynamic_cast<scene::IBillboardSceneNode *>(m_spriteVisual.node()), m_rotation);
+	if (m_prop.visual == "sprite" && m_visual)
+		m_animation.updateTexturePos((scene::IBillboardSceneNode *)m_visual->node(), m_rotation);
 
 	if(m_reset_textures_timer >= 0)
 	{
@@ -524,24 +501,18 @@ void GenericCAO::updateTextures(std::string mod)
 	video::E_MATERIAL_TYPE material_type = (m_prop.use_texture_alpha) ?
 		video::EMT_TRANSPARENT_ALPHA_CHANNEL : video::EMT_TRANSPARENT_ALPHA_CHANNEL_REF;
 
-	if (m_prop.visual == "sprite")
-		m_spriteVisual.updateTexture(tsrc, material_type, m_prop, mod);
-	else if (m_prop.visual == "mesh")
-		m_meshVisual.updateTexture(tsrc, material_type, m_prop, mod);
-	else if(m_prop.visual == "cube")
-		m_cubeVisual.updateTexture(tsrc, material_type, m_prop, mod);
-	else if (m_prop.visual == "upright_sprite")
-		m_uprightSpriteVisual.updateTexture(tsrc, material_type, m_prop, mod);
+	if (m_visual)
+		m_visual->updateTexture(tsrc, material_type, m_prop, mod);
 }
 
 // FIXME: Move to MeshVisual
 // But m_bone_position will be needed there
 void GenericCAO::updateBonePosition()
 {
-	if (m_bone_position.empty() || !m_meshVisual.node())
+	if (m_bone_position.empty() || m_prop.visual != "mesh" || !m_visual || !m_visual->node())
 		return;
 
-	scene::IAnimatedMeshSceneNode *animated_meshnode = (scene::IAnimatedMeshSceneNode *)m_meshVisual.node();
+	scene::IAnimatedMeshSceneNode *animated_meshnode = (scene::IAnimatedMeshSceneNode *)m_visual->node();
 	animated_meshnode->setJointMode(irr::scene::EJUOR_CONTROL); // To write positions to the mesh on render
 	for(std::unordered_map<std::string, core::vector2d<v3f>>::const_iterator
 			ii = m_bone_position.begin(); ii != m_bone_position.end(); ++ii) {
@@ -758,7 +729,9 @@ void GenericCAO::commandSetSprite(std::istream &is) {
 	bool select_horiz_by_yawpitch = readU8(is);
 
 	m_animation.updateTiles(p, num_frames, framelength, select_horiz_by_yawpitch);
-	m_animation.updateTexturePos(dynamic_cast<scene::IBillboardSceneNode *>(m_spriteVisual.node()), m_rotation);
+
+	if (m_prop.visual == "sprite" && m_visual)
+		m_animation.updateTexturePos((scene::IBillboardSceneNode *)m_visual->node(), m_rotation);
 }
 
 void GenericCAO::commandSetPhysicsOverride(std::istream &is) {
@@ -793,11 +766,13 @@ void GenericCAO::commandSetBonePosition(std::istream &is) {
 }
 
 void GenericCAO::commandSetAnimation(std::istream &is) {
-	m_animation.updateData(is, m_env, m_is_local_player, (scene::IAnimatedMeshSceneNode *)m_meshVisual.node());
+	if (m_prop.visual == "mesh" && m_visual)
+		m_animation.updateData(is, m_env, m_is_local_player, (scene::IAnimatedMeshSceneNode *)m_visual->node());
 }
 
 void GenericCAO::commandSetAnimationSpeed(std::istream &is) {
-	m_animation.updateSpeed(readF1000(is), (scene::IAnimatedMeshSceneNode *)m_meshVisual.node());
+	if (m_prop.visual == "mesh" && m_visual)
+		m_animation.updateSpeed(readF1000(is), (scene::IAnimatedMeshSceneNode *)m_visual->node());
 }
 
 void GenericCAO::commandAttachTo(std::istream &is) {
