@@ -21,8 +21,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/object/SmoothTranslator.hpp"
 #include "util/numeric.h"
 
-template struct SmoothTranslator<v3f>;
-
 template<typename T>
 void SmoothTranslator<T>::init(T current)
 {
@@ -66,56 +64,61 @@ void SmoothTranslator<T>::translate(f32 dtime)
 	val_current = val_old + val_diff * moveratio;
 }
 
-void SmoothTranslatorWrapped::translate(f32 dtime)
+
+struct SmoothTranslatorWrapped : SmoothTranslator<f32>
 {
-	anim_time_counter = anim_time_counter + dtime;
-	f32 val_diff = std::abs(val_target - val_old);
-	if (val_diff > 180.f)
-		val_diff = 360.f - val_diff;
+	void translate(f32 dtime) {
+		anim_time_counter = anim_time_counter + dtime;
+		f32 val_diff = std::abs(val_target - val_old);
+		if (val_diff > 180.f)
+			val_diff = 360.f - val_diff;
 
-	f32 moveratio = 1.0;
-	if (anim_time > 0.001)
-		moveratio = anim_time_counter / anim_time;
-	f32 move_end = aim_is_end ? 1.0 : 1.5;
+		f32 moveratio = 1.0;
+		if (anim_time > 0.001)
+			moveratio = anim_time_counter / anim_time;
+		f32 move_end = aim_is_end ? 1.0 : 1.5;
 
-	// Move a bit less than should, to avoid oscillation
-	moveratio = std::min(moveratio * 0.8f, move_end);
-	wrappedApproachShortest(val_current, val_target,
-		val_diff * moveratio, 360.f);
-}
+		// Move a bit less than should, to avoid oscillation
+		moveratio = std::min(moveratio * 0.8f, move_end);
+		wrappedApproachShortest(val_current, val_target,
+				val_diff * moveratio, 360.f);
+	}
+};
 
-void SmoothTranslatorWrappedv3f::translate(f32 dtime)
+struct SmoothTranslatorWrappedv3f : SmoothTranslator<v3f>
 {
-	anim_time_counter = anim_time_counter + dtime;
+	void translate(f32 dtime) {
+		anim_time_counter = anim_time_counter + dtime;
 
-	v3f val_diff_v3f;
-	val_diff_v3f.X = std::abs(val_target.X - val_old.X);
-	val_diff_v3f.Y = std::abs(val_target.Y - val_old.Y);
-	val_diff_v3f.Z = std::abs(val_target.Z - val_old.Z);
+		v3f val_diff_v3f;
+		val_diff_v3f.X = std::abs(val_target.X - val_old.X);
+		val_diff_v3f.Y = std::abs(val_target.Y - val_old.Y);
+		val_diff_v3f.Z = std::abs(val_target.Z - val_old.Z);
 
-	if (val_diff_v3f.X > 180.f)
-		val_diff_v3f.X = 360.f - val_diff_v3f.X;
+		if (val_diff_v3f.X > 180.f)
+			val_diff_v3f.X = 360.f - val_diff_v3f.X;
 
-	if (val_diff_v3f.Y > 180.f)
-		val_diff_v3f.Y = 360.f - val_diff_v3f.Y;
+		if (val_diff_v3f.Y > 180.f)
+			val_diff_v3f.Y = 360.f - val_diff_v3f.Y;
 
-	if (val_diff_v3f.Z > 180.f)
-		val_diff_v3f.Z = 360.f - val_diff_v3f.Z;
+		if (val_diff_v3f.Z > 180.f)
+			val_diff_v3f.Z = 360.f - val_diff_v3f.Z;
 
-	f32 moveratio = 1.0;
-	if (anim_time > 0.001)
-		moveratio = anim_time_counter / anim_time;
-	f32 move_end = aim_is_end ? 1.0 : 1.5;
+		f32 moveratio = 1.0;
+		if (anim_time > 0.001)
+			moveratio = anim_time_counter / anim_time;
+		f32 move_end = aim_is_end ? 1.0 : 1.5;
 
-	// Move a bit less than should, to avoid oscillation
-	moveratio = std::min(moveratio * 0.8f, move_end);
-	wrappedApproachShortest(val_current.X, val_target.X,
-		val_diff_v3f.X * moveratio, 360.f);
+		// Move a bit less than should, to avoid oscillation
+		moveratio = std::min(moveratio * 0.8f, move_end);
+		wrappedApproachShortest(val_current.X, val_target.X,
+				val_diff_v3f.X * moveratio, 360.f);
 
-	wrappedApproachShortest(val_current.Y, val_target.Y,
-		val_diff_v3f.Y * moveratio, 360.f);
+		wrappedApproachShortest(val_current.Y, val_target.Y,
+				val_diff_v3f.Y * moveratio, 360.f);
 
-	wrappedApproachShortest(val_current.Z, val_target.Z,
-		val_diff_v3f.Z * moveratio, 360.f);
-}
+		wrappedApproachShortest(val_current.Z, val_target.Z,
+				val_diff_v3f.Z * moveratio, 360.f);
+	}
+};
 

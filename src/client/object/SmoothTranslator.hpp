@@ -42,14 +42,6 @@ struct SmoothTranslator
 
 };
 
-struct SmoothTranslatorWrapped : SmoothTranslator<f32>
-{
-	void translate(f32 dtime);
-};
-
-struct SmoothTranslatorWrappedv3f : SmoothTranslator<v3f>
-{
-	void translate(f32 dtime);
-};
+#include "client/object/SmoothTranslator.inl"
 
 #endif // SMOOTHTRANSLATOR_HPP_
