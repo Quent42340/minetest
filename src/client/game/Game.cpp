@@ -19,7 +19,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <cmath>
 #include "client/clouds.h"
-#include "client/content_cao.h"
 #include "client/event_manager.h"
 #include "client/fontengine.h"
 #include "client/game/Game.h"
@@ -28,6 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/game/SoundMaker.h"
 #include "client/keys.h"
 #include "client/minimap.h"
+#include "client/object/GenericCAO.hpp"
 #include "client/sky.h"
 #include "gui/guiConfirmRegistration.h"
 #include "gui/guiChatConsole.h"

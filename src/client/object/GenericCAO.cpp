@@ -1,6 +1,6 @@
 /*
 Minetest
-Copyright (C) 2010-2013 celeron55, Perttu Ahola <celeron55@gmail.com>
+Copyright (C) 2013 celeron55, Perttu Ahola <celeron55@gmail.com>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by
@@ -17,138 +17,27 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include <ICameraSceneNode.h>
-#include <ITextSceneNode.h>
-#include <IBillboardSceneNode.h>
-#include <IMeshManipulator.h>
-#include <IAnimatedMeshSceneNode.h>
-#include "content_cao.h"
-#include "util/numeric.h" // For IntervalLimiter
-#include "util/serialize.h"
-#include "util/basic_macros.h"
-#include "client/sound.h"
-#include "client/tile.h"
-#include "world/environment.h"
-#include "world/collision.h"
-#include "core/settings.h"
-#include "server/network/serialization.h" // For decompressZlib
-#include "clientobject.h"
-#include "mesh.h"
-#include "item/ItemDefinition.hpp"
-#include "tool.h"
-#include "content_cso.h"
-#include "common/SimpleSoundSpec.hpp"
-#include "world/node/NodeDefManager.hpp"
-#include "localplayer.h"
-#include "map/Map.hpp"
-#include "camera.h" // CameraModes
-#include "client.h"
-#include "wieldmesh.h"
 #include <algorithm>
-#include <cmath>
+
+#include <IAnimatedMeshSceneNode.h>
+#include <IBillboardSceneNode.h>
+
+#include "client/client.h"
+#include "client/ClientEnvironment.h"
+#include "client/content_cso.h"
+#include "client/localplayer.h"
+#include "client/mesh.h"
+#include "client/nodeentity.h"
+#include "client/object/GenericCAO.hpp"
 #include "client/renderingengine.h"
-#include "nodeentity.h"
-
-class Settings;
-struct ToolCapabilities;
-
-std::unordered_map<u16, ClientActiveObject::Factory> ClientActiveObject::m_types;
-
-template<typename T>
-void SmoothTranslator<T>::init(T current)
-{
-	val_old = current;
-	val_current = current;
-	val_target = current;
-	anim_time = 0;
-	anim_time_counter = 0;
-	aim_is_end = true;
-}
-
-template<typename T>
-void SmoothTranslator<T>::update(T new_target, bool is_end_position, float update_interval)
-{
-	aim_is_end = is_end_position;
-	val_old = val_current;
-	val_target = new_target;
-	if (update_interval > 0) {
-		anim_time = update_interval;
-	} else {
-		if (anim_time < 0.001 || anim_time > 1.0)
-			anim_time = anim_time_counter;
-		else
-			anim_time = anim_time * 0.9 + anim_time_counter * 0.1;
-	}
-	anim_time_counter = 0;
-}
-
-template<typename T>
-void SmoothTranslator<T>::translate(f32 dtime)
-{
-	anim_time_counter = anim_time_counter + dtime;
-	T val_diff = val_target - val_old;
-	f32 moveratio = 1.0;
-	if (anim_time > 0.001)
-		moveratio = anim_time_counter / anim_time;
-	f32 move_end = aim_is_end ? 1.0 : 1.5;
-
-	// Move a bit less than should, to avoid oscillation
-	moveratio = std::min(moveratio * 0.8f, move_end);
-	val_current = val_old + val_diff * moveratio;
-}
-
-void SmoothTranslatorWrapped::translate(f32 dtime)
-{
-	anim_time_counter = anim_time_counter + dtime;
-	f32 val_diff = std::abs(val_target - val_old);
-	if (val_diff > 180.f)
-		val_diff = 360.f - val_diff;
-
-	f32 moveratio = 1.0;
-	if (anim_time > 0.001)
-		moveratio = anim_time_counter / anim_time;
-	f32 move_end = aim_is_end ? 1.0 : 1.5;
-
-	// Move a bit less than should, to avoid oscillation
-	moveratio = std::min(moveratio * 0.8f, move_end);
-	wrappedApproachShortest(val_current, val_target,
-		val_diff * moveratio, 360.f);
-}
-
-void SmoothTranslatorWrappedv3f::translate(f32 dtime)
-{
-	anim_time_counter = anim_time_counter + dtime;
-
-	v3f val_diff_v3f;
-	val_diff_v3f.X = std::abs(val_target.X - val_old.X);
-	val_diff_v3f.Y = std::abs(val_target.Y - val_old.Y);
-	val_diff_v3f.Z = std::abs(val_target.Z - val_old.Z);
-
-	if (val_diff_v3f.X > 180.f)
-		val_diff_v3f.X = 360.f - val_diff_v3f.X;
-
-	if (val_diff_v3f.Y > 180.f)
-		val_diff_v3f.Y = 360.f - val_diff_v3f.Y;
-
-	if (val_diff_v3f.Z > 180.f)
-		val_diff_v3f.Z = 360.f - val_diff_v3f.Z;
-
-	f32 moveratio = 1.0;
-	if (anim_time > 0.001)
-		moveratio = anim_time_counter / anim_time;
-	f32 move_end = aim_is_end ? 1.0 : 1.5;
-
-	// Move a bit less than should, to avoid oscillation
-	moveratio = std::min(moveratio * 0.8f, move_end);
-	wrappedApproachShortest(val_current.X, val_target.X,
-		val_diff_v3f.X * moveratio, 360.f);
-
-	wrappedApproachShortest(val_current.Y, val_target.Y,
-		val_diff_v3f.Y * moveratio, 360.f);
-
-	wrappedApproachShortest(val_current.Z, val_target.Z,
-		val_diff_v3f.Z * moveratio, 360.f);
-}
+#include "client/sound.h"
+#include "client/wieldmesh.h"
+#include "core/constants.h"
+#include "core/log.h"
+#include "genericobject.h"
+#include "util/serialize.h"
+#include "world/collision.h"
+#include "world/node/NodeDefManager.hpp"
 
 /*
 	Other stuff
@@ -164,148 +53,11 @@ static void setBillboardTextureMatrix(scene::IBillboardSceneNode *bill,
 }
 
 /*
-	TestCAO
-*/
-
-class TestCAO : public ClientActiveObject
-{
-public:
-	TestCAO(Client *client, ClientEnvironment *env);
-	virtual ~TestCAO() = default;
-
-	ActiveObjectType getType() const
-	{
-		return ACTIVEOBJECT_TYPE_TEST;
-	}
-
-	static ClientActiveObject* create(Client *client, ClientEnvironment *env);
-
-	void addToScene(ITextureSource *tsrc);
-	void removeFromScene(bool permanent);
-	void updateLight(u8 light_at_pos);
-	v3s16 getLightPosition();
-	void updateNodePos();
-
-	void step(float dtime, ClientEnvironment *env);
-
-	void processMessage(const std::string &data);
-
-	bool getCollisionBox(aabb3f *toset) const { return false; }
-private:
-	scene::IMeshSceneNode *m_node;
-	v3f m_position;
-};
-
-// Prototype
-TestCAO proto_TestCAO(NULL, NULL);
-
-TestCAO::TestCAO(Client *client, ClientEnvironment *env):
-	ClientActiveObject(0, client, env),
-	m_node(NULL),
-	m_position(v3f(0,10*BS,0))
-{
-	ClientActiveObject::registerType(getType(), create);
-}
-
-ClientActiveObject* TestCAO::create(Client *client, ClientEnvironment *env)
-{
-	return new TestCAO(client, env);
-}
-
-void TestCAO::addToScene(ITextureSource *tsrc)
-{
-	if(m_node != NULL)
-		return;
-
-	//video::IVideoDriver* driver = smgr->getVideoDriver();
-
-	scene::SMesh *mesh = new scene::SMesh();
-	scene::IMeshBuffer *buf = new scene::SMeshBuffer();
-	video::SColor c(255,255,255,255);
-	video::S3DVertex vertices[4] =
-	{
-		video::S3DVertex(-BS/2,-BS/4,0, 0,0,0, c, 0,1),
-		video::S3DVertex(BS/2,-BS/4,0, 0,0,0, c, 1,1),
-		video::S3DVertex(BS/2,BS/4,0, 0,0,0, c, 1,0),
-		video::S3DVertex(-BS/2,BS/4,0, 0,0,0, c, 0,0),
-	};
-	u16 indices[] = {0,1,2,2,3,0};
-	buf->append(vertices, 4, indices, 6);
-	// Set material
-	buf->getMaterial().setFlag(video::EMF_LIGHTING, false);
-	buf->getMaterial().setFlag(video::EMF_BACK_FACE_CULLING, false);
-	buf->getMaterial().setTexture(0, tsrc->getTextureForMesh("rat.png"));
-	buf->getMaterial().setFlag(video::EMF_BILINEAR_FILTER, false);
-	buf->getMaterial().setFlag(video::EMF_FOG_ENABLE, true);
-	buf->getMaterial().MaterialType = video::EMT_TRANSPARENT_ALPHA_CHANNEL;
-	// Add to mesh
-	mesh->addMeshBuffer(buf);
-	buf->drop();
-	m_node = RenderingEngine::get_scene_manager()->addMeshSceneNode(mesh, NULL);
-	mesh->drop();
-	updateNodePos();
-}
-
-void TestCAO::removeFromScene(bool permanent)
-{
-	if (!m_node)
-		return;
-
-	m_node->remove();
-	m_node = NULL;
-}
-
-void TestCAO::updateLight(u8 light_at_pos)
-{
-}
-
-v3s16 TestCAO::getLightPosition()
-{
-	return floatToInt(m_position, BS);
-}
-
-void TestCAO::updateNodePos()
-{
-	if (!m_node)
-		return;
-
-	m_node->setPosition(m_position);
-	//m_node->setRotation(v3f(0, 45, 0));
-}
-
-void TestCAO::step(float dtime, ClientEnvironment *env)
-{
-	if(m_node)
-	{
-		v3f rot = m_node->getRotation();
-		//infostream<<"dtime="<<dtime<<", rot.Y="<<rot.Y<<std::endl;
-		rot.Y += dtime * 180;
-		m_node->setRotation(rot);
-	}
-}
-
-void TestCAO::processMessage(const std::string &data)
-{
-	infostream<<"TestCAO: Got data: "<<data<<std::endl;
-	std::istringstream is(data, std::ios::binary);
-	u16 cmd;
-	is>>cmd;
-	if(cmd == 0)
-	{
-		v3f newpos;
-		is>>newpos.X;
-		is>>newpos.Y;
-		is>>newpos.Z;
-		m_position = newpos;
-		updateNodePos();
-	}
-}
-
-/*
 	GenericCAO
 */
 
-#include "genericobject.h"
+// Prototype
+GenericCAO proto_GenericCAO(NULL, NULL);
 
 GenericCAO::GenericCAO(Client *client, ClientEnvironment *env):
 		ClientActiveObject(0, client, env)
@@ -1616,5 +1368,3 @@ std::string GenericCAO::debugInfoText()
 	return os.str();
 }
 
-// Prototype
-GenericCAO proto_GenericCAO(NULL, NULL);

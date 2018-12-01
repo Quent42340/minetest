@@ -21,9 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "debug/Debug.hpp"
 #include "core/porting.h"
 
-/*
-	ClientActiveObject
-*/
+std::unordered_map<u16, ClientActiveObject::Factory> ClientActiveObject::m_types;
 
 ClientActiveObject::ClientActiveObject(u16 id, Client *client,
 		ClientEnvironment *env):

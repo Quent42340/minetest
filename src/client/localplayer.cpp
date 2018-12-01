@@ -17,16 +17,16 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "localplayer.h"
 #include <cmath>
+#include "client/client.h"
+#include "client/localplayer.h"
+#include "client/object/GenericCAO.hpp"
+#include "core/settings.h"
+#include "map/Map.hpp"
 #include "server/network/MtEvent.hpp"
 #include "world/collision.h"
-#include "world/node/NodeDefManager.hpp"
-#include "core/settings.h"
 #include "world/environment.h"
-#include "map/Map.hpp"
-#include "client.h"
-#include "content_cao.h"
+#include "world/node/NodeDefManager.hpp"
 
 /*
 	LocalPlayer
