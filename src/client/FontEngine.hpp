@@ -41,8 +41,10 @@ enum FontMode {
 
 class FontEngine {
 	public:
-		FontEngine(Settings *main_settings, gui::IGUIEnvironment *env);
+		FontEngine() = default;
 		~FontEngine();
+
+		void init(Settings *main_settings, gui::IGUIEnvironment *env);
 
 		irr::gui::IGUIFont *getFont(unsigned int font_size = FONT_SIZE_UNSPECIFIED,
 				FontMode mode = FM_Unspecified);

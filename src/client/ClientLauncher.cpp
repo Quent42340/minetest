@@ -59,8 +59,8 @@ MainGameCallback *g_gamecallback = nullptr;
 
 ClientLauncher::~ClientLauncher()
 {
-	delete g_fontengine;
-	delete g_gamecallback;
+	g_fontengine = nullptr;
+	g_gamecallback = nullptr;
 
 #if USE_SOUND
 	g_sound_manager_singleton.reset();
@@ -92,7 +92,7 @@ bool ClientLauncher::run(GameParams &game_params, const Settings &cmd_args)
 		return true;
 	}
 
-	if (RenderingEngine::get_video_driver() == NULL) {
+	if (RenderingEngine::get_video_driver() == nullptr) {
 		errorstream << "Could not initialize video driver." << std::endl;
 		return false;
 	}
@@ -105,8 +105,8 @@ bool ClientLauncher::run(GameParams &game_params, const Settings &cmd_args)
 	*/
 	//driver->setMinHardwareBufferVertexCount(50);
 
-	// Create game callback for menus
-	g_gamecallback = new MainGameCallback();
+	// Set the game callback global for menus
+	g_gamecallback = &m_gameCallback;
 
 	RenderingEngine::get_instance()->setResizable(true);
 
@@ -147,8 +147,10 @@ bool ClientLauncher::run(GameParams &game_params, const Settings &cmd_args)
 		}
 	}
 #endif
-	g_fontengine = new FontEngine(g_settings, guienv);
-	FATAL_ERROR_IF(g_fontengine == NULL, "Font engine creation failed.");
+
+	m_fontEngine.init(g_settings, guienv);
+	g_fontengine = &m_fontEngine;
+	FATAL_ERROR_IF(g_fontengine == nullptr, "Font engine creation failed.");
 
 #if (IRRLICHT_VERSION_MAJOR >= 1 && IRRLICHT_VERSION_MINOR >= 8) || IRRLICHT_VERSION_MAJOR >= 2
 	// Irrlicht 1.8 input colours
@@ -164,7 +166,7 @@ bool ClientLauncher::run(GameParams &game_params, const Settings &cmd_args)
 	g_menuclouds->setHeight(100.0f);
 	g_menuclouds->update(v3f(0, 0, 0), video::SColor(255, 200, 200, 255));
 	scene::ICameraSceneNode* camera;
-	camera = g_menucloudsmgr->addCameraSceneNode(NULL, v3f(0, 0, 0), v3f(0, 60, 100));
+	camera = g_menucloudsmgr->addCameraSceneNode(nullptr, v3f(0, 0, 0), v3f(0, 60, 100));
 	camera->setFarValue(10000);
 
 	/*
@@ -269,8 +271,8 @@ bool ClientLauncher::run(GameParams &game_params, const Settings &cmd_args)
 
 #ifdef HAVE_TOUCHSCREENGUI
 			delete g_touchscreengui;
-			g_touchscreengui = NULL;
-			receiver->m_touchscreengui = NULL;
+			g_touchscreengui = nullptr;
+			receiver->m_touchscreengui = nullptr;
 #endif
 
 		} //try

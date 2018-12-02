@@ -26,6 +26,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/inputhandler.h"
 #include "content/subgames.h"
 #include "server/game/gameparams.h"
+#include "client/FontEngine.hpp"
+#include "gui/mainmenumanager.h"
 
 class RenderingEngine;
 class Settings;
@@ -77,6 +79,9 @@ class ClientLauncher {
 		int current_port = 0;
 
 		RenderingEngine m_renderingEngine;
+		FontEngine m_fontEngine;
+
+		MainGameCallback m_gameCallback;
 };
 
 #endif // CLIENTLAUNCHER_HPP_
