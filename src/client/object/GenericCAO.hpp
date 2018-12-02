@@ -23,14 +23,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/camera.h"
 #include "client/clientobject.h"
 #include "client/object/GenericCAOAnimation.hpp"
+#include "client/object/IGenericCAOVisual.hpp"
 #include "client/object/SmoothTranslator.hpp"
 #include "common/world/object_properties.h"
-
-#include "client/object/CubeVisual.hpp"
-#include "client/object/MeshVisual.hpp"
-#include "client/object/SpriteVisual.hpp"
-#include "client/object/UprightSpriteVisual.hpp"
-#include "client/object/WieldItemVisual.hpp"
 
 class GenericCAO : public ClientActiveObject {
 	public:
@@ -103,19 +98,19 @@ class GenericCAO : public ClientActiveObject {
 		}
 
 	private:
-		inline void commandSetProperties(std::istream &is);
-		inline void commandUpdatePosition(std::istream &is);
-		inline void commandSetTextureMod(std::istream &is);
-		inline void commandSetSprite(std::istream &is);
-		inline void commandSetPhysicsOverride(std::istream &is);
-		inline void commandSetBonePosition(std::istream &is);
-		inline void commandSetAnimation(std::istream &is);
-		inline void commandSetAnimationSpeed(std::istream &is);
-		inline void commandAttachTo(std::istream &is);
-		inline void commandPunched(std::istream &is);
-		inline void commandUpdateArmorGroups(std::istream &is);
-		inline void commandUpdateNametagAttributes(std::istream &is);
-		inline void commandSpawnInfant(std::istream &is);
+		void commandSetProperties(std::istream &is);
+		void commandUpdatePosition(std::istream &is);
+		void commandSetTextureMod(std::istream &is);
+		void commandSetSprite(std::istream &is);
+		void commandSetPhysicsOverride(std::istream &is);
+		void commandSetBonePosition(std::istream &is);
+		void commandSetAnimation(std::istream &is);
+		void commandSetAnimationSpeed(std::istream &is);
+		void commandAttachTo(std::istream &is);
+		void commandPunched(std::istream &is);
+		void commandUpdateArmorGroups(std::istream &is);
+		void commandUpdateNametagAttributes(std::istream &is);
+		void commandSpawnInfant(std::istream &is);
 
 		// Only set at initialization
 		std::string m_name = "";
@@ -153,10 +148,11 @@ class GenericCAO : public ClientActiveObject {
 
 		ItemGroupList m_armor_groups;
 
+		// Punch texture timer
 		float m_reset_textures_timer = -1.0f;
-		// stores texture modifier before punch update
+		// Stores texture modifier before punch update
 		std::string m_previous_texture_modifier = "";
-		// last applied texture modifier
+		// Last applied texture modifier
 		std::string m_current_texture_modifier = "";
 
 		bool m_visuals_expired = false;
@@ -168,11 +164,6 @@ class GenericCAO : public ClientActiveObject {
 		std::vector<u16> m_children;
 
 		std::unique_ptr<IGenericCAOVisual> m_visual;
-		// CubeVisual m_cubeVisual;
-		// MeshVisual m_meshVisual;
-		// SpriteVisual m_spriteVisual;
-		// UprightSpriteVisual m_uprightSpriteVisual;
-		// WieldItemVisual m_wieldItemVisual;
 };
 
 #endif // GENERICCAO_HPP_

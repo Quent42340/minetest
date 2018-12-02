@@ -27,7 +27,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/content_cso.h"
 #include "client/localplayer.h"
 #include "client/mesh.h"
-#include "client/nodeentity.h"
 #include "client/object/GenericCAO.hpp"
 #include "client/renderingengine.h"
 #include "client/sound.h"
@@ -38,6 +37,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/serialize.h"
 #include "common/world/collision.h"
 #include "common/world/node/NodeDefManager.hpp"
+
+#include "client/object/CubeVisual.hpp"
+#include "client/object/MeshVisual.hpp"
+#include "client/object/SpriteVisual.hpp"
+#include "client/object/UprightSpriteVisual.hpp"
+#include "client/object/WieldItemVisual.hpp"
 
 // Prototype
 GenericCAO proto_GenericCAO(nullptr, nullptr);
@@ -246,7 +251,7 @@ void GenericCAO::addToScene(ITextureSource *tsrc)
 		m_visual.reset(new CubeVisual);
 	else if (m_prop.visual == "mesh")
 		m_visual.reset(new MeshVisual);
-	else if (m_prop.visual == "wielditem" || m_prop.visual == "dynamicnode")
+	else if (m_prop.visual == "wielditem")
 		m_visual.reset(new WieldItemVisual);
 	else
 		infostream << "GenericCAO::addToScene(): \"" << m_prop.visual
@@ -255,7 +260,7 @@ void GenericCAO::addToScene(ITextureSource *tsrc)
 	if (m_visual)
 		m_visual->init(tsrc, material_type, m_prop, m_client, m_last_light, m_is_player);
 
-	/* don't update while punch texture modifier is active */
+	// Don't update while punch texture modifier is active
 	if (m_reset_textures_timer < 0)
 		updateTextures(m_current_texture_modifier);
 

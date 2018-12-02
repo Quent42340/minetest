@@ -18,7 +18,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "client/client.h"
-#include "client/nodeentity.h"
 #include "client/object/WieldItemVisual.hpp"
 #include "client/renderingengine.h"
 #include "core/log.h"
@@ -47,15 +46,8 @@ void WieldItemVisual::init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material
 		item.deSerialize(prop.wield_item, client->idef());
 	}
 
-	if (prop.visual == "wielditem") {
-		m_wield_meshnode = new WieldMeshSceneNode(RenderingEngine::get_scene_manager(), -1);
-	}
-	else if (prop.visual == "dynamicnode") {
-		m_wield_meshnode = new NodeEntitySceneNode(RenderingEngine::get_scene_manager(), -1);
-	}
-
+	m_wield_meshnode = new WieldMeshSceneNode(RenderingEngine::get_scene_manager(), -1);
 	m_wield_meshnode->setItem(item, client);
-
 	m_wield_meshnode->setScale(
 			v3f(prop.visual_size.X / 2, prop.visual_size.Y / 2,
 				prop.visual_size.X / 2));
@@ -64,10 +56,9 @@ void WieldItemVisual::init(ITextureSource *tsrc, video::E_MATERIAL_TYPE material
 	m_wield_meshnode->setColor(video::SColor(255, li, li, li));
 }
 
-void WieldItemVisual::updateTexture(ITextureSource *tsrc, video::E_MATERIAL_TYPE material_type,
-		const ObjectProperties &prop, const std::string &mod)
+void WieldItemVisual::updateTexture(ITextureSource *, video::E_MATERIAL_TYPE,
+		const ObjectProperties &, const std::string &)
 {
-	if (!m_wield_meshnode) return;
 }
 
 void WieldItemVisual::setColor(video::SColor color)
