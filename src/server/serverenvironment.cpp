@@ -525,7 +525,7 @@ bool ServerEnvironment::line_of_sight(v3f pos1, v3f pos2, v3s16 *p)
 		MapNode n = getMap().getNodeNoEx(iterator.m_current_node_pos);
 
 		// Return non-air
-		if (n.param0 != CONTENT_AIR) {
+		if (n.getContent() != CONTENT_AIR) {
 			if (p)
 				*p = iterator.m_current_node_pos;
 			return false;

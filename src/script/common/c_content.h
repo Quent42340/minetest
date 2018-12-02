@@ -43,7 +43,7 @@ extern "C" {
 
 namespace Json { class Value; }
 
-struct MapNode;
+class MapNode;
 class NodeDefManager;
 struct PointedThing;
 struct ItemStack;

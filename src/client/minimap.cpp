@@ -160,7 +160,7 @@ void MinimapUpdateThread::getMap(v3s16 pos, s16 size, s16 height)
 				data->minimap_scan[inmap_pos.X + inmap_pos.Z * size];
 
 			out_pixel.air_count += in_pixel.air_count;
-			if (in_pixel.n.param0 != CONTENT_AIR) {
+			if (in_pixel.n.getContent() != CONTENT_AIR) {
 				out_pixel.n = in_pixel.n;
 				out_pixel.height = inmap_pos.Y + in_pixel.height;
 			}

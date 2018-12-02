@@ -587,7 +587,7 @@ void Map::transformLiquids(std::map<v3s16, MapBlock*> &modified_blocks,
 				liquid_kind = m_nodedef->getId(cf.liquid_alternative_flowing);
 				break;
 			case LIQUID_FLOWING:
-				liquid_level = (n0.param2 & LIQUID_LEVEL_MASK);
+				liquid_level = (n0.getParam2() & LIQUID_LEVEL_MASK);
 				liquid_kind = n0.getContent();
 				break;
 			case LIQUID_NONE:
@@ -712,7 +712,7 @@ void Map::transformLiquids(std::map<v3s16, MapBlock*> &modified_blocks,
 		} else {
 			// no surrounding sources, so get the maximum level that can flow into this node
 			for (u16 i = 0; i < num_flows; i++) {
-				u8 nb_liquid_level = (flows[i].n.param2 & LIQUID_LEVEL_MASK);
+				u8 nb_liquid_level = (flows[i].n.getParam2() & LIQUID_LEVEL_MASK);
 				switch (flows[i].t) {
 					case NEIGHBOR_UPPER:
 						if (nb_liquid_level + WATER_DROP_BOOST > max_node_level) {
@@ -726,7 +726,7 @@ void Map::transformLiquids(std::map<v3s16, MapBlock*> &modified_blocks,
 					case NEIGHBOR_LOWER:
 						break;
 					case NEIGHBOR_SAME_LEVEL:
-						if ((flows[i].n.param2 & LIQUID_FLOW_DOWN_MASK) != LIQUID_FLOW_DOWN_MASK &&
+						if ((flows[i].n.getParam2() & LIQUID_FLOW_DOWN_MASK) != LIQUID_FLOW_DOWN_MASK &&
 								nb_liquid_level > 0 && nb_liquid_level - 1 > max_node_level)
 							max_node_level = nb_liquid_level - 1;
 						break;
@@ -762,8 +762,8 @@ void Map::transformLiquids(std::map<v3s16, MapBlock*> &modified_blocks,
 		 */
 		if (new_node_content == n0.getContent() &&
 				(m_nodedef->get(n0.getContent()).liquid_type != LIQUID_FLOWING ||
-				((n0.param2 & LIQUID_LEVEL_MASK) == (u8)new_node_level &&
-				((n0.param2 & LIQUID_FLOW_DOWN_MASK) == LIQUID_FLOW_DOWN_MASK)
+				((n0.getParam2() & LIQUID_LEVEL_MASK) == (u8)new_node_level &&
+				((n0.getParam2() & LIQUID_FLOW_DOWN_MASK) == LIQUID_FLOW_DOWN_MASK)
 				== flowing_down)))
 			continue;
 
@@ -775,10 +775,10 @@ void Map::transformLiquids(std::map<v3s16, MapBlock*> &modified_blocks,
 		//bool flow_down_enabled = (flowing_down && ((n0.param2 & LIQUID_FLOW_DOWN_MASK) != LIQUID_FLOW_DOWN_MASK));
 		if (m_nodedef->get(new_node_content).liquid_type == LIQUID_FLOWING) {
 			// set level to last 3 bits, flowing down bit to 4th bit
-			n0.param2 = (flowing_down ? LIQUID_FLOW_DOWN_MASK : 0x00) | (new_node_level & LIQUID_LEVEL_MASK);
+			n0.setParam2((flowing_down ? LIQUID_FLOW_DOWN_MASK : 0x00) | (new_node_level & LIQUID_LEVEL_MASK));
 		} else {
 			// set the liquid level and flow bit to 0
-			n0.param2 = ~(LIQUID_LEVEL_MASK | LIQUID_FLOW_DOWN_MASK);
+			n0.setParam2(~(LIQUID_LEVEL_MASK | LIQUID_FLOW_DOWN_MASK));
 		}
 
 		// change the node.

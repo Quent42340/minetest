@@ -26,10 +26,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/Exception.hpp"
 #include "common/inventory/inventory.h"
 
-class Map;
 class IGameDef;
-struct MapNode;
 class InventoryManager;
+class Map;
+class MapNode;
 
 struct RollbackNode
 {

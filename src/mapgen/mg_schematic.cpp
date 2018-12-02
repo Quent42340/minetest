@@ -146,8 +146,8 @@ void Schematic::blitToVManip(MMVManip *vm, v3s16 p, Rotation rot, bool force_pla
 				if (schemdata[i].getContent() == CONTENT_IGNORE)
 					continue;
 
-				u8 placement_prob     = schemdata[i].param1 & MTSCHEM_PROB_MASK;
-				bool force_place_node = schemdata[i].param1 & MTSCHEM_FORCE_PLACE;
+				u8 placement_prob     = schemdata[i].getParam1() & MTSCHEM_PROB_MASK;
+				bool force_place_node = schemdata[i].getParam1() & MTSCHEM_FORCE_PLACE;
 
 				if (placement_prob == MTSCHEM_PROB_NEVER)
 					continue;
@@ -163,7 +163,7 @@ void Schematic::blitToVManip(MMVManip *vm, v3s16 p, Rotation rot, bool force_pla
 					continue;
 
 				vm->m_data[vi] = schemdata[i];
-				vm->m_data[vi].param1 = 0;
+				vm->m_data[vi].setParam1(0);
 
 				if (rot)
 					vm->m_data[vi].rotateAlongYAxis(m_ndef, rot);
@@ -311,10 +311,10 @@ bool Schematic::deserializeFromMts(std::istream *is,
 	// Fix probability values for nodes that were ignore; removed in v2
 	if (version < 2) {
 		for (size_t i = 0; i != nodecount; i++) {
-			if (schemdata[i].param1 == 0)
-				schemdata[i].param1 = MTSCHEM_PROB_ALWAYS_OLD;
+			if (schemdata[i].getParam1() == 0)
+				schemdata[i].setParam1(MTSCHEM_PROB_ALWAYS_OLD);
 			if (have_cignore && schemdata[i].getContent() == cignore)
-				schemdata[i].param1 = MTSCHEM_PROB_NEVER;
+				schemdata[i].setParam1(MTSCHEM_PROB_NEVER);
 		}
 	}
 
@@ -323,7 +323,7 @@ bool Schematic::deserializeFromMts(std::istream *is,
 		for (s16 y = 0; y != size.Y; y++)
 			slice_probs[y] >>= 1;
 		for (size_t i = 0; i != nodecount; i++)
-			schemdata[i].param1 >>= 1;
+			schemdata[i].setParam1(schemdata[i].getParam1() >> 1);
 	}
 
 	return true;
@@ -404,13 +404,13 @@ bool Schematic::serializeToLua(std::ostream *os,
 			}
 
 			for (u16 x = 0; x != size.X; x++, i++) {
-				u8 probability   = schemdata[i].param1 & MTSCHEM_PROB_MASK;
-				bool force_place = schemdata[i].param1 & MTSCHEM_FORCE_PLACE;
+				u8 probability   = schemdata[i].getParam1() & MTSCHEM_PROB_MASK;
+				bool force_place = schemdata[i].getParam1() & MTSCHEM_FORCE_PLACE;
 
 				ss << indent << indent << "{"
 					<< "name=\"" << names[schemdata[i].getContent()]
 					<< "\", prob=" << (u16)probability * 2
-					<< ", param2=" << (u16)schemdata[i].param2;
+					<< ", param2=" << (u16)schemdata[i].getParam2();
 
 				if (force_place)
 					ss << ", force_place=true";
@@ -522,7 +522,7 @@ bool Schematic::getSchematicFromMap(Map *map, v3s16 p1, v3s16 p2)
 		u32 vi = vm->m_area.index(p1.X, y, z);
 		for (s16 x = p1.X; x <= p2.X; x++, i++, vi++) {
 			schemdata[i] = vm->m_data[vi];
-			schemdata[i].param1 = MTSCHEM_PROB_ALWAYS;
+			schemdata[i].setParam1(MTSCHEM_PROB_ALWAYS);
 		}
 	}
 
@@ -540,7 +540,7 @@ void Schematic::applyProbabilities(v3s16 p0,
 		int index = p.Z * (size.Y * size.X) + p.Y * size.X + p.X;
 		if (index < size.Z * size.Y * size.X) {
 			u8 prob = (*plist)[i].second;
-			schemdata[index].param1 = prob;
+			schemdata[index].setParam1(prob);
 
 			// trim unnecessary node names from schematic
 			if (prob == MTSCHEM_PROB_NEVER)

@@ -424,7 +424,7 @@ void Mapgen::setLighting(u8 light, v3s16 nmin, v3s16 nmax)
 		for (int y = a.MinEdge.Y; y <= a.MaxEdge.Y; y++) {
 			u32 i = vm->m_area.index(a.MinEdge.X, y, z);
 			for (int x = a.MinEdge.X; x <= a.MaxEdge.X; x++, i++)
-				vm->m_data[i].param1 = light;
+				vm->m_data[i].setParam1(light);
 		}
 	}
 }
@@ -449,18 +449,18 @@ void Mapgen::lightSpread(VoxelArea &a, v3s16 p, u8 light)
 
 	// Bail out only if we have no more light from either bank to propogate, or
 	// we hit a solid block that light cannot pass through.
-	if ((light_day  <= (n.param1 & 0x0F) &&
-		light_night <= (n.param1 & 0xF0)) ||
+	if ((light_day  <= (n.getParam1() & 0x0F) &&
+		light_night <= (n.getParam1() & 0xF0)) ||
 		!ndef->get(n).light_propagates)
 		return;
 
 	// Since this recursive function only terminates when there is no light from
 	// either bank left, we need to take the max of both banks into account for
 	// the case where spreading has stopped for one light bank but not the other.
-	light = MYMAX(light_day, n.param1 & 0x0F) |
-			MYMAX(light_night, n.param1 & 0xF0);
+	light = MYMAX(light_day, n.getParam1() & 0x0F) |
+			MYMAX(light_night, n.getParam1() & 0xF0);
 
-	n.param1 = light;
+	n.setParam1(light);
 
 	lightSpread(a, p + v3s16(0, 0, 1), light);
 	lightSpread(a, p + v3s16(0, 1, 0), light);
@@ -501,7 +501,7 @@ void Mapgen::propagateSunlight(v3s16 nmin, v3s16 nmax, bool propagate_shadow)
 			if (vm->m_data[i].getContent() == CONTENT_IGNORE) {
 				if (block_is_underground)
 					continue;
-			} else if ((vm->m_data[i].param1 & 0x0F) != LIGHT_SUN &&
+			} else if ((vm->m_data[i].getParam1() & 0x0F) != LIGHT_SUN &&
 					propagate_shadow) {
 				continue;
 			}
@@ -511,7 +511,7 @@ void Mapgen::propagateSunlight(v3s16 nmin, v3s16 nmax, bool propagate_shadow)
 				MapNode &n = vm->m_data[i];
 				if (!ndef->get(n).sunlight_propagates)
 					break;
-				n.param1 = LIGHT_SUN;
+				n.setParam1(LIGHT_SUN);
 				VoxelArea::add_y(em, i, -1);
 			}
 		}
@@ -542,9 +542,9 @@ void Mapgen::spreadLight(v3s16 nmin, v3s16 nmax)
 
 				u8 light_produced = cf.light_source;
 				if (light_produced)
-					n.param1 = light_produced | (light_produced << 4);
+					n.setParam1(light_produced | (light_produced << 4));
 
-				u8 light = n.param1;
+				u8 light = n.getParam1();
 				if (light) {
 					lightSpread(a, v3s16(x,     y,     z + 1), light);
 					lightSpread(a, v3s16(x,     y + 1, z    ), light);

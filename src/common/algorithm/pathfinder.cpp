@@ -502,11 +502,11 @@ void GridNodeContainer::initNode(v3s16 ipos, PathGridnode *p_node)
 	MapNode below   = m_pathf->m_env->getMap().getNodeNoEx(realpos + v3s16(0, -1, 0));
 
 
-	if ((current.param0 == CONTENT_IGNORE) ||
-			(below.param0 == CONTENT_IGNORE)) {
+	if ((current.getContent() == CONTENT_IGNORE) ||
+			(below.getContent() == CONTENT_IGNORE)) {
 		DEBUG_OUT("Pathfinder: " << PP(realpos) <<
 			" current or below is invalid element" << std::endl);
-		if (current.param0 == CONTENT_IGNORE) {
+		if (current.getContent() == CONTENT_IGNORE) {
 			elem.type = 'i';
 			DEBUG_OUT(PP(ipos) << ": " << 'i' << std::endl);
 		}
@@ -770,8 +770,8 @@ PathCost Pathfinder::calcCost(v3s16 pos, v3s16 dir)
 
 	MapNode node_at_pos2 = m_env->getMap().getNodeNoEx(pos2);
 
-	//did we get information about node?
-	if (node_at_pos2.param0 == CONTENT_IGNORE ) {
+	// Did we get information about node?
+	if (node_at_pos2.getContent() == CONTENT_IGNORE ) {
 			VERBOSE_TARGET << "Pathfinder: (1) area at pos: "
 					<< PP(pos2) << " not loaded";
 			return retval;
@@ -781,8 +781,8 @@ PathCost Pathfinder::calcCost(v3s16 pos, v3s16 dir)
 		MapNode node_below_pos2 =
 							m_env->getMap().getNodeNoEx(pos2 + v3s16(0, -1, 0));
 
-		//did we get information about node?
-		if (node_below_pos2.param0 == CONTENT_IGNORE ) {
+		// Did we get information about node?
+		if (node_below_pos2.getContent() == CONTENT_IGNORE ) {
 				VERBOSE_TARGET << "Pathfinder: (2) area at pos: "
 					<< PP((pos2 + v3s16(0, -1, 0))) << " not loaded";
 				return retval;
@@ -799,16 +799,16 @@ PathCost Pathfinder::calcCost(v3s16 pos, v3s16 dir)
 			v3s16 testpos = pos2 - v3s16(0, -1, 0);
 			MapNode node_at_pos = m_env->getMap().getNodeNoEx(testpos);
 
-			while ((node_at_pos.param0 != CONTENT_IGNORE) &&
+			while ((node_at_pos.getContent() != CONTENT_IGNORE) &&
 					(!ndef->get(node_at_pos).walkable) &&
 					(testpos.Y > m_limits.MinEdge.Y)) {
 				testpos += v3s16(0, -1, 0);
 				node_at_pos = m_env->getMap().getNodeNoEx(testpos);
 			}
 
-			//did we find surface?
+			// Did we find surface?
 			if ((testpos.Y >= m_limits.MinEdge.Y) &&
-					(node_at_pos.param0 != CONTENT_IGNORE) &&
+					(node_at_pos.getContent() != CONTENT_IGNORE) &&
 					(ndef->get(node_at_pos).walkable)) {
 				if ((pos2.Y - testpos.Y - 1) <= m_maxdrop) {
 					retval.valid = true;
@@ -833,7 +833,7 @@ PathCost Pathfinder::calcCost(v3s16 pos, v3s16 dir)
 		v3s16 testpos = pos2;
 		MapNode node_at_pos = m_env->getMap().getNodeNoEx(testpos);
 
-		while ((node_at_pos.param0 != CONTENT_IGNORE) &&
+		while ((node_at_pos.getContent() != CONTENT_IGNORE) &&
 				(ndef->get(node_at_pos).walkable) &&
 				(testpos.Y < m_limits.MaxEdge.Y)) {
 			testpos += v3s16(0, 1, 0);

@@ -25,10 +25,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "localplayer.h"
 #include "common/TileAnimationParams.hpp"
 
-struct ClientEvent;
-class ParticleManager;
 class ClientEnvironment;
-struct MapNode;
+class MapNode;
+class ParticleManager;
+struct ClientEvent;
 struct ContentFeatures;
 
 class Particle : public scene::ISceneNode

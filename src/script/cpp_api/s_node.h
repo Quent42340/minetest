@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "cpp_api/s_nodemeta.h"
 #include "util/string.h"
 
-struct MapNode;
+class MapNode;
 class ServerActiveObject;
 
 class ScriptApiNode

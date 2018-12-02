@@ -39,8 +39,8 @@ RollbackNode::RollbackNode(Map *map, v3s16 p, IGameDef *gamedef)
 	const NodeDefManager *ndef = gamedef->ndef();
 	MapNode n = map->getNodeNoEx(p);
 	name = ndef->get(n).name;
-	param1 = n.param1;
-	param2 = n.param2;
+	param1 = n.getParam1();
+	param2 = n.getParam2();
 	NodeMetadata *metap = map->getNodeMetadata(p);
 	if (metap) {
 		std::ostringstream os(std::ios::binary);
@@ -210,7 +210,7 @@ bool RollbackAction::applyRevert(Map *map, InventoryManager *imgr, IGameDef *gam
 					<< inventory_location << std::endl;
 				return false;
 			}
-			
+
 			// If item was added, take away item, otherwise add removed item
 			if (inventory_add) {
 				// Silently ignore different current item

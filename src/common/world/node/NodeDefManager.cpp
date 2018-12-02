@@ -627,14 +627,14 @@ bool NodeDefManager::nodeboxConnects(MapNode from, MapNode to,
 		return false;
 
 	// lookup target in connected set
-	if (!CONTAINS(f1.connects_to_ids, to.param0))
+	if (!CONTAINS(f1.connects_to_ids, to.getContent()))
 		return false;
 
 	const ContentFeatures &f2 = get(to);
 
 	if ((f2.drawtype == NDT_NODEBOX) && (f2.node_box.type == NODEBOX_CONNECTED))
 		// ignores actually looking if back connection exists
-		return CONTAINS(f2.connects_to_ids, from.param0);
+		return CONTAINS(f2.connects_to_ids, from.getContent());
 
 	// does to node declare usable faces?
 	if (f2.connect_sides > 0) {
@@ -654,7 +654,7 @@ bool NodeDefManager::nodeboxConnects(MapNode from, MapNode to,
 				0, 0, 0, 0, 0, 0, 32, 16, 8, 4 // 32 - left
 				};
 			return (f2.connect_sides
-				& rot[(connect_face * 4) + (to.param2 & 0x1F)]);
+				& rot[(connect_face * 4) + (to.getParam2() & 0x1F)]);
 		}
 		return (f2.connect_sides & connect_face);
 	}

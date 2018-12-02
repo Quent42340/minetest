@@ -79,7 +79,7 @@ void VoxelManipulator::print(std::ostream &o, const NodeDefManager *ndef,
 					c = 'X';
 					MapNode n = m_data[m_area.index(x,y,z)];
 					content_t m = n.getContent();
-					u8 pr = n.param2;
+					u8 pr = n.getParam2();
 					if(mode == VOXELPRINT_MATERIAL)
 					{
 						if(m <= 9)

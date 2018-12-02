@@ -454,7 +454,7 @@ void MapblockMeshGenerator::getLiquidNeighborhood()
 			neighbor.level = 0.5 * BS;
 		} else if (neighbor.content == c_flowing) {
 			neighbor.is_same_liquid = true;
-			u8 liquid_level = (n2.param2 & LIQUID_LEVEL_MASK);
+			u8 liquid_level = (n2.getParam2() & LIQUID_LEVEL_MASK);
 			if (liquid_level <= LIQUID_LEVEL_MAX + 1 - range)
 				liquid_level = 0;
 			else
@@ -945,24 +945,24 @@ void MapblockMeshGenerator::drawPlantlike()
 
 	switch (f->param_type_2) {
 	case CPT2_MESHOPTIONS:
-		draw_style = PlantlikeStyle(n.param2 & MO_MASK_STYLE);
-		if (n.param2 & MO_BIT_SCALE_SQRT2)
+		draw_style = PlantlikeStyle(n.getParam2() & MO_MASK_STYLE);
+		if (n.getParam2() & MO_BIT_SCALE_SQRT2)
 			scale *= 1.41421;
-		if (n.param2 & MO_BIT_RANDOM_OFFSET) {
+		if (n.getParam2() & MO_BIT_RANDOM_OFFSET) {
 			PseudoRandom rng(p.X << 8 | p.Z | p.Y << 16);
 			offset.X = BS * ((rng.next() % 16 / 16.0) * 0.29 - 0.145);
 			offset.Z = BS * ((rng.next() % 16 / 16.0) * 0.29 - 0.145);
 		}
-		if (n.param2 & MO_BIT_RANDOM_OFFSET_Y)
+		if (n.getParam2() & MO_BIT_RANDOM_OFFSET_Y)
 			random_offset_Y = true;
 		break;
 
 	case CPT2_DEGROTATE:
-		rotate_degree = n.param2 * 2;
+		rotate_degree = n.getParam2() * 2;
 		break;
 
 	case CPT2_LEVELED:
-		plant_height = n.param2 / 16.0;
+		plant_height = n.getParam2() / 16.0;
 		break;
 
 	default:

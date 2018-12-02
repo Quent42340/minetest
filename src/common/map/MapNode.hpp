@@ -113,181 +113,178 @@ struct ContentFeatures;
 	This is the stuff what the whole world consists of.
 */
 
+class MapNode {
+	public:
+		MapNode() = default;
 
-struct MapNode
-{
-	/*
-		Main content
-	*/
-	u16 param0;
+		MapNode(content_t content, u8 a_param1 = 0, u8 a_param2 = 0)
+			: param0(content),
+			  param1(a_param1),
+			  param2(a_param2)
+		{}
 
-	/*
-		Misc parameter. Initialized to 0.
-		- For light_propagates() blocks, this is light intensity,
-		  stored logarithmically from 0 to LIGHT_MAX.
-		  Sunlight is LIGHT_SUN, which is LIGHT_MAX+1.
-		  - Contains 2 values, day- and night lighting. Each takes 4 bits.
-		- Uhh... well, most blocks have light or nothing in here.
-	*/
-	u8 param1;
+		// Create directly from a nodename
+		// If name is unknown, sets CONTENT_IGNORE
+		MapNode(const NodeDefManager *ndef, const std::string &name,
+				u8 a_param1 = 0, u8 a_param2 = 0);
 
-	/*
-		The second parameter. Initialized to 0.
-		E.g. direction for torches and flowing water.
-	*/
-	u8 param2;
+		bool operator==(const MapNode &other)
+		{
+			return (param0 == other.param0
+					&& param1 == other.param1
+					&& param2 == other.param2);
+		}
 
-	MapNode() = default;
+		// To be used everywhere
+		content_t getContent() const { return param0; }
+		u8 getParam1() const { return param1; }
+		u8 getParam2() const { return param2; }
 
-	MapNode(content_t content, u8 a_param1=0, u8 a_param2=0)
-		: param0(content),
-		  param1(a_param1),
-		  param2(a_param2)
-	{ }
+		void setContent(content_t c) { param0 = c; }
+		void setParam1(u8 p) { param1 = p; }
+		void setParam2(u8 p) { param2 = p; }
 
-	// Create directly from a nodename
-	// If name is unknown, sets CONTENT_IGNORE
-	MapNode(const NodeDefManager *ndef, const std::string &name,
-			u8 a_param1=0, u8 a_param2=0);
+		/*!
+		 * Returns the color of the node.
+		 *
+		 * \param f content features of this node
+		 * \param color output, contains the node's color.
+		 */
+		void getColor(const ContentFeatures &f, video::SColor *color) const;
 
-	bool operator==(const MapNode &other)
-	{
-		return (param0 == other.param0
-				&& param1 == other.param1
-				&& param2 == other.param2);
-	}
+		void setLight(enum LightBank bank, u8 a_light, const ContentFeatures &f);
 
-	// To be used everywhere
-	content_t getContent() const { return param0; }
-	u8 getParam1() const { return param1; }
-	u8 getParam2() const { return param2; }
+		void setLight(enum LightBank bank, u8 a_light, const NodeDefManager *nodemgr);
 
-	void setContent(content_t c) { param0 = c; }
-	void setParam1(u8 p) { param1 = p; }
-	void setParam2(u8 p) { param2 = p; }
+		/**
+		 * Check if the light value for night differs from the light value for day.
+		 *
+		 * @return If the light values are equal, returns true; otherwise false
+		 */
+		bool isLightDayNightEq(const NodeDefManager *nodemgr) const;
 
-	/*!
-	 * Returns the color of the node.
-	 *
-	 * \param f content features of this node
-	 * \param color output, contains the node's color.
-	 */
-	void getColor(const ContentFeatures &f, video::SColor *color) const;
+		u8 getLight(enum LightBank bank, const NodeDefManager *nodemgr) const;
 
-	void setLight(enum LightBank bank, u8 a_light, const ContentFeatures &f);
+		/*!
+		 * Returns the node's light level from param1.
+		 * If the node emits light, it is ignored.
+		 * \param f the ContentFeatures of this node.
+		 */
+		u8 getLightRaw(enum LightBank bank, const ContentFeatures &f) const;
 
-	void setLight(enum LightBank bank, u8 a_light,
-		const NodeDefManager *nodemgr);
+		/**
+		 * This function differs from getLight(enum LightBank bank, NodeDefManager *nodemgr)
+		 * in that the ContentFeatures of the node in question are not retrieved by
+		 * the function itself.  Thus, if you have already called nodemgr->get() to
+		 * get the ContentFeatures you pass it to this function instead of the
+		 * function getting ContentFeatures itself.  Since NodeDefManager::get()
+		 * is relatively expensive this can lead to significant performance
+		 * improvements in some situations.  Call this function if (and only if)
+		 * you have already retrieved the ContentFeatures by calling
+		 * NodeDefManager::get() for the node you're working with and the
+		 * pre-conditions listed are true.
+		 *
+		 * @pre f != NULL
+		 * @pre f->param_type == CPT_LIGHT
+		 */
+		u8 getLightNoChecks(LightBank bank, const ContentFeatures *f) const;
 
-	/**
-	 * Check if the light value for night differs from the light value for day.
-	 *
-	 * @return If the light values are equal, returns true; otherwise false
-	 */
-	bool isLightDayNightEq(const NodeDefManager *nodemgr) const;
+		bool getLightBanks(u8 &lightday, u8 &lightnight,
+			const NodeDefManager *nodemgr) const;
 
-	u8 getLight(enum LightBank bank, const NodeDefManager *nodemgr) const;
+		// 0 <= daylight_factor <= 1000
+		// 0 <= return value <= LIGHT_SUN
+		u8 getLightBlend(u32 daylight_factor, const NodeDefManager *nodemgr) const
+		{
+			u8 lightday = 0;
+			u8 lightnight = 0;
+			getLightBanks(lightday, lightnight, nodemgr);
+			return blend_light(daylight_factor, lightday, lightnight);
+		}
 
-	/*!
-	 * Returns the node's light level from param1.
-	 * If the node emits light, it is ignored.
-	 * \param f the ContentFeatures of this node.
-	 */
-	u8 getLightRaw(enum LightBank bank, const ContentFeatures &f) const;
+		u8 getFaceDir(const NodeDefManager *nodemgr, bool allow_wallmounted = false) const;
+		u8 getWallMounted(const NodeDefManager *nodemgr) const;
+		v3s16 getWallMountedDir(const NodeDefManager *nodemgr) const;
 
-	/**
-	 * This function differs from getLight(enum LightBank bank, NodeDefManager *nodemgr)
-	 * in that the ContentFeatures of the node in question are not retrieved by
-	 * the function itself.  Thus, if you have already called nodemgr->get() to
-	 * get the ContentFeatures you pass it to this function instead of the
-	 * function getting ContentFeatures itself.  Since NodeDefManager::get()
-	 * is relatively expensive this can lead to significant performance
-	 * improvements in some situations.  Call this function if (and only if)
-	 * you have already retrieved the ContentFeatures by calling
-	 * NodeDefManager::get() for the node you're working with and the
-	 * pre-conditions listed are true.
-	 *
-	 * @pre f != NULL
-	 * @pre f->param_type == CPT_LIGHT
-	 */
-	u8 getLightNoChecks(LightBank bank, const ContentFeatures *f) const;
+		void rotateAlongYAxis(const NodeDefManager *nodemgr, Rotation rot);
 
-	bool getLightBanks(u8 &lightday, u8 &lightnight,
-		const NodeDefManager *nodemgr) const;
+		/*!
+		 * Checks which neighbors does this node connect to.
+		 *
+		 * \param p coordinates of the node
+		 */
+		u8 getNeighbors(v3s16 p, Map *map);
 
-	// 0 <= daylight_factor <= 1000
-	// 0 <= return value <= LIGHT_SUN
-	u8 getLightBlend(u32 daylight_factor, const NodeDefManager *nodemgr) const
-	{
-		u8 lightday = 0;
-		u8 lightnight = 0;
-		getLightBanks(lightday, lightnight, nodemgr);
-		return blend_light(daylight_factor, lightday, lightnight);
-	}
+		/*
+			Gets list of node boxes (used for rendering (NDT_NODEBOX))
+		*/
+		void getNodeBoxes(const NodeDefManager *nodemgr, std::vector<aabb3f> *boxes,
+			u8 neighbors = 0);
 
-	u8 getFaceDir(const NodeDefManager *nodemgr,
-		bool allow_wallmounted = false) const;
-	u8 getWallMounted(const NodeDefManager *nodemgr) const;
-	v3s16 getWallMountedDir(const NodeDefManager *nodemgr) const;
+		/*
+			Gets list of selection boxes
+		*/
+		void getSelectionBoxes(const NodeDefManager *nodemg,
+			std::vector<aabb3f> *boxes, u8 neighbors = 0);
 
-	void rotateAlongYAxis(const NodeDefManager *nodemgr, Rotation rot);
+		/*
+			Gets list of collision boxes
+		*/
+		void getCollisionBoxes(const NodeDefManager *nodemgr,
+			std::vector<aabb3f> *boxes, u8 neighbors = 0);
 
-	/*!
-	 * Checks which neighbors does this node connect to.
-	 *
-	 * \param p coordinates of the node
-	 */
-	u8 getNeighbors(v3s16 p, Map *map);
+		/*
+			Liquid helpers
+		*/
+		u8 getMaxLevel(const NodeDefManager *nodemgr) const;
+		u8 getLevel(const NodeDefManager *nodemgr) const;
+		u8 setLevel(const NodeDefManager *nodemgr, s8 level = 1);
+		u8 addLevel(const NodeDefManager *nodemgr, s8 add = 1);
 
-	/*
-		Gets list of node boxes (used for rendering (NDT_NODEBOX))
-	*/
-	void getNodeBoxes(const NodeDefManager *nodemgr, std::vector<aabb3f> *boxes,
-		u8 neighbors = 0);
+		/*
+			Serialization functions
+		*/
 
-	/*
-		Gets list of selection boxes
-	*/
-	void getSelectionBoxes(const NodeDefManager *nodemg,
-		std::vector<aabb3f> *boxes, u8 neighbors = 0);
+		static u32 serializedLength(u8 version);
+		void serialize(u8 *dest, u8 version);
+		void deSerialize(u8 *source, u8 version);
 
-	/*
-		Gets list of collision boxes
-	*/
-	void getCollisionBoxes(const NodeDefManager *nodemgr,
-		std::vector<aabb3f> *boxes, u8 neighbors = 0);
+		// Serializes or deserializes a list of nodes in bulk format (first the
+		// content of all nodes, then the param1 of all nodes, then the param2
+		// of all nodes).
+		//   version = serialization version. Must be >= 22
+		//   content_width = the number of bytes of content per node
+		//   params_width = the number of bytes of params per node
+		//   compressed = true to zlib-compress output
+		static void serializeBulk(std::ostream &os, int version, const MapNode *nodes, u32 nodecount,
+				u8 content_width, u8 params_width, bool compressed);
+		static void deSerializeBulk(std::istream &is, int version, MapNode *nodes, u32 nodecount,
+				u8 content_width, u8 params_width, bool compressed);
 
-	/*
-		Liquid helpers
-	*/
-	u8 getMaxLevel(const NodeDefManager *nodemgr) const;
-	u8 getLevel(const NodeDefManager *nodemgr) const;
-	u8 setLevel(const NodeDefManager *nodemgr, s8 level = 1);
-	u8 addLevel(const NodeDefManager *nodemgr, s8 add = 1);
+	private:
+		// Deprecated serialization methods
+		void deSerialize_pre22(const u8 *source, u8 version);
 
-	/*
-		Serialization functions
-	*/
+		/*
+			Main content
+		*/
+		u16 param0;
 
-	static u32 serializedLength(u8 version);
-	void serialize(u8 *dest, u8 version);
-	void deSerialize(u8 *source, u8 version);
+		/*
+			Misc parameter. Initialized to 0.
+			- For light_propagates() blocks, this is light intensity,
+			  stored logarithmically from 0 to LIGHT_MAX.
+			  Sunlight is LIGHT_SUN, which is LIGHT_MAX+1.
+			  - Contains 2 values, day- and night lighting. Each takes 4 bits.
+			- Uhh... well, most blocks have light or nothing in here.
+		*/
+		u8 param1;
 
-	// Serializes or deserializes a list of nodes in bulk format (first the
-	// content of all nodes, then the param1 of all nodes, then the param2
-	// of all nodes).
-	//   version = serialization version. Must be >= 22
-	//   content_width = the number of bytes of content per node
-	//   params_width = the number of bytes of params per node
-	//   compressed = true to zlib-compress output
-	static void serializeBulk(std::ostream &os, int version, const MapNode *nodes, u32 nodecount,
-			u8 content_width, u8 params_width, bool compressed);
-	static void deSerializeBulk(std::istream &is, int version, MapNode *nodes, u32 nodecount,
-			u8 content_width, u8 params_width, bool compressed);
-
-private:
-	// Deprecated serialization methods
-	void deSerialize_pre22(const u8 *source, u8 version);
+		/*
+			The second parameter. Initialized to 0.
+			E.g. direction for torches and flowing water.
+		*/
+		u8 param2;
 };
 
 #endif // MAPNODE_HPP_

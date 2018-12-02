@@ -264,7 +264,7 @@ int LuaVoxelManip::l_get_light_data(lua_State *L)
 
 	lua_newtable(L);
 	for (u32 i = 0; i != volume; i++) {
-		lua_Integer light = vm->m_data[i].param1;
+		lua_Integer light = vm->m_data[i].getParam1();
 		lua_pushinteger(L, light);
 		lua_rawseti(L, -2, i + 1);
 	}
@@ -288,7 +288,7 @@ int LuaVoxelManip::l_set_light_data(lua_State *L)
 		lua_rawgeti(L, 2, i + 1);
 		u8 light = lua_tointeger(L, -1);
 
-		vm->m_data[i].param1 = light;
+		vm->m_data[i].setParam1(light);
 
 		lua_pop(L, 1);
 	}
@@ -313,7 +313,7 @@ int LuaVoxelManip::l_get_param2_data(lua_State *L)
 		lua_newtable(L);
 
 	for (u32 i = 0; i != volume; i++) {
-		lua_Integer param2 = vm->m_data[i].param2;
+		lua_Integer param2 = vm->m_data[i].getParam2();
 		lua_pushinteger(L, param2);
 		lua_rawseti(L, -2, i + 1);
 	}
@@ -337,7 +337,7 @@ int LuaVoxelManip::l_set_param2_data(lua_State *L)
 		lua_rawgeti(L, 2, i + 1);
 		u8 param2 = lua_tointeger(L, -1);
 
-		vm->m_data[i].param2 = param2;
+		vm->m_data[i].setParam2(param2);
 
 		lua_pop(L, 1);
 	}
