@@ -302,13 +302,13 @@ class Game {
 		   This class does take ownership/responsibily for cleaning up etc of any of
 		   these items (e.g. device)
 		   */
-		IrrlichtDevice *device;
-		video::IVideoDriver *driver;
-		scene::ISceneManager *smgr;
-		bool *kill;
-		std::string *error_message;
-		bool *reconnect_requested;
-		scene::ISceneNode *skybox;
+		IrrlichtDevice *device = nullptr;
+		video::IVideoDriver *driver = nullptr;
+		scene::ISceneManager *smgr = nullptr;
+		bool *kill = nullptr;
+		std::string *error_message = nullptr;
+		bool *reconnect_requested = nullptr;
+		scene::ISceneNode *skybox = nullptr;
 
 		bool random_input;
 		bool simple_singleplayer_mode;

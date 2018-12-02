@@ -32,21 +32,20 @@ class ITextureSource;
 class Sky : public scene::ISceneNode
 {
 public:
-	//! constructor
 	Sky(s32 id, ITextureSource *tsrc);
 
-	virtual void OnRegisterSceneNode();
+	void OnRegisterSceneNode() override;
 
 	//! renders the node.
-	virtual void render();
+	void render() override;
 
-	virtual const aabb3f &getBoundingBox() const { return m_box; }
-
-	// Used by Irrlicht for optimizing rendering
-	virtual video::SMaterial &getMaterial(u32 i) { return m_materials[i]; }
+	const aabb3f &getBoundingBox() const override { return m_box; }
 
 	// Used by Irrlicht for optimizing rendering
-	virtual u32 getMaterialCount() const { return SKY_MATERIAL_COUNT; }
+	video::SMaterial &getMaterial(u32 i) override { return m_materials[i]; }
+
+	// Used by Irrlicht for optimizing rendering
+	u32 getMaterialCount() const override { return SKY_MATERIAL_COUNT; }
 
 	void update(float m_time_of_day, float time_brightness, float direct_brightness,
 			bool sunlight_seen, CameraMode cam_mode, float yaw, float pitch);
@@ -66,7 +65,7 @@ public:
 	bool getCloudsVisible() const { return m_clouds_visible && m_clouds_enabled; }
 	const video::SColorf &getCloudColor() const { return m_cloudcolor_f; }
 
-	void setVisible(bool visible) { m_visible = visible; }
+	void setVisible(bool visible) override { m_visible = visible; }
 	// Set only from set_sky API
 	void setCloudsEnabled(bool clouds_enabled) { m_clouds_enabled = clouds_enabled; }
 	void setFallbackBgColor(const video::SColor &fallback_bg_color)

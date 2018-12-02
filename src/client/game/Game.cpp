@@ -458,7 +458,8 @@ bool Game::createClient(const std::string &playername,
 	 */
 	sky = new Sky(-1, texture_src);
 	scsf->setSky(sky);
-	skybox = NULL;	// This is used/set later on in the main run loop
+	skybox = nullptr;	// This is used/set later on in the main run loop
+	// TODO: ^ Remove this, this is useless
 
 	local_inventory = new Inventory(itemdef_manager);
 
