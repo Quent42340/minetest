@@ -43,7 +43,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #endif
 #ifndef SERVER
 #include "gui/guiMainMenu.h"
-#include "client/clientlauncher.h"
+#include "client/ClientLauncher.hpp"
 #include "gui/guiEngine.h"
 #include "gui/mainmenumanager.h"
 #endif

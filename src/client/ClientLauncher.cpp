@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "client/Application.h"
 #include "gui/mainmenumanager.h"
-#include "clouds.h"
+#include "client/clouds.h"
 #include "server/server.h"
 #include "util/filesys.h"
 #include "gui/guiMainMenu.h"
@@ -29,15 +29,16 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/Profiler.hpp"
 #include "server/serverlist.h"
 #include "gui/guiEngine.h"
-#include "fontengine.h"
-#include "clientlauncher.h"
+#include "client/fontengine.h"
+#include "client/ClientLauncher.hpp"
 #include "core/version.h"
-#include "renderingengine.h"
+#include "client/renderingengine.h"
 #include "network/networkexceptions.h"
 
 #if USE_SOUND
 	#include "sound_openal.h"
 #endif
+
 #ifdef __ANDROID__
 	#include "core/porting.h"
 #endif
