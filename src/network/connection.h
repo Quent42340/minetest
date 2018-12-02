@@ -432,29 +432,29 @@ public:
 
 	void UpdateTimers(float dtime);
 
-	const float getCurrentDownloadRateKB()
+	float getCurrentDownloadRateKB()
 		{ MutexAutoLock lock(m_internal_mutex); return cur_kbps; };
-	const float getMaxDownloadRateKB()
+	float getMaxDownloadRateKB()
 		{ MutexAutoLock lock(m_internal_mutex); return max_kbps; };
 
-	const float getCurrentLossRateKB()
+	float getCurrentLossRateKB()
 		{ MutexAutoLock lock(m_internal_mutex); return cur_kbps_lost; };
-	const float getMaxLossRateKB()
+	float getMaxLossRateKB()
 		{ MutexAutoLock lock(m_internal_mutex); return max_kbps_lost; };
 
-	const float getCurrentIncomingRateKB()
+	float getCurrentIncomingRateKB()
 		{ MutexAutoLock lock(m_internal_mutex); return cur_incoming_kbps; };
-	const float getMaxIncomingRateKB()
+	float getMaxIncomingRateKB()
 		{ MutexAutoLock lock(m_internal_mutex); return max_incoming_kbps; };
 
-	const float getAvgDownloadRateKB()
+	float getAvgDownloadRateKB()
 		{ MutexAutoLock lock(m_internal_mutex); return avg_kbps; };
-	const float getAvgLossRateKB()
+	float getAvgLossRateKB()
 		{ MutexAutoLock lock(m_internal_mutex); return avg_kbps_lost; };
-	const float getAvgIncomingRateKB()
+	float getAvgIncomingRateKB()
 		{ MutexAutoLock lock(m_internal_mutex); return avg_incoming_kbps; };
 
-	const unsigned int getWindowSize() const { return window_size; };
+	unsigned int getWindowSize() const { return window_size; };
 
 	void setWindowSize(unsigned int size) { window_size = size; };
 private:
@@ -774,7 +774,7 @@ public:
 	Address GetPeerAddress(session_t peer_id);
 	float getPeerStat(session_t peer_id, rtt_stat_type type);
 	float getLocalStat(rate_stat_type type);
-	const u32 GetProtocolID() const { return m_protocol_id; };
+	u32 GetProtocolID() const { return m_protocol_id; };
 	const std::string getDesc();
 	void DisconnectPeer(session_t peer_id);
 

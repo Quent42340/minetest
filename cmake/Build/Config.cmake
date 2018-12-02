@@ -13,13 +13,14 @@ set(CMAKE_C_FLAGS_SEMIDEBUG "-O1 -g -Wall -pedantic" CACHE STRING
 # FIXME
 # set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -Wall -Wextra -Wfatal-errors")
 # set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wfatal-errors")
-set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -g -Wfatal-errors")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wfatal-errors")
+set(CMAKE_C_FLAGS   "${CMAKE_C_FLAGS}   -g -Wall -Wextra -Wfatal-errors")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -Wall -Wextra -Wfatal-errors -Wabi -Wno-unused-parameter -Wno-missing-field-initializers")
 
 mark_as_advanced(
 	CMAKE_CXX_FLAGS_SEMIDEBUG
 	CMAKE_C_FLAGS_SEMIDEBUG
 )
+
 set(CMAKE_BUILD_TYPE "${CMAKE_BUILD_TYPE}" CACHE STRING
 	"Choose the type of build. Options are: None Debug SemiDebug RelWithDebInfo MinSizeRel."
 	FORCE

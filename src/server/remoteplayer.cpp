@@ -189,7 +189,7 @@ void RemotePlayer::serialize(std::ostream &os)
 	inventory.serialize(os);
 }
 
-const RemotePlayerChatResult RemotePlayer::canSendChatMessage()
+RemotePlayerChatResult RemotePlayer::canSendChatMessage()
 {
 	// Rate limit messages
 	u32 now = time(NULL);
