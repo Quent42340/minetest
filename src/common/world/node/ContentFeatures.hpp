@@ -23,6 +23,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/SimpleSoundSpec.hpp"
 #include "common/inventory/itemgroup.h"
 #include "common/map/MapNode.hpp"
+#include "common/world/node/ContentParamType.hpp"
 #include "common/world/node/NodeBox.hpp"
 #include "common/world/node/NodeDrawType.hpp"
 #include "common/world/node/TileDef.hpp"

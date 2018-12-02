@@ -38,7 +38,7 @@ class ClientLauncher {
 
 		bool run(GameParams &game_params, const Settings &cmd_args);
 
-	protected:
+	private:
 		void init_args(GameParams &game_params, const Settings &cmd_args);
 		bool init_engine();
 		void init_input();
@@ -63,7 +63,6 @@ class ClientLauncher {
 		MyEventReceiver m_eventReceiver;
 
 		gui::IGUISkin *skin = nullptr;
-		gui::IGUIFont *font = nullptr;
 
 		SubgameSpec gamespec;
 		WorldSpec worldspec;

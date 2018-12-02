@@ -21,46 +21,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlicht/irrlichttypes.h"
 
-enum ContentParamType
-{
-	CPT_NONE,
-	CPT_LIGHT,
-};
-
-enum ContentParamType2
-{
-	CPT2_NONE,
-	// Need 8-bit param2
-	CPT2_FULL,
-	// Flowing liquid properties
-	CPT2_FLOWINGLIQUID,
-	// Direction for chests and furnaces and such
-	CPT2_FACEDIR,
-	// Direction for signs, torches and such
-	CPT2_WALLMOUNTED,
-	// Block level like FLOWINGLIQUID
-	CPT2_LEVELED,
-	// 2D rotation for things like plants
-	CPT2_DEGROTATE,
-	// Mesh options for plants
-	CPT2_MESHOPTIONS,
-	// Index for palette
-	CPT2_COLOR,
-	// 3 bits of palette index, then facedir
-	CPT2_COLORED_FACEDIR,
-	// 5 bits of palette index, then wallmounted
-	CPT2_COLORED_WALLMOUNTED,
-	// Glasslike framed drawtype internal liquid level, param2 values 0 to 63
-	CPT2_GLASSLIKE_LIQUID_LEVEL,
-};
-
-enum LiquidType
-{
-	LIQUID_NONE,
-	LIQUID_FLOWING,
-	LIQUID_SOURCE,
-};
-
 // Mesh options for NDT_PLANTLIKE with CPT2_MESHOPTIONS
 static const u8 MO_MASK_STYLE          = 0x07;
 static const u8 MO_BIT_RANDOM_OFFSET   = 0x08;
@@ -73,6 +33,13 @@ enum PlantlikeStyle {
 	PLANT_STYLE_STAR,
 	PLANT_STYLE_HASH,
 	PLANT_STYLE_HASH2,
+};
+
+enum LiquidType
+{
+	LIQUID_NONE,
+	LIQUID_FLOWING,
+	LIQUID_SOURCE,
 };
 
 enum NodeDrawType

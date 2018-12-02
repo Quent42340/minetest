@@ -214,6 +214,7 @@ src/common/world/nameidmapping.cpp
 src/common/world/nameidmapping.h
 src/common/world/node/ContentFeatures.cpp
 src/common/world/node/ContentFeatures.hpp
+src/common/world/node/ContentParamType.hpp
 src/common/world/node/NodeBox.cpp
 src/common/world/node/NodeBox.hpp
 src/common/world/node/NodeDefManager.cpp
