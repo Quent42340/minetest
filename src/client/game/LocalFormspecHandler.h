@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define LOCALFORMSPECHANDLER_H_
 
 #include "client/client.h"
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "gui/guiFormSpecMenu.h"
 #include "gui/mainmenumanager.h"
 #include "script/scripting_client.h"

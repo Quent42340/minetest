@@ -30,8 +30,8 @@ src/client/extrusionmesh.cpp
 src/client/extrusionmesh.h
 src/client/filecache.cpp
 src/client/filecache.h
-src/client/fontengine.cpp
-src/client/fontengine.h
+src/client/FontEngine.cpp
+src/client/FontEngine.hpp
 src/client/game/Game.cpp
 src/client/game/Game.h
 src/client/game/GameGlobalShaderConstantSetter.cpp
@@ -110,8 +110,8 @@ src/client/render/sidebyside.cpp
 src/client/render/sidebyside.h
 src/client/render/stereo.cpp
 src/client/render/stereo.h
-src/client/renderingengine.cpp
-src/client/renderingengine.h
+src/client/RenderingEngine.cpp
+src/client/RenderingEngine.hpp
 src/client/shader.cpp
 src/client/shader.h
 src/client/sky.cpp

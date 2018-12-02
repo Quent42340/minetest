@@ -38,7 +38,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <IFileArchive.h>
 #include <IFileSystem.h>
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "network/networkprotocol.h"
 
 

@@ -17,7 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "clouds.h"
 #include "common/algorithm/noise.h"
 #include "core/constants.h"

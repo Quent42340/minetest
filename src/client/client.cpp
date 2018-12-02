@@ -29,7 +29,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "threading/mutex_auto_lock.h"
 #include "client/clientevent.h"
 #include "client/gameui.h"
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "client/sound.h"
 #include "client/tile.h"
 #include "util/auth.h"

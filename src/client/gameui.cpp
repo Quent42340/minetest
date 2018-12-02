@@ -18,17 +18,17 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "gameui.h"
+#include "client/gameui.h"
 #include <irrlicht_changes/static_text.h>
 #include "util/gettext.h"
 #include "gui/mainmenumanager.h"
 #include "util/pointedthing.h"
-#include "client.h"
-#include "clientmap.h"
-#include "fontengine.h"
+#include "client/client.h"
+#include "client/clientmap.h"
+#include "client/FontEngine.hpp"
 #include "common/world/node/NodeDefManager.hpp"
 #include "core/Profiler.hpp"
-#include "renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "core/version.h"
 
 inline static const char *yawToDirectionString(int yaw)

@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "client/client.h"
 #include "client/object/WieldItemVisual.hpp"
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "core/log.h"
 #include "common/inventory/inventory.h"
 #include "common/world/object_properties.h"

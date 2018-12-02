@@ -17,14 +17,14 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "camera.h"
+#include "client/camera.h"
 #include "debug/Debug.hpp"
-#include "client.h"
+#include "client/client.h"
 #include "common/map/Map.hpp"
-#include "clientmap.h"     // MapDrawControl
+#include "client/clientmap.h"     // MapDrawControl
 #include "common/player/Player.h"
 #include <cmath>
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "core/settings.h"
 #include "wieldmesh.h"
 #include "common/algorithm/noise.h"         // easeCurve
@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "common/world/node/ContentFeatures.hpp"
 #include "common/world/node/NodeDefManager.hpp"
 #include "core/constants.h"
-#include "fontengine.h"
+#include "client/FontEngine.hpp"
 #include "script/scripting_client.h"
 
 #define CAMERA_OFFSET_STEP 200

@@ -21,7 +21,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <IGUIStaticText.h>
 #include <ICameraSceneNode.h>
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "scripting_mainmenu.h"
 #include "util/numeric.h"
 #include "core/Config.hpp"
@@ -35,7 +35,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/clouds.h"
 #include "util/httpfetch.h"
 #include "core/log.h"
-#include "client/fontengine.h"
+#include "client/FontEngine.hpp"
 #include "client/guiscalingfilter.h"
 #include "irrlicht_changes/static_text.h"
 

@@ -18,7 +18,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 */
 
 #include "client/object/SpriteVisual.hpp"
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "client/tile.h"
 #include "core/log.h"
 #include "core/settings.h"

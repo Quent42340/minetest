@@ -24,7 +24,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/settings.h"
 #include "shader.h"
 #include "common/map/MapBlock.hpp"
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "common/world/node/NodeDefManager.hpp"
 
 ////

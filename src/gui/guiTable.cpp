@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <IGUISkin.h>
 #include <IGUIFont.h>
 #include <IGUIScrollBar.h>
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "debug/Debug.hpp"
 #include "core/log.h"
 #include "client/tile.h"

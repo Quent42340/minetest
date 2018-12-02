@@ -17,7 +17,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "tile.h"
+#include "client/tile.h"
 
 #include <algorithm>
 #include <ICameraSceneNode.h>
@@ -26,12 +26,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "util/thread.h"
 #include "util/filesys.h"
 #include "core/settings.h"
-#include "mesh.h"
+#include "client/mesh.h"
 #include "server/game/gamedef.h"
 #include "util/strfnd.h"
-#include "imagefilters.h"
-#include "guiscalingfilter.h"
-#include "renderingengine.h"
+#include "client/imagefilters.h"
+#include "client/guiscalingfilter.h"
+#include "client/RenderingEngine.hpp"
 
 
 #ifdef __ANDROID__

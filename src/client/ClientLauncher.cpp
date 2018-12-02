@@ -29,10 +29,10 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/Profiler.hpp"
 #include "server/serverlist.h"
 #include "gui/guiEngine.h"
-#include "client/fontengine.h"
+#include "client/FontEngine.hpp"
 #include "client/ClientLauncher.hpp"
 #include "core/version.h"
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "network/networkexceptions.h"
 
 #if USE_SOUND
@@ -57,7 +57,6 @@ bool isMenuActive()
 // Passed to menus to allow disconnecting and exiting
 MainGameCallback *g_gamecallback = nullptr;
 
-
 ClientLauncher::~ClientLauncher()
 {
 	delete g_fontengine;
@@ -67,7 +66,6 @@ ClientLauncher::~ClientLauncher()
 	g_sound_manager_singleton.reset();
 #endif
 }
-
 
 bool ClientLauncher::run(GameParams &game_params, const Settings &cmd_args)
 {
@@ -255,7 +253,7 @@ bool ClientLauncher::run(GameParams &game_params, const Settings &cmd_args)
 			app.run_game(
 				kill,
 				random_input,
-				input.get(),
+				m_inputHandler.get(),
 				worldspec.path,
 				current_playername,
 				current_password,
@@ -337,17 +335,16 @@ void ClientLauncher::init_args(GameParams &game_params, const Settings &cmd_args
 
 bool ClientLauncher::init_engine()
 {
-	receiver.reset(new MyEventReceiver());
-	m_renderingEngine.init(receiver.get());
+	m_renderingEngine.init(&m_eventReceiver);
 	return RenderingEngine::get_raw_device() != nullptr;
 }
 
 void ClientLauncher::init_input()
 {
 	if (random_input)
-		input.reset(new RandomInputHandler());
+		m_inputHandler.reset(new RandomInputHandler());
 	else
-		input.reset(new RealInputHandler(receiver.get()));
+		m_inputHandler.reset(new RealInputHandler(&m_eventReceiver));
 
 	if (g_settings->getBool("enable_joysticks")) {
 		irr::core::array<irr::SJoystickInfo> infos;
@@ -362,7 +359,7 @@ void ClientLauncher::init_input()
 			for (u32 i = 0; i < infos.size(); i++) {
 				joystick_infos.push_back(infos[i]);
 			}
-			input->joystick.onJoystickConnect(joystick_infos);
+			m_inputHandler->joystick.onJoystickConnect(joystick_infos);
 		} else {
 			errorstream << "Could not activate joystick support." << std::endl;
 		}
@@ -538,7 +535,7 @@ void ClientLauncher::main_menu(MainMenuData *menudata)
 #endif
 
 	/* show main menu */
-	GUIEngine mymenu(&input->joystick, guiroot, &g_menumgr, menudata, *kill);
+	GUIEngine mymenu(&m_inputHandler->joystick, guiroot, &g_menumgr, menudata, *kill);
 
 	/* leave scene manager in a clean state */
 	RenderingEngine::get_scene_manager()->clear();
@@ -642,3 +639,4 @@ void ClientLauncher::speed_tests()
 		infostream << "Done. " << dtime << "ms, " << per_ms << "/ms" << std::endl;
 	}
 }
+

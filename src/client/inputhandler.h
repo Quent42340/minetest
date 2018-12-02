@@ -22,8 +22,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlicht/irrlichttypes_extrabloated.h"
 #include "joystick_controller.h"
 #include <list>
-#include "keycode.h"
-#include "renderingengine.h"
+#include "client/keycode.h"
+#include "client/RenderingEngine.hpp"
 
 #ifdef HAVE_TOUCHSCREENGUI
 #include "gui/touchscreengui.h"
@@ -171,13 +171,6 @@ public:
 		mouse_wheel = 0;
 	}
 
-	MyEventReceiver()
-	{
-#ifdef HAVE_TOUCHSCREENGUI
-		m_touchscreengui = NULL;
-#endif
-	}
-
 	bool leftclicked = false;
 	bool rightclicked = false;
 	bool leftreleased = false;
@@ -192,7 +185,7 @@ public:
 	JoystickController *joystick = nullptr;
 
 #ifdef HAVE_TOUCHSCREENGUI
-	TouchScreenGUI *m_touchscreengui;
+	TouchScreenGUI *m_touchscreengui = nullptr;
 #endif
 
 private:

@@ -26,7 +26,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/settings.h"
 #include "core/porting.h"
 #include "client/tile.h"
-#include "client/fontengine.h"
+#include "client/FontEngine.hpp"
 #include "core/log.h"
 #include "util/gettext.h"
 #include <string>

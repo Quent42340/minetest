@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client.h"
 #include "common/world/collision.h"
 #include "client/clientevent.h"
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "util/numeric.h"
 #include "common/world/light.h"
 #include "common/world/environment.h"

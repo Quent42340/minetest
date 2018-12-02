@@ -59,8 +59,8 @@ class ClientLauncher {
 		std::string playername = "";
 		std::string password = "";
 
-		std::unique_ptr<InputHandler> input{nullptr};
-		std::unique_ptr<MyEventReceiver> receiver{nullptr};
+		std::unique_ptr<InputHandler> m_inputHandler{nullptr};
+		MyEventReceiver m_eventReceiver;
 
 		gui::IGUISkin *skin = nullptr;
 		gui::IGUIFont *font = nullptr;

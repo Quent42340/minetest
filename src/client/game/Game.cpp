@@ -20,7 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <cmath>
 #include "client/clouds.h"
 #include "client/event_manager.h"
-#include "client/fontengine.h"
+#include "client/FontEngine.hpp"
 #include "client/game/Game.h"
 #include "client/game/GameGlobalShaderConstantSetter.h"
 #include "client/game/NodeDugEvent.h"

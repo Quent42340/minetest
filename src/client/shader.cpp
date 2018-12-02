@@ -32,7 +32,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <IMaterialRenderer.h>
 #include <IMaterialRendererServices.h>
 #include <IShaderConstantSetCallBack.h>
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "EShaderTypes.h"
 #include "core/log.h"
 #include "server/game/gamedef.h"

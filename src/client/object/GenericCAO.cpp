@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "client/localplayer.h"
 #include "client/mesh.h"
 #include "client/object/GenericCAO.hpp"
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "client/sound.h"
 #include "client/wieldmesh.h"
 #include "core/constants.h"

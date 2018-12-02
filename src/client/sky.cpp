@@ -27,7 +27,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/Profiler.hpp"
 #include "util/numeric.h"
 #include <cmath>
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "core/settings.h"
 #include "camera.h"  // CameraModes
 

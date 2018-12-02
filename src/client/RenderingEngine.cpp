@@ -20,25 +20,26 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <IrrlichtDevice.h>
 #include <irrlicht.h>
-#include "fontengine.h"
-#include "client.h"
-#include "clouds.h"
+#include "client/FontEngine.hpp"
+#include "client/client.h"
+#include "client/clouds.h"
 #include "util/numeric.h"
 #include "guiscalingfilter.h"
-#include "localplayer.h"
+#include "client/localplayer.h"
 #include "client/Hud.hpp"
-#include "camera.h"
-#include "minimap.h"
-#include "clientmap.h"
-#include "renderingengine.h"
+#include "client/camera.h"
+#include "client/minimap.h"
+#include "client/clientmap.h"
+#include "client/RenderingEngine.hpp"
 #include "render/factory.h"
-#include "inputhandler.h"
+#include "client/inputhandler.h"
 #include "util/gettext.h"
 
 #if !defined(_WIN32) && !defined(__APPLE__) && !defined(__ANDROID__) && \
 		!defined(SERVER) && !defined(__HAIKU__)
 #define XORG_USED
 #endif
+
 #ifdef XORG_USED
 #include <X11/Xlib.h>
 #include <X11/Xutil.h>
@@ -55,6 +56,7 @@ RenderingEngine::~RenderingEngine()
 {
 	if (m_device)
 		m_device->drop();
+	s_singleton = nullptr;
 }
 
 void RenderingEngine::init(IEventReceiver *receiver)
@@ -678,3 +680,4 @@ v2u32 RenderingEngine::getDisplaySize()
 	return porting::getDisplaySize();
 }
 #endif // __ANDROID__
+

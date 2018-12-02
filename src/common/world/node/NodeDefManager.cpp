@@ -28,7 +28,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #ifndef SERVER
 #include "client/client.h"
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #endif
 
 NodeDefManager::NodeDefManager()

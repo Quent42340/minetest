@@ -36,7 +36,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <IGUIFont.h>
 #include <IGUITabControl.h>
 #include <IGUIComboBox.h>
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "core/log.h"
 #include "client/tile.h" // ITextureSource
 #include "client/Hud.hpp" // drawItemStack
@@ -48,7 +48,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/porting.h"
 #include "core/settings.h"
 #include "client/client.h"
-#include "client/fontengine.h"
+#include "client/FontEngine.hpp"
 #include "util/hex.h"
 #include "util/numeric.h"
 #include "util/string.h" // for parseColorString()

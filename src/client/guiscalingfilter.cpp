@@ -22,7 +22,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/settings.h"
 #include "util/numeric.h"
 #include <cstdio>
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 
 /* Maintain a static cache to store the images that correspond to textures
  * in a format that's manipulable by code.  Some platforms exhibit issues

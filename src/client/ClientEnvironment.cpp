@@ -34,7 +34,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "core/settings.h"
 #include "client/object/GenericCAO.hpp"
 #include <algorithm>
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 
 /*
 	ClientEnvironment

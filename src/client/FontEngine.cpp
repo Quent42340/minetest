@@ -17,9 +17,9 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 */
 
-#include "fontengine.h"
+#include "client/FontEngine.hpp"
 #include <cmath>
-#include "client/renderingengine.h"
+#include "client/RenderingEngine.hpp"
 #include "core/Config.hpp"
 #include "core/porting.h"
 #include "util/filesys.h"
@@ -29,13 +29,13 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include "irrlicht_changes/CGUITTFont.h"
 #endif
 
-/** maximum size distance for getting a "similar" font size */
+// Maximum size distance for getting a "similar" font size
 #define MAX_FONT_SIZE_OFFSET 10
 
-/** reference to access font engine, has to be initialized by main */
-FontEngine* g_fontengine = NULL;
+// Reference to access font engine, has to be initialized by main
+FontEngine* g_fontengine = nullptr;
 
-/** callback to be used on change of font size setting */
+// Callback to be used on change of font size setting
 static void font_setting_changed(const std::string &name, void *userdata)
 {
 	g_fontengine->readSettings();
@@ -115,11 +115,8 @@ FontEngine::~FontEngine()
 void FontEngine::cleanCache()
 {
 	for (auto &font_cache_it : m_font_cache) {
-
-		for (auto &font_it : font_cache_it) {
+		for (auto &font_it : font_cache_it)
 			font_it.second->drop();
-			font_it.second = NULL;
-		}
 		font_cache_it.clear();
 	}
 }
