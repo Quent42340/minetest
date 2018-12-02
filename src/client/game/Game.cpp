@@ -19,7 +19,6 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <cmath>
 #include "client/clouds.h"
-#include "client/event_manager.h"
 #include "client/FontEngine.hpp"
 #include "client/game/Game.h"
 #include "client/game/GameGlobalShaderConstantSetter.h"
@@ -89,7 +88,6 @@ Game::~Game() {
 	delete local_inventory;
 	delete camera;
 	delete quicktune;
-	delete eventmgr;
 	delete texture_src;
 	delete shader_src;
 	delete nodedef_manager;
@@ -139,9 +137,7 @@ bool Game::startup(bool *kill,
 
 	driver = device->getVideoDriver();
 	smgr = RenderingEngine::get_scene_manager();
-
-	auto *sceneManager = RenderingEngine::get_scene_manager();
-	sceneManager->getParameters()->setAttribute(scene::OBJ_LOADER_IGNORE_MATERIAL_FILES, true);
+	smgr->getParameters()->setAttribute(scene::OBJ_LOADER_IGNORE_MATERIAL_FILES, true);
 
 	// Reinit runData
 	runData = GameRunData();
@@ -316,10 +312,9 @@ bool Game::init(const std::string &map_dir, std::string *address, u16 port, cons
 	nodedef_manager = createNodeDefManager();
 
 	// FIXME: Use smart ptr
-	eventmgr = new EventManager();
 	quicktune = new QuicktuneShortcutter();
 
-	if (!(texture_src && shader_src && itemdef_manager && nodedef_manager && eventmgr && quicktune))
+	if (!(texture_src && shader_src && itemdef_manager && nodedef_manager && quicktune))
 		return false;
 
 	if (!initSound())
@@ -356,7 +351,7 @@ bool Game::initSound() {
 	if (!soundmaker)
 		return false;
 
-	soundmaker->registerReceiver(eventmgr);
+	soundmaker->registerReceiver(&m_eventmgr);
 
 	return true;
 }
@@ -583,7 +578,7 @@ bool Game::connectToServer(const std::string &playername,
 
 	client = new Client(playername.c_str(), password, *address,
 			*draw_control, texture_src, shader_src,
-			itemdef_manager, nodedef_manager, sound, eventmgr,
+			itemdef_manager, nodedef_manager, sound, &m_eventmgr,
 			connect_address.isIPv6(), m_game_ui.get());
 
 	if (!client)

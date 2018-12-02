@@ -20,6 +20,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #define GAME_H_
 
 #include "client/clientevent.h"
+#include "client/EventManager.hpp"
 #include "client/gameui.h"
 #include "client/inputhandler.h"
 #include "gui/profilergraph.h"
@@ -280,7 +281,7 @@ class Game {
 		//default: "". If other than "", empty show_formspec packets will only close the formspec when the formname matches
 		std::string cur_formname;
 
-		EventManager *eventmgr = nullptr;
+		EventManager m_eventmgr;
 		QuicktuneShortcutter *quicktune = nullptr;
 		bool registration_confirmation_shown = false;
 

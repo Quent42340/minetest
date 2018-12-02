@@ -19,7 +19,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include <unordered_map>
 #include "test.h"
-#include "client/event_manager.h"
+#include "client/EventManager.hpp"
 
 class TestEventManager : public TestBase
 {

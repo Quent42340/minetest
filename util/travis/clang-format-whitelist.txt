@@ -25,7 +25,7 @@ src/client/content_cso.cpp
 src/client/content_cso.h
 src/client/content_mapblock.cpp
 src/client/content_mapblock.h
-src/client/event_manager.h
+src/client/EventManager.hpp
 src/client/extrusionmesh.cpp
 src/client/extrusionmesh.h
 src/client/filecache.cpp
