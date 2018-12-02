@@ -25,6 +25,7 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 #include <string>
 #include "irrlicht/irrlichttypes_extrabloated.h"
 #include "debug/Debug.hpp"
+#include "render/core.h"
 
 class ITextureSource;
 class Camera;
@@ -33,13 +34,13 @@ class LocalPlayer;
 class Hud;
 class Minimap;
 
-class RenderingCore;
-
 class RenderingEngine
 {
 public:
-	RenderingEngine(IEventReceiver *eventReceiver);
+	RenderingEngine() = default;
 	~RenderingEngine();
+
+	void init(IEventReceiver *eventReceiver);
 
 	v2u32 getWindowSize() const;
 	void setResizable(bool resize);
@@ -154,8 +155,8 @@ private:
 
 	void _finalize();
 
-	std::unique_ptr<RenderingCore> core;
+	std::unique_ptr<RenderingCore> core{nullptr};
 	irr::IrrlichtDevice *m_device = nullptr;
-	irr::video::IVideoDriver *driver;
+	irr::video::IVideoDriver *driver = nullptr;
 	static RenderingEngine *s_singleton;
 };

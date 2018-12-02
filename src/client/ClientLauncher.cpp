@@ -60,14 +60,8 @@ MainGameCallback *g_gamecallback = nullptr;
 
 ClientLauncher::~ClientLauncher()
 {
-	delete receiver;
-
-	delete input;
-
 	delete g_fontengine;
 	delete g_gamecallback;
-
-	delete RenderingEngine::get_instance();
 
 #if USE_SOUND
 	g_sound_manager_singleton.reset();
@@ -261,7 +255,7 @@ bool ClientLauncher::run(GameParams &game_params, const Settings &cmd_args)
 			app.run_game(
 				kill,
 				random_input,
-				input,
+				input.get(),
 				worldspec.path,
 				current_playername,
 				current_password,
@@ -315,7 +309,6 @@ bool ClientLauncher::run(GameParams &game_params, const Settings &cmd_args)
 
 void ClientLauncher::init_args(GameParams &game_params, const Settings &cmd_args)
 {
-
 	skip_main_menu = cmd_args.getFlag("go");
 
 	// FIXME: This is confusing (but correct)
@@ -344,17 +337,17 @@ void ClientLauncher::init_args(GameParams &game_params, const Settings &cmd_args
 
 bool ClientLauncher::init_engine()
 {
-	receiver = new MyEventReceiver();
-	new RenderingEngine(receiver);
+	receiver.reset(new MyEventReceiver());
+	m_renderingEngine.init(receiver.get());
 	return RenderingEngine::get_raw_device() != nullptr;
 }
 
 void ClientLauncher::init_input()
 {
 	if (random_input)
-		input = new RandomInputHandler();
+		input.reset(new RandomInputHandler());
 	else
-		input = new RealInputHandler(receiver);
+		input.reset(new RealInputHandler(receiver.get()));
 
 	if (g_settings->getBool("enable_joysticks")) {
 		irr::core::array<irr::SJoystickInfo> infos;

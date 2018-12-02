@@ -21,6 +21,8 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 #include "irrlicht/irrlichttypes_extrabloated.h"
 
+#include <memory>
+
 #include "client/inputhandler.h"
 #include "content/subgames.h"
 #include "server/game/gameparams.h"
@@ -52,15 +54,20 @@ class ClientLauncher {
 		bool skip_main_menu = false;
 		bool use_freetype = false;
 		bool random_input = false;
+
 		std::string address = "";
 		std::string playername = "";
 		std::string password = "";
-		InputHandler *input = nullptr;
-		MyEventReceiver *receiver = nullptr;
+
+		std::unique_ptr<InputHandler> input{nullptr};
+		std::unique_ptr<MyEventReceiver> receiver{nullptr};
+
 		gui::IGUISkin *skin = nullptr;
 		gui::IGUIFont *font = nullptr;
+
 		SubgameSpec gamespec;
 		WorldSpec worldspec;
+
 		bool simple_singleplayer_mode = false;
 
 		// These are set up based on the menu and other things
@@ -69,6 +76,8 @@ class ClientLauncher {
 		std::string current_password = "";
 		std::string current_address = "does-not-exist";
 		int current_port = 0;
+
+		RenderingEngine m_renderingEngine;
 };
 
 #endif // CLIENTLAUNCHER_HPP_
