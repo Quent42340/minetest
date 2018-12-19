@@ -2038,13 +2038,14 @@ Elements
 
 * `texture name` is the filename of an image
 
-### `image_button[<X>,<Y>;<W>,<H>;<texture name>;<name>;<label>;<noclip>;<drawborder>;<pressed texture name>]`
+### `image_button[<X>,<Y>;<W>,<H>;<texture name>;<name>;<label>;<noclip>;<drawborder>;<pressed texture name>;<hovered texture name>]`
 
 * `texture name` is the filename of an image
 * `noclip=true` means the image button doesn't need to be within specified
   formsize.
 * `drawborder`: draw button border or not
 * `pressed texture name` is the filename of an image on pressed state
+* `hovered texture name` is the filename of an image on hovered state
 
 ### `item_image_button[<X>,<Y>;<W>,<H>;<item name>;<name>;<label>]`
 

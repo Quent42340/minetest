@@ -22,6 +22,10 @@ minetest.register_on_joinplayer(function(player)
 		player:set_attribute("remove_this", nil)
 	end
 	minetest.after(2.0, cb, player)
+
+	minetest.show_formspec(player:get_player_name(), "default:test_formspec",
+[[size[8,9;]
+image_button[1,1;2,1;button.png;mybutton;mylabel;true;false;button_pressed.png;button_hovered.png] ]])
 end)
 
 --

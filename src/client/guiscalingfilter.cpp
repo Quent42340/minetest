@@ -89,6 +89,8 @@ video::ITexture *guiScalingResizeCached(video::IVideoDriver *driver,
 	io::path origname = src->getName().getPath();
 	io::path scalename = origname + "@guiScalingFilter:" + rectstr;
 
+	std::cout << scalename.c_str() << std::endl;
+
 	// Search for existing scaled texture.
 	video::ITexture *scaled = g_txrCache[scalename];
 	if (scaled)

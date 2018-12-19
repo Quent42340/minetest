@@ -1292,8 +1292,8 @@ void GUIFormSpecMenu::parseImageButton(parserData* data, const std::string &elem
 {
 	std::vector<std::string> parts = split(element,';');
 
-	if ((((parts.size() >= 5) && (parts.size() <= 8)) && (parts.size() != 6)) ||
-		((parts.size() > 8) && (m_formspec_version > FORMSPEC_API_VERSION)))
+	if ((((parts.size() >= 5) && (parts.size() <= 9)) && (parts.size() != 6)) ||
+		((parts.size() > 9) && (m_formspec_version > FORMSPEC_API_VERSION)))
 	{
 		std::vector<std::string> v_pos = split(parts[0],',');
 		std::vector<std::string> v_geom = split(parts[1],',');
@@ -1312,6 +1312,7 @@ void GUIFormSpecMenu::parseImageButton(parserData* data, const std::string &elem
 		bool noclip     = false;
 		bool drawborder = true;
 		std::string pressed_image_name;
+		std::string hovered_image_name;
 
 		if (parts.size() >= 7) {
 			if (parts[5] == "true")
@@ -1324,6 +1325,10 @@ void GUIFormSpecMenu::parseImageButton(parserData* data, const std::string &elem
 			pressed_image_name = parts[7];
 		}
 
+		if (parts.size() >= 9) {
+			hovered_image_name = parts[8];
+		}
+
 		core::rect<s32> rect = core::rect<s32>(pos.X, pos.Y, pos.X+geom.X, pos.Y+geom.Y);
 
 		if(!data->explicit_size)
@@ -1331,6 +1336,7 @@ void GUIFormSpecMenu::parseImageButton(parserData* data, const std::string &elem
 
 		image_name = unescape_string(image_name);
 		pressed_image_name = unescape_string(pressed_image_name);
+		hovered_image_name = unescape_string(hovered_image_name);
 
 		std::wstring wlabel = utf8_to_wide(unescape_string(label));
 
@@ -1346,11 +1352,18 @@ void GUIFormSpecMenu::parseImageButton(parserData* data, const std::string &elem
 
 		video::ITexture *texture = 0;
 		video::ITexture *pressed_texture = 0;
+		video::ITexture *hovered_texture = 0;
 		texture = m_tsrc->getTexture(image_name);
+
 		if (!pressed_image_name.empty())
 			pressed_texture = m_tsrc->getTexture(pressed_image_name);
 		else
 			pressed_texture = texture;
+
+		if (!hovered_image_name.empty())
+			hovered_texture = m_tsrc->getTexture(hovered_image_name);
+		else
+			hovered_texture = texture;
 
 		gui::IGUIButton *e = Environment->addButton(rect, this, spec.fid, spec.flabel.c_str());
 
@@ -1359,13 +1372,25 @@ void GUIFormSpecMenu::parseImageButton(parserData* data, const std::string &elem
 		}
 
 		e->setUseAlphaChannel(true);
-		e->setImage(guiScalingImageButton(
-			Environment->getVideoDriver(), texture, geom.X, geom.Y));
-		e->setPressedImage(guiScalingImageButton(
-			Environment->getVideoDriver(), pressed_texture, geom.X, geom.Y));
-		e->setScaleImage(true);
+		// e->setScaleImage(true);
 		e->setNotClipped(noclip);
 		e->setDrawBorder(drawborder);
+
+		auto *sprite_bank = Environment->getSkin()->getSpriteBank();
+		s32 texid = sprite_bank->addTextureAsSprite(guiScalingImageButton(
+			Environment->getVideoDriver(), texture, geom.X, geom.Y));
+		s32 pressed_texid = sprite_bank->addTextureAsSprite(guiScalingImageButton(
+			Environment->getVideoDriver(), pressed_texture, geom.X, geom.Y));
+		s32 hovered_texid = sprite_bank->addTextureAsSprite(guiScalingImageButton(
+			Environment->getVideoDriver(), hovered_texture, geom.X, geom.Y));
+		// s32 texid = sprite_bank->addTextureAsSprite(texture);
+		// s32 pressed_texid = sprite_bank->addTextureAsSprite(pressed_texture);
+		// s32 hovered_texid = sprite_bank->addTextureAsSprite(hovered_texture);
+
+		e->setSpriteBank(sprite_bank);
+		e->setSprite(EGBS_BUTTON_UP, texid);
+		e->setSprite(EGBS_BUTTON_DOWN, pressed_texid);
+		e->setSprite(EGBS_BUTTON_MOUSE_OVER, hovered_texid);
 
 		m_fields.push_back(spec);
 		return;
